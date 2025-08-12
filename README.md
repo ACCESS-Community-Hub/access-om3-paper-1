@@ -1,6 +1,8 @@
-# access-om3-25km-paper-1
+# access-om3-paper-1
 
 A collaborative project to create and discuss figures for a description and assessment paper for [ACCESS-OM3-25km](https://github.com/ACCESS-NRI/access-om3-configs).
+
+All community members (and ACCESS-NRI staff) can get write write access to this repository. To get write access, you need to create an issue and request access.
 
 The paper is being written [here on Overleaf](https://www.overleaf.com/read/pygvjbmmghsv#b18c9c). Please ask if you'd like edit access.
 
@@ -23,6 +25,3 @@ TODO: define common parameters - e.g. see [here](https://github.com/pedrocol/bas
 - line styles
 - climatology start/end dates
 
-## Hackathon schedule (in Canberra/Sydney time zone)
-
-TBA
