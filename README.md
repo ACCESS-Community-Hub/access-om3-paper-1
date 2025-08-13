@@ -1,6 +1,6 @@
 # access-om3-paper-1
 
-A collaborative project to create and discuss figures for a description and assessment paper for [ACCESS-OM3-25km](https://github.com/ACCESS-NRI/access-om3-configs).
+A collaborative project to create and discuss figures for a description and assessment paper for [ACCESS-OM3](https://github.com/ACCESS-NRI/access-om3-configs).
 
 All community members (and ACCESS-NRI staff) can get write write access to this repository. To get write access, you need to create an issue and request access, please [use this issue template](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/new?template=add-user-request-to--access-om3-paper-1--repository-.md).
 
