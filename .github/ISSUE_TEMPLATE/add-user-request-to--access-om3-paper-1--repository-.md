@@ -1,6 +1,6 @@
 ---
 name: Add user request to `access-om3-paper-1` repository.
-about: This is a simple template to request access to this repository.
+about: Use this template to request write access to this repository.
 title: ''
 labels: ''
 assignees: ''
@@ -13,4 +13,8 @@ Welcome! Great to hear you'd like to contribute. :)
 
 (Optional) sentence about your interest and background in being involved in OM3 evaluation.
 
-Lodging this issue will prompt an admin to give write access to this repository. Please follow contribution guidelines in the [`README`](https://github.com/ACCESS-Community-Hub/access-om3-paper-1) and note that you'll need to use pull requests to get content added to the `main` branch.
+Lodging this issue will notify an admin to grant you write access. 
+
+Once access is granted, please follow the contribution guidelines in the [`README`](https://github.com/ACCESS-Community-Hub/access-om3-paper-1).  
+
+All changes to the `main` branch must be made via pull requests.
