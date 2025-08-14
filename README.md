@@ -10,8 +10,10 @@ All community members (and ACCESS-NRI staff) can get write write access to this 
 
 All aspects of the project are tracked through [issues](https://github.com/ACCESS-Community-Hub/access-om3-25km-paper-1/issues). Create an issue to represent each small task, _a single issue is used for each Figure_. Issues will develop to include discussion of analysis methods and figures associated with each task. [A mega-issue exists here](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23) to track all the evaluation metrics. Feel free to add new Figure-issues as sub-issues.
 
-To start contributing to the code, create a new branch directly in this repository, make your changes there, and then open a pull request from your branch into `main`.
-
+To start contributing to the code, you have two options:
+ - 1. push your code changes to `main` directly. 
+ - 1. if the first option sounds scary, you can create a new branch directly in this repository, make your changes there, and then open a pull request from your branch into `main`. 
+ 
 ### Guidelines for creating Figures
  - Create an issue (one per figure) for Figure you are looking to create and add it as a sub-issue to the [mega-issue  here](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23).
  - When posting in the issue, **please include path to notebook and the commit hash that created the Figure** (also gives run information but you can include this in the post for convenience).
