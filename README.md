@@ -13,7 +13,21 @@ All aspects of the project are tracked through [issues](https://github.com/ACCES
 To start contributing to the code, you have two options:
  1. push your code changes to `main` directly. 
  1. if you'd prefer for your code changes to be reviewed, you can create a new branch directly in this repository, make your changes there, and then open a pull request from your branch into `main`. 
- 
+
+### Detailed instructions 
+
+For the first option above omit the branch steps below. This is option 2:
+
+ 1. Clone this repository locally;
+ 2. Make a new branch with your name `git checkout -b claire`;
+ 3. `cd` into `notebooks`;
+ 4. Copy the example notebook, and start hacking away;
+ 5. When ready to upload, do `git add <path to your notebook>`, `git commit -m "A helpful message"` and `git push -u REMOTE_NAME branch_name` (where `REMOTE_NAME` is the name of your GitHub remote, this defaults to `origin`);
+ 6. Make a PR on github to merge it into main
+
+(This assumes you have write access to the repo, if you don't you'll need to [ask for it](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/new?template=add-user-request-to--access-om3-paper-1--repository-.md).)
+
+
 ### Guidelines for creating Figures
  - Create an issue (one per figure) for Figure you are looking to create and add it as a sub-issue to the [mega-issue  here](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23).
  - When posting in the issue, **please include path to notebook and the commit hash that created the Figure** (also gives run information but you can include this in the post for convenience).
