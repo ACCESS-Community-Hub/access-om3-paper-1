@@ -27,7 +27,7 @@ def main(argv):
     d['metadata']['kernelspec']['name']='python3'
     #print(d['metadata']['kernelspec'])
 
-    newf=argv[1][:-6]+'_new.ipynb'
+    newf=argv[1][:-6]+'_tmp.ipynb'
     with open(newf, "w") as jsonFile:
         json.dump(d, jsonFile)
 
