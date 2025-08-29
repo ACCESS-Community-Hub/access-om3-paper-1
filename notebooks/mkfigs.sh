@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01
+#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65
 #PBS -M chris.bull@anu.edu.au
 #PBS -m ae
 #PBS -q normal
