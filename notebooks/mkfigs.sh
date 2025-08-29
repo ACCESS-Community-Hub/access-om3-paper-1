@@ -11,7 +11,7 @@
 #PBS -e /g/data/tm70/cyb561/logs
 
 # bash script that runs all the notebooks
-set -x
+#set -x
 module use /g/data/xp65/public/modules
 module load conda/analysis3
 module load conda/analysis3-25.07
