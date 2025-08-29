@@ -23,13 +23,13 @@ WFOLDER=/g/data/tm70/cyb561/access-om3-paper-1/
 ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/experiment_datastore.json
 # SET THESE END
 
-PFOL=${WFOLDER}+notebooks/plots/
+PFOL=${WFOLDER}notebooks/plots/
 
 cd ${WFOLDER}
 cd notebooks
 mkdir -p ${PFOL}
 
-python run_nb.py notebook_template.ipynb ${ESMDIR} --plotfolder ${PFOL}
-python run_nb.py DrakePassageTransport.ipynb ${ESMDIR} --plotfolder ${PFOL}
+python3 run_nb.py notebook_template.ipynb ${ESMDIR} --plotfolder ${PFOL}
+python3 run_nb.py DrakePassageTransport.ipynb ${ESMDIR} --plotfolder ${PFOL}
 
 
