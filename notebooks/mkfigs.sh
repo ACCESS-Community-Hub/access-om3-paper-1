@@ -1,14 +1,14 @@
 #!/bin/bash
 #PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01
-#PBS -M <email address - optional>
+#PBS -M chris.bull@anu.edu.au
 #PBS -m ae
 #PBS -q normal
 #PBS -W umask=0022
 #PBS -l ncpus=8
 #PBS -l mem=24gb
 #PBS -l walltime=2:00:00
-#PBS -o /g/data/tm70/as2285/logs
-#PBS -e /g/data/tm70/as2285/logs
+#PBS -o /g/data/tm70/cyb561/logs
+#PBS -e /g/data/tm70/cyb561/logs
 
 # bash script that runs all the notebooks
 set -x
