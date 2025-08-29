@@ -5,6 +5,11 @@ import json
 CONFIG_FILENAME = 'config_ipynb_tmp'
 
 def main(argv):
+    try:
+        os.remove(CONFIG_FILENAME)
+    except OSError:
+        pass
+
     with open(CONFIG_FILENAME,'w') as f:
         f.write(' '.join(argv))
 
