@@ -31,5 +31,6 @@ mkdir -p ${PFOL}
 
 python3 run_nb.py notebook_template.ipynb ${ESMDIR} --plotfolder ${PFOL}
 python3 run_nb.py DrakePassageTransport.ipynb ${ESMDIR} --plotfolder ${PFOL}
+python3 run_nb.py Overturning_in_ACCESS_OM3.ipynb ${ESMDIR} --plotfolder ${PFOL}
 
 
