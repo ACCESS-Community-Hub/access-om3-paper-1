@@ -1,7 +1,37 @@
 #!/bin/bash
+#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01
+#PBS -M <email address - optional>
+#PBS -m ae
+#PBS -q normal
+#PBS -W umask=0022
+#PBS -l ncpus=8
+#PBS -l mem=24gb
+#PBS -l walltime=2:00:00
+#PBS -o /g/data/tm70/as2285/logs
+#PBS -e /g/data/tm70/as2285/logs
+
+module use /g/data/xp65/public/modules
+module load conda/analysis3
+module load conda/analysis3-25.07
+module load git
+module list
+
 # bash script that runs all the notebooks
 set -x
+
+# SET THESE START
+WFOLDER=/g/data/tm70/cyb561/
 ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/experiment_datastore.json
-PFOL=/home/561/cyb561/repos/access-om3-paper-1/notebooks/plots/
+# SET THESE END
+
+PFOL=${WFOLDER}+access-om3-paper-1/notebooks/plots/
+
+cd ${WFOLDER}
+git clone git@github.com:ACCESS-Community-Hub/access-om3-paper-1.git 
+cd access-om3-paper-1/notebooks
+mkdir -p ${PFOL}
 
 python run_nb.py notebook_template.ipynb ${ESMDIR} --plotfolder ${PFOL}
+python run_nb.py DrakePassageTransport.ipynb ${ESMDIR} --plotfolder ${PFOL}
+
+
