@@ -2,6 +2,8 @@
 #https://stackoverflow.com/questions/37534440/passing-command-line-arguments-to-argv-in-jupyter-ipython-notebook
 import sys,os
 import json
+import glob
+import shutil
 CONFIG_FILENAME = 'config_ipynb_tmp'
 
 def main(argv):
@@ -31,10 +33,27 @@ def main(argv):
     with open(newf, "w") as jsonFile:
         json.dump(d, jsonFile)
 
-    os.system('jupyter nbconvert --execute {:s} --to html'.format(newf))
-    os.remove(newf)
-    os.rename(newf[:-6]+'.html',newf[:-10]+'.html')
-    print('File created: '+newf[:-10]+'.html')
+    if '--plotfolder' in sys.argv:
+        #create plots
+        os.system('jupyter nbconvert --to markdown --execute {:s}'.format(newf))
+        os.remove(newf)
+        pfol=sys.argv[4]
+        pfols=glob.glob(os.path.dirname(os.path.dirname(pfol))+'/*tmp_files')
+        for source_folder in pfols:
+            shutil.move(source_folder, pfol)
+            print(f"Folder '{source_folder}' moved successfully to '{pfol}'.")
+    else:
+        #convert to html
+        os.system('jupyter nbconvert --execute {:s} --to html'.format(newf))
+        os.remove(newf)
+        os.rename(newf[:-6]+'.html',newf[:-10]+'.html')
+        print('File created: '+newf[:-10]+'.html')
+
+        #decided to not do this
+        #pfols=glob.glob(os.path.dirname(os.path.dirname(pfol))+'/*.html')
+        #for source_folder in pfols:
+        #    shutil.move(source_folder, pfol)
+        #    print(f"Folder '{source_folder}' moved successfully to '{pfol}'.")
 
     return None
 
