@@ -12,11 +12,13 @@
 
 # bash script that runs all the notebooks
 #set -x
+module purge
 module use /g/data/xp65/public/modules
-module load conda/analysis3
 module load conda/analysis3-25.07
 module list
 
+#enable venv with papermill
+source /g/data/tm70/cyb561/access-om3-paper-1/venv/bin/activate
 
 ## workflow
 #1. `cd /g/data/tm70/cyb561;git clone git@github.com:ACCESS-Community-Hub/access-om3-paper-1.git`
@@ -34,6 +36,10 @@ module list
 # SET THESE START
 WFOLDER=/g/data/tm70/cyb561/access-om3-paper-1/
 ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/experiment_datastore.json
+
+#DS run from June 2025
+#ESMDIR=/scratch/tm70/ds0092/access-om3/archive/om3_MC_25km_jra_ryf+wombatlite/intake_esm_ds.json
+
 # SET THESE END
 
 #best not mess with the path here...
@@ -44,11 +50,8 @@ cd notebooks
 mkdir -p ${OFOL}
 
 #make the figures
-python3 run_nb.py notebook_template.ipynb ${ESMDIR}         --plotfolder ${OFOL}
-python3 run_nb.py DrakePassageTransport.ipynb ${ESMDIR}     --plotfolder ${OFOL}
-python3 run_nb.py Overturning_in_ACCESS_OM3.ipynb ${ESMDIR} --plotfolder ${OFOL}
+python3 run_nb.py notebook_template.ipynb; papermill notebook_template.ipynb ${OFOL}notebook_template_rendered.ipynb -p esm_file ${ESMDIR} -p plotfolder ${OFOL} ; jupyter nbconvert --to markdown ${OFOL}notebook_template_rendered.ipynb
 
-#make a html version of the notebook 
-python3 run_nb.py notebook_template.ipynb ${ESMDIR}         
-python3 run_nb.py DrakePassageTransport.ipynb ${ESMDIR}     
-python3 run_nb.py Overturning_in_ACCESS_OM3.ipynb ${ESMDIR} 
+#this didn't work for me...
+#papermill notebook_template.ipynb notebook_template_rendered.ipynb -k analysis3-25.07 -p esm_file ${ESMDIR} -p plotfolder ${OFOL} 
+
