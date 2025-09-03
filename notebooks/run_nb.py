@@ -1,12 +1,12 @@
 #inspired by
 #https://stackoverflow.com/questions/37534440/passing-command-line-arguments-to-argv-in-jupyter-ipython-notebook
-import sys,os
+import sys,os,argparse
 import json
 import glob
 import shutil
-CONFIG_FILENAME = 'config_ipynb_tmp'
 
 def main(argv):
+    CONFIG_FILENAME = 'config_ipynb_tmp'
     try:
         os.remove(CONFIG_FILENAME)
     except OSError:
@@ -56,6 +56,28 @@ def main(argv):
         #    print(f"Folder '{source_folder}' moved successfully to '{pfol}'.")
 
     return None
+
+def getargs(esm_file=None,plotfolder=None):
+    CONFIG_FILE = 'config_ipynb_tmp'
+
+    if os.path.isfile(CONFIG_FILE):
+        with open(CONFIG_FILE) as f:
+            sys.argv = f.read().split()
+            fromscript=True
+    else:
+        sys.argv = ['run_nb.py', 'dummy', esm_file, '--plotfolder', plotfolder]
+        fromscript=False
+    
+    parser = argparse.ArgumentParser()
+    parser.add_argument("scriptname",help="script name.")
+    parser.add_argument("esm_file",help="intake esm datastore, will be .json file.")
+    parser.add_argument("--plotfolder",help="an optional path to put plots into.")
+    args = parser.parse_args()
+    if fromscript:
+        print("running from a script with arguments: ")
+    else: 
+        print("running from a notebook directly with arguments: ")
+    return args
 
 if __name__ == '__main__':
     main(sys.argv)
