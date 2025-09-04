@@ -14,11 +14,12 @@
 #set -x
 module purge
 module use /g/data/xp65/public/modules
-module load conda/analysis3-25.09 #contains papermill 2.6.0 - https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda/issues/310
+module load conda/analysis3-25.07 
+#module load conda/analysis3-25.09 #contains papermill 2.6.0 - https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda/issues/310
 module list
 
 #enable venv with papermill
-#source /g/data/tm70/cyb561/access-om3-paper-1/venv/bin/activate
+source /g/data/tm70/cyb561/access-om3-paper-1/venv/bin/activate
 
 ## workflow
 #1. `cd /g/data/tm70/cyb561;git clone git@github.com:ACCESS-Community-Hub/access-om3-paper-1.git`
@@ -40,10 +41,13 @@ ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/ex
 #DS run from June 2025
 #ESMDIR=/scratch/tm70/ds0092/access-om3/archive/om3_MC_25km_jra_ryf+wombatlite/intake_esm_ds.json
 
+#AK iaf run 4/9/25
+#ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/25km-iaf-test-for-AK-expt-7df5ef4c/datastore.json
+
 # SET THESE END
 
 #best not mess with the path here...
-OFOL=${WFOLDER}notebooks/mkfigs_output/
+OFOL=${WFOLDER}notebooks/mkfigs_output4/
 
 cd ${WFOLDER}
 cd notebooks
@@ -60,6 +64,7 @@ echo ""
 
 #make the figures
 array=( notebook_template DrakePassageTransport GlobalTimeseries Overturning_in_ACCESS_OM3 find_and_load_OM3_25km_ryf_1.0-beta SSS SST StraitTransports )
+#array=( find_and_load_OM3_25km_ryf_1.0-beta )
 for FNAME in "${array[@]}"
 do
     echo "Running notebook: "${FNAME}".ipynb"
