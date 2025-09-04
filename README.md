@@ -34,23 +34,56 @@ For the first option above omit the branch steps below. This is option 2:
  - Try to include OM2 comparison!
  - Average over the last 10 years of the RYF run
  - Suggestion: pcolor / contourf will handle NaNs in coordinate arrays (if you need pcolormesh/xgcm, use the hack)
- - Once you've created your Figure / uploaded your notebook, please tick off your assigned task in the below list.
- - If it turns out it is not currently possible to complete the metric due to missing diagnostics. Please note that here (example) so we can continue the existing run with the needed output.
+ - Once you've created your Figure / uploaded your notebook, please tick off your assigned task in [the list](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23#issue-3308829506).
+ - If it turns out it is not currently possible to complete the metric due to missing diagnostics. [Please note that here](https://github.com/ACCESS-NRI/access-om3-configs/issues/718) so we can continue the existing run with the needed output.
 ([Source](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23#issue-3308829506))
 
 ## Notebooks
 
-Notebooks should be grouped in topic-related subfolders in the [notebooks folder](https://github.com/ACCESS-Community-Hub/access-om3-25km-paper-1/blob/main/notebooks).
+Notebooks for figures should be in the [notebooks folder](https://github.com/ACCESS-Community-Hub/access-om3-25km-paper-1/blob/main/notebooks). When starting a new notebook, please use the template [here](https://github.com/pedrocol/basal_mom5-collaborative-project/blob/main/notebooks/example_notebook.ipynb). 
 
-TODO: provide a template notebook - e.g. see [here](https://github.com/pedrocol/basal_mom5-collaborative-project/blob/main/notebooks/example_notebook.ipynb)
+To allow us later to run all the notebooks at once, please use the boilerplate at the top of the script, namely this second cell:
+```python
+#parameters
 
-TODO: mention boiler plate
+### USER EDIT start
+esm_file='/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/experiment_datastore.json'
+plotfolder='/g/data/tm70/cyb561/access-om3-paper-1/notebooks/mkfigs_output/2/'
+dpi=300
+### USER EDIT stop
+
+import matplotlib as mpl
+import os
+%matplotlib inline
+mpl.rcParams['figure.dpi']= dpi
+
+os.makedirs(plotfolder, exist_ok=True)
+
+ # a similar cell under this means it's being run in batch
+print("ESM datastore path: ",esm_file)
+print("Plot folder path: ",plotfolder)
+```
+
+It is important that you use `esm_file` and if needed `plotfolder` in your script as done in `find_and_load_OM3_25km_ryf_1.0-beta.ipynb` (this allows us to re-run your script later with different experiments), here's [examples](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/find_and_load_OM3_25km_ryf_1.0-beta.ipynb):
+```python
+datastore = intake.open_esm_datastore(
+    esm_file,
+    columns_with_iterables=[
+        "variable",
+        "variable_long_name",
+        "variable_standard_name",
+        "variable_cell_methods",
+        "variable_units"
+    ]
+)
+```
+and `plt.savefig(plotfolder+'exampleout.png')`. This cell needs to have the tag `parameters`, copying this cell will copy the tag as well but [you can also set this on other cells](https://papermill.readthedocs.io/en/latest/usage-parameterize.html) should you wish to parameterize other parts of the script. This allows us to [pass in arguments externally using papermill](https://papermill.readthedocs.io/en/latest/usage-cli.html) (see [mkfigs.sh for details](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/mkfigs.sh))
 
 ## TODO
 
 TODO: As we figure out the main results and develop the storyline, we can add to the [Results_summary.md](https://github.com/ACCESS-Community-Hub/access-om3-25km-paper-1/blob/main/Results_summary.md) and [Figure_outline.md](https://github.com/ACCESS-Community-Hub/access-om3-25km-paper-1/blob/main/Figure_outline.md).
 
-TODO: define common parameters - e.g. see [here](https://github.com/pedrocol/basal_mom5-collaborative-project?tab=readme-ov-file#plotting-formatsdict)
+TODO: define common parameters - e.g. see [here]([https://github.com/pedrocol/basal_mom5-collaborative-project?tab=readme-ov-file#plotting-formatsdict](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/find_and_load_OM3_25km_ryf_1.0-beta.ipynb))
 - experiment runs to use, and terminology for them
 - line styles
 - climatology start/end dates
