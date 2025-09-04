@@ -29,8 +29,8 @@ source /g/data/tm70/cyb561/access-om3-paper-1/venv/bin/activate
 #1. `qsub mkfigs.sh`
 
 ## Optional
-#1. remove "plotfolder" if you would like a html rendered version of the notebook
 #1. change email and log settings in above header
+#1. this script can also be run from an ARE session
 
 
 # SET THESE START
@@ -49,9 +49,22 @@ cd ${WFOLDER}
 cd notebooks
 mkdir -p ${OFOL}
 
+echo ""
+echo ""
+echo "We are running ALL the notebooks."
+echo "We are using ESMDIR: "${ESMDIR}
+echo "We are using working folder (WFOLDER): "${WFOLDER}
+echo "Output will be in: "${OFOL}
+echo ""
+echo ""
+
 #make the figures
-python3 run_nb.py notebook_template.ipynb; papermill notebook_template.ipynb ${OFOL}notebook_template_rendered.ipynb -p esm_file ${ESMDIR} -p plotfolder ${OFOL} ; jupyter nbconvert --to markdown ${OFOL}notebook_template_rendered.ipynb
+array=( notebook_template DrakePassageTransport GlobalTimeseries Overturning_in_ACCESS_OM3 find_and_load_OM3_25km_ryf_1.0-beta SSS SST StraitTransports )
+for FNAME in "${array[@]}"
+do
+    echo "Running notebook: "${FNAME}".ipynb"
+    python3 run_nb.py ${FNAME}.ipynb; papermill ${FNAME}.ipynb ${OFOL}${FNAME}_rendered.ipynb -p esm_file ${ESMDIR} -p plotfolder ${OFOL} ; jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
+done
 
-#this didn't work for me...
+#FYI for why run_nb was needed; this didn't work for me...
 #papermill notebook_template.ipynb notebook_template_rendered.ipynb -k analysis3-25.07 -p esm_file ${ESMDIR} -p plotfolder ${OFOL} 
-
