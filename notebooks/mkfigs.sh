@@ -14,11 +14,11 @@
 #set -x
 module purge
 module use /g/data/xp65/public/modules
-module load conda/analysis3-25.07
+module load conda/analysis3-25.09 #contains papermill 2.6.0 - https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda/issues/310
 module list
 
 #enable venv with papermill
-source /g/data/tm70/cyb561/access-om3-paper-1/venv/bin/activate
+#source /g/data/tm70/cyb561/access-om3-paper-1/venv/bin/activate
 
 ## workflow
 #1. `cd /g/data/tm70/cyb561;git clone git@github.com:ACCESS-Community-Hub/access-om3-paper-1.git`
@@ -65,6 +65,3 @@ do
     echo "Running notebook: "${FNAME}".ipynb"
     python3 run_nb.py ${FNAME}.ipynb; papermill ${FNAME}.ipynb ${OFOL}${FNAME}_rendered.ipynb -p esm_file ${ESMDIR} -p plotfolder ${OFOL} ; jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
 done
-
-#FYI for why run_nb was needed; this didn't work for me...
-#papermill notebook_template.ipynb notebook_template_rendered.ipynb -k analysis3-25.07 -p esm_file ${ESMDIR} -p plotfolder ${OFOL} 
