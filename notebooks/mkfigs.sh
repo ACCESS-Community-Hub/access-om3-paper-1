@@ -14,12 +14,9 @@
 #set -x
 module purge
 module use /g/data/xp65/public/modules
-module load conda/analysis3-25.07 
-#module load conda/analysis3-25.09 #contains papermill 2.6.0 - https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda/issues/310
+#module load conda/analysis3-25.07 
+module load conda/analysis3-25.09 #contains papermill 2.6.0 - https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda/issues/310
 module list
-
-#enable venv with papermill
-source /g/data/tm70/cyb561/access-om3-paper-1/venv/bin/activate
 
 ## workflow
 #1. `cd /g/data/tm70/cyb561;git clone git@github.com:ACCESS-Community-Hub/access-om3-paper-1.git`
