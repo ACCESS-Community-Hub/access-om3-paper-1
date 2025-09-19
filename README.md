@@ -40,7 +40,7 @@ For the first option above omit the branch steps below. This is option 2:
 
 ## Notebooks
 
-Notebooks for figures should be in the [notebooks folder](https://github.com/ACCESS-Community-Hub/access-om3-25km-paper-1/blob/main/notebooks). When starting a new notebook, please use the template [here](https://github.com/pedrocol/basal_mom5-collaborative-project/blob/main/notebooks/example_notebook.ipynb). 
+Notebooks for figures should be in the [notebooks folder](https://github.com/ACCESS-Community-Hub/access-om3-25km-paper-1/blob/main/notebooks). When starting a new notebook, please use the template [here](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/find_and_load_OM3_25km_ryf_1.0-beta.ipynb). 
 
 To allow us later to run all the notebooks at once, please use the boilerplate at the top of the script, namely this second cell:
 ```python
