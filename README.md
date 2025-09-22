@@ -40,7 +40,7 @@ For the first option above omit the branch steps below. This is option 2:
 
 ## Notebooks
 
-Notebooks for figures should be in the [notebooks folder](https://github.com/ACCESS-Community-Hub/access-om3-25km-paper-1/blob/main/notebooks). When starting a new notebook, please use the template [here](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/find_and_load_OM3_25km_ryf_1.0-beta.ipynb). 
+Notebooks for figures should be in the [notebooks folder](https://github.com/ACCESS-Community-Hub/access-om3-25km-paper-1/blob/main/notebooks). When starting a new notebook, please use the template [here](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/00_template_notebook.ipynb). 
 
 To allow us later to run all the notebooks at once, please use the boilerplate at the top of the script, namely this second cell:
 ```python
@@ -64,7 +64,7 @@ print("ESM datastore path: ",esm_file)
 print("Plot folder path: ",plotfolder)
 ```
 
-It is important that you use `esm_file` and if needed `plotfolder` in your script as done in `find_and_load_OM3_25km_ryf_1.0-beta.ipynb` (this allows us to re-run your script later with different experiments), here's [examples](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/find_and_load_OM3_25km_ryf_1.0-beta.ipynb):
+It is important that you use `esm_file` and if needed `plotfolder` in your script as done in `00_template_notebook.ipynb` (this allows us to re-run your script later with different experiments), here's [examples](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/00_template_notebook.ipynb):
 ```python
 datastore = intake.open_esm_datastore(
     esm_file,
