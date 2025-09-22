@@ -79,6 +79,8 @@ datastore = intake.open_esm_datastore(
 ```
 and `plt.savefig(plotfolder+'exampleout.png')`. This cell needs to have the tag `parameters`, copying this cell will copy the tag as well but [you can also set this on other cells](https://papermill.readthedocs.io/en/latest/usage-parameterize.html) should you wish to parameterize other parts of the script. This allows us to [pass in arguments externally using papermill](https://papermill.readthedocs.io/en/latest/usage-cli.html) (see [mkfigs.sh for details](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/mkfigs.sh))
 
+Once you have finished your notebook, please add the name of your notebook to the `array` variable in [this script](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/8f636ad6862dd141378c0f0f470c4c8c895dea38/notebooks/mkfigs.sh#L62-L63). This allows us to run your new notebook as part of a suite of evaluation notebooks when assessing new simulations.
+
 ## TODO
 
 TODO: As we figure out the main results and develop the storyline, we can add to the [Results_summary.md](https://github.com/ACCESS-Community-Hub/access-om3-25km-paper-1/blob/main/Results_summary.md) and [Figure_outline.md](https://github.com/ACCESS-Community-Hub/access-om3-25km-paper-1/blob/main/Figure_outline.md).
