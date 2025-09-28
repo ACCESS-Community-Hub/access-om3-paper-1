@@ -1,0 +1,67 @@
+cff-version: 1.2.0
+title: 'ACCESS-OM3-paper-1'
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Christopher Yit Sen 
+    family-names: Bull
+    email: chris.bull@anu.edu.au
+    affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0000-0001-8362-3446'
+  - given-names: Andrew McC 
+    family-names: Hogg
+    email: Andy.Hogg@anu.edu.au
+    affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0000-0001-5898-7635'
+  - given-names: Ezhilsabareesh
+    family-names: Kannadasan
+    affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0000-0003-1441-4311'
+  - given-names: Wilma
+    family-names: Huneke
+    affiliation: Australian National University
+    orcid: 'https://orcid.org/0000-0001-8624-365X'
+  - given-names: Turner
+    family-names: Charles
+    affiliation:  Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0000-0002-3262-4972'
+  - given-names: Andrew E.
+    family-names: Kiss
+    email: andrew.kiss@anu.edu.au
+    affiliation: Research School of Earth Sciences, Australian National University
+    orcid: 'https://orcid.org/0000-0001-8960-9557'
+  - given-names: Minghang
+    family-names: Li
+    email: Minghang.Li1@anu.edu.au
+    affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+  - given-names: Dougal
+    family-names: Squire
+    email: Dougie.Squire@anu.edu.au
+    affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0000-0003-3271-6874'
+  - given-names: Anton
+    family-names: Steketee
+    email: anton.steketee@anu.edu.au
+    affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0009-0002-9081-4106'
+  - description: "Plotting notebooks and discussion for ACCESS-OM3 model description paper."
+    type: 
+    value: 
+repository-code: 'https://github.com/ACCESS-Community-Hub/access-om3-paper-1'
+url: 'https://github.com/ACCESS-Community-Hub/access-om3-paper-1'
+repository-artifact: >-
+abstract: >-
+license: CC-BY-4.0
+version: 
+date-released: 
+keywords:
+  - access-om3
+  - climate
+  - model
+  - "ocean - sea ice"
+  - CICE
+  - MOM6
+  - NUOPC
+  - ESMF
