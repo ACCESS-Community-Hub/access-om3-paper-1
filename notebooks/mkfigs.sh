@@ -15,7 +15,8 @@
 module purge
 module use /g/data/xp65/public/modules
 #module load conda/analysis3-25.07 
-module load conda/analysis3-25.09 #contains papermill 2.6.0 - https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda/issues/310
+#module load conda/analysis3-25.09 #contains papermill 2.6.0 - https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda/issues/310
+module load conda/analysis3-25.10 #needed for cm3 datastores
 module list
 
 ## workflow
@@ -33,7 +34,10 @@ module list
 
 # SET THESE START
 WFOLDER=/g/data/tm70/cyb561/access-om3-paper-1/
+
+#Ezhil change this to point to the cm3 datastore
 ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/experiment_datastore.json
+#Ezhil change this to point to the cm3 datastore
 
 #DS run from June 2025
 #ESMDIR=/scratch/tm70/ds0092/access-om3/archive/om3_MC_25km_jra_ryf+wombatlite/intake_esm_ds.json
@@ -60,25 +64,7 @@ echo ""
 echo ""
 
 #make the figures
-array=( 
-    00_template_notebook 
-    Bottom_age_tracer_in_ACCESS_OM3 
-    DrakePassageTransport 
-    GlobalTimeseries 
-    MLD 
-    MLD_max 
-    Overturning_in_ACCESS_OM3
-    SeaIce_area
-    SeaIce_mass_budget_climatology
-    SSS 
-    SST 
-    StraitTransports 
-    salt-vs-depth-time 
-    temp-vs-depth-time 
-    timeseries 
-    MeridionalHeatTransport 
-    pPV
-)
+array=( 00_template_notebook Bottom_age_tracer_in_ACCESS_OM3 DrakePassageTransport GlobalTimeseries MLD MLD_max Overturning_in_ACCESS_OM3 find_and_load_OM3_25km_ryf_1.0-beta SSS SST StraitTransports salt-vs-depth-time temp-vs-depth-time timeseries )
 #array=( find_and_load_OM3_25km_ryf_1.0-beta )
 for FNAME in "${array[@]}"
 do
