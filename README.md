@@ -49,15 +49,15 @@ To allow us later to run all the notebooks at once, please use the boilerplate a
 
 ### USER EDIT start
 esm_file='/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/experiment_datastore.json'
-plotfolder='/g/data/tm70/cyb561/access-om3-paper-1/notebooks/mkfigs_output/2/'
 dpi=300
 ### USER EDIT stop
 
-import matplotlib as mpl
 import os
+from matplotlib import rcParams
 %matplotlib inline
-mpl.rcParams['figure.dpi']= dpi
+rcParams['figure.dpi']= dpi
 
+plotfolder=f"/g/data/{os.environ['PROJECT']}/{os.environ['USER']}/access-om3-paper-figs"
 os.makedirs(plotfolder, exist_ok=True)
 
  # a similar cell under this means it's being run in batch
