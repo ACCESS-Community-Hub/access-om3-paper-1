@@ -60,7 +60,7 @@ echo ""
 echo ""
 
 #make the figures
-array=( 00_template_notebook Bottom_age_tracer_in_ACCESS_OM3 DrakePassageTransport GlobalTimeseries MLD MLD_max Overturning_in_ACCESS_OM3 find_and_load_OM3_25km_ryf_1.0-beta SSS SST StraitTransports salt-vs-depth-time temp-vs-depth-time timeseries )
+array=( 00_template_notebook Bottom_age_tracer_in_ACCESS_OM3 DrakePassageTransport GlobalTimeseries MLD MLD_max Overturning_in_ACCESS_OM3 find_and_load_OM3_25km_ryf_1.0-beta SSS SST StraitTransports salt-vs-depth-time temp-vs-depth-time timeseries MeridionalHeatTransport )
 #array=( find_and_load_OM3_25km_ryf_1.0-beta )
 for FNAME in "${array[@]}"
 do
