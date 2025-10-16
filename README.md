@@ -43,21 +43,21 @@ For the first option above omit the branch steps below. This is option 2:
 
 Notebooks for figures should be in the [notebooks folder](https://github.com/ACCESS-Community-Hub/access-om3-25km-paper-1/blob/main/notebooks). When starting a new notebook, please use the template [here](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/00_template_notebook.ipynb). 
 
-To allow us later to run all the notebooks at once, please use the boilerplate at the top of the script, namely this second cell:
+To allow us later to run all the notebooks at once, please use the boilerplate at the top of the notebook, namely this second cell:
 ```python
 #parameters
 
 ### USER EDIT start
 esm_file='/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/experiment_datastore.json'
-plotfolder='/g/data/tm70/cyb561/access-om3-paper-1/notebooks/mkfigs_output/2/'
 dpi=300
 ### USER EDIT stop
 
-import matplotlib as mpl
 import os
+from matplotlib import rcParams
 %matplotlib inline
-mpl.rcParams['figure.dpi']= dpi
+rcParams['figure.dpi']= dpi
 
+plotfolder=f"/g/data/{os.environ['PROJECT']}/{os.environ['USER']}/access-om3-paper-figs/"
 os.makedirs(plotfolder, exist_ok=True)
 
  # a similar cell under this means it's being run in batch
@@ -65,7 +65,7 @@ print("ESM datastore path: ",esm_file)
 print("Plot folder path: ",plotfolder)
 ```
 
-It is important that you use `esm_file` and if needed `plotfolder` in your script as done in `00_template_notebook.ipynb` (this allows us to re-run your script later with different experiments), here's [examples](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/00_template_notebook.ipynb):
+It is important to use `esm_file` variable for the source data and save plots into the folder defined by the `plotfolder` variable.  This allows notebooks to be easily re-run later with different experiments, here's [`00_template_notebook.ipynb` as an example](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/00_template_notebook.ipynb):
 ```python
 datastore = intake.open_esm_datastore(
     esm_file,
@@ -78,9 +78,9 @@ datastore = intake.open_esm_datastore(
     ]
 )
 ```
-and `plt.savefig(plotfolder+'exampleout.png')`. This cell needs to have the tag `parameters`, copying this cell will copy the tag as well but [you can also set this on other cells](https://papermill.readthedocs.io/en/latest/usage-parameterize.html) should you wish to parameterize other parts of the script. This allows us to [pass in arguments externally using papermill](https://papermill.readthedocs.io/en/latest/usage-cli.html) (see [mkfigs.sh for details](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/mkfigs.sh))
+and `plt.savefig(plotfolder+'exampleout.png')`. This cell needs to have the tag `parameters`, copying this cell will copy the tag as well but [you can also set this on other cells](https://papermill.readthedocs.io/en/latest/usage-parameterize.html) should you wish to parameterize other parts of the notebook. This allows us to [pass in arguments externally using papermill](https://papermill.readthedocs.io/en/latest/usage-cli.html) (see [mkfigs.sh for details](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/mkfigs.sh))
 
-Once you have finished your notebook, please add the name of your notebook to the `array` variable in [this script](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/8f636ad6862dd141378c0f0f470c4c8c895dea38/notebooks/mkfigs.sh#L62-L63). This allows us to run your new notebook as part of a suite of evaluation notebooks when assessing new simulations.
+Once you have finished your notebook, please add the name of your notebook to the `array` variable in [this notebook](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/8f636ad6862dd141378c0f0f470c4c8c895dea38/notebooks/mkfigs.sh#L62-L63). This allows us to run your new notebook as part of a suite of evaluation notebooks when assessing new simulations.
 
 
 
