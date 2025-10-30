@@ -2,11 +2,11 @@
 #PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65
 #PBS -M chris.bull@anu.edu.au
 #PBS -m ae
-#PBS -q normal
+#PBS -q normalsr
 #PBS -W umask=0022
-#PBS -l ncpus=8
-#PBS -l mem=24gb
-#PBS -l walltime=2:00:00
+#PBS -l ncpus=104
+#PBS -l mem=496gb
+#PBS -l walltime=5:00:00
 #PBS -o /g/data/tm70/cyb561/logs
 #PBS -e /g/data/tm70/cyb561/logs
 
@@ -31,15 +31,13 @@ module list
 #1. this script can also be run from an ARE session
 
 
-# SET THESE START
-WFOLDER=/g/data/tm70/cyb561/access-om3-paper-1/
-ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/experiment_datastore.json
-
-#DS run from June 2025
-#ESMDIR=/scratch/tm70/ds0092/access-om3/archive/om3_MC_25km_jra_ryf+wombatlite/intake_esm_ds.json
+# SET THESE START; for options see: https://access-om3-configs.access-hive.org.au/pr-preview-842/Experiments/
+#WFOLDER=/g/data/tm70/cyb561/access-om3-paper-1/
+#ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/experiment_datastore.json
 
 #AK iaf run 4/9/25
-#ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/25km-iaf-test-for-AK-expt-7df5ef4c/datastore.json
+WFOLDER=/g/data/tm70/cyb561/access-om3-paper-1/
+ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/25km-iaf-test-for-AK-expt-7df5ef4c/datastore.json
 
 # SET THESE END
 
