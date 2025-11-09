@@ -15,7 +15,8 @@
 module purge
 module use /g/data/xp65/public/modules
 #module load conda/analysis3-25.07 
-module load conda/analysis3-25.09 #contains papermill 2.6.0 - https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda/issues/310
+#module load conda/analysis3-25.09 #contains papermill 2.6.0 - https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda/issues/310
+module load conda/analysis3-25.11
 module list
 
 ## workflow
