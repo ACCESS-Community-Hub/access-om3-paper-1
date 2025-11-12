@@ -46,7 +46,12 @@ authors:
     email: anton.steketee@anu.edu.au
     affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
     orcid: 'https://orcid.org/0009-0002-9081-4106'
-  - description: "Plotting notebooks and discussion for ACCESS-OM3 model description paper."
+ - given-names: Hannah
+    family-names: Dawson
+    email: hannah.dawson@utas.edu.au
+    affiliation: Institute for Marine and Antarctic Studies, University of Tasmania, Nipaluna/Hobart, Australia
+    orcid: 'https://orcid.org/0000-0001-9113-1329'  
+- description: "Plotting notebooks and discussion for ACCESS-OM3 model description paper."
     type: 
     value: 
 repository-code: 'https://github.com/ACCESS-Community-Hub/access-om3-paper-1'
