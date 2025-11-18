@@ -4,6 +4,9 @@ A collaborative project to create and discuss figures for a description and asse
 
 The paper is being written [here on Overleaf](https://www.overleaf.com/read/pygvjbmmghsv#b18c9c). Please ask Andrew if you'd like edit access (the [link](https://www.overleaf.com/read/pygvjbmmghsv#b18c9c) is "view only"). 
 
+A list of experiments which can be analysed is at in the [Config Docs - Experiments](https://access-om3-configs.access-hive.org.au/experiments)
+
+
 ## How it works
 
 All community members (and ACCESS-NRI staff) can get write access to this repository (our preference over using forks). To get write access, you need to create an issue and request access, please [use this issue template](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/new?template=add-user-request-to--access-om3-paper-1--repository-.md).
@@ -81,6 +84,4 @@ datastore = intake.open_esm_datastore(
 and `plt.savefig(plotfolder+'exampleout.png')`. This cell needs to have the tag `parameters`, copying this cell will copy the tag as well but [you can also set this on other cells](https://papermill.readthedocs.io/en/latest/usage-parameterize.html) should you wish to parameterize other parts of the notebook. This allows us to [pass in arguments externally using papermill](https://papermill.readthedocs.io/en/latest/usage-cli.html) (see [mkfigs.sh for details](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/mkfigs.sh))
 
 Once you have finished your notebook, please add the name of your notebook to the `array` variable in [this notebook](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/8f636ad6862dd141378c0f0f470c4c8c895dea38/notebooks/mkfigs.sh#L62-L63). This allows us to run your new notebook as part of a suite of evaluation notebooks when assessing new simulations.
-
-
 
