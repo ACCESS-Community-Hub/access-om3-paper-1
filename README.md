@@ -4,7 +4,7 @@ A collaborative project to create and discuss figures for a description and asse
 
 The paper is being written [here on Overleaf](https://www.overleaf.com/read/pygvjbmmghsv#b18c9c). Please ask Andrew if you'd like edit access (the [link](https://www.overleaf.com/read/pygvjbmmghsv#b18c9c) is "view only"). 
 
-A list of experiments which can be analysed is at in the [Config Docs - Experiments](https://access-om3-configs.access-hive.org.au/experiments)
+A list of experiments which can be analysed is at in the [Config Docs - Experiments](https://access-om3-configs.access-hive.org.au/Experiments/)
 
 
 ## How it works
