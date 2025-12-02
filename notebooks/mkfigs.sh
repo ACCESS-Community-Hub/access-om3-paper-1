@@ -68,6 +68,7 @@ array=(
     MLD 
     MLD_max 
     Overturning_in_ACCESS_OM3
+    SeaIce_area
     SeaIce_mass_budget_climatology
     SSS 
     SST 
