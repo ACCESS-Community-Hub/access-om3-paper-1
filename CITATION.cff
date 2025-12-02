@@ -51,6 +51,11 @@ authors:
     email: hannah.dawson@utas.edu.au
     affiliation: Institute for Marine and Antarctic Studies, University of Tasmania, Nipaluna/Hobart, Australia
     orcid: 'https://orcid.org/0000-0001-9113-1329'  
+ - given-names: Helen
+    family-names: Shea
+    email: helen.shea1@monash.edu
+    affiliation: School of Earth, Atmoshpere and Environment, Monash University, Naarm/Melbourne, Australia
+    orcid: 'https://orcid.org/0009-0004-0680-2458' 
 - description: "Plotting notebooks and discussion for ACCESS-OM3 model description paper."
     type: 
     value: 
