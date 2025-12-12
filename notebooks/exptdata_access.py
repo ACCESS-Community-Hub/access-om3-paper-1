@@ -28,7 +28,6 @@ exptdict = OrderedDict([
                 "/g/data/zv30/non-cmip/ACCESS-CM3/"
                 "cm3-run-11-08-2025-25km-beta-om3-new-um-params/"
                 "cm3-demo-datastore/cm3-demo-datastore.json",
-            "data_frequency": "1mon",
         },
     ),
     (
@@ -39,11 +38,19 @@ exptdict = OrderedDict([
             "esm_file":
                 "/g/data/ol01/access-om3-output/access-om3-025/"
                 "25km-iaf-test-for-AK-expt-7df5ef4c/datastore.json",
-            "data_frequency": "1day",
+        },
+    ),
+    (
+        "om3_25km_ryf_1_0_beta",
+        {
+            "model": "ACCESS-OM3",
+            "desc": "ACCESS-OM3 25 km JRA RYF 1.0-beta",
+            "esm_file":
+                "/g/data/ol01/access-om3-output/access-om3-025/"
+                "MC_25km_jra_ryf-1.0-beta/experiment_datastore.json",
         },
     ),
 ])
-
 
 def get_experiment_info(key):
     """
@@ -57,8 +64,42 @@ def get_experiment_info(key):
 def guess_experiment_from_esm_file(esm_file):
     """
     Identify experiment configuration based on the datastore path.
-    Falls back to OM3/CM3/Unknown based on simple string matching.
+
+    Returns
+    -------
+    expt_key : str
+        Experiment key if found in exptdict, otherwise "unknown_experiment".
+    info : dict
+        Metadata dictionary containing:
+            - model : str ("ACCESS-OM3", "ACCESS-CM3", or "Unknown")
+            - desc  : str (human-readable description)
+            - esm_file : str (the path passed in)
+
+    This function *always* returns a valid (key, info) tuple,
+    so the notebook can safely unpack it.
     """
+    # 1. Exact match with known experiments in exptdict
     for key, cfg in exptdict.items():
         if cfg["esm_file"] == esm_file:
             return key, cfg
+
+    # 2. Fallback: infer model type from path
+    lower = esm_file.lower()
+    if "cm3" in lower:
+        model_guess = "ACCESS-CM3"
+    elif "om3" in lower:
+        model_guess = "ACCESS-OM3"
+    else:
+        model_guess = "Unknown"
+
+    # 3. Construct a usable fallback metadata record
+    fallback_info = {
+        "model": model_guess,
+        "desc": f"{model_guess} (unregistered experiment)",
+        "esm_file": esm_file,
+    }
+
+    # ---------------------------------------------------------
+    # 4. Always return a tuple — never return None
+    # ---------------------------------------------------------
+    return "unknown_experiment", fallback_info
