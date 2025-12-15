@@ -23,8 +23,8 @@ import xarray as xr
 
 def get_lon_lat_from_catalog(
     datastore,
-    lon_candidates=("geolon", "geolon_t", "xt_ocean", "lon"),
-    lat_candidates=("geolat", "geolat_t", "yt_ocean", "lat"),
+    lon_candidates=("geolon", "geolon_t", "lonh", "lonq", "xt_ocean", "lon"),
+    lat_candidates=("geolat", "geolat_t", "lath", "latq", "yt_ocean", "lat"),
 ) -> Tuple[xr.DataArray, xr.DataArray]:
     """
     Try to discover longitude and latitude fields from an intake-esm datastore.

@@ -50,6 +50,16 @@ exptdict = OrderedDict([
                 "MC_25km_jra_ryf-1.0-beta/experiment_datastore.json",
         },
     ),
+    (
+        "MC_25km_jra_iaf-1.0-beta-5165c0f8",
+        {
+            "model": "ACCESS-OM3",
+            "desc": "ACCESS-OM3 25 km JRA IAF 1.0-beta",
+            "esm_file":
+                "/g/data/ol01/outputs/access-om3-25km/"
+                "MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json",
+        },
+    ),
 ])
 
 def get_experiment_info(key):
