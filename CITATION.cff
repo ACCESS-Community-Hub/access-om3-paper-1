@@ -56,6 +56,11 @@ authors:
     email: helen.shea1@monash.edu
     affiliation: School of Earth, Atmoshpere and Environment, Monash University, Naarm/Melbourne, Australia
     orcid: 'https://orcid.org/0009-0004-0680-2458' 
+ - given-names: Noah
+    family-names: Day
+    email: noah.day@unimelb.edu.au
+    affiliation: School of Mathematics and Statistics, University of Melbourne, Melbourne, Australia
+    orcid: 'https://orcid.org/0000-0003-4176-7956'
 - description: "Plotting notebooks and discussion for ACCESS-OM3 model description paper."
     type: 
     value: 
