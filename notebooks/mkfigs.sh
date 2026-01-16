@@ -78,6 +78,7 @@ array=(
     timeseries 
     MeridionalHeatTransport 
     pPV
+    Equatorial_pacific
 )
 #array=( find_and_load_OM3_25km_ryf_1.0-beta )
 for FNAME in "${array[@]}"
