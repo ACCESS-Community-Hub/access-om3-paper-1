@@ -146,7 +146,7 @@ def select_variable(
     if fallback_variable_names is None:
         fallback_variable_names = []
     if chunks is None:
-        chunks = {"time": -1}
+        chunks = {"time": 1}
 
     def _search_with_freq(kwargs: Dict[str, Any]):
         """Search, and if frequency yields no results, retry without frequency."""
