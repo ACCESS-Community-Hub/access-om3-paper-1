@@ -68,6 +68,19 @@ array=(
     Bottom_age_tracer_in_ACCESS_OM3 
     DrakePassageTransport 
     GlobalTimeseries 
+    #MLD 
+    #MLD_max 
+    #Overturning_in_ACCESS_OM3
+    #SeaIce_area
+    #SeaIce_mass_budget_climatology
+    #SSS 
+    #SST 
+    #StraitTransports 
+    #salt-vs-depth-time 
+    temp-vs-depth-time 
+    #timeseries 
+    #MeridionalHeatTransport 
+    #pPV
     Equatorial_pacific
 )
 #array=( find_and_load_OM3_25km_ryf_1.0-beta )
