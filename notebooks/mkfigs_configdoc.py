@@ -65,3 +65,8 @@ def string_exists_in_file(filename, search_string):
         print(f"Warning: First time this notebook has been included: '{filename}'.")
         return False
 
+def get_notebook_name(notebook_name):
+    if notebook_name!='not_using_mkfigs.sh':
+        notebook_name=os.path.basename(os.environ.get("JPY_SESSION_NAME"))
+    print("Notebook name is:", notebook_name)
+    return notebook_name
