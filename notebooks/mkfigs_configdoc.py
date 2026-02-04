@@ -8,37 +8,49 @@ def mkmd(title,caption,experiment,plot_fname,mdfol):
     #print(experiment)
     #print(plot_fname)
     #print('')
-
+    # Create the folder
+    try:
+        # exist_ok=True prevents an error if the directory already exists
+        os.makedirs(mdfol, exist_ok=True)
+    except OSError as e:
+        print(f"An error occurred: {e}")
+    
     mdpath=mdfol+experiment+'.md'
     print('Adding a figure to markdown doc: '+mdpath)
 
     lines_to_append = [
+        "<!-- push this file to documentation/docs/pages/experiments/"+experiment+" and the images to documentation/docs/assets/"+experiment+" -->"+"\n",
         "# "+experiment+"\n",
         " \n",
-        "# This page shows evaluation figures from ACCESS-OM3 experiment "+ experiment+ " for discussion and see plotting scripts have a look at [this repository](https://github.com/acCESS-Community-Hub/access-om3-paper-1/) and related [issues](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues).\n",
+        "This page shows evaluation figures from ACCESS-OM3 experiment "+ experiment+ " for discussion and see plotting scripts have a look at [this repository](https://github.com/acCESS-Community-Hub/access-om3-paper-1/) and related [issues](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues).\n",
         " \n",
         "## "+title+"\n",
         " \n",
-        '!['+caption+'](mkmd/'+plot_fname+') \n',
+        '!['+caption+'](/assets/experiments/'+experiment+'/'+plot_fname+'){: style="height:450px;width:450px"} \n',
+        " \n",
         "  Caption: "+caption+"\n",
         "  \n"
     ]
 
     #check if file exists
-    if os.path.exists(mdpath):
-        lines_to_append=lines_to_append[4:]
-
-    #should add a check to see if title already exists 
-    if string_exists_in_file(mdpath, title):
+    if os.path.exists(mdpath) and string_exists_in_file(mdpath, title):
+        #The case when we just want to add for the same notebook. 
         print("This notebook has already added to the figure file, so this will add an additional figure.")
+        lines_to_append=lines_to_append[6:]
+        print(lines_to_append)
+    elif os.path.exists(mdpath):        
         lines_to_append=lines_to_append[5:]
-
+        print(lines_to_append)
+            
     try:
         with open(mdpath, 'a') as file:
             file.writelines(lines_to_append)
         print(f"Lines appended to {mdpath} successfully.")
-    except Exception as e:
-        print(f"Error: {e}")
+    except:
+        pass
+        
+    print('')
+
     return
 
 def string_exists_in_file(filename, search_string):
@@ -50,6 +62,6 @@ def string_exists_in_file(filename, search_string):
             else:
                 return False
     except FileNotFoundError:
-        print(f"Error: The file '{filename}' was not found.")
+        print(f"Warning: First time this notebook has been included: '{filename}'.")
         return False
 
