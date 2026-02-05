@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17
+#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77
 #PBS -M chris.bull@anu.edu.au
 #PBS -m ae
 #PBS -q normal
@@ -16,6 +16,8 @@ module purge
 module use /g/data/xp65/public/modules
 #module load conda/analysis3-25.07 
 module load conda/analysis3-25.09 #contains papermill 2.6.0 - https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda/issues/310
+
+#module load conda/analysis3-26.02
 module list
 
 ## workflow
@@ -67,24 +69,24 @@ echo ""
 
 #make the figures
 array=( 
-    #00_template_notebook 
-    #Bottom_age_tracer_in_ACCESS_OM3 
-    #DrakePassageTransport GOT BUGS!!!
-    #GlobalTimeseries            WORKS (minor bug)
-    #MLD                         WORKS
-    #MLD_max                     WORKS
-    #Overturning_in_ACCESS_OM3
-    #SeaIce_area
-    #SeaIce_mass_budget_climatology
-    #SSS 
-    #SST 
-    #StraitTransports 
-    #salt-vs-depth-time 
-    #temp-vs-depth-time 
-    #timeseries 
-    #MeridionalHeatTransport 
-    #pPV
-    #Equatorial_pacific
+    00_template_notebook 
+    Bottom_age_tracer_in_ACCESS_OM3 
+    DrakePassageTransport       #WORKS (minor bug)
+    GlobalTimeseries            #WORKS (minor bug)
+    MLD                         #WORKS
+    MLD_max                     #WORKS
+    Overturning_in_ACCESS_OM3
+    SeaIce_area
+    SeaIce_mass_budget_climatology
+    SSS 
+    SST 
+    StraitTransports 
+    salt-vs-depth-time 
+    temp-vs-depth-time 
+    timeseries 
+    MeridionalHeatTransport 
+    pPV
+    Equatorial_pacific
 )
 #array=( find_and_load_OM3_25km_ryf_1.0-beta )
 for FNAME in "${array[@]}"
