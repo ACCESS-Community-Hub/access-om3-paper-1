@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65
+#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77
 #PBS -M chris.bull@anu.edu.au
 #PBS -m ae
 #PBS -q normal
@@ -16,6 +16,8 @@ module purge
 module use /g/data/xp65/public/modules
 #module load conda/analysis3-25.07 
 module load conda/analysis3-25.09 #contains papermill 2.6.0 - https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda/issues/310
+
+#module load conda/analysis3-26.02
 module list
 
 ## workflow
@@ -35,11 +37,15 @@ module list
 WFOLDER=/g/data/tm70/cyb561/access-om3-paper-1/
 ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/experiment_datastore.json
 
+
 #DS run from June 2025
 #ESMDIR=/scratch/tm70/ds0092/access-om3/archive/om3_MC_25km_jra_ryf+wombatlite/intake_esm_ds.json
 
 #AK iaf run 4/9/25
 #ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/25km-iaf-test-for-AK-expt-7df5ef4c/datastore.json
+
+#AK iaf run 9-Dec-25
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json
 
 # SET THESE END
 
@@ -49,6 +55,8 @@ OFOL=${WFOLDER}notebooks/mkfigs_output4/
 cd ${WFOLDER}
 cd notebooks
 mkdir -p ${OFOL}
+
+mkdir -p ${WFOLDER}notebooks/mkmd/
 
 echo ""
 echo ""
@@ -63,10 +71,10 @@ echo ""
 array=( 
     00_template_notebook 
     Bottom_age_tracer_in_ACCESS_OM3 
-    DrakePassageTransport 
-    GlobalTimeseries 
-    MLD 
-    MLD_max 
+    DrakePassageTransport       #WORKS (minor bug)
+    GlobalTimeseries            #WORKS (minor bug)
+    MLD                         #WORKS
+    MLD_max                     #WORKS
     Overturning_in_ACCESS_OM3
     SeaIce_area
     SeaIce_mass_budget_climatology
@@ -84,5 +92,5 @@ array=(
 for FNAME in "${array[@]}"
 do
     echo "Running notebook: "${FNAME}".ipynb"
-    python3 run_nb.py ${FNAME}.ipynb; papermill ${FNAME}.ipynb ${OFOL}${FNAME}_rendered.ipynb -p esm_file ${ESMDIR} -p plotfolder ${OFOL} ; jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
+    python3 run_nb.py ${FNAME}.ipynb; papermill ${FNAME}.ipynb ${OFOL}${FNAME}_rendered.ipynb -p notebook_name ${FNAME}_rendered.ipynb -p esm_file ${ESMDIR} -p plotfolder ${OFOL} ; jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
 done
