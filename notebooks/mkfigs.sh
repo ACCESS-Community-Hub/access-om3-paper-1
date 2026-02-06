@@ -45,12 +45,19 @@ ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/ex
 #ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/25km-iaf-test-for-AK-expt-7df5ef4c/datastore.json
 
 #AK iaf run 9-Dec-25
-ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json
+#ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json
+
+#AHogg GM* runs
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/datastore.json
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6/datastore.json
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm3-da330542/datastore.json
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm4-9fd08880/datastore.json
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9/datastore.json
 
 # SET THESE END
 
 #best not mess with the path here...
-OFOL=${WFOLDER}notebooks/mkfigs_output4/
+OFOL=${WFOLDER}notebooks/mkfigs_output_MC_25km_jra_iaf-1.0-beta-gm4-9fd08880/
 
 cd ${WFOLDER}
 cd notebooks
@@ -69,24 +76,24 @@ echo ""
 
 #make the figures
 array=( 
-    00_template_notebook 
-    Bottom_age_tracer_in_ACCESS_OM3 
-    DrakePassageTransport       #WORKS (minor bug)
-    GlobalTimeseries            #WORKS (minor bug)
+#    00_template_notebook 
+#    Bottom_age_tracer_in_ACCESS_OM3 
+#    DrakePassageTransport       #WORKS (minor bug)
+#    GlobalTimeseries            #WORKS (minor bug)
     MLD                         #WORKS
-    MLD_max                     #WORKS
-    Overturning_in_ACCESS_OM3
-    SeaIce_area
-    SeaIce_mass_budget_climatology
-    SSS 
-    SST 
-    StraitTransports 
-    salt-vs-depth-time 
-    temp-vs-depth-time 
-    timeseries 
-    MeridionalHeatTransport 
-    pPV
-    Equatorial_pacific
+#    MLD_max                     #WORKS
+#    Overturning_in_ACCESS_OM3
+#    SeaIce_area
+#    SeaIce_mass_budget_climatology
+#    SSS 
+#    SST 
+#    StraitTransports 
+#    salt-vs-depth-time 
+#    temp-vs-depth-time 
+#    timeseries 
+#    MeridionalHeatTransport 
+#    pPV
+#    Equatorial_pacific
 )
 #array=( find_and_load_OM3_25km_ryf_1.0-beta )
 for FNAME in "${array[@]}"

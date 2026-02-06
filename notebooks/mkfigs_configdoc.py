@@ -23,10 +23,12 @@ def mkmd(title,caption,experiment,plot_fname,mdfol):
         "# "+experiment+"\n",
         " \n",
         "This page shows evaluation figures from ACCESS-OM3 experiment "+ experiment+ " for discussion and see plotting scripts have a look at [this repository](https://github.com/acCESS-Community-Hub/access-om3-paper-1/) and related [issues](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues).\n",
+         " \n",
+        getauthors(),
         " \n",
         "## "+title+"\n",
         " \n",
-        '!['+caption+'](/assets/experiments/'+experiment+'/'+plot_fname+'){: style="height:450px;width:450px"} \n',
+        '!['+caption+'](/assets/experiments/'+experiment+'/'+plot_fname+'){: style="height:450px;width:900px"} \n',
         " \n",
         "  Caption: "+caption+"\n",
         "  \n"
@@ -36,10 +38,10 @@ def mkmd(title,caption,experiment,plot_fname,mdfol):
     if os.path.exists(mdpath) and string_exists_in_file(mdpath, title):
         #The case when we just want to add for the same notebook. 
         print("This notebook has already added to the figure file, so this will add an additional figure.")
-        lines_to_append=lines_to_append[6:]
+        lines_to_append=lines_to_append[8:]
         print(lines_to_append)
     elif os.path.exists(mdpath):        
-        lines_to_append=lines_to_append[5:]
+        lines_to_append=lines_to_append[7:]
         print(lines_to_append)
             
     try:
@@ -70,3 +72,48 @@ def get_notebook_name(notebook_name):
         notebook_name=os.path.basename(os.environ.get("JPY_SESSION_NAME"))
     print("Notebook name is:", notebook_name)
     return notebook_name
+
+def getauthors(file_path='../CITATION.cff'):
+    #in case one wants a downloaded one
+    #import urllib.request
+    #file_path= "https://raw.githubusercontent.com/ACCESS-Community-Hub/access-om3-paper-1/main/CITATION.cff"
+    # Download the file
+    #with urllib.request.urlopen(file_path) as response:
+        #lines = response.read().decode("utf-8").splitlines()
+
+    try:
+        # Open the file in read mode ('r' is the default) with UTF-8 encoding
+        with open(file_path, 'r', encoding='utf-8') as f:
+            lines = f.read().splitlines()  # Read the entire file content into a string
+    except FileNotFoundError:
+        print(f"Error: The file '{file_path}' was not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    
+    given = None
+    family = None
+    
+    coauthors=[]
+    for line in lines:
+        line = line.strip()
+    
+        if "given-names:" in line:
+            given = line.split(":", 1)[1].strip().strip('"').rstrip()
+            #print(given)
+        elif line.startswith("family-names:"):
+            family = line.split(":", 1)[1].strip().strip('"').rstrip()
+            #print(family)
+    
+        # Once we have both, print and reset
+        if given and family:
+            #print(f"Given names: {given}, Family names: {family}")
+            #print(family+", "+given+".")
+            coauthors.append(family+", "+given+".")
+    
+            given = None
+            family = None
+    #print('Co-authors (alphabetically) for the notebooks that created these figures: '+' '.join(sorted(coauthors)))
+    return 'Co-authors (alphabetically) for the notebooks that created these figures: '+' '.join(sorted(coauthors))
+
+
+
