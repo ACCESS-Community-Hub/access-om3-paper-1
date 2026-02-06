@@ -73,8 +73,7 @@ array=(
     SSS 
     SST 
     StraitTransports 
-    salt-vs-depth-time 
-    temp-vs-depth-time 
+    temp-salt-vs-depth-time
     timeseries 
     MeridionalHeatTransport 
     pPV
