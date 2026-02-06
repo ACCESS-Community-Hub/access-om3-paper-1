@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77
+#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40
 #PBS -M chris.bull@anu.edu.au
 #PBS -m ae
 #PBS -q normal
@@ -48,22 +48,24 @@ ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/ex
 #ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json
 
 #AHogg GM* runs
-ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/datastore.json
-ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6/datastore.json
-ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm3-da330542/datastore.json
-ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm4-9fd08880/datastore.json
-ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9/datastore.json
+#ENAME=MC_25km_jra_iaf-1.0-beta-gm1-d968c801
+#ENAME=MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6
+#ENAME=MC_25km_jra_iaf-1.0-beta-gm3-da330542
+#ENAME=MC_25km_jra_iaf-1.0-beta-gm4-9fd08880
+ENAME=MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
 
+OFOL=${WFOLDER}notebooks/mkfigs_output_${ENAME}/
 # SET THESE END
 
 #best not mess with the path here...
-OFOL=${WFOLDER}notebooks/mkfigs_output_MC_25km_jra_iaf-1.0-beta-gm4-9fd08880/
 
 cd ${WFOLDER}
 cd notebooks
 mkdir -p ${OFOL}
 
-mkdir -p ${WFOLDER}notebooks/mkmd/
+#for mkmd
+mkdir -p ${OFOL}mkmd/
 
 echo ""
 echo ""
@@ -80,10 +82,10 @@ array=(
 #    Bottom_age_tracer_in_ACCESS_OM3 
 #    DrakePassageTransport       #WORKS (minor bug)
 #    GlobalTimeseries            #WORKS (minor bug)
-    MLD                         #WORKS
+#    MLD                         #WORKS
 #    MLD_max                     #WORKS
 #    Overturning_in_ACCESS_OM3
-#    SeaIce_area
+    SeaIce_area
 #    SeaIce_mass_budget_climatology
 #    SSS 
 #    SST 
