@@ -43,17 +43,18 @@ ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/ex
 
 #AK iaf run 4/9/25
 #ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/25km-iaf-test-for-AK-expt-7df5ef4c/datastore.json
+#ENAME=25km-iaf-test-for-AK-expt-7df5ef4c
 
 #AK iaf run 9-Dec-25
 ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json
 
 #AHogg GM* runs
-#ENAME=MC_25km_jra_iaf-1.0-beta-gm1-d968c801
-#ENAME=MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6
-#ENAME=MC_25km_jra_iaf-1.0-beta-gm3-da330542
-#ENAME=MC_25km_jra_iaf-1.0-beta-gm4-9fd08880
-#ENAME=MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9
-#ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
+ENAME=MC_25km_jra_iaf-1.0-beta-gm1-d968c801
+ENAME=MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6
+ENAME=MC_25km_jra_iaf-1.0-beta-gm3-da330542
+ENAME=MC_25km_jra_iaf-1.0-beta-gm4-9fd08880
+ENAME=MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
 
 OFOL=${WFOLDER}notebooks/mkfigs_output_${ENAME}/
 # SET THESE END
