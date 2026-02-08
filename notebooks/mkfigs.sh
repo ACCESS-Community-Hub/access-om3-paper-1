@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40
+#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45
 #PBS -M chris.bull@anu.edu.au
 #PBS -m ae
 #PBS -q normal
@@ -15,9 +15,10 @@
 module purge
 module use /g/data/xp65/public/modules
 #module load conda/analysis3-25.07 
-module load conda/analysis3-25.09 #contains papermill 2.6.0 - https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda/issues/310
+#module load conda/analysis3-25.08
+#module load conda/analysis3-25.09 #contains papermill 2.6.0 - https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda/issues/310
 
-#module load conda/analysis3-26.02
+module load conda/analysis3-26.02
 module list
 
 ## workflow
@@ -47,14 +48,15 @@ ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/ex
 
 #AK iaf run 9-Dec-25
 ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json
+ENAME=MC_25km_jra_iaf-1.0-beta-5165c0f8
 
 #AHogg GM* runs
-ENAME=MC_25km_jra_iaf-1.0-beta-gm1-d968c801
-ENAME=MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6
-ENAME=MC_25km_jra_iaf-1.0-beta-gm3-da330542
-ENAME=MC_25km_jra_iaf-1.0-beta-gm4-9fd08880
-ENAME=MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9
-ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
+#ENAME=MC_25km_jra_iaf-1.0-beta-gm1-d968c801
+#ENAME=MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6
+#ENAME=MC_25km_jra_iaf-1.0-beta-gm3-da330542
+#ENAME=MC_25km_jra_iaf-1.0-beta-gm4-9fd08880
+#ENAME=MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9
+#ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
 
 OFOL=${WFOLDER}notebooks/mkfigs_output_${ENAME}/
 # SET THESE END
@@ -77,24 +79,42 @@ echo "Output will be in: "${OFOL}
 echo ""
 echo ""
 
+#chris progress -- status
+#00_template_notebook kk
+#Bottom_age_tracer_in_ACCESS_OM3 #working but had to turn off contour part of plot / second plot does currently not work -- see https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/31#issuecomment-3868337807
+#MLD                         #WORKS / EZHIL
+#MLD_max                     #WORKS
+#Overturning_in_ACCESS_OM3   #WORKS
+#SeaIce_area                 #WORKS
+#SeaIce_mass_budget_climatology #WORKS
+#SSS                         # EZHIL
+#SST                         # EZHIL
+#StraitTransports            # EZHIL
+#salt-vs-depth-time          # ANDREW
+#temp-vs-depth-time          # ANDREW
+#timeseries                  #not working
+#MeridionalHeatTransport 
+#pPV                         #EZHIL
+#Equatorial_pacific          #WORKS
+
 #make the figures
 array=( 
-    00_template_notebook 
-#    Bottom_age_tracer_in_ACCESS_OM3 #waiting
-    MLD                         #WORKS / EZHIL
-    MLD_max                     #WORKS
-    Overturning_in_ACCESS_OM3   #WORKS
-    SeaIce_area                  #waiting on file
-    SeaIce_mass_budget_climatology #WORKS
-#    SSS                         # EZHIL
-#    SST                         # EZHIL
-#    StraitTransports            # EZHIL
-#    salt-vs-depth-time 
-#    temp-vs-depth-time 
-#    timeseries                  #was working on it but then I delete teh changes!
-#    MeridionalHeatTransport 
-#    pPV                         #EZHIL
-#    Equatorial_pacific
+#    00_template_notebook
+    Bottom_age_tracer_in_ACCESS_OM3
+#    MLD
+    MLD_max
+    Overturning_in_ACCESS_OM3
+    SeaIce_area
+    SeaIce_mass_budget_climatology
+#    SSS
+#    SST
+#    StraitTransports
+#    salt-vs-depth-time
+#    temp-vs-depth-time
+#    timeseries
+    MeridionalHeatTransport
+    pPV
+    Equatorial_pacific
 )
 #array=( find_and_load_OM3_25km_ryf_1.0-beta )
 for FNAME in "${array[@]}"
