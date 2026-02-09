@@ -101,7 +101,7 @@ def guess_experiment_from_esm_file(esm_file):
         model_guess = "ACCESS-OM3"
     else:
         model_guess = "Unknown"
-
+    
     # 3. Construct a usable fallback metadata record
     fallback_info = {
         "model": model_guess,
