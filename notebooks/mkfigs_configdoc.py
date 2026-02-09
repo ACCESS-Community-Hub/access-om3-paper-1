@@ -28,7 +28,7 @@ def mkmd(title,caption,experiment,plot_fname,mdfol):
         " \n",
         "## "+title+"\n",
         " \n",
-        '!['+caption+'](/assets/experiments/'+experiment+'/'+plot_fname+'){: style="height:600px;width:900px"} \n',
+        '!['+caption+'](/assets/experiments/'+experiment+'/'+plot_fname+') \n',
         " \n",
         "  Caption: "+caption+"\n",
         "  \n"

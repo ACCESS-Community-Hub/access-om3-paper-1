@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45
+#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45+gdata/cj50
 #PBS -M chris.bull@anu.edu.au
 #PBS -m ae
 #PBS -q normal
@@ -7,8 +7,8 @@
 #PBS -l ncpus=8
 #PBS -l mem=24gb
 #PBS -l walltime=4:00:00
-#PBS -o /g/data/tm70/cyb561/logs
-#PBS -e /g/data/tm70/cyb561/logs
+#PBS -o /g/data/tm70/cyb561/access-om3-paper-1/notebooks
+#PBS -e /g/data/tm70/cyb561/access-om3-paper-1/notebooks
 
 # bash script that runs all the notebooks
 #set -x
@@ -51,14 +51,14 @@ ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/da
 ENAME=MC_25km_jra_iaf-1.0-beta-5165c0f8
 
 #AHogg GM* runs
-#ENAME=MC_25km_jra_iaf-1.0-beta-gm1-d968c801
-#ENAME=MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6
-#ENAME=MC_25km_jra_iaf-1.0-beta-gm3-da330542
-#ENAME=MC_25km_jra_iaf-1.0-beta-gm4-9fd08880
-#ENAME=MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9
-#ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
+ENAME=MC_25km_jra_iaf-1.0-beta-gm1-d968c801
+ENAME=MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6
+ENAME=MC_25km_jra_iaf-1.0-beta-gm3-da330542
+ENAME=MC_25km_jra_iaf-1.0-beta-gm4-9fd08880
+ENAME=MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
 
-OFOL=${WFOLDER}notebooks/mkfigs_output_${ENAME}/
+OFOL=${WFOLDER}notebooks/mkfigs_output_${ENAME}-2/
 # SET THESE END
 
 #best not mess with the path here...
@@ -93,32 +93,38 @@ echo ""
 #salt-vs-depth-time          # ANDREW
 #temp-vs-depth-time          # ANDREW
 #timeseries                  #not working
-#MeridionalHeatTransport 
+#MeridionalHeatTransport     #not working
 #pPV                         #EZHIL
 #Equatorial_pacific          #WORKS
 
 #make the figures
 array=( 
-#    00_template_notebook
-    Bottom_age_tracer_in_ACCESS_OM3
+    00_template_notebook
+##    Bottom_age_tracer_in_ACCESS_OM3
 #    MLD
-    MLD_max
-    Overturning_in_ACCESS_OM3
-    SeaIce_area
-    SeaIce_mass_budget_climatology
+##    MLD_max
+##    Overturning_in_ACCESS_OM3
+##    SeaIce_area
+##    SeaIce_mass_budget_climatology
 #    SSS
 #    SST
 #    StraitTransports
 #    salt-vs-depth-time
 #    temp-vs-depth-time
-#    timeseries
-    MeridionalHeatTransport
-    pPV
-    Equatorial_pacific
+##    timeseries
+##    MeridionalHeatTransport
+##    pPV
+##    Equatorial_pacific
 )
 #array=( find_and_load_OM3_25km_ryf_1.0-beta )
 for FNAME in "${array[@]}"
 do
     echo "Running notebook: "${FNAME}".ipynb"
-    python3 run_nb.py ${FNAME}.ipynb; papermill ${FNAME}.ipynb ${OFOL}${FNAME}_rendered.ipynb -p notebook_name ${FNAME}_rendered.ipynb -p esm_file ${ESMDIR} -p plotfolder ${OFOL} ; jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
+    python3 run_nb.py ${FNAME}.ipynb; papermill ${FNAME}.ipynb ${OFOL}${FNAME}_rendered.ipynb -p notebook_name ${FNAME}_rendered.ipynb -p esm_file ${ESMDIR} -p plotfolder ${OFOL} ; STATUS=$? ; jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
+    
+    if [ "$STATUS" -ne 0 ]; then
+        echo "Notebook: "${FNAME}".ipynb FAILED"
+    else
+        echo "Notebook: "${FNAME}".ipynb SUCCESS!"
+    fi
 done
