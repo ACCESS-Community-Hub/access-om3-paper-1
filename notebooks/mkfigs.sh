@@ -58,7 +58,7 @@ ENAME=MC_25km_jra_iaf-1.0-beta-gm4-9fd08880
 ENAME=MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9
 ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
 
-OFOL=${WFOLDER}notebooks/mkfigs_output_${ENAME}-2/
+OFOL=${WFOLDER}notebooks/mkfigs_output_${ENAME}/
 # SET THESE END
 
 #best not mess with the path here...
@@ -92,39 +92,47 @@ echo ""
 #StraitTransports            # EZHIL
 #salt-vs-depth-time          # ANDREW
 #temp-vs-depth-time          # ANDREW
-#timeseries                  #not working
-#MeridionalHeatTransport     #not working
+#MeridionalHeatTransport     #not working -- now fixed? NO not fixed
 #pPV                         #EZHIL
 #Equatorial_pacific          #WORKS
+#timeseries                  #WORKS
 
 #make the figures
 array=( 
-    00_template_notebook
-##    Bottom_age_tracer_in_ACCESS_OM3
-#    MLD
-##    MLD_max
-##    Overturning_in_ACCESS_OM3
-##    SeaIce_area
-##    SeaIce_mass_budget_climatology
+##   00_template_notebook
+    Bottom_age_tracer_in_ACCESS_OM3
+    MLD
+    MLD_max
+    Overturning_in_ACCESS_OM3
+    SeaIce_area
+    SeaIce_mass_budget_climatology
 #    SSS
 #    SST
 #    StraitTransports
 #    salt-vs-depth-time
 #    temp-vs-depth-time
-##    timeseries
-##    MeridionalHeatTransport
-##    pPV
-##    Equatorial_pacific
+    MeridionalHeatTransport
+    pPV
+    Equatorial_pacific
+    timeseries
 )
-#array=( find_and_load_OM3_25km_ryf_1.0-beta )
+
+## loop through above array 
 for FNAME in "${array[@]}"
 do
-    echo "Running notebook: "${FNAME}".ipynb"
-    python3 run_nb.py ${FNAME}.ipynb; papermill ${FNAME}.ipynb ${OFOL}${FNAME}_rendered.ipynb -p notebook_name ${FNAME}_rendered.ipynb -p esm_file ${ESMDIR} -p plotfolder ${OFOL} ; STATUS=$? ; jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
-    
-    if [ "$STATUS" -ne 0 ]; then
-        echo "Notebook: "${FNAME}".ipynb FAILED"
-    else
-        echo "Notebook: "${FNAME}".ipynb SUCCESS!"
-    fi
+   #this does not work but would be good to have something similar in the future...
+   #echo "Running notebook: "${FNAME}".ipynb"
+   #if ! grep -q "parameters" ${FNAME}.ipynb; then
+   #    echo "Error: No parameters cell found. So skipping notebook: "${FNAME}".ipynb"
+   #    exit 1
+   #    echo "Notebook: "${FNAME}".ipynb FAILED"
+   #else
+   python3 run_nb.py ${FNAME}.ipynb; papermill ${FNAME}.ipynb ${OFOL}${FNAME}_rendered.ipynb -p notebook_name ${FNAME}_rendered.ipynb -p esm_file ${ESMDIR} -p plotfolder ${OFOL} ; STATUS=$? ; jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
+   
+   if [ "$STATUS" -ne 0 ]; then
+       echo "Notebook: "${FNAME}".ipynb FAILED"
+   else
+       echo "Notebook: "${FNAME}".ipynb SUCCESS"
+   fi
+   #fi
 done
