@@ -5,7 +5,7 @@
 #PBS -q normal
 #PBS -W umask=0022
 #PBS -l ncpus=8
-#PBS -l mem=24gb
+#PBS -l mem=64GB
 #PBS -l walltime=4:00:00
 #PBS -o /g/data/tm70/cyb561/access-om3-paper-1/notebooks
 #PBS -e /g/data/tm70/cyb561/access-om3-paper-1/notebooks
@@ -51,14 +51,14 @@ ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/da
 ENAME=MC_25km_jra_iaf-1.0-beta-5165c0f8
 
 #AHogg GM* runs
-ENAME=MC_25km_jra_iaf-1.0-beta-gm1-d968c801
-ENAME=MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6
-ENAME=MC_25km_jra_iaf-1.0-beta-gm3-da330542
-ENAME=MC_25km_jra_iaf-1.0-beta-gm4-9fd08880
-ENAME=MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9
-ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
+#ENAME=MC_25km_jra_iaf-1.0-beta-gm1-d968c801
+#ENAME=MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6
+#ENAME=MC_25km_jra_iaf-1.0-beta-gm3-da330542
+#ENAME=MC_25km_jra_iaf-1.0-beta-gm4-9fd08880
+#ENAME=MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9
+#ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
 
-OFOL=${WFOLDER}notebooks/mkfigs_output_${ENAME}/
+OFOL=${WFOLDER}notebooks/mkfigs_output_${ENAME}-11/
 # SET THESE END
 
 #best not mess with the path here...
@@ -80,41 +80,32 @@ echo ""
 echo ""
 
 #chris progress -- status
-#00_template_notebook kk
-#Bottom_age_tracer_in_ACCESS_OM3 #working but had to turn off contour part of plot / second plot does currently not work -- see https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/31#issuecomment-3868337807
-#MLD                         #WORKS / EZHIL
-#MLD_max                     #WORKS
-#Overturning_in_ACCESS_OM3   #WORKS
-#SeaIce_area                 #WORKS
-#SeaIce_mass_budget_climatology #WORKS
-#SSS                         # EZHIL
-#SST                         # EZHIL
-#StraitTransports            # EZHIL
-#salt-vs-depth-time          # ANDREW
-#temp-vs-depth-time          # ANDREW
-#MeridionalHeatTransport     #not working -- now fixed? NO not fixed
-#pPV                         #EZHIL
-#Equatorial_pacific          #WORKS
-#timeseries                  #WORKS
+#SSH                         #WORKING on now
+#StraitTransports            # EZHIL.
+
+#Timeseries_daily_extreme_from_2D_fields ##NOT WORKING
+#SSS_Restoring_Timeseries
 
 #make the figures
 array=( 
 ##   00_template_notebook
-    Bottom_age_tracer_in_ACCESS_OM3
-    MLD
-    MLD_max
-    Overturning_in_ACCESS_OM3
-    SeaIce_area
-    SeaIce_mass_budget_climatology
+#    Bottom_age_tracer_in_ACCESS_OM3
+#    MLD
+#    MLD_max
+#    Overturning_in_ACCESS_OM3
+#    SeaIce_area
+#    SeaIce_mass_budget_climatology
+#    SSH
 #    SSS
 #    SST
 #    StraitTransports
-#    salt-vs-depth-time
-#    temp-vs-depth-time
-    MeridionalHeatTransport
-    pPV
-    Equatorial_pacific
-    timeseries
+#    MeridionalHeatTransport
+#    temp-salt-vs-depth-time
+#    pPV
+#    Equatorial_pacific
+#     Timeseries_daily_extreme_from_2D_fields
+     SSS_Restoring_Timeseries
+#    timeseries
 )
 
 ## loop through above array 
