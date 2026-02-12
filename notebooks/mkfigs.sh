@@ -82,7 +82,7 @@ echo ""
 #chris progress -- status
 #00_template_notebook kk
 #Bottom_age_tracer_in_ACCESS_OM3 #working but had to turn off contour part of plot / second plot does currently not work -- see https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/31#issuecomment-3868337807
-#MLD                         #WORKS / EZHIL
+#MLD                         #TESTING NOW...
 #MLD_max                     #WORKS
 #Overturning_in_ACCESS_OM3   #WORKS
 #SeaIce_area                 #WORKS
@@ -90,31 +90,33 @@ echo ""
 #SSS                         # EZHIL
 #SST                         # EZHIL
 #StraitTransports            # EZHIL
-#salt-vs-depth-time          # ANDREW
-#temp-vs-depth-time          # ANDREW
+#temp-salt-vs-depth-time.ipynb # TODO -- DOING NOW
 #MeridionalHeatTransport     #not working -- now fixed? NO not fixed
 #pPV                         #EZHIL
 #Equatorial_pacific          #WORKS
 #timeseries                  #WORKS
 
+#Timeseries_daily_extreme_from_2D_fields
+#SSS_Restoring_Timeseries
+#SSH
+
 #make the figures
 array=( 
 ##   00_template_notebook
-    Bottom_age_tracer_in_ACCESS_OM3
-    MLD
-    MLD_max
-    Overturning_in_ACCESS_OM3
-    SeaIce_area
-    SeaIce_mass_budget_climatology
+#    Bottom_age_tracer_in_ACCESS_OM3
+#    MLD
+#    MLD_max
+#    Overturning_in_ACCESS_OM3
+#    SeaIce_area
+#    SeaIce_mass_budget_climatology
 #    SSS
 #    SST
 #    StraitTransports
-#    salt-vs-depth-time
-#    temp-vs-depth-time
-    MeridionalHeatTransport
-    pPV
-    Equatorial_pacific
-    timeseries
+#    MeridionalHeatTransport
+    temp-salt-vs-depth-time
+#    pPV
+#    Equatorial_pacific
+#    timeseries
 )
 
 ## loop through above array 
