@@ -5,7 +5,7 @@
 #PBS -q normal
 #PBS -W umask=0022
 #PBS -l ncpus=8
-#PBS -l mem=24gb
+#PBS -l mem=64GB
 #PBS -l walltime=4:00:00
 #PBS -o /g/data/tm70/cyb561/access-om3-paper-1/notebooks
 #PBS -e /g/data/tm70/cyb561/access-om3-paper-1/notebooks
@@ -80,11 +80,10 @@ echo ""
 echo ""
 
 #chris progress -- status
-#MLD_max                     #WORKS. OK, maybe not working?
 #SSH                         #WORKING on now
 #StraitTransports            # EZHIL.
 
-#Timeseries_daily_extreme_from_2D_fields
+#Timeseries_daily_extreme_from_2D_fields ##NOT WORKING
 #SSS_Restoring_Timeseries
 
 #make the figures
@@ -92,7 +91,7 @@ array=(
 ##   00_template_notebook
 #    Bottom_age_tracer_in_ACCESS_OM3
 #    MLD
-    MLD_max
+#    MLD_max
 #    Overturning_in_ACCESS_OM3
 #    SeaIce_area
 #    SeaIce_mass_budget_climatology
@@ -104,8 +103,8 @@ array=(
 #    temp-salt-vs-depth-time
 #    pPV
 #    Equatorial_pacific
-#     Timeseries_daily_extreme_from_2D_fields
-#     SSS_Restoring_Timeseries
+     Timeseries_daily_extreme_from_2D_fields
+     SSS_Restoring_Timeseries
 #    timeseries
 )
 
