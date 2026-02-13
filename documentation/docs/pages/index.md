@@ -304,6 +304,7 @@ Co-authors (alphabetically) for the notebooks that created these figures: Bull, 
   Caption: `SSH_rendered.ipynb`: Sea surface height comparison for mean and standard deviation for ACCESS-OM3 and ACCESS-OM2.
   
 ## Summary of plot creation
+```text
 We are running ALL the notebooks.
 We are using ESMDIR: /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json
 We are using working folder (WFOLDER): /g/data/tm70/cyb561/access-om3-paper-1/
@@ -332,3 +333,4 @@ Notebook: SSH.ipynb SUCCESS
    Walltime Requested: 12:00:00            Walltime Used: 02:18:52
    JobFS Requested:    100.0MB                JobFS Used: 18.02MB
 ======================================================================================
+```
