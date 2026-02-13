@@ -6,13 +6,13 @@ This page shows evaluation figures from ACCESS-OM3 experiment MC_25km_jra_iaf-1.
 Co-authors (alphabetically) for the notebooks that created these figures: Bull, Christopher Yit Sen. Charles, Turner. Dawson, Hannah. Day, Noah. Hogg, Andrew McC. Huneke, Wilma Gertrud Charlotte. Kannadasan, Ezhilsabareesh. Kiss, Andrew E.. Li, Minghang. Shea, Helen. Squire, Dougal. Steketee, Anton. 
 ## Template notebook
  
-![`00_template_notebook_rendered.ipynb`: Example figure of ACCESS-OM3 sea surface height (m).](/assets/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/00_template_notebook_rendered1.svg) 
+![`00_template_notebook_rendered.ipynb`: Example figure of ACCESS-OM3 sea surface height (m).](../assets/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/00_template_notebook_rendered1.svg) 
  
   Caption: `00_template_notebook_rendered.ipynb`: Example figure of ACCESS-OM3 sea surface height (m).
   
 ## Bottom age tracer
  
-![`Bottom_age_tracer_in_ACCESS_OM3_rendered.ipynb`: Normalised bottom age comparing ACCESS-OM3 and ACCESS-OM2.](/assets/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/Bottom_age_tracer_in_ACCESS_OM3_rendered1.png) 
+![`Bottom_age_tracer_in_ACCESS_OM3_rendered.ipynb`: Normalised bottom age comparing ACCESS-OM3 and ACCESS-OM2.](../assets/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/Bottom_age_tracer_in_ACCESS_OM3_rendered1.png) 
  
   Caption: `Bottom_age_tracer_in_ACCESS_OM3_rendered.ipynb`: Normalised bottom age comparing ACCESS-OM3 and ACCESS-OM2.
   
