@@ -297,3 +297,38 @@ Co-authors (alphabetically) for the notebooks that created these figures: Bull, 
  
   Caption: `timeseries_rendered.ipynb`: 
   
+## Sea Surface Height
+ 
+![`SSH_rendered.ipynb`: Sea surface height comparison for mean and standard deviation for ACCESS-OM3 and ACCESS-OM2.](../assets/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/SSH_rendered1.png) 
+ 
+  Caption: `SSH_rendered.ipynb`: Sea surface height comparison for mean and standard deviation for ACCESS-OM3 and ACCESS-OM2.
+  
+## Summary of plot creation
+We are running ALL the notebooks.
+We are using ESMDIR: /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json
+We are using working folder (WFOLDER): /g/data/tm70/cyb561/access-om3-paper-1/
+Output will be in: /g/data/tm70/cyb561/access-om3-paper-1/notebooks/mkfigs_output_MC_25km_jra_iaf-1.0-beta-5165c0f8/
+
+
+Notebook: SSS.ipynb SUCCESS
+Notebook: SST.ipynb SUCCESS
+Notebook: StraitTransports.ipynb SUCCESS
+Notebook: MeridionalHeatTransport.ipynb SUCCESS
+Notebook: temp-salt-vs-depth-time.ipynb SUCCESS
+Notebook: pPV.ipynb SUCCESS
+Notebook: Equatorial_pacific.ipynb SUCCESS
+Notebook: SSS_Restoring_Timeseries.ipynb SUCCESS
+Notebook: timeseries.ipynb SUCCESS
+Notebook: SSH.ipynb SUCCESS
+
+======================================================================================
+                  Resource Usage on 2026-02-13 12:06:43:
+   Job Id:             160793718.gadi-pbs
+   Project:            tm70
+   Exit Status:        0
+   Service Units:      219.87
+   NCPUs Requested:    16                  CPU Time Used: 17:23:44
+   Memory Requested:   190.0GB               Memory Used: 96.22GB
+   Walltime Requested: 12:00:00            Walltime Used: 02:18:52
+   JobFS Requested:    100.0MB                JobFS Used: 18.02MB
+======================================================================================
