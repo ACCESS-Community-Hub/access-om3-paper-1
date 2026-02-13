@@ -4,11 +4,11 @@
 site_name: access-om3-paper-1-figures 
  
 # Site URL
-site_url: !ENV [SITE_URL, "https://access-community-hub.github.io/decoding-om3/"]
+site_url: !ENV [SITE_URL, "https://access-om3-paper-1.readthedocs.io/"]
 
 # Git repository (Adds a link to the GitHub repository at the top)
-repo_url: https://github.com/ACCESS-Community-Hub/decoding-om3
-repo_name: ACCESS-Community-Hub/decoding-om3
+repo_url: https://github.com/chrisb13/access-om3-paper-1
+repo_name: chrisb13/access-om3-paper-1
 edit_uri: blob/main/documentation/docs/ #hopefully will fix the edit button from 404'ing, https://github.com/mkdocs/mkdocs/issues/2416
 
 # Theme
