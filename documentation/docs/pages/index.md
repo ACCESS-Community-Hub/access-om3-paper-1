@@ -1,7 +1,7 @@
 <!-- push this file to documentation/docs/pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8 and the images to documentation/docs/assets/MC_25km_jra_iaf-1.0-beta-5165c0f8 -->
 # MC_25km_jra_iaf-1.0-beta-5165c0f8
  
-This page shows evaluation figures from ACCESS-OM3 experiment MC_25km_jra_iaf-1.0-beta-5165c0f8 for discussion and see plotting scripts have a look at [this repository](https://github.com/acCESS-Community-Hub/access-om3-paper-1/) and related [issues](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues).
+This page shows evaluation figures from ACCESS-OM3 experiment MC_25km_jra_iaf-1.0-beta-5165c0f8 for discussion and see plotting scripts have a look at [this repository](https://github.com/acCESS-Community-Hub/access-om3-paper-1/) and related [issues](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues). 
  
 Co-authors (alphabetically) for the notebooks that created these figures: Bull, Christopher Yit Sen. Charles, Turner. Dawson, Hannah. Day, Noah. Hogg, Andrew McC. Huneke, Wilma Gertrud Charlotte. Kannadasan, Ezhilsabareesh. Kiss, Andrew E.. Li, Minghang. Shea, Helen. Squire, Dougal. Steketee, Anton. 
 ## Template notebook
