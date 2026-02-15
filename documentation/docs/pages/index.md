@@ -8,7 +8,7 @@ Co-authors (alphabetically) for the notebooks that created these figures: Bull, 
  
 ![`00_template_notebook_rendered.ipynb`: Example figure of ACCESS-OM3 sea surface height (m).](../assets/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/00_template_notebook_rendered1.svg) 
  
-  Caption: `00_template_notebook_rendered.ipynb`: Example figure of ACCESS-OM3 sea surface height (m).
+  Caption: `00_template_notebook_rendered.ipynb`: Example figure of ACCESS-OM3 sea surface height (m). 
   
 ## Bottom age tracer
  
