@@ -4,9 +4,9 @@
 #PBS -m ae
 #PBS -q normal
 #PBS -W umask=0022
-#PBS -l ncpus=8
-#PBS -l mem=64GB
-#PBS -l walltime=4:00:00
+#PBS -l ncpus=16
+#PBS -l mem=190GB
+#PBS -l walltime=12:00:00
 #PBS -o /g/data/tm70/cyb561/access-om3-paper-1/notebooks
 #PBS -e /g/data/tm70/cyb561/access-om3-paper-1/notebooks
 
@@ -38,7 +38,6 @@ module list
 WFOLDER=/g/data/tm70/cyb561/access-om3-paper-1/
 ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/experiment_datastore.json
 
-
 #DS run from June 2025
 #ESMDIR=/scratch/tm70/ds0092/access-om3/archive/om3_MC_25km_jra_ryf+wombatlite/intake_esm_ds.json
 
@@ -58,7 +57,15 @@ ENAME=MC_25km_jra_iaf-1.0-beta-5165c0f8
 #ENAME=MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9
 #ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
 
-OFOL=${WFOLDER}notebooks/mkfigs_output_${ENAME}-11/
+#WOMBAT run 19-Dec-25
+ENAME=MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c
+ESMDIR=/g/data/ol01/outputs/access-om3-100km/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/experiment_datastore.json
+
+#WOMBAT run 22-Dec-25
+#ENAME=MC_25km_jra_ryf+wombatlite-81ad20e-c4347f5a
+#ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-81ad20e-c4347f5a/experiment_datastore.json
+
+OFOL=${WFOLDER}notebooks/mkfigs_output_${ENAME}/
 # SET THESE END
 
 #best not mess with the path here...
@@ -79,34 +86,32 @@ echo "Output will be in: "${OFOL}
 echo ""
 echo ""
 
-#chris progress -- status
-#SSH                         #WORKING on now
-#StraitTransports            # EZHIL.
-
-#Timeseries_daily_extreme_from_2D_fields ##NOT WORKING
-#SSS_Restoring_Timeseries
+#chris progress -- status on all scripts working with mkfigs.sh
+#Timeseries_daily_extreme_from_2D_fields ##do not have the outputs needed, see https://github.com/ACCESS-NRI/access-om3-configs/issues/1046#issuecomment-3924389373
 
 #make the figures
 array=( 
-##   00_template_notebook
-#    Bottom_age_tracer_in_ACCESS_OM3
-#    MLD
-#    MLD_max
-#    Overturning_in_ACCESS_OM3
-#    SeaIce_area
-#    SeaIce_mass_budget_climatology
-#    SSH
-#    SSS
-#    SST
-#    StraitTransports
-#    MeridionalHeatTransport
-#    temp-salt-vs-depth-time
-#    pPV
-#    Equatorial_pacific
-#     Timeseries_daily_extreme_from_2D_fields
-     SSS_Restoring_Timeseries
-#    timeseries
+#   00_template_notebook
+    Bottom_age_tracer_in_ACCESS_OM3
+    MLD
+    MLD_max
+    Overturning_in_ACCESS_OM3
+    SeaIce_area
+    SeaIce_mass_budget_climatology
+    SSS
+    SST
+    StraitTransports
+    MeridionalHeatTransport
+    temp-salt-vs-depth-time
+    pPV
+    Equatorial_pacific
+    SSS_Restoring_Timeseries
+#   Timeseries_daily_extreme_from_2D_fields
+    timeseries
+    SSH
+    StraitTransports
 )
+#SSH uses a lot of memory !!
 
 ## loop through above array 
 for FNAME in "${array[@]}"
