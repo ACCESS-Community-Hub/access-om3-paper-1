@@ -4,9 +4,9 @@
 #PBS -m ae
 #PBS -q normal
 #PBS -W umask=0022
-#PBS -l ncpus=8
-#PBS -l mem=64GB
-#PBS -l walltime=4:00:00
+#PBS -l ncpus=16
+#PBS -l mem=190GB
+#PBS -l walltime=12:00:00
 #PBS -o /g/data/tm70/cyb561/access-om3-paper-1/notebooks
 #PBS -e /g/data/tm70/cyb561/access-om3-paper-1/notebooks
 
@@ -58,7 +58,7 @@ ENAME=MC_25km_jra_iaf-1.0-beta-5165c0f8
 #ENAME=MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9
 #ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
 
-OFOL=${WFOLDER}notebooks/mkfigs_output_${ENAME}-11/
+OFOL=${WFOLDER}notebooks/mkfigs_output_${ENAME}/
 # SET THESE END
 
 #best not mess with the path here...
@@ -79,34 +79,32 @@ echo "Output will be in: "${OFOL}
 echo ""
 echo ""
 
-#chris progress -- status
-#SSH                         #WORKING on now
+#chris progress -- status on all scripts working with mkfigs.sh
 #StraitTransports            # EZHIL.
-
-#Timeseries_daily_extreme_from_2D_fields ##NOT WORKING
-#SSS_Restoring_Timeseries
+#Timeseries_daily_extreme_from_2D_fields ##do not have the outputs needed, see https://github.com/ACCESS-NRI/access-om3-configs/issues/1046#issuecomment-3924389373
 
 #make the figures
 array=( 
-##   00_template_notebook
-#    Bottom_age_tracer_in_ACCESS_OM3
-#    MLD
-#    MLD_max
-#    Overturning_in_ACCESS_OM3
-#    SeaIce_area
-#    SeaIce_mass_budget_climatology
-#    SSH
-#    SSS
-#    SST
-#    StraitTransports
-#    MeridionalHeatTransport
-#    temp-salt-vs-depth-time
-#    pPV
-#    Equatorial_pacific
-#     Timeseries_daily_extreme_from_2D_fields
-     SSS_Restoring_Timeseries
-#    timeseries
+#   00_template_notebook
+#   Bottom_age_tracer_in_ACCESS_OM3
+#   MLD
+#   MLD_max
+#   Overturning_in_ACCESS_OM3
+#   SeaIce_area
+#   SeaIce_mass_budget_climatology
+    SSS
+    SST
+    StraitTransports
+    MeridionalHeatTransport
+    temp-salt-vs-depth-time
+    pPV
+    Equatorial_pacific
+    SSS_Restoring_Timeseries
+#   Timeseries_daily_extreme_from_2D_fields
+    timeseries
+    SSH
 )
+#SSH uses a lot of memory !!
 
 ## loop through above array 
 for FNAME in "${array[@]}"
