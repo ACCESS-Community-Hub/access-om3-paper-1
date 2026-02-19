@@ -1,7 +1,7 @@
 import os
 #little function to create a figure file for om3 configs
 #cb
-def mkmd(title,caption,experiment,plot_fname,mdfol):
+def mkmd(title,caption,experiment,plot_fname,mdfol,table=''):
     #print('')
     #print(title)
     #print(caption)
@@ -18,21 +18,41 @@ def mkmd(title,caption,experiment,plot_fname,mdfol):
     mdpath=mdfol+experiment+'.md'
     print('Adding a figure to markdown doc: '+mdpath)
 
-    lines_to_append = [
-        "<!-- push this file to documentation/docs/pages/experiments/"+experiment+" and the images to documentation/docs/assets/"+experiment+" -->"+"\n",
-        "# "+experiment+"\n",
-        " \n",
-        "This page shows evaluation figures from ACCESS-OM3 experiment "+ experiment+ " for discussion and see plotting scripts have a look at [this repository](https://github.com/acCESS-Community-Hub/access-om3-paper-1/) and related [issues](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues).\n",
-         " \n",
-        getauthors(),
-        " \n",
-        "## "+title+"\n",
-        " \n",
-        '!['+caption+'](/assets/experiments/'+experiment+'/'+plot_fname+') \n',
-        " \n",
-        "  Caption: "+caption+"\n",
-        "  \n"
-    ]
+    if table!='':
+        fig_or_table=table
+
+        lines_to_append = [
+            "<!-- push this file to documentation/docs/pages/experiments/"+experiment+" and the images to documentation/docs/assets/"+experiment+" -->"+"\n",
+            "# "+experiment+"\n",
+            " \n",
+            "This page shows evaluation figures from ACCESS-OM3 experiment "+ experiment+ " for discussion and see plotting scripts have a look at [this repository](https://github.com/acCESS-Community-Hub/access-om3-paper-1/) and related [issues](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues).\n",
+             " \n",
+            getauthors(),
+            " \n",
+            "## "+title+"\n",
+            " \n",
+        ]
+        for tableline in fig_or_table:
+            lines_to_append.append(tableline+"\n")
+        #lines_to_append.append(" \n")
+    else:
+        fig_or_table='!['+caption+'](/assets/experiments/'+experiment+'/'+plot_fname+') \n'
+
+        lines_to_append = [
+            "<!-- push this file to documentation/docs/pages/experiments/"+experiment+" and the images to documentation/docs/assets/"+experiment+" -->"+"\n",
+            "# "+experiment+"\n",
+            " \n",
+            "This page shows evaluation figures from ACCESS-OM3 experiment "+ experiment+ " for discussion and see plotting scripts have a look at [this repository](https://github.com/acCESS-Community-Hub/access-om3-paper-1/) and related [issues](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues).\n",
+             " \n",
+            getauthors(),
+            " \n",
+            "## "+title+"\n",
+            " \n",
+            fig_or_table,
+            " \n",
+            "  Caption: "+caption+"\n",
+            "  \n"
+        ]
 
     #check if file exists
     if os.path.exists(mdpath) and string_exists_in_file(mdpath, title):
