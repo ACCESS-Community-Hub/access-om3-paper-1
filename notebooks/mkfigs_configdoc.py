@@ -1,7 +1,35 @@
+import nci_ipynb  # requires conda/analysis3-26.03 or later
+import matplotlib.pyplot as plt
+from matplotlib import rcParams
 import os
+
+dpi = 150
+rcParams["figure.dpi"]= dpi
+
+def mkmd_savefig(title, caption, table="", dpi=dpi):
+    if mkmd_savefig.papermill:
+        plot_fname = f"{nci_ipynb.name()}{mkmd_savefig.fignum}.png"
+        mdfol = nci_ipynb.dir()/"mkmd"
+        os.makedirs(mdfol, exist_ok=True)
+        plt.savefig(mdfol/plot_fname, dpi=dpi, bbox_inches="tight")
+        print("Saved", mdfol/plot_fname)
+        mkmd(title,
+             f"`{nci_ipynb.name()}`: {caption}.",
+             os.path.basename(os.path.dirname(mkmd_savefig.esm_file)),
+             plot_fname,
+             mdfol.as_posix()+"/",
+             table)
+        mkmd_savefig.fignum += 1
+
+def init_mkmd_savefig(esm_file, papermill):
+    # init state variables in mkmd_savefig
+    mkmd_savefig.fignum = 1
+    mkmd_savefig.esm_file = esm_file
+    mkmd_savefig.papermill = papermill
+
+def mkmd(title,caption,experiment,plot_fname,mdfol,table=''):
 #little function to create a figure file for om3 configs
 #cb
-def mkmd(title,caption,experiment,plot_fname,mdfol,table=''):
     #print('')
     #print(title)
     #print(caption)
