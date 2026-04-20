@@ -14,16 +14,12 @@
 #set -x
 module purge
 module use /g/data/xp65/public/modules
-#module load conda/analysis3-25.07 
-#module load conda/analysis3-25.08
-#module load conda/analysis3-25.09 #contains papermill 2.6.0 - https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda/issues/310
-
-module load conda/analysis3-26.02
+module load conda/analysis3
 module list
 
 ## workflow
 #1. `cd /g/data/tm70/cyb561;git clone git@github.com:ACCESS-Community-Hub/access-om3-paper-1.git`
-#1. Edit this file and `chmod u+x mkfigs.sh`
+#1. Edit this file
 #1. add path to WFOLDER
 #1. set path to ESMDIR (ESM-datastore for experiment)
 #1. ensure the experiment folder is availble in storage header above
@@ -46,8 +42,8 @@ ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/ex
 #ENAME=25km-iaf-test-for-AK-expt-7df5ef4c
 
 #AK iaf run 9-Dec-25
-ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json
-ENAME=MC_25km_jra_iaf-1.0-beta-5165c0f8
+# ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json
+# ENAME=MC_25km_jra_iaf-1.0-beta-5165c0f8
 
 #AHogg GM* runs
 #ENAME=MC_25km_jra_iaf-1.0-beta-gm1-d968c801
@@ -64,6 +60,10 @@ ESMDIR=/g/data/ol01/outputs/access-om3-100km/MC_100km_jra_ryf+wombatlite-1e74abf
 #WOMBAT run 22-Dec-25
 #ENAME=MC_25km_jra_ryf+wombatlite-81ad20e-c4347f5a
 #ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-81ad20e-c4347f5a/experiment_datastore.json
+
+#AK iaf run Apr-26
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test3v2-00532b88/datastore.json
+ENAME=MC_25km_jra_iaf+wombatlite-test3v2-00532b88
 
 OFOL=${WFOLDER}notebooks/mkfigs_output_${ENAME}/
 # SET THESE END
@@ -123,7 +123,7 @@ do
    #    exit 1
    #    echo "Notebook: "${FNAME}".ipynb FAILED"
    #else
-   python3 run_nb.py ${FNAME}.ipynb; papermill ${FNAME}.ipynb ${OFOL}${FNAME}_rendered.ipynb -p notebook_name ${FNAME}_rendered.ipynb -p esm_file ${ESMDIR} -p plotfolder ${OFOL} ; STATUS=$? ; jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
+   python3 run_nb.py ${FNAME}.ipynb; papermill ${FNAME}.ipynb ${OFOL}${FNAME}_rendered.ipynb -p esm_file ${ESMDIR} -p papermill True ; STATUS=$? ; jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
    
    if [ "$STATUS" -ne 0 ]; then
        echo "Notebook: "${FNAME}".ipynb FAILED"
