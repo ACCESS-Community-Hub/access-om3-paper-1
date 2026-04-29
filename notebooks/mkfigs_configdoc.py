@@ -1,7 +1,60 @@
+import nci_ipynb  # requires conda/analysis3-26.03 or later
+import matplotlib.pyplot as plt
+from matplotlib import rcParams
 import os
+
+dpi = 150
+rcParams["figure.dpi"]= dpi
+
+def mkmd_savefig(title, caption, dpi=dpi):
+    """Save figure and append to markdown summary. Must call init_mkmd before this.
+
+    title: title of figure
+    caption: caption of figure
+    dpi: optional dpi for figure
+    """
+    if mkmd_savefig.papermill:
+        plot_fname = f"{nci_ipynb.name()}{mkmd_savefig.fignum}.png"
+        mdfol = nci_ipynb.dir()/"mkmd"
+        os.makedirs(mdfol, exist_ok=True)
+        plt.savefig(mdfol/plot_fname, dpi=dpi, bbox_inches="tight")
+        print("Saved", mdfol/plot_fname)
+        mkmd(title,
+             f"`{nci_ipynb.name()}`: {caption}",
+             mkmd_savefig.experiment,
+             plot_fname,
+             mdfol.as_posix()+"/",
+             "")
+        mkmd_savefig.fignum += 1
+
+def mkmd_table(title, table):
+    """Append table to markdown summary. Must call init_mkmd before this.
+
+    title: title of table
+    table: markdown table string
+    """
+    if mkmd_table.papermill:
+        mdfol = nci_ipynb.dir()/"mkmd"
+        mkmd(title,
+             "",
+             mkmd_table.experiment,
+             "",
+             mdfol.as_posix()+"/",
+             table)
+
+def init_mkmd(esm_file, papermill):
+    """init state variables in mkmd_savefig and mkmd_table
+
+    esm_file: path to Intake datastore, used to determine experiment name
+    papermill: boolean; if False, mkmd_savefig and mkmd_table will do nothing
+    """
+    mkmd_savefig.fignum = 1
+    mkmd_savefig.experiment = mkmd_table.experiment = os.path.basename(os.path.dirname(esm_file))
+    mkmd_savefig.papermill = mkmd_table.papermill = papermill
+
+def mkmd(title,caption,experiment,plot_fname,mdfol,table=''):
 #little function to create a figure file for om3 configs
 #cb
-def mkmd(title,caption,experiment,plot_fname,mdfol,table=''):
     #print('')
     #print(title)
     #print(caption)
