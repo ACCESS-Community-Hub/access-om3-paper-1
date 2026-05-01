@@ -33,24 +33,24 @@ def mkmd_table(title, table):
     title: title of table
     table: markdown table string
     """
-    if mkmd_table.papermill:
+    if mkmd_savefig.papermill:
         mdfol = nci_ipynb.dir()/"mkmd"
         mkmd(title,
              "",
-             mkmd_table.experiment,
+             mkmd_savefig.experiment,
              "",
              mdfol.as_posix()+"/",
              table)
 
 def init_mkmd(esm_file, papermill):
-    """init state variables in mkmd_savefig and mkmd_table
+    """init state variables used in mkmd_savefig and mkmd_table
 
     esm_file: path to Intake datastore, used to determine experiment name
     papermill: boolean; if False, mkmd_savefig and mkmd_table will do nothing
     """
     mkmd_savefig.fignum = 1
-    mkmd_savefig.experiment = mkmd_table.experiment = os.path.basename(os.path.dirname(esm_file))
-    mkmd_savefig.papermill = mkmd_table.papermill = papermill
+    mkmd_savefig.experiment = os.path.basename(os.path.dirname(esm_file))
+    mkmd_savefig.papermill = papermill
 
 def mkmd(title,caption,experiment,plot_fname,mdfol,table=''):
 #little function to create a figure file for om3 configs
