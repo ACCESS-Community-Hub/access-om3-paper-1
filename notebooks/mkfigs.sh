@@ -31,8 +31,9 @@ module list
 
 
 # SET THESE START
-WFOLDER=/g/data/tm70/cyb561/access-om3-paper-1/
-ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/experiment_datastore.json
+#WFOLDER=/g/data/tm70/cyb561/access-om3-paper-1/
+WFOLDER=/g/data/tm70/cyb561/access-om3-paper-2/
+#ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/experiment_datastore.json
 
 #DS run from June 2025
 #ESMDIR=/scratch/tm70/ds0092/access-om3/archive/om3_MC_25km_jra_ryf+wombatlite/intake_esm_ds.json
@@ -91,25 +92,25 @@ echo ""
 
 #make the figures
 array=( 
-#   00_template_notebook
-    Bottom_age_tracer_in_ACCESS_OM3
-    MLD
-    MLD_max
-    Overturning_in_ACCESS_OM3
-    SeaIce_area
-    SeaIce_mass_budget_climatology
-    SSS
-    SST
-    StraitTransports
-    MeridionalHeatTransport
-    temp-salt-vs-depth-time
-    pPV
-    Equatorial_pacific
-    SSS_Restoring_Timeseries
-#   Timeseries_daily_extreme_from_2D_fields
-    timeseries
-    SSH
-    StraitTransports
+   00_template_notebook
+#    Bottom_age_tracer_in_ACCESS_OM3
+#    MLD
+#    MLD_max
+#    Overturning_in_ACCESS_OM3
+#    SeaIce_area
+#    SeaIce_mass_budget_climatology
+#    SSS
+#    SST
+#    StraitTransports
+#    MeridionalHeatTransport
+#    temp-salt-vs-depth-time
+#    pPV
+#    Equatorial_pacific
+#    SSS_Restoring_Timeseries
+##   Timeseries_daily_extreme_from_2D_fields
+#    timeseries
+#    SSH
+#    StraitTransports
 )
 #SSH uses a lot of memory !!
 
