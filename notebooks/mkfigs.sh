@@ -92,6 +92,7 @@ echo ""
 
 #make the figures
 array=( 
+#   00_template_notebook-Copy1
    00_template_notebook
 #    Bottom_age_tracer_in_ACCESS_OM3
 #    MLD
@@ -124,12 +125,13 @@ do
    #    exit 1
    #    echo "Notebook: "${FNAME}".ipynb FAILED"
    #else
-   python3 run_nb.py ${FNAME}.ipynb; papermill ${FNAME}.ipynb ${OFOL}${FNAME}_rendered.ipynb -p esm_file ${ESMDIR} -p papermill True ; STATUS=$? ; jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
+
+   #note: adding "--log-output" can be useful for understanding papermill output
+   python3 run_nb.py ${FNAME}.ipynb; papermill ${FNAME}.ipynb ${OFOL}${FNAME}_rendered.ipynb -p esm_file ${ESMDIR} -p papermill True -p cwd ${OFOL} -p nbname ${FNAME}.ipynb --log-output ; STATUS=$? ; jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
    
    if [ "$STATUS" -ne 0 ]; then
        echo "Notebook: "${FNAME}".ipynb FAILED"
    else
        echo "Notebook: "${FNAME}".ipynb SUCCESS"
    fi
-   #fi
 done

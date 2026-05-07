@@ -3,64 +3,71 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import os
 
-dpi = 150
+dpi = 100
 rcParams["figure.dpi"]= dpi
 
-def mkmd_savefig(title, caption, dpi=dpi):
-    """Save figure and append to markdown summary. Must call init_mkmd before this.
+class MkmdWriter:
+    """Class to keep track of exporting key Figures or Tables to a markdown file
 
-    title: title of figure
-    caption: caption of figure
-    dpi: optional dpi for figure
+    experiment: path to esm file, we just take the last folder to mean the experiment name
+    nbname: name of notebook that this is being called from
+    cwd: current working directory (will use this as the basis for plot folder)
+    pm (default: False): being called by papermill?
     """
-    if mkmd_savefig.papermill:
-        plot_fname = f"{nci_ipynb.name()}{mkmd_savefig.fignum}.png"
-        mdfol = nci_ipynb.dir()/"mkmd"
-        os.makedirs(mdfol, exist_ok=True)
-        plt.savefig(mdfol/plot_fname, dpi=dpi, bbox_inches="tight")
-        print("Saved", mdfol/plot_fname)
-        mkmd(title,
-             f"`{nci_ipynb.name()}`: {caption}",
-             mkmd_savefig.experiment,
-             plot_fname,
-             mdfol.as_posix()+"/",
-             "")
-        mkmd_savefig.fignum += 1
+    def __init__(self, experiment,nbname,cwd,pm=False):
+        self.fignum = 1
+        self.experiment = os.path.basename(os.path.dirname(experiment))
+        self.nbname = nbname
+        self.cwd    = cwd
+        self.papermill = pm
+        self.mdfol = self.cwd+"mkmd/"
 
-def mkmd_table(title, table):
-    """Append table to markdown summary. Must call init_mkmd before this.
+    def savefig(self, title, caption, dpi=dpi):
+        """Save figure and append to markdown summary. Must call init_mkmd before this.
 
-    title: title of table
-    table: markdown table string
-    """
-    if mkmd_savefig.papermill:
-        mdfol = nci_ipynb.dir()/"mkmd"
-        mkmd(title,
-             "",
-             mkmd_savefig.experiment,
-             "",
-             mdfol.as_posix()+"/",
-             table)
+        title: title of figure
+        caption: caption of figure
+        dpi (default: 100): dpi for figure
+        """
+        if self.papermill:
+            plot_fname = self.nbname[:-6]+"_"+str(self.fignum).zfill(2)+".png"
+            
+            os.makedirs(self.mdfol, exist_ok=True)
+            plt.savefig(self.mdfol+plot_fname, dpi=dpi, bbox_inches="tight")
+            print("Saved", self.mdfol+plot_fname)
+            
+            mkmd(title,
+                 f"`{self.nbname}`: {caption}",
+                 self.experiment,
+                 plot_fname,
+                 self.mdfol,
+                 table='')
+        self.fignum += 1
 
-def init_mkmd(esm_file, papermill):
-    """init state variables used in mkmd_savefig and mkmd_table
+    def table(self, title, table):
+        """Append table to markdown summary. Must call init_mkmd before this.
+        title: title of table
+        table: markdown table string (expected format is a list with strings where each new item is a new line)
+        """
+        if self.papermill:
+            mkmd(title,
+                 f"`{self.nbname}`: This is a table caption",
+                 self.experiment,
+                 "",
+                 self.mdfol,
+                 table)
 
-    esm_file: path to Intake datastore, used to determine experiment name
-    papermill: boolean; if False, mkmd_savefig and mkmd_table will do nothing
-    """
-    mkmd_savefig.fignum = 1
-    mkmd_savefig.experiment = os.path.basename(os.path.dirname(esm_file))
-    mkmd_savefig.papermill = papermill
 
 def mkmd(title,caption,experiment,plot_fname,mdfol,table=''):
-#little function to create a figure file for om3 configs
-#cb
-    #print('')
-    #print(title)
-    #print(caption)
-    #print(experiment)
-    #print(plot_fname)
-    #print('')
+    """Function to create a markdown file and add a figure or a table
+
+    title: title for figure or table 
+    caption: caption for figure (not used when making a table)
+    experiment: experiment name
+    plot_fname: name of plot
+    mdfol: directory to output markdown file and figures
+    table (default: ''): if this is \neq '' then a table will be added rather than a figure
+    """
     # Create the folder
     try:
         # exist_ok=True prevents an error if the directory already exists
@@ -124,8 +131,6 @@ def mkmd(title,caption,experiment,plot_fname,mdfol,table=''):
     except:
         pass
         
-    print('')
-
     return
 
 def string_exists_in_file(filename, search_string):
@@ -140,13 +145,8 @@ def string_exists_in_file(filename, search_string):
         print(f"Warning: First time this notebook has been included: '{filename}'.")
         return False
 
-def get_notebook_name(notebook_name):
-    if notebook_name!='not_using_mkfigs.sh':
-        notebook_name=os.path.basename(os.environ.get("JPY_SESSION_NAME"))
-    print("Notebook name is:", notebook_name)
-    return notebook_name
-
 def getauthors(file_path='../CITATION.cff'):
+    """Function to find authors from citation file and put them in the markdown file"""
     #in case one wants a downloaded one
     #import urllib.request
     #file_path= "https://raw.githubusercontent.com/ACCESS-Community-Hub/access-om3-paper-1/main/CITATION.cff"
@@ -185,8 +185,4 @@ def getauthors(file_path='../CITATION.cff'):
     
             given = None
             family = None
-    #print('Co-authors (alphabetically) for the notebooks that created these figures: '+' '.join(sorted(coauthors)))
     return 'Co-authors (alphabetically) for the notebooks that created these figures: '+' '.join(sorted(coauthors))
-
-
-
