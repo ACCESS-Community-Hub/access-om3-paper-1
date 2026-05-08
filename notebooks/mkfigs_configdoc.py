@@ -22,7 +22,7 @@ class MkmdWriter:
         self.papermill = pm
         self.mdfol = self.cwd+"mkmd/"
 
-    def savefig(self, title, caption, dpi=self.dpi):
+    def savefig(self, title, caption, dpi=dpi):
         """Save figure and append to markdown summary.
 
         title: title of figure
