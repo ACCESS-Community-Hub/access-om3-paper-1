@@ -92,26 +92,25 @@ echo ""
 
 #make the figures
 array=( 
-#   00_template_notebook-Copy1
-   00_template_notebook
-#    Bottom_age_tracer_in_ACCESS_OM3
-#    MLD
-#    MLD_max
-#    Overturning_in_ACCESS_OM3
-#    SeaIce_area
-#    SeaIce_mass_budget_climatology
-#    SSS
-#    SST
-#    StraitTransports
-#    MeridionalHeatTransport
-#    temp-salt-vs-depth-time
-#    pPV
-#    Equatorial_pacific
-#    SSS_Restoring_Timeseries
-##   Timeseries_daily_extreme_from_2D_fields
-#    timeseries
-#    SSH
-#    StraitTransports
+    00_template_notebook
+    Bottom_age_tracer_in_ACCESS_OM3
+    MLD
+    MLD_max
+    Overturning_in_ACCESS_OM3
+    SeaIce_area
+    SeaIce_mass_budget_climatology
+    SSS
+    SST
+    StraitTransports
+    MeridionalHeatTransport
+    temp-salt-vs-depth-time
+    pPV
+    Equatorial_pacific
+    SSS_Restoring_Timeseries
+#   Timeseries_daily_extreme_from_2D_fields
+    timeseries
+    SSH
+    StraitTransports
 )
 #SSH uses a lot of memory !!
 
@@ -127,7 +126,7 @@ do
    #else
 
    #note: adding "--log-output" can be useful for understanding papermill output
-   python3 run_nb.py ${FNAME}.ipynb; papermill ${FNAME}.ipynb ${OFOL}${FNAME}_rendered.ipynb -p esm_file ${ESMDIR} -p papermill True -p cwd ${OFOL} -p nbname ${FNAME}.ipynb --log-output ; STATUS=$? ; jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
+   python3 run_nb.py ${FNAME}.ipynb; papermill ${FNAME}.ipynb ${OFOL}${FNAME}_rendered.ipynb -p esm_file ${ESMDIR} -p papermill True -p cwd ${OFOL} -p nbname ${FNAME}.ipynb ; STATUS=$? ; jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
    
    if [ "$STATUS" -ne 0 ]; then
        echo "Notebook: "${FNAME}".ipynb FAILED"
