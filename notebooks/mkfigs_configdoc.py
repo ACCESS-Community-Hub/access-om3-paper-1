@@ -14,16 +14,16 @@ class MkmdWriter:
     cwd: current working directory (will use this as the basis for plot folder)
     pm (default: False): being called by papermill?
     """
-    def __init__(self, experiment,nbname,cwd,pm=False):
+    def __init__(self, esm_file, nbname, cwd, pm=False):
         self.fignum = 1
-        self.experiment = os.path.basename(os.path.dirname(experiment))
+        self.experiment = os.path.basename(os.path.dirname(esm_file))
         self.nbname = nbname
         self.cwd    = cwd
         self.papermill = pm
         self.mdfol = self.cwd+"mkmd/"
 
-    def savefig(self, title, caption, dpi=dpi):
-        """Save figure and append to markdown summary. Must call init_mkmd before this.
+    def savefig(self, title, caption, dpi=self.dpi):
+        """Save figure and append to markdown summary.
 
         title: title of figure
         caption: caption of figure
@@ -45,7 +45,7 @@ class MkmdWriter:
         self.fignum += 1
 
     def table(self, title, table):
-        """Append table to markdown summary. Must call init_mkmd before this.
+        """Append table to markdown summary.
         title: title of table
         table: markdown table string (expected format is a list with strings where each new item is a new line)
         """
@@ -185,4 +185,4 @@ def getauthors(file_path='../CITATION.cff'):
     
             given = None
             family = None
-    return 'Co-authors (alphabetically) for the notebooks that created these figures: '+' '.join(sorted(coauthors))
+    return 'Co-authors (alphabetically) for the notebooks that created these figures: '+', '.join(sorted(coauthors))
