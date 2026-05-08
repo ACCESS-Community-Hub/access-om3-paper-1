@@ -1,4 +1,7 @@
-import nci_ipynb  # requires conda/analysis3-26.03 or later
+try:
+    import nci_ipynb  # requires conda/analysis3-26.03 or later
+except ImportError:
+    nci_ipynb = None
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import os
