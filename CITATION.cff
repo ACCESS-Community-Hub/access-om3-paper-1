@@ -5,12 +5,12 @@ message: >-
   metadata from this file.
 type: software
 authors:
-  - given-names: Christopher Yit Sen 
+  - given-names: Christopher Yit Sen
     family-names: Bull
     email: chris.bull@anu.edu.au
     affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
     orcid: 'https://orcid.org/0000-0001-8362-3446'
-  - given-names: Andrew McC 
+  - given-names: Andrew McC
     family-names: Hogg
     email: Andy.Hogg@anu.edu.au
     affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
@@ -46,12 +46,27 @@ authors:
     email: anton.steketee@anu.edu.au
     affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
     orcid: 'https://orcid.org/0009-0002-9081-4106'
-  - given-names: Claire
+ - given-names: Hannah
+    family-names: Dawson
+    email: hannah.dawson@utas.edu.au
+    affiliation: Institute for Marine and Antarctic Studies, University of Tasmania, Nipaluna/Hobart, Australia
+    orcid: 'https://orcid.org/0000-0001-9113-1329'  
+ - given-names: Helen
+    family-names: Shea
+    email: helen.shea1@monash.edu
+    affiliation: School of Earth, Atmoshpere and Environment, Monash University, Naarm/Melbourne, Australia
+    orcid: 'https://orcid.org/0009-0004-0680-2458' 
+ - given-names: Noah
+    family-names: Day
+    email: noah.day@unimelb.edu.au
+    affiliation: School of Mathematics and Statistics, University of Melbourne, Melbourne, Australia
+    orcid: 'https://orcid.org/0000-0003-4176-7956'
+ - given-names: Claire
     family-names: Yung
     email: Claire.Yung@anu.edu.au
     affiliation: Research School of Earth Sciences, Australian National University
     orcid: 'https://orcid.org/0000-0002-0052-7668'
-  - description: "Plotting notebooks and discussion for ACCESS-OM3 model description paper."
+- description: "Plotting notebooks and discussion for ACCESS-OM3 model description paper."
     type: 
     value: 
 repository-code: 'https://github.com/ACCESS-Community-Hub/access-om3-paper-1'
