@@ -4,7 +4,7 @@ from matplotlib import rcParams
 import os
 
 dpi = 100
-rcParams["figure.dpi"]= dpi
+rcParams["figure.dpi"] = dpi
 
 class MkmdWriter:
     """Class to keep track of exporting key Figures or Tables to a markdown file
@@ -27,7 +27,7 @@ class MkmdWriter:
 
         title: title of figure
         caption: caption of figure
-        dpi (default: 100): dpi for figure
+        dpi (optional; default: 100): dpi for figure
         """
         if self.papermill:
             plot_fname = self.nbname[:-6]+"_"+str(self.fignum).zfill(2)+".png"
@@ -47,7 +47,7 @@ class MkmdWriter:
     def table(self, title, table):
         """Append table to markdown summary.
         title: title of table
-        table: markdown table string (expected format is a list with strings where each new item is a new line)
+        table: markdown table strings (a list of strings where each string is a new line)
         """
         if self.papermill:
             mkmd(title,
