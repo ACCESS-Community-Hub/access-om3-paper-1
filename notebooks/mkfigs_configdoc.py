@@ -374,10 +374,7 @@ def mkmd(title, caption, experiment, plot_fname, mdfol, table=""):
     if table != "":
         fig_or_table = table
         lines_to_append = [
-            "<!-- push this file to documentation/docs/pages/experiments/"
-            + experiment
-            + " and the images to documentation/docs/assets/"
-            + experiment
+            "<!-- push this file to access-om3-paper-1/documentation/docs/pages/index.md"
             + " -->"
             + "\n",
             "# " + experiment + "\n",

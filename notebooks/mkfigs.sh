@@ -7,8 +7,8 @@
 #PBS -l ncpus=16
 #PBS -l mem=190GB
 #PBS -l walltime=12:00:00
-#PBS -o /g/data/tm70/cyb561/access-om3-paper-1/notebooks
-#PBS -e /g/data/tm70/cyb561/access-om3-paper-1/notebooks
+#PBS -o /g/data/tm70/cyb561/repos/access-om3-paper-1/notebooks/
+#PBS -e /g/data/tm70/cyb561/repos/access-om3-paper-1/notebooks/
 
 # bash script that runs all the notebooks and then uploads output figures to figshare.
 #
@@ -51,8 +51,7 @@ module list
 # SET THESE START
 
 #WFOLDER=/g/data/tm70/cyb561/access-om3-paper-1/
-WFOLDER=/g/data/tm70/cyb561/access-om3-paper-2/
-WFOLDER=/g/data/tm70/cyb561/repos/access-om3-paper-cb/
+WFOLDER=/g/data/tm70/cyb561/repos/access-om3-paper-1/
 
 #ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/experiment_datastore.json
 
@@ -140,23 +139,23 @@ echo ""
 array=(
     00_template_notebook
 #    Bottom_age_tracer_in_ACCESS_OM3
-#    MLD
-#    MLD_max
-#    Overturning_in_ACCESS_OM3
-#    SeaIce_area
-#    SeaIce_mass_budget_climatology
-#    SSS
-#    SST
-#    StraitTransports
-#    MeridionalHeatTransport
-#    temp-salt-vs-depth-time
-#    pPV
-#    Equatorial_pacific
-#    SSS_Restoring_Timeseries
-#    # Timeseries_daily_extreme_from_2D_fields
-#    timeseries
-#    SSH
-#    StraitTransports
+    MLD
+    MLD_max
+    Overturning_in_ACCESS_OM3
+    SeaIce_area
+    SeaIce_mass_budget_climatology
+    SSS
+    SST
+    StraitTransports
+    MeridionalHeatTransport
+    temp-salt-vs-depth-time
+    pPV
+    Equatorial_pacific
+    SSS_Restoring_Timeseries
+    # Timeseries_daily_extreme_from_2D_fields
+    timeseries
+    SSH
+    StraitTransports
 )
 
 #SSH uses a lot of memory !!
