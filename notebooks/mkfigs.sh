@@ -179,6 +179,9 @@ do
         -p nbname ${FNAME}.ipynb
     STATUS=$?
     jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
+    if [ "$STATUS" -eq 0 ]; then
+        jupyter nbconvert --clear-output --to notebook --inplace ${OFOL}${FNAME}_rendered.ipynb
+    fi
 
     if [ "$STATUS" -ne 0 ]; then
         echo "Notebook: ${FNAME}.ipynb FAILED"
