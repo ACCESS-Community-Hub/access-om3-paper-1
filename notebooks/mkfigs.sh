@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45+gdata/cj50
+#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45+gdata/cj50+gdata/vk83
 #PBS -M chris.bull@anu.edu.au
 #PBS -m ae
 #PBS -q normal
@@ -63,8 +63,8 @@ WFOLDER=/g/data/tm70/cyb561/repos/access-om3-paper-1/
 #ENAME=25km-iaf-test-for-AK-expt-7df5ef4c
 
 #AK iaf run 9-Dec-25
-# ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json
-# ENAME=MC_25km_jra_iaf-1.0-beta-5165c0f8
+#ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json
+#ENAME=MC_25km_jra_iaf-1.0-beta-5165c0f8
 
 #AHogg GM* runs
 #ENAME=MC_25km_jra_iaf-1.0-beta-gm1-d968c801
@@ -75,8 +75,8 @@ WFOLDER=/g/data/tm70/cyb561/repos/access-om3-paper-1/
 #ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
 
 #WOMBAT run 19-Dec-25
-ENAME=MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c
-ESMDIR=/g/data/ol01/outputs/access-om3-100km/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/experiment_datastore.json
+#ENAME=MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c
+#ESMDIR=/g/data/ol01/outputs/access-om3-100km/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/experiment_datastore.json
 
 #WOMBAT run 22-Dec-25
 #ENAME=MC_25km_jra_ryf+wombatlite-81ad20e-c4347f5a
