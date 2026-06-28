@@ -6,7 +6,7 @@
 #PBS -W umask=0022
 #PBS -l ncpus=16
 #PBS -l mem=190GB
-#PBS -l walltime=12:00:00
+#PBS -l walltime=10:00:00
 #PBS -o /g/data/tm70/cyb561/repos/access-om3-paper-1/notebooks/
 #PBS -e /g/data/tm70/cyb561/repos/access-om3-paper-1/notebooks/
 
@@ -16,10 +16,12 @@
 ## workflow
 #1. create figshare token
 #1. `cd /g/data/tm70/cyb561;git clone git@github.com:ACCESS-Community-Hub/access-om3-paper-1.git`
-#1. Edit this file: set WFOLDER, ENAME, ESMDIR
+#1. Edit this file: set WFOLDER, ENAME, ESMDIR, array
 #1. ensure the experiment storage path is in the #PBS -l storage header above
 #1. `qsub mkfigs.sh`
 #1. run mkfigs_pushit.py
+#1. log-in to figshare and publish the data
+#1. run git commands suggested by `mkfigs_pushit.py`
 
 #set -x
 module purge
@@ -69,23 +71,23 @@ ENAME=MC_25km_jra_iaf+wombatlite-test3v2-00532b88
 
 array=(
     00_template_notebook
-#    Bottom_age_tracer_in_ACCESS_OM3
-    MLD
-    MLD_max
-    Overturning_in_ACCESS_OM3
-    SeaIce_area
-    SeaIce_mass_budget_climatology
+#    #Bottom_age_tracer_in_ACCESS_OM3
+#    MLD
+#    MLD_max
+#    Overturning_in_ACCESS_OM3
+#    SeaIce_area
+#    #SeaIce_mass_budget_climatology
     SSS
-    SST
-    StraitTransports
-    MeridionalHeatTransport
-    temp-salt-vs-depth-time
-    pPV
-    Equatorial_pacific
-    SSS_Restoring_Timeseries
-#   Timeseries_daily_extreme_from_2D_fields
-    timeseries
-    SSH
+#    SST
+#    StraitTransports
+#    MeridionalHeatTransport
+#    temp-salt-vs-depth-time
+#    pPV
+#    Equatorial_pacific
+#    SSS_Restoring_Timeseries
+##   Timeseries_daily_extreme_from_2D_fields
+#    timeseries
+#    SSH
 )
 #SSH uses a lot of memory !!
 

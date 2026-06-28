@@ -3,7 +3,6 @@ import nci_ipynb  # requires conda/analysis3-26.03 or later
 import hashlib
 import json
 import os
-import time
 
 import matplotlib.pyplot as plt
 import requests
@@ -18,7 +17,6 @@ rcParams["figure.dpi"] = dpi
 # ---------------------------------------------------------------------------
 
 FIGSHARE_BASE_URL = "https://api.figshare.com/v2/{endpoint}"
-FIGSHARE_CHUNK_SIZE = 10 * 1024 * 1024  # 10 MB
 
 
 def _figshare_headers(token):
@@ -54,7 +52,7 @@ def _md5(path):
 
 
 class FigshareUploader:
-    """Upload PNG figures to a figshare article and return public download URLs.
+    """Upload PNG figures and rendered notebooks to a figshare article.
 
     One article is created per experiment name (identified by ``experiment``).
     A local JSON manifest (``figshare_manifest.json`` inside ``mdfol``) tracks
@@ -68,7 +66,7 @@ class FigshareUploader:
     experiment : str
         Experiment name (used as the article title and for the manifest key).
     mdfol : str
-        Directory where ``mkmd/`` PNGs and the manifest live.
+        Directory where per-notebook PNGs, markdown files, and the manifest live.
     article_title : str, optional
         Override the figshare article title (defaults to
         ``"ACCESS-OM3 evaluation figures – <experiment>"``).
@@ -225,20 +223,22 @@ class FigshareUploader:
         download_url = self._upload_file(article_id, file_path)
         return download_url
 
-    def upload_all_pngs(self):
-        """Upload every PNG in ``self.mdfol`` and return a dict mapping
-        filename → download URL.
+    def upload_pngs_for_notebook(self, nb_name):
+        """Upload every PNG in ``self.mdfol`` that belongs to *nb_name*.
 
-        This is called at the end of ``mkfigs.sh`` (via
-        ``figshare_upload_and_rewrite.py``) to do a bulk upload and then
-        rewrite the markdown file so image references point to figshare.
+        PNG files are named ``<nb_name>_<NN>.png`` (the pattern used by
+        MkmdWriter.savefig).  Returns a dict mapping filename → download URL.
         """
         results = {}
+        if not os.path.isdir(self.mdfol):
+            print(f"[figshare] mdfol not found: {self.mdfol}")
+            return results
         pngs = sorted(
-            f for f in os.listdir(self.mdfol) if f.lower().endswith(".png")
+            f for f in os.listdir(self.mdfol)
+            if f.lower().endswith(".png") and f.startswith(f"{nb_name}_")
         )
         if not pngs:
-            print("[figshare] No PNG files found in", self.mdfol)
+            print(f"[figshare] No PNG files found for notebook {nb_name} in {self.mdfol}")
             return results
         article_id = self._get_or_create_article()
         for fname in pngs:
@@ -249,16 +249,53 @@ class FigshareUploader:
         self._save_manifest()
         return results
 
-    def rewrite_markdown(self, url_map):
-        """Rewrite the experiment markdown file so local image paths are
+    def upload_notebook(self, nb_name: str, nb_path: str) -> str:
+        """Upload the fully rendered notebook (with outputs intact) to figshare.
+
+        Uses the manifest key ``notebook_<nb_name>`` so it is distinct from the
+        PNG file entries and can be looked up independently.
+
+        Parameters
+        ----------
+        nb_name : str
+            Stem of the notebook (e.g. ``"SST"``).
+        nb_path : str
+            Path to the rendered ``.ipynb`` file (outputs must still be present).
+
+        Returns
+        -------
+        str
+            Public Figshare download URL for the notebook file.
+        """
+        article_id = self._get_or_create_article()
+
+        file_md5 = _md5(nb_path)
+        manifest_key = f"notebook_{nb_name}"
+        if manifest_key in self._manifest:
+            cached = self._manifest[manifest_key]
+            if cached.get("md5") == file_md5:
+                print(f"[figshare] Skipping notebook {nb_name} (already uploaded, MD5 matches)")
+                return cached["download_url"]
+            else:
+                print(f"[figshare] MD5 changed for notebook {nb_name}, re-uploading")
+
+        download_url = self._upload_file(article_id, nb_path)
+        # Store under the notebook-specific key (upload_file also stores under
+        # file_<fname> but we want a stable nb_name key for the URL manifest).
+        self._manifest[manifest_key] = {"md5": file_md5, "download_url": download_url}
+        self._save_manifest()
+        print(f"[figshare] Notebook {nb_name} → {download_url}")
+        return download_url
+
+    def rewrite_markdown(self, url_map, nb_name=None):
+        """Rewrite a per-notebook markdown file so local image paths are
         replaced with figshare download URLs.
 
-        ``url_map`` is a dict mapping PNG filename → figshare download URL
-        (as returned by ``upload_all_pngs``).
-
-        The original markdown is backed up as ``<experiment>.md.bak``.
+        If *nb_name* is given, rewrites ``<mdfol>/<nb_name>.md``.
+        ``url_map`` is a dict mapping PNG filename → figshare download URL.
         """
-        mdpath = os.path.join(self.mdfol, f"{self.experiment}.md")
+        stem = nb_name if nb_name else self.experiment
+        mdpath = os.path.join(self.mdfol, f"{stem}.md")
         if not os.path.exists(mdpath):
             print(f"[figshare] Markdown file not found, skipping rewrite: {mdpath}")
             return
@@ -271,8 +308,6 @@ class FigshareUploader:
             f.write(content)
 
         for fname, url in url_map.items():
-            # The markdown uses the pattern:  ![...](/assets/experiments/<exp>/<fname>)
-            # Replace with the figshare URL.
             old_pattern = f"/assets/experiments/{self.experiment}/{fname}"
             content = content.replace(old_pattern, url)
 
@@ -290,112 +325,107 @@ class FigshareUploader:
 
 
 # ---------------------------------------------------------------------------
-# Original mkfigs_configdoc helpers (unchanged API)
+# MkmdWriter – per-notebook markdown writer (called from inside notebooks)
 # ---------------------------------------------------------------------------
 
 
 class MkmdWriter:
-    """Class to keep track of exporting key Figures or Tables to a markdown file
+    """Keep track of exporting key figures or tables to a per-notebook markdown file.
 
-    experiment: path to esm file, we just take the last folder to mean the experiment name
-    nbname: name of notebook that this is being called from
-    cwd: current working directory (will use this as the basis for plot folder)
-    pm (default: False): being called by papermill?
+    Each notebook writes its own ``<nb_stem>.md`` inside ``mdfol`` so that
+    mkfigs_pushit.py can copy them to separate pages in the documentation.
+
+    experiment: path to esm file; the last directory component is used as the
+                experiment name.
+    nbname: filename of the notebook (e.g. ``"SST.ipynb"``).
+    cwd: current working directory (used as the base for the plot folder).
+    pm (default: False): True when called by papermill.
     """
 
     def __init__(self, esm_file, nbname, cwd, pm=False):
         self.fignum = 1
         self.experiment = os.path.basename(os.path.dirname(esm_file))
         self.nbname = nbname
+        self.nb_stem = nbname[:-6] if nbname.endswith(".ipynb") else nbname
         self.cwd = cwd
         self.papermill = pm
         self.mdfol = self.cwd + "mkmd/"
 
-    def savefig(self, figure,title, caption, dpi=dpi):
-        """Save figure and append to markdown summary.
+    def savefig(self, figure, title, caption, dpi=dpi):
+        """Save figure and append to the per-notebook markdown summary.
 
-        figure: matplotlib's explicit figure object (the figure data remains anchored to your variable instead of relying on Matplotlib's global state machine)
+        figure: matplotlib figure object
         title: title of figure
         caption: caption of figure
         dpi (optional; default: 100): dpi for figure
         """
         if self.papermill:
             plot_fname = (
-                self.nbname[:-6] + "_" + str(self.fignum).zfill(2) + ".png"
+                self.nb_stem + "_" + str(self.fignum).zfill(2) + ".png"
             )
             os.makedirs(self.mdfol, exist_ok=True)
             figure.savefig(self.mdfol + plot_fname, dpi=dpi, bbox_inches="tight")
             print("Saved", self.mdfol + plot_fname)
-            mkmd(
-                title,
-                f"`{self.nbname}`: {caption}",
-                self.experiment,
-                plot_fname,
-                self.mdfol,
+            _mkmd_notebook(
+                title=title,
+                caption=f"`{self.nbname}`: {caption}",
+                experiment=self.experiment,
+                nb_stem=self.nb_stem,
+                plot_fname=plot_fname,
+                mdfol=self.mdfol,
                 table="",
             )
             self.fignum += 1
 
     def table(self, title, table):
-        """Append table to markdown summary.
+        """Append a table to the per-notebook markdown summary.
 
         title: title of table
-        table: markdown table strings (a list of strings where each string is a new line)
+        table: list of strings, one per markdown table row
         """
         if self.papermill:
-            mkmd(
-                title,
-                f"`{self.nbname}`: This is a table caption",
-                self.experiment,
-                "",
-                self.mdfol,
-                table,
+            _mkmd_notebook(
+                title=title,
+                caption=f"`{self.nbname}`: This is a table caption",
+                experiment=self.experiment,
+                nb_stem=self.nb_stem,
+                plot_fname="",
+                mdfol=self.mdfol,
+                table=table,
             )
 
 
-def mkmd(title, caption, experiment, plot_fname, mdfol, table=""):
-    """Function to create a markdown file and add a figure or a table
+# ---------------------------------------------------------------------------
+# Internal per-notebook markdown writer
+# ---------------------------------------------------------------------------
 
-    title: title for figure or table
-    caption: caption for figure (not used when making a table)
-    experiment: experiment name
-    plot_fname: name of plot
-    mdfol: directory to output markdown file and figures
-    table (default: ''): if this is != '' then a table will be added rather than a figure
+
+def _mkmd_notebook(title, caption, experiment, nb_stem, plot_fname, mdfol, table=""):
+    """Write (or append) a figure/table entry to ``<mdfol>/<nb_stem>.md``.
+
+    Each notebook gets its own markdown file named after the notebook stem
+    (e.g. ``SST.md``, ``MLD.md``).  The header is written only on the first
+    call; subsequent calls from the same notebook append just the new section.
     """
     try:
         os.makedirs(mdfol, exist_ok=True)
     except OSError as e:
         print(f"An error occurred: {e}")
 
-    mdpath = mdfol + experiment + ".md"
-    print("Adding a figure to markdown doc: " + mdpath)
+    mdpath = os.path.join(mdfol, f"{nb_stem}.md")
+    print(f"Adding entry to per-notebook markdown: {mdpath}")
+
+    first_write = not os.path.exists(mdpath)
+    title_already_present = (
+        False if first_write else string_exists_in_file(mdpath, title)
+    )
 
     if table != "":
-        fig_or_table = table
-        lines_to_append = [
-            "<!-- push this file to access-om3-paper-1/documentation/docs/pages/index.md"
-            + " -->"
-            + "\n",
-            "# " + experiment + "\n",
-            " \n",
-            "This page shows evaluation figures from ACCESS-OM3 experiment "
-            + experiment
-            + " for discussion and see plotting scripts have a look at "
-            "[this repository](https://github.com/acCESS-Community-Hub/access-om3-paper-1/) "
-            "and related [issues](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues).\n",
-            " \n",
-            getauthors(),
-            " \n",
-            "## " + title + "\n",
-            " \n",
-        ]
-        for tableline in fig_or_table:
-            lines_to_append.append(tableline + "\n")
+        content_lines = ["\n", "## " + title + "\n", " \n"]
+        for tableline in table:
+            content_lines.append(tableline + "\n")
     else:
-        # Use a local-path placeholder; mkfigs.sh will rewrite to figshare URLs
-        # after the bulk upload step via FigshareUploader.rewrite_markdown().
-        fig_or_table = (
+        img_ref = (
             "!["
             + caption
             + "](/assets/experiments/"
@@ -404,67 +434,68 @@ def mkmd(title, caption, experiment, plot_fname, mdfol, table=""):
             + plot_fname
             + ") \n"
         )
-        lines_to_append = [
-            "<!-- push this file to documentation/docs/pages/experiments/"
-            + experiment
-            + " and the images to documentation/docs/assets/"
-            + experiment
-            + " -->"
-            + "\n",
-            "# " + experiment + "\n",
-            " \n",
-            "This page shows evaluation figures from ACCESS-OM3 experiment "
-            + experiment
-            + " for discussion and see plotting scripts have a look at "
-            "[this repository](https://github.com/acCESS-Community-Hub/access-om3-paper-1/) "
-            "and related [issues](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues).\n",
-            " \n",
-            getauthors(),
-            " \n",
+        content_lines = [
+            "\n",
             "## " + title + "\n",
             " \n",
-            fig_or_table,
+            img_ref,
             " \n",
             " Caption: " + caption + "\n",
             " \n",
         ]
 
-    if os.path.exists(mdpath) and string_exists_in_file(mdpath, title):
+    if first_write:
+        from pathlib import Path as _Path
+        _repo_root = _Path(__file__).resolve().parent.parent
+        _authors = get_notebook_authors(nb_stem, _repo_root)
+        _authors_str = ", ".join(_authors) if _authors else "unknown"
+        header = [
+            f"<!-- auto-generated by mkfigs_configdoc.py – do not edit manually -->\n",
+            f"# {nb_stem}\n",
+            " \n",
+            (
+                f"Evaluation figures from ACCESS-OM3 experiment **{experiment}**"
+                f" produced by notebook `{nb_stem}.ipynb`."
+                f" Co-authors for this notebook: {_authors_str}."
+                f" [View rendered notebook](notebooks/{nb_stem}.ipynb)\n"
+            ),
+            " \n",
+        ]
+        lines_to_write = header + content_lines
+    elif title_already_present:
         print(
-            "This notebook has already added to the figure file, "
-            "so this will add an additional figure."
+            "This title already exists in the notebook markdown – "
+            "appending an additional figure."
         )
-        lines_to_append = lines_to_append[8:]
-        print(lines_to_append)
-    elif os.path.exists(mdpath):
-        lines_to_append = lines_to_append[7:]
-        print(lines_to_append)
+        lines_to_write = content_lines
+    else:
+        lines_to_write = content_lines
 
     try:
-        with open(mdpath, "a") as file:
-            file.writelines(lines_to_append)
+        with open(mdpath, "a") as f:
+            f.writelines(lines_to_write)
         print(f"Lines appended to {mdpath} successfully.")
-    except Exception:
-        pass
+    except Exception as exc:
+        print(f"WARNING: could not write to {mdpath}: {exc}")
+
+
+# ---------------------------------------------------------------------------
+# Shared helpers
+# ---------------------------------------------------------------------------
 
 
 def string_exists_in_file(filename, search_string):
     """Checks if a string exists in a file (case-sensitive)."""
     try:
         with open(filename, "r") as myfile:
-            if search_string in myfile.read():
-                return True
-            else:
-                return False
+            return search_string in myfile.read()
     except FileNotFoundError:
-        print(
-            f"Warning: First time this notebook has been included: '{filename}'."
-        )
+        print(f"Warning: First time this notebook has been included: '{filename}'.")
         return False
 
 
 def getauthors(file_path="../CITATION.cff"):
-    """Function to find authors from citation file and put them in the markdown file"""
+    """Find authors from CITATION.cff and return a markdown attribution string."""
     try:
         with open(file_path, "r", encoding="utf-8") as f:
             lines = f.read().splitlines()
@@ -495,21 +526,78 @@ def getauthors(file_path="../CITATION.cff"):
     )
 
 
+def get_notebook_authors(nb_stem, repo_root):
+    """Return authors for a notebook from git history.
+
+    First commit author (notebook creator) is listed first; remaining authors
+    sorted by number of commits (proxy for lines contributed), descending.
+    """
+    import subprocess
+    from collections import Counter
+    nb_path = f"notebooks/{nb_stem}.ipynb"
+    try:
+        result = subprocess.run(
+            ["git", "log", "--follow", "--format=%an", "--", nb_path],
+            capture_output=True, text=True, cwd=str(repo_root),
+        )
+        authors = [a.strip() for a in result.stdout.splitlines() if a.strip()]
+    except Exception:
+        return []
+    if not authors:
+        return []
+    first_author = authors[-1]  # oldest commit = notebook creator
+    counts = Counter(authors)
+    others = sorted(
+        (a for a in counts if a != first_author),
+        key=lambda a: counts[a],
+        reverse=True,
+    )
+    return [first_author] + list(others)
+
+
 # ---------------------------------------------------------------------------
-# Convenience entry-point called by mkfigs.sh
+# Convenience entry-point called by mkfigs_pushit.py
 # ---------------------------------------------------------------------------
 
 
-def figshare_upload_and_rewrite(mdfol, experiment, token):
-    """Upload all PNGs in *mdfol* to figshare and rewrite the experiment
-    markdown so image tags point to figshare download URLs.
+def figshare_upload_and_rewrite(mdfol, experiment, token, nb_name=None, nb_path=None):
+    """Upload PNGs (and optionally the rendered notebook) to figshare and
+    rewrite the corresponding markdown so image tags point to figshare URLs.
 
-    Returns a dict mapping PNG filename → figshare download URL.
+    If *nb_name* is given, only PNGs belonging to that notebook are uploaded
+    and ``<nb_name>.md`` is rewritten.
+
+    If *nb_path* is given, the fully rendered notebook at that path is also
+    uploaded.  Its figshare download URL is returned as ``url_map["_notebook"]``.
+
+    Returns a dict mapping PNG filename → figshare download URL, plus the
+    optional ``"_notebook"`` key for the notebook URL.
     """
     uploader = FigshareUploader(token=token, experiment=experiment, mdfol=mdfol)
-    url_map = uploader.upload_all_pngs()
-    uploader.rewrite_markdown(url_map)
+
+    if nb_name:
+        url_map = uploader.upload_pngs_for_notebook(nb_name)
+        uploader.rewrite_markdown(url_map, nb_name=nb_name)
+    else:
+        # Legacy: upload all PNGs in mdfol (no per-notebook split)
+        pngs = sorted(f for f in os.listdir(mdfol) if f.lower().endswith(".png"))
+        url_map = {}
+        if not pngs:
+            print("[figshare] No PNG files found in", mdfol)
+        else:
+            article_id = uploader._get_or_create_article()
+            for fname in pngs:
+                url = uploader._upload_file(article_id, os.path.join(mdfol, fname))
+                url_map[fname] = url
+            uploader._save_manifest()
+        uploader.rewrite_markdown(url_map)
+
+    if nb_path and nb_name:
+        nb_url = uploader.upload_notebook(nb_name, nb_path)
+        url_map["_notebook"] = nb_url
+
     article_url = uploader.get_article_url()
     print(f"\n[figshare] Done! Article: {article_url}")
-    print(f"[figshare] Uploaded {len(url_map)} file(s).")
+    n_pngs = sum(1 for k in url_map if not k.startswith("_"))
+    print(f"[figshare] Uploaded {n_pngs} PNG(s)" + (" + notebook." if "_notebook" in url_map else "."))
     return url_map

@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
 """
-mkfigs_run.py – run evaluation notebooks and convert to markdown.
+mkfigs_run.py – run evaluation notebooks via papermill.
 
 Called by mkfigs.sh after modules are loaded. Receives ENAME, ESMDIR and
 WFOLDER as command-line arguments.
 
 Usage (via mkfigs.sh):
     qsub mkfigs.sh
+
+After the job completes, run mkfigs_pushit.py on a login node to upload
+figures to Figshare and prepare the git commit.
 """
+
+from __future__ import annotations
 
 import argparse
 import logging
@@ -18,8 +23,6 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent   # notebooks/
 REPO = HERE.parent                       # repo root
-
-# Notebook list is defined in mkfigs.sh (array=(...)) and passed via MKFIGS_NOTEBOOKS env var.
 
 
 # ---------------------------------------------------------------------------
@@ -58,7 +61,6 @@ def setup_logging(log_file: Path) -> logging.Logger:
 # ---------------------------------------------------------------------------
 def run_notebook(nb: str, esmdir: str, ofol: Path) -> bool:
     """Strip outputs, run via papermill, convert to markdown. Returns True on success."""
-    # Strip existing outputs before papermill run
     subprocess.run(
         ["python3", str(HERE / "run_nb.py"), f"{nb}.ipynb"],
         cwd=str(HERE), check=False,
@@ -74,17 +76,13 @@ def run_notebook(nb: str, esmdir: str, ofol: Path) -> bool:
         ],
         cwd=str(HERE),
     )
-    # Always convert to markdown for diagnostics, even on failure
+    # Always convert to markdown for diagnostics, even on failure.
+    # Do NOT clear outputs here — mkfigs_pushit.py uploads the output-bearing
+    # rendered notebook to Figshare first, then strips outputs from the git copy.
     subprocess.run(
         ["jupyter", "nbconvert", "--to", "markdown", rendered],
         check=False,
     )
-    if result.returncode == 0:
-        subprocess.run(
-            ["jupyter", "nbconvert", "--clear-output", "--to", "notebook",
-             "--inplace", rendered],
-            check=False,
-        )
     return result.returncode == 0
 
 
@@ -94,8 +92,8 @@ def run_notebook(nb: str, esmdir: str, ofol: Path) -> bool:
 def main():
     args = parse_args()
 
-    ename   = args.ename
-    esmdir  = args.esmdir
+    ename  = args.ename
+    esmdir = args.esmdir
 
     ofol  = HERE / f"mkfigs_output_{ename}"
     mdfol = ofol / "mkmd"
@@ -113,8 +111,9 @@ def main():
     # -----------------------------------------------------------------------
     notebooks_env = os.environ.get("MKFIGS_NOTEBOOKS", "")
     if not notebooks_env:
-        sys.exit("ERROR: MKFIGS_NOTEBOOKS not set — run via mkfigs.sh")
-    notebooks = notebooks_env.split(":")
+        log.error("MKFIGS_NOTEBOOKS env var not set — run via mkfigs.sh")
+        sys.exit(1)
+    notebooks = [n for n in notebooks_env.split(":") if n]
 
     succeeded: list[str] = []
     failed:    list[str] = []
@@ -150,7 +149,7 @@ def main():
         log.error("Check the PBS error log and rendered notebooks for details.")
 
     print()
-    print("Next step – check results, upload to Figshare, and prepare the git commit:")
+    print("Next step – on a login node with conda/analysis3 loaded:")
     print(f"  python3 {HERE / 'mkfigs_pushit.py'}")
     print()
 

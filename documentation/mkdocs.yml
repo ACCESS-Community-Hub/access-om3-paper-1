@@ -1,8 +1,8 @@
 # This file uses the following environment variables set within the build workflow:
 # - SITE_URL: the URL of the site (Falls back to the default URL)
 # For example, for PR-previews, SITE_URL is set to <default_URL>/pr-preview-NUM
-site_name: access-om3-paper-1-figures 
- 
+site_name: access-om3-paper-1-figures
+
 # Site URL
 site_url: !ENV [SITE_URL, "https://access-om3-paper-1.readthedocs.io/"]
 
@@ -54,31 +54,23 @@ theme:
 copyright: Copyright &copy; 2025 ACCESS-NRI
 
 plugins:
-#  - include-configuration-stubs:
-#      repo: ACCESS-NRI/Inside-MOM6
-#      main_website:
-#        pattern: "dev-* release-*"
-#        ref_type: branch
-#      preview_website:
-#        pattern: ""
-#        ref_type: branch
-#      stubs_parent_url: pages/configurations
-#      stubs_nav_path: Configurations
-#      stubs_dir: documentation/stub
-
   - git-revision-date-localized:
       type: date
       enable_creation_date: false
   - search:
-      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+      separator: '[\s\-,:!=\[\]()\"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   - macros
   - bibtex:
       bib_file: references.bib
       csl_file: https://raw.githubusercontent.com/citation-style-language/styles/26eccff9e537f71494a4da7b91afac1adf571dc9/apa.csl
-  - events:
-      events_dir: community_resources/events/events
+  - mkdocs-jupyter:
+      execute: false
+      include_source: true
+      ignore_h1_titles: false
+      include:
+        - "pages/experiments/**/*.ipynb"
 
-markdown_extensions: 
+markdown_extensions:
   - attr_list
   - abbr
   - md_in_html
@@ -95,7 +87,7 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.tabbed:
-      alternate_style: true 
+      alternate_style: true
   - pymdownx.keys
   - pymdownx.arithmatex:
       generic: true
@@ -106,8 +98,10 @@ markdown_extensions:
       title: On this page
 
 # Navigation
+# The "Evaluation figures" section is populated automatically by mkfigs_pushit.py.
+# Each experiment appears as a sub-section with "Figures" and "Notebooks" pages.
 nav:
-  - Home:                  pages/index.md
+  - Home: pages/index.md
 
 # Footer
 extra:
@@ -131,12 +125,10 @@ extra_css:
 extra_javascript:
   - javascripts/mathjax.js # For pymdownx.arithmatex extension
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js # For pymdownx.arithmatex extension
-  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js     # For tablesort functionality 
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js     # For tablesort functionality
   - https://cdn.jsdelivr.net/gh/atteggiani/animated-terminal@3.0/animated-terminal.min.js # Terminal animations
-  # - js/custom-tags.js
-  # - js/miscellaneous.js
 
-# Automatically reload page when running `mkdocs serve`, for any 
+# Automatically reload page when running `mkdocs serve`, for any
 # of the following files outside of the 'docs' directory
 watch:
   - mkdocs.yml
