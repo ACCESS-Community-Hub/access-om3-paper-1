@@ -152,15 +152,17 @@ def build_run_summary(
         "",
     ] + rows)
 
-    # Markdown for pages/index.md
+    # Markdown for pages/index.md — links included in table so no separate Sections block needed
+    exp_dir = f"experiments/{ename}"
     md_rows = (
-        [f"| `{nb}` | ✅ OK |"      for nb in ok_nbs]
-        + [f"| `{nb}` | ❌ FAILED |"  for nb in failed_nbs]
-        + [f"| `{nb}` | ⏭ NOT RUN |" for nb in not_run_nbs]
+        [f"| `{nb}` | ✅ OK | [page]({exp_dir}/{nb}.md) · [notebook]({exp_dir}/notebooks/{nb}.ipynb) |"
+         for nb in ok_nbs]
+        + [f"| `{nb}` | ❌ FAILED | |"  for nb in failed_nbs]
+        + [f"| `{nb}` | ⏭ NOT RUN | |" for nb in not_run_nbs]
     )
     md = (
-        "| Notebook | Status |\n"
-        "|---|---|\n"
+        "| Notebook | Status | Links |\n"
+        "|---|---|---|\n"
         + "\n".join(md_rows)
         + f"\n\n- **ESM datastore:** `{esmdir}`\n"
         f"- **Run time:** {ts}\n"
@@ -338,9 +340,10 @@ def _ensure_mkdocs_jupyter_plugin(data: dict) -> dict:
             "mkdocs-jupyter": {
                 "execute": False,         # use pre-rendered outputs; don't re-run
                 "include_source": True,   # show source code alongside outputs
-                "ignore_h1_titles": False,
-                # Only pick up notebooks placed in the experiments docs tree.
-                "include": ["pages/experiments/**/*.ipynb"],
+                "ignore_h1_titles": True,
+                # PurePath.match checks abs_src_path, so leading path components
+                # like "pages/experiments/" fail on absolute paths in Python 3.12.
+                "include": ["**/*.ipynb"],
             }
         })
         data["plugins"] = plugins
@@ -390,8 +393,8 @@ def update_mkdocs_nav(ename: str, ok_nbs: list[str], dry_run: bool = False) -> N
     # Append fresh entries in notebook order.
     for nb in ok_nbs:
         nav.append({nb: [
-            {"summary":  f"{exp_dir}/{nb}.md"},
-            {"notebook": f"{exp_dir}/notebooks/{nb}.ipynb"},
+            {"Summary":  f"{exp_dir}/{nb}.md"},
+            {"Notebook": f"{exp_dir}/notebooks/{nb}.ipynb"},
         ]})
 
     data["nav"] = nav
@@ -443,13 +446,6 @@ def update_top_index(
 
     content = top_index.read_text()
 
-    # Build section links
-    exp_dir = f"experiments/{ename}"
-    section_links = "\n".join(
-        f"- [{nb}]({exp_dir}/{nb}.md) · [notebook]({exp_dir}/notebooks/{nb}.ipynb)"
-        for nb in ok_nbs
-    )
-
     incomplete_block = ""
     if failed_nbs or not_run_nbs:
         incomplete_block = "\n#### Incomplete notebooks\n\n"
@@ -471,20 +467,20 @@ def update_top_index(
         + (f"{authors_md}\n\n" if authors_md else "")
         + "#### Run summary\n\n"
         + run_summary_md + "\n"
-        + ("#### Sections\n\n" + section_links + "\n" if section_links else "")
         + incomplete_block
         + f"{block_end}\n"
     )
 
-    if block_start in content:
-        # Replace existing block in-place
-        content = re.sub(
-            re.escape(block_start) + r".*?" + re.escape(block_end),
-            block.rstrip("\n"),
-            content,
-            flags=re.DOTALL,
-        )
-    elif "<!-- experiments -->" in content:
+    # Wipe all existing experiment blocks so a new ENAME doesn't accumulate
+    # alongside old ones (mirrors update_mkdocs_nav which also resets all entries).
+    content = re.sub(
+        r"\n*<!-- experiment:[^>]+ -->.*?<!-- /experiment:[^>]+ -->\n?",
+        "",
+        content,
+        flags=re.DOTALL,
+    )
+
+    if "<!-- experiments -->" in content:
         content = content.replace("<!-- experiments -->", f"<!-- experiments -->\n\n{block}")
     else:
         content = content.rstrip("\n") + f"\n\n{block}"
