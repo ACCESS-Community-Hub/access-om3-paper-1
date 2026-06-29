@@ -68,7 +68,7 @@ plugins:
       include_source: true
       ignore_h1_titles: false
       include:
-        - "pages/experiments/**/*.ipynb"
+        - "**/*.ipynb"  # matched against abs_src_path via PurePath.match — no leading path
 
 markdown_extensions:
   - attr_list
