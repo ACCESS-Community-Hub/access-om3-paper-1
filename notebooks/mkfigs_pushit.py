@@ -18,6 +18,7 @@ Figshare token: set FIGSHARE_TOKEN env var, or store in ~/.figshare_token.
 
 from __future__ import annotations
 
+#not technically needed here but we've put it in because it is in mkfigs_run.py
 try:
     import nci_ipynb  # noqa: F401  – only present under conda/analysis3
 except ModuleNotFoundError:
@@ -294,15 +295,34 @@ def _load_mkdocs_yml() -> dict:
 
 
 def _save_mkdocs_yml(data: dict) -> None:
-    class _Dumper(yaml.SafeDumper):
-        pass
-    _Dumper.add_representer(
-        _YamlPythonTag,
-        lambda d, obj: d.represent_scalar(obj.tag, obj.value),
+    """Surgically replace only the nav: block in mkdocs.yml.
+
+    A full PyYAML round-trip strips all comments and resolves special tags
+    like !ENV (e.g. !ENV [SITE_URL, "..."] becomes a plain string),
+    permanently altering the file.  We serialise only the nav list and
+    splice it back into the original text so everything else is preserved.
+
+    Note: if _ensure_mkdocs_jupyter_plugin made a change to data["plugins"],
+    that change is NOT written by this function.  The plugin is expected to
+    already be present in mkdocs.yml; add it manually if starting fresh.
+    """
+    nav_yaml = yaml.dump(
+        {"nav": data["nav"]},
+        Dumper=yaml.SafeDumper,
+        default_flow_style=False,
+        allow_unicode=True,
+        sort_keys=False,
     )
-    with open(MKDOCS_YML, "w") as f:
-        yaml.dump(data, f, Dumper=_Dumper, default_flow_style=False,
-                  allow_unicode=True, sort_keys=False)
+    original = MKDOCS_YML.read_text()
+    # Match the nav: block — "nav:" followed by all indented/dash/blank lines.
+    nav_re = re.compile(r'^nav:\n(?:[ \t-][^\n]*\n|\n)*', re.MULTILINE)
+    m = nav_re.search(original)
+    if m:
+        tail = original[m.end():]
+        sep = '' if tail.startswith('\n') else '\n'
+        MKDOCS_YML.write_text(original[:m.start()] + nav_yaml + sep + tail)
+    else:
+        MKDOCS_YML.write_text(original.rstrip('\n') + '\n\n' + nav_yaml)
 
 
 def _ensure_mkdocs_jupyter_plugin(data: dict) -> dict:
@@ -426,7 +446,7 @@ def update_top_index(
     # Build section links
     exp_dir = f"experiments/{ename}"
     section_links = "\n".join(
-        f"- [{nb}]({exp_dir}/{nb}.md) · [notebook]({exp_dir}/{nb}.ipynb)"
+        f"- [{nb}]({exp_dir}/{nb}.md) · [notebook]({exp_dir}/notebooks/{nb}.ipynb)"
         for nb in ok_nbs
     )
 
