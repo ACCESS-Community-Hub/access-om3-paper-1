@@ -11,27 +11,28 @@
 #PBS -e /g/data/tm70/cyb561/repos/access-om3-paper-1/notebooks/
 
 # Thin PBS wrapper. Edit WFOLDER / ENAME / ESMDIR below, then qsub.
-# All notebook-execution logic lives in mkfigs_run.py.
+# Requires the access-model-mkfigs package to be installed (pip install access-model-mkfigs).
 #
 ## Workflow — first run for a new experiment
 #1. Create a Figshare token and save it to ~/.figshare_token
 #1. cd /g/data/tm70/cyb561 && git clone git@github.com:ACCESS-Community-Hub/access-om3-paper-1.git
+#1. pip install git+https://github.com/ACCESS-NRI/access-model-mkfigs.git
 #1. Edit this file: set WFOLDER, ENAME, ESMDIR, and the notebook array below
 #1. Ensure the experiment storage path is in the #PBS -l storage header above
 #1. qsub mkfigs.sh
-#1. python3 mkfigs_pushit.py
+#1. mkfigs-pushit
 #1. Log in to Figshare and publish the article
-#1. python3 mkfigs_pushit.py --check-figshare-upload   (follow the git commands it prints)
+#1. mkfigs-pushit --check-figshare-upload   (follow the git commands it prints)
 #
 ## Workflow — adding notebooks to (or re-running) an existing experiment
 #1. git fetch --tags
 #1. git checkout <docs-{ename}-YYYY.MM.NNN>  # the tag printed by the previous --check-figshare-upload
-#1. python3 mkfigs_restore.py   # download previously committed notebooks from Figshare
+#1. mkfigs-restore   # download previously committed notebooks from Figshare
 #1. Edit the notebook array below: add new notebooks, or re-enable ones to re-run
 #1. qsub mkfigs.sh
-#1. python3 mkfigs_pushit.py    # merges new results with previously committed notebooks
+#1. mkfigs-pushit    # merges new results with previously committed notebooks
 #1. Log in to Figshare and publish the article
-#1. python3 mkfigs_pushit.py --check-figshare-upload
+#1. mkfigs-pushit --check-figshare-upload
 
 #set -x
 module purge
@@ -101,16 +102,16 @@ array=(
 )
 #SSH uses a lot of memory !!
 
-# Pack array into colon-separated env var for mkfigs_run.py
+# Pack array into colon-separated env var consumed by mkfigs-run
 printf -v MKFIGS_NOTEBOOKS '%s:' "${array[@]}"
 MKFIGS_NOTEBOOKS="${MKFIGS_NOTEBOOKS%:}"
 
 # ---------------------------------------------------------------------------
-# Hand off to Python (inherits the conda environment loaded above)
+# Hand off to mkfigs-run (inherits the conda environment loaded above)
 # ---------------------------------------------------------------------------
 export MKFIGS_NOTEBOOKS
 
-exec python3 "${WFOLDER}notebooks/mkfigs_run.py" \
+exec mkfigs-run \
     --ename "${ENAME}" \
     --esmdir "${ESMDIR}" \
     --wfolder "${WFOLDER}" \
