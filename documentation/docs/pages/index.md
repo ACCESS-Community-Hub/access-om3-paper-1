@@ -17,11 +17,12 @@ analysis notebooks. See navigation on the left to browse diagnostics as delineat
 
 | Notebook | Status | Links |
 |---|---|---|
-| `00_template_notebook` | ✅ OK | [Summary Figures](experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/00_template_notebook.md) · [Full Notebook](experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/00_template_notebook/) |
-| `SSS` | ✅ OK | [Summary Figures](experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/SSS.md) · [Full Notebook](experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/SSS/) |
+| `SST` | ✅ OK | [Summary Figures](experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/SST.md) · [Full Notebook](experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/SST/) |
+| `00_template_notebook` | ✅ Previously committed | [Summary Figures](experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/00_template_notebook.md) · [Full Notebook](experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/00_template_notebook/) |
+| `SSS` | ✅ Previously committed | [Summary Figures](experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/SSS.md) · [Full Notebook](experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/SSS/) |
 
 - **ESM datastore:** `/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test3v2-00532b88/datastore.json`
-- **Run time:** 2026-06-30 04:27 UTC
+- **Run time:** 2026-06-30 23:49 UTC
 
 <!-- /experiment:MC_25km_jra_iaf-1.0-beta-5165c0f8 -->
 
