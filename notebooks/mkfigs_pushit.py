@@ -9,9 +9,15 @@ internet access) after mkfigs.sh completes:
 
     cd /g/data/tm70/cyb561/repos/access-om3-paper-1/notebooks
     python3 mkfigs_pushit.py
-    python3 mkfigs_pushit.py --dry-run          # preview: nothing written or uploaded
-    python3 mkfigs_pushit.py --skip-figshare    # copy files + git commands, but skip upload
-    python3 mkfigs_pushit.py --ename MC_25km_jra_iaf+wombatlite-test3v2-00532b88
+    python3 mkfigs_pushit.py --dry-run               # preview: nothing written or uploaded
+    python3 mkfigs_pushit.py --skip-figshare         # copy files, but skip upload
+    python3 mkfigs_pushit.py --ename MC_25km_...     # override experiment name
+    python3 mkfigs_pushit.py --check-figshare-upload # verify URLs public, print git commands
+
+Suggested workflow:
+  1. python3 mkfigs_pushit.py               — upload to Figshare, copy docs files
+  2. Publish the Figshare article
+  3. python3 mkfigs_pushit.py --check-figshare-upload  — verify URLs, get git commands
 
 Figshare token: set FIGSHARE_TOKEN env var, or store in ~/.figshare_token.
 """
@@ -251,6 +257,124 @@ def upload_figshare_for_notebook(
             print(f"[figshare] Article: https://figshare.com/articles/figure/{art_id}")
 
     return url_map.get("_notebook")
+
+
+# ---------------------------------------------------------------------------
+# Figshare URL accessibility check  (--check-figshare-upload mode)
+# ---------------------------------------------------------------------------
+def _check_figshare_urls(all_urls: dict[str, str]) -> bool:
+    """Return True if every Figshare URL responds with HTTP 200/206.
+
+    A 403 means the article has not been published yet.  Uses a Range request
+    so the full file is not downloaded.
+    """
+    import urllib.request
+    import urllib.error
+
+    all_ok = True
+    for label, url in all_urls.items():
+        try:
+            req = urllib.request.Request(url, headers={"Range": "bytes=0-99"})
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                ok = resp.status in (200, 206)
+        except urllib.error.HTTPError as exc:
+            ok = exc.code in (200, 206)
+        except Exception:
+            ok = False
+        mark = "✓" if ok else "✗  NOT ACCESSIBLE"
+        print(f"  {mark}  {label}")
+        if not ok:
+            all_ok = False
+    return all_ok
+
+
+def check_figshare_upload_mode(ename: str) -> None:
+    """--check-figshare-upload: verify all Figshare URLs then print git commands.
+
+    Run this after publishing the Figshare article.  Reads notebook URLs from
+    notebooks_urls.json and image URLs embedded in the per-notebook .md files,
+    checks every URL is publicly accessible, and only then prints the full git
+    commit/tag/push commands needed to finish the workflow.
+    """
+    experiment_docs_dir = DOCS_PAGES / "experiments" / ename
+    all_urls: dict[str, str] = {}
+    seen: set[str] = set()
+
+    def _add(label: str, url: str) -> None:
+        if url not in seen:
+            seen.add(url)
+            all_urls[label] = url
+
+    urls_json = experiment_docs_dir / "notebooks_urls.json"
+    if urls_json.exists():
+        for nb_name, url in json.loads(urls_json.read_text()).items():
+            _add(f"notebook  {nb_name}", url)
+    else:
+        print(f"WARNING: {urls_json} not found — run mkfigs_pushit.py first.")
+
+    for md_file in sorted(experiment_docs_dir.glob("*.md")):
+        for url in re.findall(
+            r'https://ndownloader\.figshare\.com/files/\d+', md_file.read_text()
+        ):
+            file_id = url.rsplit("/", 1)[-1]
+            _add(f"image     {md_file.stem}/{file_id}", url)
+
+    if not all_urls:
+        print("No Figshare URLs found. Run mkfigs_pushit.py first.")
+        sys.exit(1)
+
+    print(f"\nChecking {len(all_urls)} Figshare URL(s) for {ename}...\n")
+    all_ok = _check_figshare_urls(all_urls)
+
+    if not all_ok:
+        print("\n*** Some URLs are not accessible — is the Figshare article published? ***")
+        print("Publish it, then re-run:")
+        print("  python3 mkfigs_pushit.py --check-figshare-upload")
+        sys.exit(1)
+
+    print("\nAll Figshare URLs are publicly accessible.\n")
+
+    # Reconstruct the git commands.
+    _, esmdir, notebooks = parse_mkfigs_sh()
+    ofol = HERE / f"mkfigs_output_{ename}"
+    ok_nbs = [
+        nb for nb in notebooks
+        if (ofol / f"{nb}_rendered.ipynb").exists()
+        and (experiment_docs_dir / f"{nb}.md").exists()
+    ]
+
+    today = date.today()
+    tag = f"docs-{ename}-{today.strftime('%Y.%m')}.000"
+    rtd_slug = re.sub(r'[^a-z0-9-]+', '-', tag.lower()).strip('-')
+    rtd_url  = f"https://access-om3-paper-1.readthedocs.io/en/{rtd_slug}/"
+    tag_msg  = f"Evaluation figures for {ename}. Rendered site (after RTD builds tag): {rtd_url}"
+
+    urls_json_rel = f"documentation/docs/pages/experiments/{ename}/notebooks_urls.json"
+    added_files = [f"notebooks/{nb}.ipynb" for nb in ok_nbs]
+    added_files += [
+        str((experiment_docs_dir / f"{nb}.md").relative_to(REPO))
+        for nb in ok_nbs
+        if (experiment_docs_dir / f"{nb}.md").exists()
+    ]
+    added_files += [
+        urls_json_rel,
+        "documentation/docs/pages/index.md",
+        "documentation/mkdocs.yml",
+        ".readthedocs.yaml",
+    ]
+
+    print("Run the following to commit, tag, and push:\n")
+    print(f"  cd {REPO}")
+    print(f"  git add {' '.join(added_files)}")
+    print( "  #")
+    print( "  #  Recommended that you -- git add mkfigs.sh too")
+    print( "  #")
+    print(f'  git commit -m "docs: render evaluation figures for {ename}"')
+    print(f"  git tag -a {tag} -m '{tag_msg}'")
+    print( "  git push origin main --tags")
+    print( "  git push")
+    print( "\n  Horray!")
+    print()
 
 
 # ---------------------------------------------------------------------------
@@ -515,11 +639,18 @@ def main():
                    help="Skip Figshare upload even if a token is available")
     p.add_argument("--ename", default=None,
                    help="Override experiment name (default: parsed from mkfigs.sh)")
+    p.add_argument("--check-figshare-upload", action="store_true",
+                   help="Verify all Figshare URLs are public, then print git commands")
     args = p.parse_args()
 
     ename, esmdir, notebooks = parse_mkfigs_sh()
     if args.ename:
         ename = args.ename
+
+    if args.check_figshare_upload:
+        check_figshare_upload_mode(ename)
+        return
+
     ofol  = HERE / f"mkfigs_output_{ename}"
     mdfol = ofol / "mkmd"
     run_time = datetime.now(timezone.utc)
@@ -664,43 +795,15 @@ def main():
     update_mkdocs_nav(ename=ename, ok_nbs=ok_nbs, dry_run=args.dry_run)
 
     # -----------------------------------------------------------------------
-    # Git commands
+    # Next step: publish on Figshare, then get git commands
     # -----------------------------------------------------------------------
-    today = date.today()
-    tag = f"docs-{ename}-{today.strftime('%Y.%m')}.000"
-
-    # RTD slugifies the tag name (lowercase, non-alphanumeric → hyphens) and
-    # serves the built version at .readthedocs.io/en/{slug}/.
-    rtd_slug = re.sub(r'[^a-z0-9-]+', '-', tag.lower()).strip('-')
-    rtd_url  = f"https://access-om3-paper-1.readthedocs.io/en/{rtd_slug}/"
-
-    added_files = [f"notebooks/{nb}.ipynb" for nb in ok_nbs]
-    added_files += [str(p.relative_to(REPO)) for p in copied_mds]
-    added_files.append(urls_json_rel)
-    added_files.append("documentation/docs/pages/index.md")
-    added_files.append("documentation/mkdocs.yml")
-    added_files.append(".readthedocs.yaml")
-
-    tag_msg = f"Evaluation figures for {ename}. Rendered site (after RTD builds tag): {rtd_url}"
-
     print()
-    print("Run the following to commit and tag:")
+    print("Files uploaded to Figshare and copied into the docs tree.")
     print()
-    print(f"  cd {REPO}")
-    print(f"  git add {' '.join(added_files)}")
-    print( "  #  ")
-    print( "  #  Recommended that you -- git add mkfigs.sh too")
-    print( "  #  ")
-    print(f'  git commit -m "docs: render evaluation figures for {ename}"')
-    print(f"  git tag -a {tag} -m '{tag_msg}'")
-    print( "  #  ")
-    print( "  # WAIT!  ")
-    print( "  # At this point you should hop onto figshare and publish the pushed items")
-    print( "  #  ")
-    print( "  git push origin main --tags")
-    print( "  git push ")
-    print( "           ")
-    print( "  Horray!  ")
+    print("Next steps:")
+    print("  1. Go to Figshare and PUBLISH the article so all URLs become public.")
+    print("  2. Verify and get git commands by running:")
+    print("       python3 mkfigs_pushit.py --check-figshare-upload")
     print()
 
 
