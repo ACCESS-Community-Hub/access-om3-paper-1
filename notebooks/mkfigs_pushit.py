@@ -135,6 +135,7 @@ def build_run_summary(
     ok_nbs: list[str],
     failed_nbs: list[str],
     not_run_nbs: list[str],
+    prev_committed_nbs: list[str],
     run_time: datetime,
 ) -> tuple[str, str]:
     """Return (plain_text_summary, markdown_summary).
@@ -146,15 +147,16 @@ def build_run_summary(
 
     # Plain text for stdout
     rows = (
-        [f"  OK         {nb}" for nb in ok_nbs]
-        + [f"  FAILED     {nb}" for nb in failed_nbs]
-        + [f"  NOT RUN    {nb}" for nb in not_run_nbs]
+        [f"  OK                  {nb}" for nb in ok_nbs]
+        + [f"  FAILED             {nb}" for nb in failed_nbs]
+        + [f"  NOT RUN            {nb}" for nb in not_run_nbs]
+        + [f"  PREV COMMITTED     {nb}" for nb in prev_committed_nbs]
     )
     plain = "\n".join([
-        f"  Experiment : {ename}",
-        f"  ESMDIR     : {esmdir}",
-        f"  Run time   : {ts}",
-        f"  OK: {len(ok_nbs)}   FAILED: {len(failed_nbs)}   NOT RUN: {len(not_run_nbs)}",
+        f"  Experiment      : {ename}",
+        f"  ESMDIR          : {esmdir}",
+        f"  Run time        : {ts}",
+        f"  OK: {len(ok_nbs)}   FAILED: {len(failed_nbs)}   NOT RUN: {len(not_run_nbs)}   PREV COMMITTED: {len(prev_committed_nbs)}",
         "",
     ] + rows)
 
@@ -165,6 +167,8 @@ def build_run_summary(
          for nb in ok_nbs]
         + [f"| `{nb}` | ❌ FAILED | |"  for nb in failed_nbs]
         + [f"| `{nb}` | ⏭ NOT RUN | |" for nb in not_run_nbs]
+        + [f"| `{nb}` | ✅ Previously committed | [Summary Figures]({exp_dir}/{nb}.md) · [Full Notebook]({exp_dir}/notebooks/{nb}/) |"
+           for nb in prev_committed_nbs]
     )
     md = (
         "| Notebook | Status | Links |\n"
@@ -688,14 +692,27 @@ def main():
             status = f"OK      ({n_png} PNG{'s' if n_png != 1 else ''})"
         print(f"  {status:<34}  {nb}")
 
+    # Load previously committed notebook URLs to merge with this run's results.
+    experiment_docs_dir = DOCS_PAGES / "experiments" / ename
+    urls_json_path = experiment_docs_dir / "notebooks_urls.json"
+    urls_json_rel  = f"documentation/docs/pages/experiments/{ename}/notebooks_urls.json"
+    existing_urls: dict[str, str] = {}
+    if not args.dry_run and urls_json_path.exists():
+        try:
+            existing_urls = json.loads(urls_json_path.read_text())
+        except Exception as exc:
+            print(f"WARNING: could not read existing {urls_json_path}: {exc}")
+    # Notebooks committed in a previous run not being re-run (or replaced) now.
+    prev_committed_nbs = [nb for nb in existing_urls if nb not in ok_nbs]
+
     print()
     plain_summary, md_summary = build_run_summary(
-        ename, esmdir, ok_nbs, failed_nbs, not_run_nbs, run_time
+        ename, esmdir, ok_nbs, failed_nbs, not_run_nbs, prev_committed_nbs, run_time
     )
     print(plain_summary)
 
-    if not ok_nbs:
-        print("No successful notebooks — nothing to push.")
+    if not ok_nbs and not prev_committed_nbs:
+        print("No successful or previously committed notebooks — nothing to push.")
         return
 
     authors_md = get_authors_md()
@@ -722,10 +739,15 @@ def main():
             print("[figshare] No token found — skipping upload.")
             print("           Set FIGSHARE_TOKEN or store token in ~/.figshare_token")
 
+    # Merge: new-run URLs take priority over previously committed.
+    all_notebook_urls = {**existing_urls, **notebook_urls}
+    # Nav includes all notebooks with valid URLs, except those that failed this run.
+    failed_set = set(failed_nbs)
+    all_nav_nbs = ok_nbs + [nb for nb in prev_committed_nbs if nb not in failed_set]
+
     # -----------------------------------------------------------------------
     # Copy files into docs tree
     # -----------------------------------------------------------------------
-    experiment_docs_dir = DOCS_PAGES / "experiments" / ename
     print()
     if args.dry_run:
         print("DRY RUN: would copy the following files:")
@@ -760,20 +782,18 @@ def main():
 
     # Write notebooks_urls.json so .readthedocs.yaml can download notebooks
     # at build time (notebooks are too large to commit to git).
-    urls_json_path = experiment_docs_dir / "notebooks_urls.json"
-    urls_json_rel  = f"documentation/docs/pages/experiments/{ename}/notebooks_urls.json"
     if args.dry_run:
         print(f"  [notebooks_urls] DRY RUN: would write {urls_json_path}")
-        if notebook_urls:
-            for nb, url in notebook_urls.items():
+        if all_notebook_urls:
+            for nb, url in all_notebook_urls.items():
                 print(f"    {nb}: {url}")
         else:
             print("    (no notebook URLs yet — run without --dry-run with a figshare token)")
     else:
         experiment_docs_dir.mkdir(parents=True, exist_ok=True)
-        urls_json_path.write_text(json.dumps(notebook_urls, indent=2) + "\n")
+        urls_json_path.write_text(json.dumps(all_notebook_urls, indent=2) + "\n")
         print(f"  notebooks_urls.json  ->  {urls_json_rel}")
-        for nb, url in notebook_urls.items():
+        for nb, url in all_notebook_urls.items():
             print(f"    {nb}: {url}")
 
     # -----------------------------------------------------------------------
@@ -792,7 +812,7 @@ def main():
     # -----------------------------------------------------------------------
     # Update mkdocs.yml nav (+ ensure mkdocs-jupyter plugin present)
     # -----------------------------------------------------------------------
-    update_mkdocs_nav(ename=ename, ok_nbs=ok_nbs, dry_run=args.dry_run)
+    update_mkdocs_nav(ename=ename, ok_nbs=all_nav_nbs, dry_run=args.dry_run)
 
     # -----------------------------------------------------------------------
     # Next step: publish on Figshare, then get git commands

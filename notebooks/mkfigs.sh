@@ -13,15 +13,25 @@
 # Thin PBS wrapper. Edit WFOLDER / ENAME / ESMDIR below, then qsub.
 # All notebook-execution logic lives in mkfigs_run.py.
 #
-## workflow
-#1. create figshare token
-#1. `cd /g/data/tm70/cyb561;git clone git@github.com:ACCESS-Community-Hub/access-om3-paper-1.git`
-#1. Edit this file: set WFOLDER, ENAME, ESMDIR, array
-#1. ensure the experiment storage path is in the #PBS -l storage header above
-#1. `qsub mkfigs.sh`
-#1. run mkfigs_pushit.py
-#1. log-in to figshare and publish the data
-#1. run git commands suggested by `mkfigs_pushit.py`
+## Workflow — first run for a new experiment
+#1. Create a Figshare token and save it to ~/.figshare_token
+#1. cd /g/data/tm70/cyb561 && git clone git@github.com:ACCESS-Community-Hub/access-om3-paper-1.git
+#1. Edit this file: set WFOLDER, ENAME, ESMDIR, and the notebook array below
+#1. Ensure the experiment storage path is in the #PBS -l storage header above
+#1. qsub mkfigs.sh
+#1. python3 mkfigs_pushit.py
+#1. Log in to Figshare and publish the article
+#1. python3 mkfigs_pushit.py --check-figshare-upload   (follow the git commands it prints)
+#
+## Workflow — adding notebooks to (or re-running) an existing experiment
+#1. git fetch --tags
+#1. git checkout <docs-{ename}-YYYY.MM.NNN>  # the tag printed by the previous --check-figshare-upload
+#1. python3 mkfigs_restore.py   # download previously committed notebooks from Figshare
+#1. Edit the notebook array below: add new notebooks, or re-enable ones to re-run
+#1. qsub mkfigs.sh
+#1. python3 mkfigs_pushit.py    # merges new results with previously committed notebooks
+#1. Log in to Figshare and publish the article
+#1. python3 mkfigs_pushit.py --check-figshare-upload
 
 #set -x
 module purge
