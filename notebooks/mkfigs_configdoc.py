@@ -456,7 +456,7 @@ def _mkmd_notebook(title, caption, experiment, nb_stem, plot_fname, mdfol, table
             (
                 f"Evaluation figures from ACCESS-OM3 experiment **{experiment}**"
                 f" produced by notebook `{nb_stem}.ipynb`."
-                f" Co-authors for this notebook: {_authors_str}."
+                f" Co-authors for this notebook (via Git history): {_authors_str}."
                 f" [View rendered notebook](notebooks/{nb_stem}.ipynb)\n"
             ),
             " \n",
@@ -521,7 +521,7 @@ def getauthors(file_path="../CITATION.cff"):
             family = None
 
     return (
-        "Co-authors (alphabetically) for the notebooks that created these figures: "
+        "Co-authors (alphabetically) for the notebooks that created these figures (CITATION.cff): "
         + ", ".join(sorted(coauthors))
     )
 
