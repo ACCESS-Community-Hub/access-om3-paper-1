@@ -92,7 +92,10 @@ def main() -> None:
             "Run mkfigs_pushit.py first."
         )
 
-    notebook_urls: dict[str, str] = json.loads(urls_json.read_text())
+    notebook_urls: dict[str, str] = {
+        k: v for k, v in json.loads(urls_json.read_text()).items()
+        if not k.startswith("_")
+    }
     if not notebook_urls:
         sys.exit("No notebook URLs in notebooks_urls.json — nothing to restore.")
 
