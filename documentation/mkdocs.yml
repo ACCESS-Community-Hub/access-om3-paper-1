@@ -101,7 +101,16 @@ markdown_extensions:
 # The "Evaluation figures" section is populated automatically by mkfigs_pushit.py.
 # Each experiment appears as a sub-section with "Figures" and "Notebooks" pages.
 nav:
-  - Home: pages/index.md
+- Home: pages/index.md
+- SST:
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/SST.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/SST.ipynb
+- 00_template_notebook:
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/00_template_notebook.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/00_template_notebook.ipynb
+- SSS:
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/SSS.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/SSS.ipynb
 
 # Footer
 extra:
