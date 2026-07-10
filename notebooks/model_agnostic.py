@@ -165,6 +165,7 @@ def select_variable(
         Open an intake-esm catalog search result.
         - If exactly one dataset key: use to_dask()
         - If multiple: use to_dataset_dict(), choose 'best' based on prefer_dims, normalize zl->z_l
+        - If prefer_dims cannot single out one dataset: raise rather than pick arbitrarily
         """
         open_kwargs = dict(chunks=chunks, decode_timedelta=True, use_cftime=True)
         combine_kwargs = dict(compat="override", coords="minimal", data_vars="minimal")
@@ -186,7 +187,15 @@ def select_variable(
             dims = set(ds.dims)
             return tuple(int(d in dims) for d in prefer_dims)
 
-        best_key = max(ds_dict.keys(), key=lambda k: ds_score(ds_dict[k]))
+        scores = {key: ds_score(ds) for key, ds in ds_dict.items()}
+        best_score = max(scores.values())
+        best_keys = sorted(key for key, score in scores.items() if score == best_score)
+        if len(best_keys) > 1:
+            raise RuntimeError(
+                f"Ambiguous match: cannot choose between dataset keys {best_keys}. "
+                "Refine the search (variable name, frequency, ...) to match exactly one dataset."
+            )
+        best_key = best_keys[0]
         ds = ds_dict[best_key]
 
         # Normalize vertical dim name for downstream code
