@@ -61,6 +61,11 @@ authors:
     email: noah.day@unimelb.edu.au
     affiliation: School of Mathematics and Statistics, University of Melbourne, Melbourne, Australia
     orcid: 'https://orcid.org/0000-0003-4176-7956'
+ - given-names: Claire
+    family-names: Yung
+    email: Claire.Yung@anu.edu.au
+    affiliation: Research School of Earth Sciences, Australian National University
+    orcid: 'https://orcid.org/0000-0002-0052-7668'
 - description: "Plotting notebooks and discussion for ACCESS-OM3 model description paper."
     type: 
     value: 

@@ -1,13 +1,73 @@
+import nci_ipynb  # requires conda/analysis3-26.03 or later
+import matplotlib.pyplot as plt
+from matplotlib import rcParams
 import os
-#little function to create a figure file for om3 configs
-#cb
-def mkmd(title,caption,experiment,plot_fname,mdfol):
-    #print('')
-    #print(title)
-    #print(caption)
-    #print(experiment)
-    #print(plot_fname)
-    #print('')
+
+dpi = 100
+rcParams["figure.dpi"] = dpi
+
+class MkmdWriter:
+    """Class to keep track of exporting key Figures or Tables to a markdown file
+
+    experiment: path to esm file, we just take the last folder to mean the experiment name
+    nbname: name of notebook that this is being called from
+    cwd: current working directory (will use this as the basis for plot folder)
+    pm (default: False): being called by papermill?
+    """
+    def __init__(self, esm_file, nbname, cwd, pm=False):
+        self.fignum = 1
+        self.experiment = os.path.basename(os.path.dirname(esm_file))
+        self.nbname = nbname
+        self.cwd    = cwd
+        self.papermill = pm
+        self.mdfol = self.cwd+"mkmd/"
+
+    def savefig(self, title, caption, dpi=dpi):
+        """Save figure and append to markdown summary.
+
+        title: title of figure
+        caption: caption of figure
+        dpi (optional; default: 100): dpi for figure
+        """
+        if self.papermill:
+            plot_fname = self.nbname[:-6]+"_"+str(self.fignum).zfill(2)+".png"
+            
+            os.makedirs(self.mdfol, exist_ok=True)
+            plt.savefig(self.mdfol+plot_fname, dpi=dpi, bbox_inches="tight")
+            print("Saved", self.mdfol+plot_fname)
+            
+            mkmd(title,
+                 f"`{self.nbname}`: {caption}",
+                 self.experiment,
+                 plot_fname,
+                 self.mdfol,
+                 table='')
+        self.fignum += 1
+
+    def table(self, title, table):
+        """Append table to markdown summary.
+        title: title of table
+        table: markdown table strings (a list of strings where each string is a new line)
+        """
+        if self.papermill:
+            mkmd(title,
+                 f"`{self.nbname}`: This is a table caption",
+                 self.experiment,
+                 "",
+                 self.mdfol,
+                 table)
+
+
+def mkmd(title,caption,experiment,plot_fname,mdfol,table=''):
+    """Function to create a markdown file and add a figure or a table
+
+    title: title for figure or table 
+    caption: caption for figure (not used when making a table)
+    experiment: experiment name
+    plot_fname: name of plot
+    mdfol: directory to output markdown file and figures
+    table (default: ''): if this is \neq '' then a table will be added rather than a figure
+    """
     # Create the folder
     try:
         # exist_ok=True prevents an error if the directory already exists
@@ -18,21 +78,41 @@ def mkmd(title,caption,experiment,plot_fname,mdfol):
     mdpath=mdfol+experiment+'.md'
     print('Adding a figure to markdown doc: '+mdpath)
 
-    lines_to_append = [
-        "<!-- push this file to documentation/docs/pages/experiments/"+experiment+" and the images to documentation/docs/assets/"+experiment+" -->"+"\n",
-        "# "+experiment+"\n",
-        " \n",
-        "This page shows evaluation figures from ACCESS-OM3 experiment "+ experiment+ " for discussion and see plotting scripts have a look at [this repository](https://github.com/acCESS-Community-Hub/access-om3-paper-1/) and related [issues](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues).\n",
-         " \n",
-        getauthors(),
-        " \n",
-        "## "+title+"\n",
-        " \n",
-        '!['+caption+'](/assets/experiments/'+experiment+'/'+plot_fname+') \n',
-        " \n",
-        "  Caption: "+caption+"\n",
-        "  \n"
-    ]
+    if table!='':
+        fig_or_table=table
+
+        lines_to_append = [
+            "<!-- push this file to documentation/docs/pages/experiments/"+experiment+" and the images to documentation/docs/assets/"+experiment+" -->"+"\n",
+            "# "+experiment+"\n",
+            " \n",
+            "This page shows evaluation figures from ACCESS-OM3 experiment "+ experiment+ " for discussion and see plotting scripts have a look at [this repository](https://github.com/acCESS-Community-Hub/access-om3-paper-1/) and related [issues](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues).\n",
+             " \n",
+            getauthors(),
+            " \n",
+            "## "+title+"\n",
+            " \n",
+        ]
+        for tableline in fig_or_table:
+            lines_to_append.append(tableline+"\n")
+        #lines_to_append.append(" \n")
+    else:
+        fig_or_table='!['+caption+'](/assets/experiments/'+experiment+'/'+plot_fname+') \n'
+
+        lines_to_append = [
+            "<!-- push this file to documentation/docs/pages/experiments/"+experiment+" and the images to documentation/docs/assets/"+experiment+" -->"+"\n",
+            "# "+experiment+"\n",
+            " \n",
+            "This page shows evaluation figures from ACCESS-OM3 experiment "+ experiment+ " for discussion and see plotting scripts have a look at [this repository](https://github.com/acCESS-Community-Hub/access-om3-paper-1/) and related [issues](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues).\n",
+             " \n",
+            getauthors(),
+            " \n",
+            "## "+title+"\n",
+            " \n",
+            fig_or_table,
+            " \n",
+            "  Caption: "+caption+"\n",
+            "  \n"
+        ]
 
     #check if file exists
     if os.path.exists(mdpath) and string_exists_in_file(mdpath, title):
@@ -51,8 +131,6 @@ def mkmd(title,caption,experiment,plot_fname,mdfol):
     except:
         pass
         
-    print('')
-
     return
 
 def string_exists_in_file(filename, search_string):
@@ -67,13 +145,8 @@ def string_exists_in_file(filename, search_string):
         print(f"Warning: First time this notebook has been included: '{filename}'.")
         return False
 
-def get_notebook_name(notebook_name):
-    if notebook_name!='not_using_mkfigs.sh':
-        notebook_name=os.path.basename(os.environ.get("JPY_SESSION_NAME"))
-    print("Notebook name is:", notebook_name)
-    return notebook_name
-
 def getauthors(file_path='../CITATION.cff'):
+    """Function to find authors from citation file and put them in the markdown file"""
     #in case one wants a downloaded one
     #import urllib.request
     #file_path= "https://raw.githubusercontent.com/ACCESS-Community-Hub/access-om3-paper-1/main/CITATION.cff"
@@ -112,8 +185,4 @@ def getauthors(file_path='../CITATION.cff'):
     
             given = None
             family = None
-    #print('Co-authors (alphabetically) for the notebooks that created these figures: '+' '.join(sorted(coauthors)))
-    return 'Co-authors (alphabetically) for the notebooks that created these figures: '+' '.join(sorted(coauthors))
-
-
-
+    return 'Co-authors (alphabetically) for the notebooks that created these figures: '+', '.join(sorted(coauthors))
