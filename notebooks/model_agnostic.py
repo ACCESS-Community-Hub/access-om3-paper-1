@@ -21,6 +21,29 @@ from typing import Optional, Sequence, Tuple, Dict, Any
 import xarray as xr
 
 
+def _patch_broken_conda_env():
+    """
+    Workaround for conda/analysis3-26.03 .. 26.07 on Gadi: numba expects
+    coverage.types attributes removed in coverage >= 7.x, which breaks
+    `import sparse` and therefore all dask-chunked dataset loading
+    (xr.open_dataset(chunks=...) and intake-esm to_dask()).
+    No-op on healthy environments. Called internally before chunked opens.
+    """
+    try:
+        import sys, types, coverage, coverage.types
+        class _TypesProxy(types.ModuleType):
+            def __getattr__(self, name):
+                val = type(name, (), {})
+                setattr(self, name, val)
+                return val
+        proxy = _TypesProxy('coverage.types')
+        proxy.__dict__.update(vars(coverage.types))
+        coverage.types = proxy
+        sys.modules['coverage.types'] = proxy
+    except Exception:
+        pass
+
+
 def get_lon_lat_from_catalog(
     datastore,
     lon_candidates=("geolon", "geolon_t", "lonh", "lonq", "xt_ocean", "lon"),
@@ -41,24 +64,31 @@ def get_lon_lat_from_catalog(
     (lon, lat) : (xarray.DataArray, xarray.DataArray)
         Longitude and latitude arrays suitable for assigning as CF coords.
     """
+    _patch_broken_conda_env()
+
     def _find_var(candidates):
         for name in candidates:
             try:
                 cat = datastore.search(variable=name)
                 if len(cat.df) == 0:
                     continue
-                ds = cat.to_dask(
-                    xarray_open_kwargs=dict(
-                        chunks={},
-                        decode_timedelta=True,
-                        use_cftime=True,
-                    ),
-                    xarray_combine_by_coords_kwargs=dict(
-                        compat="override",
-                        data_vars="minimal",
-                        coords="minimal",
-                    ),
-                )
+                try:
+                    ds = cat.to_dask(
+                        xarray_open_kwargs=dict(
+                            chunks={},
+                            decode_timedelta=True,
+                            use_cftime=True,
+                        ),
+                        xarray_combine_by_coords_kwargs=dict(
+                            compat="override",
+                            data_vars="minimal",
+                            coords="minimal",
+                        ),
+                    )
+                except Exception:
+                    ds = xr.open_dataset(
+                        sorted(cat.df["path"])[0], decode_timedelta=True
+                    )
                 if name in ds:
                     da = ds[name]
                 else:
@@ -143,6 +173,8 @@ def select_variable(
     """
     import cf_xarray  # noqa: F401 (registers .cf accessor)
 
+    _patch_broken_conda_env()
+
     if fallback_variable_names is None:
         fallback_variable_names = []
     if chunks is None:
@@ -164,7 +196,7 @@ def select_variable(
         """
         Open an intake-esm catalog search result.
         - If exactly one dataset key: use to_dask()
-        - If multiple: use to_dataset_dict(), choose 'best' based on prefer_dims, normalize zl->z_l
+        - If multiple: choose 'best' based on dataset-key dims, normalize zl->z_l
         - If prefer_dims cannot single out one dataset: raise rather than pick arbitrarily
         """
         open_kwargs = dict(chunks=chunks, decode_timedelta=True, use_cftime=True)
@@ -176,18 +208,10 @@ def select_variable(
                 xarray_combine_by_coords_kwargs=combine_kwargs,
             )
 
-        ds_dict = cat.to_dataset_dict(
-            xarray_open_kwargs=open_kwargs,
-            xarray_combine_by_coords_kwargs=combine_kwargs,
-            progressbar=False,
-        )
+        def key_score(key: str) -> Tuple[int, ...]:
+            return tuple(int(f".{dim}:" in key or key.startswith(f"{dim}:")) for dim in prefer_dims)
 
-        def ds_score(ds: xr.Dataset) -> Tuple[int, ...]:
-            # Higher is better: presence of prefer_dims in order
-            dims = set(ds.dims)
-            return tuple(int(d in dims) for d in prefer_dims)
-
-        scores = {key: ds_score(ds) for key, ds in ds_dict.items()}
+        scores = {key: key_score(key) for key in cat.keys()}
         best_score = max(scores.values())
         best_keys = sorted(key for key, score in scores.items() if score == best_score)
         if len(best_keys) > 1:
@@ -196,7 +220,10 @@ def select_variable(
                 "Refine the search (variable name, frequency, ...) to match exactly one dataset."
             )
         best_key = best_keys[0]
-        ds = ds_dict[best_key]
+        ds = cat[best_key].to_dask(
+            xarray_open_kwargs=open_kwargs,
+            xarray_combine_by_coords_kwargs=combine_kwargs,
+        )
 
         # Normalize vertical dim name for downstream code
         if "zl" in ds.dims and "z_l" not in ds.dims:
@@ -207,6 +234,57 @@ def select_variable(
             print(f"Dataset dims: {dict(ds.dims)}")
 
         return ds
+
+    def _filter_exact_variable(cat, name: str):
+        if not hasattr(cat, "df") or "variable" not in cat.df.columns:
+            return cat
+
+        def has_exact_variable(entry):
+            if isinstance(entry, str):
+                if entry == name:
+                    return True
+                if entry.startswith("["):
+                    import ast
+                    try:
+                        return name in ast.literal_eval(entry)
+                    except Exception:
+                        return False
+                return False
+            try:
+                return name in entry
+            except TypeError:
+                return False
+        filtered = cat.df.loc[cat.df["variable"].map(has_exact_variable)].copy()
+        out = cat.__class__({"esmcat": cat.esmcat.dict(), "df": filtered})
+        out.esmcat.catalog_file = None
+        out.derivedcat = cat.derivedcat
+        out._requested_variables = [name]
+        return out
+
+    def _open_exact_variable_files(cat, name: str) -> xr.Dataset:
+        paths = sorted(cat.df["path"].unique())
+        # chunks -> lazy dask arrays; without them combine_by_coords eagerly
+        # concatenates every file into memory (~120 GB for 25 km daily data).
+        open_kwargs = dict(chunks=chunks, decode_timedelta=True, use_cftime=True)
+
+        datasets = []
+        for path in paths:
+            ds = xr.open_dataset(path, **open_kwargs)
+            if name in ds.data_vars:
+                datasets.append(ds[[name]])
+
+        if not datasets:
+            raise RuntimeError(f"No files contained variable {name!r}")
+        if len(datasets) == 1:
+            return datasets[0]
+
+        return xr.combine_by_coords(
+            datasets,
+            data_vars="minimal",
+            coords="minimal",
+            compat="override",
+            combine_attrs="override",  # per-file attrs like 'history' differ; keep the first
+        )
 
     def _list_catalog_candidates(cat_any) -> Sequence[str]:
         candidates = set()
@@ -241,24 +319,26 @@ def select_variable(
                 print("CF-based lookup failed:", repr(e))
 
     # --- 2) Try fallback variable names ---
+    fallback_errors = []
     for name in fallback_variable_names:
         try:
             cat = _search_with_freq({**search_base, "variable": name})
+            cat = _filter_exact_variable(cat, name)
             if len(cat.df) == 0:
                 continue
-            ds = _open_cat_best_dataset(cat)
-
-            # Some catalogs return datasets where the real var name differs slightly;
-            # but usually it's exact. Keep it strict to avoid surprises.
+            ds = _open_exact_variable_files(cat, name)
             if name not in ds.data_vars:
-                # If missing, skip rather than failing the whole function.
-                continue
+                raise RuntimeError(
+                    f"Exact file-path open for {name!r} did not contain {name!r}; "
+                    f"found variables {list(ds.data_vars)}"
+                )
 
             da = ds[name]
             if verbose:
                 print(f"Selected variable via fallback name: {name}")
             return da
         except Exception as e:
+            fallback_errors.append(f"{name!r}: {e!r}")
             if verbose:
                 print(f"Fallback lookup failed for {name!r}: {repr(e)}")
             continue
@@ -272,5 +352,6 @@ def select_variable(
         f"CF standard_name tried: {variable_standard_name!r}\n"
         f"Fallback variable names tried: {list(fallback_variable_names)!r}\n"
         f"Frequency filter: {data_frequency!r}\n"
+        f"Fallback errors: {fallback_errors}\n"
         f"Catalog variable candidates: {candidates}\n"
     )
