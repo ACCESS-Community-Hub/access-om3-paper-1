@@ -17,11 +17,24 @@ To start contributing to the code, you have two options:
  1. push your code changes to `main` directly. 
  1. if you'd prefer for your code changes to be reviewed, you can create a new branch directly in this repository, make your changes there, and then open a pull request from your branch into `main`. 
 
+### ⚠️ This repo uses a git submodule
+
+The `notebooks/mkfigs.sh` workflow and the evaluation notebooks depend on the [`access-model-mkfigs`](https://github.com/chrisb13/access-model-mkfigs) package, provided here as a git submodule at `external/access-model-mkfigs`. If you skip the submodule setup, notebooks will fail with `ModuleNotFoundError: No module named 'mkfigs'` and `mkfigs.sh` will fail the same way.
+
+- **Cloning for the first time?** Use `--recurse-submodules`:
+```
+  git clone --recurse-submodules git@github.com:ACCESS-Community-Hub/access-om3-paper-1.git
+```
+- **Already have the repo cloned?** Initialise the submodule:
+```
+  git submodule update --init --recursive
+```
+
 ### Detailed instructions 
 
 For the first option above omit the branch steps below. This is option 2:
 
- 1. Clone this repository locally;
+ 1. Clone this repository recursively locally (see the note on git submodules above);
  2. Make a new branch with your name `git checkout -b claire`;
  3. `cd` into `notebooks`;
  4. Copy the example notebook, and start hacking away (see `Notebooks` section below for the details);
@@ -42,46 +55,54 @@ For the first option above omit the branch steps below. This is option 2:
  - If it turns out it is not currently possible to complete the metric due to missing diagnostics. [Please note that here](https://github.com/ACCESS-NRI/access-om3-configs/issues/718) so we can continue the existing run with the needed output.
 ([Source](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23#issue-3308829506))
 
+
 ## Notebooks
 
-Notebooks for figures should be in the [notebooks folder](https://github.com/ACCESS-Community-Hub/access-om3-25km-paper-1/blob/main/notebooks). When starting a new notebook, please use the template [here](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/00_template_notebook.ipynb). 
+Notebooks for figures should be in the [notebooks folder](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks). When starting a new notebook, please use the template [here](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/00_template_notebook.ipynb).
 
-To allow us later to run all the notebooks at once, please use the boilerplate at the top of the notebook, namely this second cell:
+To allow us to run all the notebooks at once (interactively or via `mkfigs.sh`/papermill), every notebook must start with the two cells from the template. The first cell needs the tag `parameters` so papermill can inject `esm_file`/`cwd`/`nbname` externally, here are the two cells:
+
 ```python
-#parameters
+# These first two cells must be in all notebooks!
+# It allows us to run all the notebooks at once, this cell has a tag "parameters" which allows us to pass in
+# arguments externally using papermill (see mkfigs.sh for details)
 
-### USER EDIT start
-esm_file='/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/experiment_datastore.json'
-dpi=300
-### USER EDIT stop
+# Set esm_file to the datastore for the main experiment of interest
+esm_file = "/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test3v2-00532b88/datastore.json"
 
-import os
-from matplotlib import rcParams
-%matplotlib inline
-rcParams['figure.dpi']= dpi
-
-plotfolder=f"/g/data/{os.environ['PROJECT']}/{os.environ['USER']}/access-om3-paper-figs/"
-os.makedirs(plotfolder, exist_ok=True)
-
- # a similar cell under this means it's being run in batch
-print("ESM datastore path: ",esm_file)
-print("Plot folder path: ",plotfolder)
+# papermill settings. *No need to modify these if running interactively.*
+papermill = False                      # `cwd` and `nbname` will be populated by papermill.
+cwd = None                             # current working directory
+nbname = None                          # notebook name
 ```
 
-It is important to use `esm_file` variable for the source data and save plots into the folder defined by the `plotfolder` variable.  This allows notebooks to be easily re-run later with different experiments, here's [`00_template_notebook.ipynb` as an example](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/00_template_notebook.ipynb):
 ```python
-datastore = intake.open_esm_datastore(
-    esm_file,
-    columns_with_iterables=[
-        "variable",
-        "variable_long_name",
-        "variable_standard_name",
-        "variable_cell_methods",
-        "variable_units"
-    ]
-)
+if not papermill:
+    import nci_ipynb, os  # requires conda/analysis3-26.03 or later
+    cwd = nci_ipynb.dir()
+    nbname = nci_ipynb.name()
+    os.chdir(cwd)
+import mkfigs_bootstrap  # noqa: adds external/access-model-mkfigs/src to sys.path (stop-gap)
+from mkfigs import MkmdWriter
+mkmd = MkmdWriter(esm_file, nbname, str(cwd), pm=papermill)
 ```
-and `plt.savefig(plotfolder+'exampleout.png')`. This cell needs to have the tag `parameters`, copying this cell will copy the tag as well but [you can also set this on other cells](https://papermill.readthedocs.io/en/latest/usage-parameterize.html) should you wish to parameterize other parts of the notebook. This allows us to [pass in arguments externally using papermill](https://papermill.readthedocs.io/en/latest/usage-cli.html) (see [mkfigs.sh for details](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/mkfigs.sh))
 
-Once you have finished your notebook, please add the name of your notebook to the `array` variable in [this notebook](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/8f636ad6862dd141378c0f0f470c4c8c895dea38/notebooks/mkfigs.sh#L62-L63). This allows us to run your new notebook as part of a suite of evaluation notebooks when assessing new simulations.
+Rather than saving figures manually, please use the `mkmd` object created above to save figures and add them to the notebook's markdown summary:
 
+```python
+# mkmd.savefig(fig, title, caption, dpi=100)
+# Save figure and append to markdown summary.
+mkmd.savefig(fig, "Template notebook", "Example figure of ACCESS-OM3 sea surface height (m).", dpi=150)
+```
+
+Tables can be added the same way:
+
+```python
+# mkmd.table(title, table)
+# Append a markdown table (list of strings, one per line) to the summary.
+mkmd.table("example title", available_variables(datastore_filtered).to_markdown().split('\n'))
+```
+
+See [`00_template_notebook.ipynb`](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/00_template_notebook.ipynb) for a complete working example.
+
+Once you have finished your notebook, please add its name to the `array` variable in [`mkfigs.sh`](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/mkfigs.sh). This allows us to run your new notebook as part of a suite of evaluation notebooks when assessing new simulations.

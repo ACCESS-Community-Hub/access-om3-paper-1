@@ -7,58 +7,73 @@
 #PBS -l ncpus=16
 #PBS -l mem=190GB
 #PBS -l walltime=10:00:00
-#PBS -o /g/data/tm70/cyb561/repos/access-om3-paper-1-mkmdpack
-#PBS -e /g/data/tm70/cyb561/repos/access-om3-paper-1-mkmdpack
+#PBS -o /g/data/tm70/cyb561/repos/test3-submodule
+#PBS -e /g/data/tm70/cyb561/repos/test3-submodule
 
 # Thin PBS wrapper. Edit WFOLDER / ENAME / ESMDIR below, then qsub.
-# Requires the access-model-mkfigs package to be installed (pip install access-model-mkfigs).
+#
+# Requires the access-model-mkfigs package, which is provided via the
+# external/access-model-mkfigs git submodule (pinned commit) and run
+# directly as `python3 -m mkfigs.<module>`. This is an
+# interim measure until access-model-mkfigs is installed centrally in
+# access3-26.0x.
 #
 ## Workflow — first run for a new experiment
 #1. Create a Figshare token and save it to ~/.figshare_token
-#1. cd /g/data/tm70/cyb561 && git clone git@github.com:ACCESS-Community-Hub/access-om3-paper-1.git
-#1. pip install git+https://github.com/ACCESS-NRI/access-model-mkfigs.git
+#1. cd /g/data/tm70/$USER && git clone --recurse-submodules git@github.com:ACCESS-Community-Hub/access-om3-paper-1.git
+#1.   (already cloned without submodules? run: git submodule update --init --recursive)
 #1. Edit this file: set WFOLDER, ENAME, ESMDIR, and the notebook array below
 #1. Ensure the experiment storage path is in the #PBS -l storage header above
 #1. qsub mkfigs.sh
-#1. mkfigs-pushit
+#1. python3 -m mkfigs.pushit
 #1. Log in to Figshare and publish the article
-#1. mkfigs-pushit --check-figshare-upload   (follow the git commands it prints)
+#1. python3 -m mkfigs.pushit --check-figshare-upload   (follow the git commands it prints)
 
 
-# access-model-mkfigs is installed automatically into a per-experiment venv on first run.
-# The venv lives alongside the notebook outputs so concurrent jobs don't conflict.
+# access-model-mkfigs is loaded straight from the external/access-model-mkfigs
+# submodule via PYTHONPATH -- no venv, no pip install, nothing per-experiment.
+# Batch runs, interactive notebooks, and follow-up commands below all use the
+# same pinned commit -- there's no venv to activate for any of them.
 #
-## To run interactively (after a previous qsub has created the venv):
+## To run interactively:
 #   module purge; module use /g/data/xp65/public/modules; module load conda/analysis3
-#   source <WFOLDER>/notebooks/mkfigs_output_<ENAME>/venv/bin/activate
+#   (open a notebook — notebooks/mkfigs_bootstrap.py handles the PYTHONPATH bit)
 #
-## To upgrade access-model-mkfigs in an existing venv:
-#   source .../mkfigs_output_<ENAME>/venv/bin/activate
-#   pip install --no-deps --force-reinstall git+https://github.com/ACCESS-NRI/access-model-mkfigs
+## To run follow-up commands (pushit / restore) from a login node:
+#   module purge; module use /g/data/xp65/public/modules; module load conda/analysis3
+#   export PYTHONPATH="<WFOLDER>/external/access-model-mkfigs/src:${PYTHONPATH}"
+#   python3 -m mkfigs.pushit  [--dry-run] [--check-figshare-upload]
+#   python3 -m mkfigs.restore [--ename ENAME] [--force]
+#
+## To upgrade access-model-mkfigs (bump the pinned submodule commit):
+#   cd external/access-model-mkfigs && git fetch --tags && git checkout <tag>
+#   cd ../.. && git add external/access-model-mkfigs && git commit -m "Bump access-model-mkfigs to <tag>"
 
 
 #
 ## Workflow — adding notebooks to (or re-running) an existing experiment
 #1. git fetch --tags
 #1. git checkout <docs-{ename}-YYYY.MM.NNN>  # the tag printed by the previous --check-figshare-upload
-#1. mkfigs-restore   # download previously committed notebooks from Figshare
+#1. git submodule update --init --recursive  # in case the pin moved since your last checkout
+#1. python3 -m mkfigs.restore   # download previously committed notebooks from Figshare
 #1. Edit the notebook array below: add new notebooks, or re-enable ones to re-run
 #1. qsub mkfigs.sh
-#1. mkfigs-pushit    # merges new results with previously committed notebooks
+#1. python3 -m mkfigs.pushit    # merges new results with previously committed notebooks
 #1. Log in to Figshare and publish the article
-#1. mkfigs-pushit --check-figshare-upload
+#1. python3 -m mkfigs.pushit --check-figshare-upload
 
 #set -x
 module purge
 module use /g/data/xp65/public/modules
 module load conda/analysis3
+module list
 
 # ---------------------------------------------------------------------------
 # SET THESE
 # ---------------------------------------------------------------------------
 
-WFOLDER=/g/data/tm70/cyb561/repos/access-om3-paper-1/
-WFOLDER=/g/data/tm70/cyb561/repos/access-om3-paper-1-mkmdpack/
+WFOLDER=/g/data/tm70/cyb561/repos/test3-submodule/
+WFOLDER=/g/data/tm70/cyb561/repos/test3-submodule/
 
 #DS run from June 2025
 #ESMDIR=/scratch/tm70/ds0092/access-om3/archive/om3_MC_25km_jra_ryf+wombatlite/intake_esm_ds.json
@@ -96,19 +111,11 @@ ENAME=MC_25km_jra_iaf+wombatlite-test3v2-00532b88
 #ENAME=MC_25km_jra_iaf+wombatlite-test4-d28e0359
 
 # ---------------------------------------------------------------------------
-# Per-experiment venv (created automatically on first run).
-# --no-deps prevents pip installing numpy into the venv and shadowing conda's.
+# access-model-mkfigs is provided via the external/access-model-mkfigs git
+# submodule (pinned commit) rather than pip-installed, so batch runs and
+# interactive notebooks use the exact same on-disk copy of the package.
+export PYTHONPATH="${WFOLDER%/}/external/access-model-mkfigs/src:${PYTHONPATH}"
 # ---------------------------------------------------------------------------
-VENV="${WFOLDER%/}/notebooks/mkfigs_output_${ENAME}/venv"
-if [ ! -f "${VENV}/bin/activate" ]; then
-    echo "Creating venv at ${VENV} ..."
-    mkdir -p "${VENV}"
-    python3 -m venv "${VENV}" --system-site-packages
-    "${VENV}/bin/pip" install --no-deps git+https://github.com/chrisb13/access-model-mkfigs
-fi
-source "${VENV}/bin/activate"
-export PYTHONPATH="$(${VENV}/bin/python3 -c 'import site; print(site.getsitepackages()[0])'):${PYTHONPATH}"
-module list
 
 # ---------------------------------------------------------------------------
 # Notebook list
@@ -148,7 +155,7 @@ MKFIGS_NOTEBOOKS="${MKFIGS_NOTEBOOKS%:}"
 # ---------------------------------------------------------------------------
 export MKFIGS_NOTEBOOKS
 
-exec mkfigs-run \
+exec python3 -m mkfigs.run \
     --ename "${ENAME}" \
     --esmdir "${ESMDIR}" \
     --wfolder "${WFOLDER}" \
