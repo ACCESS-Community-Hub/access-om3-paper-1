@@ -44,6 +44,31 @@ def _patch_broken_conda_env():
         pass
 
 
+# Public name, for notebooks that do raw intake/xarray chunked loads
+# (select_variable and get_lon_lat_from_catalog call the workaround themselves).
+patch_broken_conda_env = _patch_broken_conda_env
+
+
+def patch_dask_workers(client):
+    """
+    Apply the conda-env workaround on every dask worker of a distributed Client.
+
+    Uses a nested function so it is serialised by value (cloudpickle) — workers
+    start in their own scratch directory and can't import this module up front.
+    """
+    import os
+    here = os.path.dirname(os.path.abspath(__file__))
+
+    def _patch(path=here):
+        import sys
+        if path not in sys.path:
+            sys.path.insert(0, path)
+        import model_agnostic
+        model_agnostic._patch_broken_conda_env()
+
+    client.run(_patch)
+
+
 def get_lon_lat_from_catalog(
     datastore,
     lon_candidates=("geolon", "geolon_t", "lonh", "lonq", "xt_ocean", "lon"),
