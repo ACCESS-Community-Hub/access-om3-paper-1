@@ -38,7 +38,7 @@ For the first option above omit the branch steps below. This is option 2:
  2. Make a new branch with your name `git checkout -b claire`;
  3. `cd` into `notebooks`;
  4. Copy the example notebook, and start hacking away (see `Notebooks` section below for the details);
- 5. When ready to upload, do `git add <path to your notebook>`, `git commit -m "A helpful message"` and `git push -u REMOTE_NAME branch_name` (where `REMOTE_NAME` is the name of your GitHub remote, this defaults to `origin`);
+ 5. When ready to upload, do `git add <path to your notebook>`, `git commit -m "A helpful message"` and `git push -u REMOTE_NAME branch_name` (where `REMOTE_NAME` is the name of your GitHub remote, this defaults to `origin`). This repository is getting very large so please do not upload notebooks with lots of embedded figures (on JupyterLab one can right-click and clear output on figure cells);
  6. Make a PR on github to merge it into main
  7. Add your authorship details to the [citation file](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/CITATION.cff)
 

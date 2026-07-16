@@ -7,10 +7,10 @@
 #PBS -l ncpus=16
 #PBS -l mem=190GB
 #PBS -l walltime=10:00:00
-#PBS -o /g/data/tm70/cyb561/repos/test3-submodule
-#PBS -e /g/data/tm70/cyb561/repos/test3-submodule
+#PBS -o /g/data/tm70/cyb561/repos/access-om3-paper-test/notebooks
+#PBS -e /g/data/tm70/cyb561/repos/access-om3-paper-test/notebooks
 
-# Thin PBS wrapper. Edit WFOLDER / ENAME / ESMDIR below, then qsub.
+# Thin PBS wrapper. ENAME / ESMDIR below, then qsub.
 #
 # Requires the access-model-mkfigs package, which is provided via the
 # external/access-model-mkfigs git submodule (pinned commit) and run
@@ -22,7 +22,7 @@
 #1. Create a Figshare token and save it to ~/.figshare_token
 #1. cd /g/data/tm70/$USER && git clone --recurse-submodules git@github.com:ACCESS-Community-Hub/access-om3-paper-1.git
 #1.   (already cloned without submodules? run: git submodule update --init --recursive)
-#1. Edit this file: set WFOLDER, ENAME, ESMDIR, and the notebook array below
+#1. Edit this file: ENAME, ESMDIR, and the notebook array below
 #1. Ensure the experiment storage path is in the #PBS -l storage header above
 #1. qsub mkfigs.sh
 #1. python3 -m mkfigs.pushit
@@ -72,8 +72,14 @@ module list
 # SET THESE
 # ---------------------------------------------------------------------------
 
-WFOLDER=/g/data/tm70/cyb561/repos/test3-submodule/
-WFOLDER=/g/data/tm70/cyb561/repos/test3-submodule/
+if [ -n "$PBS_O_WORKDIR" ]; then
+    # Batch mode: $0 is unreliable under PBS (script runs from a spool dir),
+    # but PBS_O_WORKDIR reliably points at the directory qsub was run from.
+    WFOLDER="$(dirname "$PBS_O_WORKDIR")/"
+else
+    # Interactive mode: $0 is reliable here.
+    WFOLDER="$(dirname "$(readlink -f "$0")")/../"
+fi
 
 #DS run from June 2025
 #ESMDIR=/scratch/tm70/ds0092/access-om3/archive/om3_MC_25km_jra_ryf+wombatlite/intake_esm_ds.json
@@ -83,10 +89,10 @@ WFOLDER=/g/data/tm70/cyb561/repos/test3-submodule/
 #ENAME=25km-iaf-test-for-AK-expt-7df5ef4c
 
 #AK iaf run 9-Dec-25
-# ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json
-# ENAME=MC_25km_jra_iaf-1.0-beta-5165c0f8
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json
+ENAME=MC_25km_jra_iaf-1.0-beta-5165c0f8
 
-#AHogg GM* runs
+##AHogg GM* runs
 #ENAME=MC_25km_jra_iaf-1.0-beta-gm1-d968c801
 #ENAME=MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6
 #ENAME=MC_25km_jra_iaf-1.0-beta-gm3-da330542
@@ -125,24 +131,25 @@ export PYTHONPATH="${WFOLDER%/}/external/access-model-mkfigs/src:${PYTHONPATH}"
 #Timeseries_daily_extreme_from_2D_fields ##do not have the outputs needed, see https://github.com/ACCESS-NRI/access-om3-configs/issues/1046#issuecomment-3924389373
 
 array=(
-    00_template_notebook
-#    #Bottom_age_tracer_in_ACCESS_OM3
-#    MLD
-#    MLD_max
+    #00_template_notebook
+    Bottom_age_tracer_in_ACCESS_OM3
+    MLD
+    MLD_max
     Overturning_in_ACCESS_OM3
-#    SeaIce_area
-#    #SeaIce_mass_budget_climatology
-#    SSS
-#    SST
-#    StraitTransports
-#    MeridionalHeatTransport
-#    temp-salt-vs-depth-time
-#    pPV
-#    Equatorial_pacific
-#    SSS_Restoring_Timeseries
-##   Timeseries_daily_extreme_from_2D_fields
-#    timeseries
-#    SSH
+    SeaIce_area
+    #SeaIce_mass_budget_climatology
+    SSS
+    SST
+    StraitTransports
+    MeridionalHeatTransport
+    temp-salt-vs-depth-time
+    pPV
+    Equatorial_pacific
+    SSS_Restoring_Timeseries
+    Timeseries_daily_extreme_from_2D_fields
+    timeseries
+    SSH
+    wombatlite_global
 )
 #SSH uses a lot of memory !!
 
