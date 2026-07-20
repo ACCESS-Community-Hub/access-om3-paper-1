@@ -131,27 +131,33 @@ export PYTHONPATH="${WFOLDER%/}/external/access-model-mkfigs/src:${PYTHONPATH}"
 #Timeseries_daily_extreme_from_2D_fields ##do not have the outputs needed, see https://github.com/ACCESS-NRI/access-om3-configs/issues/1046#issuecomment-3924389373
 
 array=(
-    #00_template_notebook
-    Bottom_age_tracer_in_ACCESS_OM3
-    MLD
-    MLD_max
-    Overturning_in_ACCESS_OM3
-    SeaIce_area
-    #SeaIce_mass_budget_climatology
-    SSS
-    SST
-    StraitTransports
-    MeridionalHeatTransport
-    temp-salt-vs-depth-time
-    pPV
-    Equatorial_pacific
-    SSS_Restoring_Timeseries
-    Timeseries_daily_extreme_from_2D_fields
-    timeseries
-    SSH
-    wombatlite_global
+#    #00_template_notebook
+#    Bottom_age_tracer_in_ACCESS_OM3
+#    MLD
+#    MLD_max
+#    Overturning_in_ACCESS_OM3
+#    SeaIce_area
+#    #SeaIce_mass_budget_climatology
+#    SSS
+#    SST
+#    StraitTransports
+#    MeridionalHeatTransport
+#    temp-salt-vs-depth-time
+#    pPV
+#    Equatorial_pacific
+#    SSS_Restoring_Timeseries
+#    Timeseries_daily_extreme_from_2D_fields
+#    timeseries
+#    SSH
+#    wombatlite_global
+    Currents_streamfunction_variability
+#    SeaIce_Vol
+#    temp-salt-vs-depth-latitude
 )
 #SSH uses a lot of memory !!
+
+# to fix
+# SeaIce_mass_budget_climatology
 
 # Pack array into colon-separated env var consumed by mkfigs-run
 printf -v MKFIGS_NOTEBOOKS '%s:' "${array[@]}"
