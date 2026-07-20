@@ -22,8 +22,9 @@
 #1. Create a Figshare token and save it to ~/.figshare_token
 #1. cd /g/data/tm70/$USER && git clone --recurse-submodules git@github.com:ACCESS-Community-Hub/access-om3-paper-1.git
 #1.   (already cloned without submodules? run: git submodule update --init --recursive)
-#1. Edit this file: ENAME, ESMDIR, and the notebook array below
+#1. Edit this file: ENAME, ESMDIR, and the notebook `array` below
 #1. Ensure the experiment storage path is in the #PBS -l storage header above
+#1. (optional) check the issue list is up to date by running check_mkfigs_issues.py
 #1. qsub mkfigs.sh
 #1. python3 -m mkfigs.pushit
 #1. Log in to Figshare and publish the article
@@ -116,6 +117,10 @@ ENAME=MC_25km_jra_iaf+wombatlite-test3v2-00532b88
 #ESMDIR=/scratch/tm70/aek156/access-om3/archive/MC_25km_jra_iaf+wombatlite-test4-d28e0359/datastore.json
 #ENAME=MC_25km_jra_iaf+wombatlite-test4-d28e0359
 
+#AS RYF 25k run
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/experiment_datastore.json
+ENAME=MC_25km_jra_ryf+wombatlite-test3-f4d79e82
+
 # ---------------------------------------------------------------------------
 # access-model-mkfigs is provided via the external/access-model-mkfigs git
 # submodule (pinned commit) rather than pip-installed, so batch runs and
@@ -132,27 +137,27 @@ export PYTHONPATH="${WFOLDER%/}/external/access-model-mkfigs/src:${PYTHONPATH}"
 
 array=(
 #    #00_template_notebook
-#    Bottom_age_tracer_in_ACCESS_OM3
-#    MLD
-#    MLD_max
-#    Overturning_in_ACCESS_OM3
-#    SeaIce_area
-#    #SeaIce_mass_budget_climatology
-#    SSS
-#    SST
-#    StraitTransports
-#    MeridionalHeatTransport
-#    temp-salt-vs-depth-time
-#    pPV
-#    Equatorial_pacific
-#    SSS_Restoring_Timeseries
-#    Timeseries_daily_extreme_from_2D_fields
-#    timeseries
-#    SSH
-#    wombatlite_global
+    Bottom_age_tracer_in_ACCESS_OM3
+    MLD
+    MLD_max
+    Overturning_in_ACCESS_OM3
+    SeaIce_area
+     SeaIce_mass_budget_climatology
+    SSS
+    SST
+    StraitTransports
+    MeridionalHeatTransport
+    temp-salt-vs-depth-time
+    pPV
+    Equatorial_pacific
+    SSS_Restoring_Timeseries
+    Timeseries_daily_extreme_from_2D_fields
+    timeseries
+    SSH
+    wombatlite_global
     Currents_streamfunction_variability
-#    SeaIce_Vol
-#    temp-salt-vs-depth-latitude
+    SeaIce_Vol
+    temp-salt-vs-depth-latitude
 )
 #SSH uses a lot of memory !!
 
