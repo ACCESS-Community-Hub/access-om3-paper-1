@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45+gdata/cj50+gdata/vk83
+#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45+gdata/cj50+gdata/vk83+gdata/zv30
 #PBS -M chris.bull@anu.edu.au
 #PBS -m ae
 #PBS -q normal
@@ -7,8 +7,8 @@
 #PBS -l ncpus=16
 #PBS -l mem=190GB
 #PBS -l walltime=10:00:00
-#PBS -o /g/data/tm70/cyb561/repos/access-om3-paper-test/notebooks
-#PBS -e /g/data/tm70/cyb561/repos/access-om3-paper-test/notebooks
+#PBS -o /g/data/tm70/cyb561/repos/access-om3-paper-test3/notebooks
+#PBS -e /g/data/tm70/cyb561/repos/access-om3-paper-test3/notebooks
 
 # Thin PBS wrapper. ENAME / ESMDIR below, then qsub.
 #
@@ -54,7 +54,7 @@
 #
 ## Workflow — adding notebooks to (or re-running) an existing experiment
 #1. git fetch --tags
-#1. git checkout <docs-{ename}-YYYY.MM.NNN>  # the tag printed by the previous --check-figshare-upload
+#1. git checkout <{ename}-YYYY.MM.NNN>  # the tag printed by the previous --check-figshare-upload
 #1. git submodule update --init --recursive  # in case the pin moved since your last checkout
 #1. python3 -m mkfigs.restore   # download previously committed notebooks from Figshare
 #1. Edit the notebook array below: add new notebooks, or re-enable ones to re-run
@@ -63,10 +63,10 @@
 #1. Log in to Figshare and publish the article
 #1. python3 -m mkfigs.pushit --check-figshare-upload
 
-#set -x
+set -x
 module purge
 module use /g/data/xp65/public/modules
-module load conda/analysis3
+module load conda/analysis3-26.07
 module list
 
 # ---------------------------------------------------------------------------
@@ -82,17 +82,42 @@ else
     WFOLDER="$(dirname "$(readlink -f "$0")")/../"
 fi
 
-#DS run from June 2025
-#ESMDIR=/scratch/tm70/ds0092/access-om3/archive/om3_MC_25km_jra_ryf+wombatlite/intake_esm_ds.json
+# 21/7/26 https://access-om3-configs.access-hive.org.au/latest/Experiments/
+#Date completed	 Base Configuration	         Model build	Length 	                ESM Datastore
+#9-Aug-25	 release-MC_25km_jra_ryf	 2025.05.001	52 years	        /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf-1.0-beta-cdfb3543/experiment_datastore.json
+#16-Sep-25	 25km-iaf-test-for-AK	         2025.05.001	66 years (1958-2023)	/g/data/ol01/outputs/access-om3-25km/25km-iaf-test-for-AK-expt-7df5ef4c/datastore.json
+#started 9-Dec-25 dev-MC_25km_jra_iaf	         2025.08.001	57 years (1958-2014) 	/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json
+#19-Dec-25	 dev-MC_100km_jra_ryf+wombatlite 2025.08.001	50 years	        /g/data/ol01/outputs/access-om3-100km/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/experiment_datastore.json
+#22-Dec-25	 dev-MC_25km_jra_ryf+wombatlite	 2025.08.001	30 years	        /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-81ad20e-c4347f5a/experiment_datastore.json
+#started 7-Apr-26 dev-MC_25km_jra_iaf+wombatlite 2025.08.003	66 years (1958-2023)	/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test3v2-00532b88/datastore.json
+#1-Jul-26	 dev-MC_25km_jra_iaf+wombatlite	 2026.05.002	66 years (1958-2023)	/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test4-d28e0359/datastore.json
+#26-Jun-26	 dev-MC_25km_jra_iaf+wombatlite	 2026.05.002	31 years (1900-1930)	/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/experiment_datastore.json
 
-#AK iaf run 4/9/25
-#ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/25km-iaf-test-for-AK-expt-7df5ef4c/datastore.json
-#ENAME=25km-iaf-test-for-AK-expt-7df5ef4c
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf-1.0-beta-cdfb3543/experiment_datastore.json
+ENAME=MC_25km_jra_ryf-1.0-beta-cdfb3543
 
-#AK iaf run 9-Dec-25
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/25km-iaf-test-for-AK-expt-7df5ef4c/datastore.json
+ENAME=25km-iaf-test-for-AK-expt-7df5ef4c
+#
 ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json
 ENAME=MC_25km_jra_iaf-1.0-beta-5165c0f8
+#
+ESMDIR=/g/data/ol01/outputs/access-om3-100km/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/experiment_datastore.json
+ENAME=MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c
+#
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-81ad20e-c4347f5a/experiment_datastore.json
+ENAME=MC_25km_jra_ryf+wombatlite-81ad20e-c4347f5a
+#
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test3v2-00532b88/datastore.json
+ENAME=MC_25km_jra_iaf+wombatlite-test3v2-00532b88
+#
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test4-d28e0359/datastore.json
+ENAME=MC_25km_jra_iaf+wombatlite-test4-d28e0359
+#
+#ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/experiment_datastore.json
+#ENAME=MC_25km_jra_ryf+wombatlite-test3-f4d79e82
 
+#supplementary
 ##AHogg GM* runs
 #ENAME=MC_25km_jra_iaf-1.0-beta-gm1-d968c801
 #ENAME=MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6
@@ -101,25 +126,13 @@ ENAME=MC_25km_jra_iaf-1.0-beta-5165c0f8
 #ENAME=MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9
 #ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
 
-#WOMBAT run 19-Dec-25
-#ENAME=MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c
-#ESMDIR=/g/data/ol01/outputs/access-om3-100km/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/experiment_datastore.json
-
-#WOMBAT run 22-Dec-25
-#ENAME=MC_25km_jra_ryf+wombatlite-81ad20e-c4347f5a
-#ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-81ad20e-c4347f5a/experiment_datastore.json
-
-#AK iaf run Apr-26
-ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test3v2-00532b88/datastore.json
-ENAME=MC_25km_jra_iaf+wombatlite-test3v2-00532b88
-
-#AK iaf run
-#ESMDIR=/scratch/tm70/aek156/access-om3/archive/MC_25km_jra_iaf+wombatlite-test4-d28e0359/datastore.json
-#ENAME=MC_25km_jra_iaf+wombatlite-test4-d28e0359
-
-#AS RYF 25k run
-ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/experiment_datastore.json
-ENAME=MC_25km_jra_ryf+wombatlite-test3-f4d79e82
+#supplementary
+##MPudig backscatter runs July 2026
+#ENAME=MC_25km_jra_iaf+wombatlite_bs1-mpudig-backscat1-4c21c151
+#ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite_bs1-mpudig-backscat1-4c21c151/datastore.json
+#
+#ENAME=MC_25km_jra_iaf+wombatlite_bs2-mpudig-backscat2-0578cc36
+#ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite_bs2-mpudig-backscat2-0578cc36/datastore.json
 
 # ---------------------------------------------------------------------------
 # access-model-mkfigs is provided via the external/access-model-mkfigs git
@@ -142,7 +155,7 @@ array=(
     MLD_max
     Overturning_in_ACCESS_OM3
     SeaIce_area
-     SeaIce_mass_budget_climatology
+    SeaIce_mass_budget_climatology  #needs conda/analysis3-26.07 or 26.06
     SSS
     SST
     StraitTransports
@@ -154,15 +167,12 @@ array=(
     Timeseries_daily_extreme_from_2D_fields
     timeseries
     SSH
-    wombatlite_global
+    #wombatlite_global #currently not working because we are missing  skill_metrics
     Currents_streamfunction_variability
     SeaIce_Vol
     temp-salt-vs-depth-latitude
 )
 #SSH uses a lot of memory !!
-
-# to fix
-# SeaIce_mass_budget_climatology
 
 # Pack array into colon-separated env var consumed by mkfigs-run
 printf -v MKFIGS_NOTEBOOKS '%s:' "${array[@]}"
