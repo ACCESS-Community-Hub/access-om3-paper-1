@@ -101,7 +101,58 @@ markdown_extensions:
 # The "Evaluation figures" section is populated automatically by mkfigs_pushit.py.
 # Each experiment appears as a sub-section with "Figures" and "Notebooks" pages.
 nav:
-  - Home: pages/index.md
+- Home: pages/index.md
+- MLD:
+  - Summary: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/MLD.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/notebooks/MLD.ipynb
+- MLD_max:
+  - Summary: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/MLD_max.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/notebooks/MLD_max.ipynb
+- Overturning_in_ACCESS_OM3:
+  - Summary: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/Overturning_in_ACCESS_OM3.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/notebooks/Overturning_in_ACCESS_OM3.ipynb
+- SeaIce_area:
+  - Summary: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/SeaIce_area.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/notebooks/SeaIce_area.ipynb
+- SSS:
+  - Summary: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/SSS.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/notebooks/SSS.ipynb
+- SST:
+  - Summary: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/SST.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/notebooks/SST.ipynb
+- StraitTransports:
+  - Summary: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/StraitTransports.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/notebooks/StraitTransports.ipynb
+- temp-salt-vs-depth-time:
+  - Summary: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/temp-salt-vs-depth-time.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/notebooks/temp-salt-vs-depth-time.ipynb
+- pPV:
+  - Summary: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/pPV.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/notebooks/pPV.ipynb
+- Equatorial_pacific:
+  - Summary: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/Equatorial_pacific.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/notebooks/Equatorial_pacific.ipynb
+- SSS_Restoring_Timeseries:
+  - Summary: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/SSS_Restoring_Timeseries.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/notebooks/SSS_Restoring_Timeseries.ipynb
+- Timeseries_daily_extreme_from_2D_fields:
+  - Summary: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/Timeseries_daily_extreme_from_2D_fields.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/notebooks/Timeseries_daily_extreme_from_2D_fields.ipynb
+- SSH:
+  - Summary: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/SSH.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/notebooks/SSH.ipynb
+- Currents_streamfunction_variability:
+  - Summary: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/Currents_streamfunction_variability.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/notebooks/Currents_streamfunction_variability.ipynb
+- SeaIce_Vol:
+  - Summary: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/SeaIce_Vol.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/notebooks/SeaIce_Vol.ipynb
+- temp-salt-vs-depth-latitude:
+  - Summary: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/temp-salt-vs-depth-latitude.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/notebooks/temp-salt-vs-depth-latitude.ipynb
+- SeaIce_mass_budget_climatology:
+  - Summary: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/SeaIce_mass_budget_climatology.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/notebooks/SeaIce_mass_budget_climatology.ipynb
 
 # Footer
 extra:
