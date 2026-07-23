@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45+gdata/cj50+gdata/vk83+gdata/zv30
+#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45+gdata/cj50+gdata/vk83+gdata/zv30+gdata/p73
 #PBS -M chris.bull@anu.edu.au
 #PBS -m ae
 #PBS -q normal
@@ -114,25 +114,33 @@ ENAME=MC_25km_jra_iaf+wombatlite-test3v2-00532b88
 ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test4-d28e0359/datastore.json
 ENAME=MC_25km_jra_iaf+wombatlite-test4-d28e0359
 #
-#ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/experiment_datastore.json
-#ENAME=MC_25km_jra_ryf+wombatlite-test3-f4d79e82
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/experiment_datastore.json
+ENAME=MC_25km_jra_ryf+wombatlite-test3-f4d79e82
 
 #supplementary
 ##AHogg GM* runs
-#ENAME=MC_25km_jra_iaf-1.0-beta-gm1-d968c801
-#ENAME=MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6
-#ENAME=MC_25km_jra_iaf-1.0-beta-gm3-da330542
-#ENAME=MC_25km_jra_iaf-1.0-beta-gm4-9fd08880
-#ENAME=MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9
-#ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
+ENAME=MC_25km_jra_iaf-1.0-beta-gm1-d968c801
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
+
+ENAME=MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
+
+ENAME=MC_25km_jra_iaf-1.0-beta-gm3-da330542
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
+
+ENAME=MC_25km_jra_iaf-1.0-beta-gm4-9fd08880
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
+
+ENAME=MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/${ENAME}/datastore.json
 
 #supplementary
 ##MPudig backscatter runs July 2026
-#ENAME=MC_25km_jra_iaf+wombatlite_bs1-mpudig-backscat1-4c21c151
-#ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite_bs1-mpudig-backscat1-4c21c151/datastore.json
+ENAME=MC_25km_jra_iaf+wombatlite_bs1-mpudig-backscat1-4c21c151
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite_bs1-mpudig-backscat1-4c21c151/datastore.json
 #
-#ENAME=MC_25km_jra_iaf+wombatlite_bs2-mpudig-backscat2-0578cc36
-#ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite_bs2-mpudig-backscat2-0578cc36/datastore.json
+ENAME=MC_25km_jra_iaf+wombatlite_bs2-mpudig-backscat2-0578cc36
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite_bs2-mpudig-backscat2-0578cc36/datastore.json
 
 # ---------------------------------------------------------------------------
 # access-model-mkfigs is provided via the external/access-model-mkfigs git
@@ -149,7 +157,7 @@ export PYTHONPATH="${WFOLDER%/}/external/access-model-mkfigs/src:${PYTHONPATH}"
 #Timeseries_daily_extreme_from_2D_fields ##do not have the outputs needed, see https://github.com/ACCESS-NRI/access-om3-configs/issues/1046#issuecomment-3924389373
 
 array=(
-#    #00_template_notebook
+    #00_template_notebook
     Bottom_age_tracer_in_ACCESS_OM3
     MLD
     MLD_max
@@ -167,7 +175,7 @@ array=(
     Timeseries_daily_extreme_from_2D_fields
     timeseries
     SSH
-    #wombatlite_global #currently not working because we are missing  skill_metrics
+    wombatlite_global 
     Currents_streamfunction_variability
     SeaIce_Vol
     temp-salt-vs-depth-latitude
