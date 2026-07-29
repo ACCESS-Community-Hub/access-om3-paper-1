@@ -102,66 +102,51 @@ markdown_extensions:
 # Each experiment appears as a sub-section with "Figures" and "Notebooks" pages.
 nav:
 - Home: pages/index.md
-- Bottom_age_tracer_in_ACCESS_OM3:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/Bottom_age_tracer_in_ACCESS_OM3.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/Bottom_age_tracer_in_ACCESS_OM3.ipynb
 - MLD:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/MLD.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/MLD.ipynb
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/MLD.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/notebooks/MLD.ipynb
 - MLD_max:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/MLD_max.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/MLD_max.ipynb
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/MLD_max.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/notebooks/MLD_max.ipynb
 - Overturning_in_ACCESS_OM3:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/Overturning_in_ACCESS_OM3.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/Overturning_in_ACCESS_OM3.ipynb
-- SeaIce_area:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/SeaIce_area.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/SeaIce_area.ipynb
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/Overturning_in_ACCESS_OM3.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/notebooks/Overturning_in_ACCESS_OM3.ipynb
 - SeaIce_mass_budget_climatology:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/SeaIce_mass_budget_climatology.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/SeaIce_mass_budget_climatology.ipynb
-- SSS:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/SSS.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/SSS.ipynb
-- SST:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/SST.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/SST.ipynb
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/SeaIce_mass_budget_climatology.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/notebooks/SeaIce_mass_budget_climatology.ipynb
 - StraitTransports:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/StraitTransports.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/StraitTransports.ipynb
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/StraitTransports.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/notebooks/StraitTransports.ipynb
 - MeridionalHeatTransport:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/MeridionalHeatTransport.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/MeridionalHeatTransport.ipynb
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/MeridionalHeatTransport.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/notebooks/MeridionalHeatTransport.ipynb
 - temp-salt-vs-depth-time:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/temp-salt-vs-depth-time.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/temp-salt-vs-depth-time.ipynb
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/temp-salt-vs-depth-time.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/notebooks/temp-salt-vs-depth-time.ipynb
 - pPV:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/pPV.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/pPV.ipynb
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/pPV.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/notebooks/pPV.ipynb
 - Equatorial_pacific:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/Equatorial_pacific.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/Equatorial_pacific.ipynb
-- SSS_Restoring_Timeseries:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/SSS_Restoring_Timeseries.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/SSS_Restoring_Timeseries.ipynb
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/Equatorial_pacific.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/notebooks/Equatorial_pacific.ipynb
 - Timeseries_daily_extreme_from_2D_fields:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/Timeseries_daily_extreme_from_2D_fields.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/Timeseries_daily_extreme_from_2D_fields.ipynb
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/Timeseries_daily_extreme_from_2D_fields.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/notebooks/Timeseries_daily_extreme_from_2D_fields.ipynb
 - timeseries:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/timeseries.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/timeseries.ipynb
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/timeseries.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/notebooks/timeseries.ipynb
 - SSH:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/SSH.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/SSH.ipynb
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/SSH.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/notebooks/SSH.ipynb
 - Currents_streamfunction_variability:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/Currents_streamfunction_variability.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/Currents_streamfunction_variability.ipynb
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/Currents_streamfunction_variability.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/notebooks/Currents_streamfunction_variability.ipynb
 - SeaIce_Vol:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/SeaIce_Vol.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/SeaIce_Vol.ipynb
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/SeaIce_Vol.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/notebooks/SeaIce_Vol.ipynb
 - temp-salt-vs-depth-latitude:
-  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/temp-salt-vs-depth-latitude.md
-  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/notebooks/temp-salt-vs-depth-latitude.ipynb
+  - Summary: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/temp-salt-vs-depth-latitude.md
+  - Notebook: pages/experiments/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/notebooks/temp-salt-vs-depth-latitude.ipynb
 
 # Footer
 extra:
