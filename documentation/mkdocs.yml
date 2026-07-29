@@ -103,47 +103,35 @@ markdown_extensions:
 nav:
 - Home: pages/index.md
 - MLD:
-  - Summary: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/MLD.md
-  - Notebook: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/notebooks/MLD.ipynb
-- MLD_max:
-  - Summary: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/MLD_max.md
-  - Notebook: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/notebooks/MLD_max.ipynb
-- Overturning_in_ACCESS_OM3:
-  - Summary: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/Overturning_in_ACCESS_OM3.md
-  - Notebook: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/notebooks/Overturning_in_ACCESS_OM3.ipynb
-- SeaIce_area:
-  - Summary: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/SeaIce_area.md
-  - Notebook: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/notebooks/SeaIce_area.ipynb
+  - Summary: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/MLD.md
+  - Notebook: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/notebooks/MLD.ipynb
 - SeaIce_mass_budget_climatology:
-  - Summary: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/SeaIce_mass_budget_climatology.md
-  - Notebook: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/notebooks/SeaIce_mass_budget_climatology.ipynb
+  - Summary: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/SeaIce_mass_budget_climatology.md
+  - Notebook: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/notebooks/SeaIce_mass_budget_climatology.ipynb
 - SSS:
-  - Summary: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/SSS.md
-  - Notebook: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/notebooks/SSS.ipynb
+  - Summary: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/SSS.md
+  - Notebook: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/notebooks/SSS.ipynb
 - SST:
-  - Summary: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/SST.md
-  - Notebook: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/notebooks/SST.ipynb
-- StraitTransports:
-  - Summary: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/StraitTransports.md
-  - Notebook: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/notebooks/StraitTransports.ipynb
-- MeridionalHeatTransport:
-  - Summary: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/MeridionalHeatTransport.md
-  - Notebook: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/notebooks/MeridionalHeatTransport.ipynb
+  - Summary: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/SST.md
+  - Notebook: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/notebooks/SST.ipynb
 - pPV:
-  - Summary: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/pPV.md
-  - Notebook: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/notebooks/pPV.ipynb
+  - Summary: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/pPV.md
+  - Notebook: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/notebooks/pPV.ipynb
 - Timeseries_daily_extreme_from_2D_fields:
-  - Summary: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/Timeseries_daily_extreme_from_2D_fields.md
-  - Notebook: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/notebooks/Timeseries_daily_extreme_from_2D_fields.ipynb
-- timeseries:
-  - Summary: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/timeseries.md
-  - Notebook: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/notebooks/timeseries.ipynb
+  - Summary: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/Timeseries_daily_extreme_from_2D_fields.md
+  - Notebook: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/notebooks/Timeseries_daily_extreme_from_2D_fields.ipynb
 - SSH:
-  - Summary: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/SSH.md
-  - Notebook: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/notebooks/SSH.ipynb
+  - Summary: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/SSH.md
+  - Notebook: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/notebooks/SSH.ipynb
+- wombatlite_global:
+  - Summary: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/wombatlite_global.md
+  - Notebook: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/notebooks/wombatlite_global.ipynb
+- Currents_streamfunction_variability:
+  - Summary: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/Currents_streamfunction_variability.md
+  - Notebook: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/notebooks/Currents_streamfunction_variability.ipynb
 - SeaIce_Vol:
-  - Summary: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/SeaIce_Vol.md
-  - Notebook: pages/experiments/25km-iaf-test-for-AK-expt-7df5ef4c/notebooks/SeaIce_Vol.ipynb
+  - Summary: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/SeaIce_Vol.md
+  - Notebook: pages/experiments/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/notebooks/SeaIce_Vol.ipynb
 
 # Footer
 extra:
