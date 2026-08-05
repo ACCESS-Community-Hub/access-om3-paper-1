@@ -1,0 +1,42 @@
+{
+  "Overturning_in_ACCESS_OM3": "https://ndownloader.figshare.com/files/67008416",
+  "SeaIce_area": "https://ndownloader.figshare.com/files/67008428",
+  "SeaIce_mass_budget_climatology": "https://ndownloader.figshare.com/files/67008443",
+  "pPV": "https://ndownloader.figshare.com/files/67041752",
+  "Timeseries_daily_extreme_from_2D_fields": "https://ndownloader.figshare.com/files/67009118",
+  "timeseries": "https://ndownloader.figshare.com/files/67041755",
+  "wombatlite_global": "https://ndownloader.figshare.com/files/67009460",
+  "SeaIce_Vol": "https://ndownloader.figshare.com/files/67009475",
+  "SST": "https://ndownloader.figshare.com/files/67041737",
+  "StraitTransports": "https://ndownloader.figshare.com/files/67041740",
+  "MLD": "https://ndownloader.figshare.com/files/67041725",
+  "SSS": "https://ndownloader.figshare.com/files/67041731",
+  "_run_times": {
+    "MLD": "2026-07-28 03:12 UTC",
+    "Overturning_in_ACCESS_OM3": "2026-07-28 03:12 UTC",
+    "SeaIce_area": "2026-07-28 03:12 UTC",
+    "SeaIce_mass_budget_climatology": "2026-07-28 03:12 UTC",
+    "SSS": "2026-07-28 03:12 UTC",
+    "SST": "2026-07-28 03:12 UTC",
+    "StraitTransports": "2026-07-28 03:12 UTC",
+    "pPV": "2026-07-28 03:12 UTC",
+    "Timeseries_daily_extreme_from_2D_fields": "2026-07-28 03:12 UTC",
+    "timeseries": "2026-07-28 03:12 UTC",
+    "wombatlite_global": "2026-07-28 03:12 UTC",
+    "SeaIce_Vol": "2026-07-28 03:12 UTC"
+  },
+  "_run_versions": {
+    "MLD": "unknown",
+    "Overturning_in_ACCESS_OM3": "unknown",
+    "SeaIce_area": "unknown",
+    "SeaIce_mass_budget_climatology": "unknown",
+    "SSS": "unknown",
+    "SST": "unknown",
+    "StraitTransports": "unknown",
+    "pPV": "unknown",
+    "Timeseries_daily_extreme_from_2D_fields": "unknown",
+    "timeseries": "unknown",
+    "wombatlite_global": "unknown",
+    "SeaIce_Vol": "unknown"
+  }
+}

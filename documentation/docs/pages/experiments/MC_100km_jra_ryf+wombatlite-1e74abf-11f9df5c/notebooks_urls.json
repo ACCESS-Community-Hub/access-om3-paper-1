@@ -1,0 +1,36 @@
+{
+  "SeaIce_mass_budget_climatology": "https://ndownloader.figshare.com/files/67009610",
+  "SSS": "https://ndownloader.figshare.com/files/67009619",
+  "SST": "https://ndownloader.figshare.com/files/67039001",
+  "pPV": "https://ndownloader.figshare.com/files/67039013",
+  "Timeseries_daily_extreme_from_2D_fields": "https://ndownloader.figshare.com/files/67009664",
+  "SSH": "https://ndownloader.figshare.com/files/67039019",
+  "wombatlite_global": "https://ndownloader.figshare.com/files/67009733",
+  "MLD": "https://ndownloader.figshare.com/files/67038998",
+  "Currents_streamfunction_variability": "https://ndownloader.figshare.com/files/67039022",
+  "SeaIce_Vol": "https://ndownloader.figshare.com/files/67039028",
+  "_run_times": {
+    "MLD": "2026-07-28 03:09 UTC",
+    "SeaIce_mass_budget_climatology": "2026-07-28 03:09 UTC",
+    "SSS": "2026-07-28 03:09 UTC",
+    "SST": "2026-07-28 03:09 UTC",
+    "pPV": "2026-07-28 03:09 UTC",
+    "Timeseries_daily_extreme_from_2D_fields": "2026-07-28 03:09 UTC",
+    "SSH": "2026-07-28 03:09 UTC",
+    "wombatlite_global": "2026-07-28 03:09 UTC",
+    "Currents_streamfunction_variability": "2026-07-28 03:09 UTC",
+    "SeaIce_Vol": "2026-07-28 03:09 UTC"
+  },
+  "_run_versions": {
+    "MLD": "unknown",
+    "SeaIce_mass_budget_climatology": "unknown",
+    "SSS": "unknown",
+    "SST": "unknown",
+    "pPV": "unknown",
+    "Timeseries_daily_extreme_from_2D_fields": "unknown",
+    "SSH": "unknown",
+    "wombatlite_global": "unknown",
+    "Currents_streamfunction_variability": "unknown",
+    "SeaIce_Vol": "unknown"
+  }
+}
