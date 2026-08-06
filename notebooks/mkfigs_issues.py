@@ -15,7 +15,7 @@ ISSUES: dict[str, str] = {
     "timeseries":                              f"[#3]({_GH}/3) — Global average annual mean time series",
     "StraitTransports":                        f"[#1]({_GH}/1) Drake Passage, [#16]({_GH}/16) Indonesian straits",
     "SSH":                                     f"[#4]({_GH}/4) Global dynamic sea level, [#5]({_GH}/5) Sea level anomaly std dev",
-    "Currents_streamfunction_variability":     f"[#15]({_GH}/15) Regional SLA & barotropic streamfunction, [#18]({_GH}/18) SW Atlantic, [#41]({_GH}/41) Western boundary current timeseries",
+    "Currents_streamfunction_variability":     f"[#18]({_GH}/18) Evaluation: mean surface current speed, standard deviation of sea level anomaly and mean barotropic streamfunction",
     "Overturning_in_ACCESS_OM3":               f"[#6]({_GH}/6) Overturning circulation, [#7]({_GH}/7) AMOC time series",
     "SST":                                     f"[#9]({_GH}/9) — Global SST bias",
     "SST-OM2":                                 f"[#9]({_GH}/9) — Global SST bias (OM2 comparison)",
