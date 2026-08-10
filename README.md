@@ -4,8 +4,11 @@ A collaborative project to create and discuss figures for a description and asse
 
 The paper is being written [here on Overleaf](https://www.overleaf.com/read/pygvjbmmghsv#b18c9c). Please ask Andrew if you'd like edit access (the [link](https://www.overleaf.com/read/pygvjbmmghsv#b18c9c) is "view only"). 
 
-A list of experiments which can be analysed is at in the [Config Docs - Experiments](https://access-om3-configs.access-hive.org.au/Experiments/)
+A list of experiments which can be analysed is in the OM3 configuration docs [Experiments](https://access-om3-configs.access-hive.org.au/latest/Experiments/) table, the latest run should also be in [the template](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/00_template_notebook.ipynb). You can navigate to the evaluation of each of these simulations by clicking on the `Evaluation` links. 
 
+Want to browse evaluation of our latest simulation? See:
+https://access-om3-paper-1.readthedocs.io/latest/
+See something interesting and want to share your thoughts? Click on the related GitHub issue and leave a comment. 
 
 ## How it works
 
