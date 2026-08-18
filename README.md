@@ -51,8 +51,8 @@ For the first option above omit the branch steps below. This is option 2:
 ### Guidelines for creating Figures
  - Create an issue (one per figure) for Figure you are looking to create and add it as a sub-issue to the [mega-issue  here](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23).
  - When posting in the issue, **please include path to notebook and the commit hash that created the Figure** (also gives run information but you can include this in the post for convenience).
- - Try to include OM2 comparison!
- - Average over the last 10 years of the RYF run
+ - Use the latest 25km IAF run (starting with `MC_25km_jra_iaf` [here](https://access-om3-configs.access-hive.org.au/latest/Experiments/)), averaging over the final decade or more
+ - Try to include comparison with the OM2 run `025deg_jra55_iaf_omip2_cycle1`
  - Suggestion: pcolor / contourf will handle NaNs in coordinate arrays (if you need pcolormesh/xgcm, use the hack)
  - Once you've created your Figure / uploaded your notebook, please tick off your assigned task in [the list](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23#issue-3308829506).
  - If it turns out it is not currently possible to complete the metric due to missing diagnostics. [Please note that here](https://github.com/ACCESS-NRI/access-om3-configs/issues/718) so we can continue the existing run with the needed output.
