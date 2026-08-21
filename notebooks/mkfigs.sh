@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45+gdata/cj50+gdata/vk83+gdata/zv30
+#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45+gdata/cj50+gdata/vk83+gdata/zv30+gdata/p73
 #PBS -M chris.bull@anu.edu.au
 #PBS -m ae
 #PBS -q normal
@@ -66,7 +66,7 @@
 set -x
 module purge
 module use /g/data/xp65/public/modules
-module load conda/analysis3-26.07
+module load conda/analysis3-26.08
 module list
 
 # ---------------------------------------------------------------------------
@@ -92,6 +92,7 @@ fi
 #started 7-Apr-26 dev-MC_25km_jra_iaf+wombatlite 2025.08.003	66 years (1958-2023)	/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test3v2-00532b88/datastore.json
 #1-Jul-26	 dev-MC_25km_jra_iaf+wombatlite	 2026.05.002	66 years (1958-2023)	/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test4-d28e0359/datastore.json
 #26-Jun-26	 dev-MC_25km_jra_iaf+wombatlite	 2026.05.002	31 years (1900-1930)	/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/experiment_datastore.json
+#27-Jul-26	 ACCESS-CM3 PD-control	         --	        50 years	        /g/data/zv30/non-cmip/ACCESS-CM3/cm3-run-27-07-2026-PD-control/cm3-datastore/cm3-datastore.json
 
 ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf-1.0-beta-cdfb3543/experiment_datastore.json
 ENAME=MC_25km_jra_ryf-1.0-beta-cdfb3543
@@ -116,6 +117,9 @@ ENAME=MC_25km_jra_iaf+wombatlite-test4-d28e0359
 #
 #ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/experiment_datastore.json
 #ENAME=MC_25km_jra_ryf+wombatlite-test3-f4d79e82
+
+#ESMDIR=/g/data/zv30/non-cmip/ACCESS-CM3/cm3-run-27-07-2026-PD-control/cm3-datastore/cm3-datastore.json
+#ENAME=cm3-run-27-07-2026-PD-control
 
 #supplementary
 ##AHogg GM* runs
@@ -171,6 +175,7 @@ array=(
     Currents_streamfunction_variability
     SeaIce_Vol
     temp-salt-vs-depth-latitude
+    Transects
 )
 #SSH uses a lot of memory !!
 

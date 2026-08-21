@@ -51,10 +51,22 @@ patch_broken_conda_env = _patch_broken_conda_env
 
 def patch_dask_workers(client):
     """
-    Apply the conda-env workaround on every dask worker of a distributed Client.
+    Apply the conda-env workaround on every dask worker of a distributed Client
+    -- both the workers connected right now, and any worker (re)started later.
 
-    Uses a nested function so it is serialised by value (cloudpickle) — workers
-    start in their own scratch directory and can't import this module up front.
+    A plain `client.run(...)` (as used previously) only reaches workers that
+    are already connected: if a worker dies (e.g. OOM) and its nanny restarts
+    it, the fresh process never gets patched, and the very first heavy import
+    (dask.array -> sparse -> numba) crashes it again immediately with the same
+    coverage.types AttributeError -- worker death then looks like it never
+    recovers, even though the *cause* of the first death may have been
+    unrelated (e.g. genuine memory pressure). Registering a WorkerPlugin makes
+    the scheduler re-apply the patch to every worker that ever connects,
+    including ones spawned after a restart.
+
+    Uses a nested function/class so they are serialised by value (cloudpickle)
+    -- workers start in their own scratch directory and can't import this
+    module up front.
     """
     import os
     here = os.path.dirname(os.path.abspath(__file__))
@@ -67,6 +79,18 @@ def patch_dask_workers(client):
         model_agnostic._patch_broken_conda_env()
 
     client.run(_patch)
+
+    from distributed.diagnostics.plugin import WorkerPlugin
+
+    class _CondaEnvPatchPlugin(WorkerPlugin):
+        def setup(self, worker):
+            _patch()
+
+    try:
+        client.register_plugin(_CondaEnvPatchPlugin())
+    except AttributeError:
+        # older distributed versions
+        client.register_worker_plugin(_CondaEnvPatchPlugin())
 
 
 def get_lon_lat_from_catalog(
@@ -111,8 +135,17 @@ def get_lon_lat_from_catalog(
                         ),
                     )
                 except Exception:
+                    # Multiple files can expose the same grid variable (e.g. both
+                    # a "geometry" and a "static" file per output cycle), sometimes
+                    # under different dimension names for the same physical grid
+                    # (observed: geometry.nc's geolon/geolat use lath/lonh, while
+                    # static.nc's use yh/xh -- the latter matches the actual data
+                    # variables' dims). Prefer a "static" file if one is present,
+                    # rather than an arbitrary alphabetically-first path.
+                    paths = sorted(cat.df["path"])
+                    static_paths = [p for p in paths if "static" in p.lower()]
                     ds = xr.open_dataset(
-                        sorted(cat.df["path"])[0], decode_timedelta=True
+                        (static_paths or paths)[0], decode_timedelta=True
                     )
                 if name in ds:
                     da = ds[name]
