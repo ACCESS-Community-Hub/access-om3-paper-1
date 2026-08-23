@@ -71,6 +71,11 @@ authors:
     email: matthew.pudig@nyu.edu
     affiliation: Courant Institute School of Mathematics, Computing, and Data Science, New York University, New York, NY, USA
     orcid: 'https://orcid.org/0009-0002-7279-7744'
+  - given-names: Ryan M.
+    family-names: Holmes
+    email: ryan.holmes@bom.gov.au
+    affiliation: Bureau of Meteorology
+    orcid: 'https://orcid.org/0000-0002-6799-9109'
 abstract: >-
   Plotting notebooks and discussion for ACCESS-OM3 model description paper.
 repository-code: 'https://github.com/ACCESS-Community-Hub/access-om3-paper-1'
