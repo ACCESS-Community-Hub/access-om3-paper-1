@@ -62,6 +62,25 @@ exptdict = OrderedDict([
     ),
 ])
 
+def get_exptname_from_path(path):
+    """
+    Derive a human-readable experiment name from a datastore path.
+
+    Robust to intake-esm catalogs that live inside a generic intermediate
+    directory rather than directly in the experiment directory -- e.g.
+    ACCESS-CM3's <expt>/cm3-datastore/cm3-datastore.json, or ACCESS-OM3's
+    <expt>/archive/experiment_datastore.json. In both cases the immediate
+    parent directory name is a fixed catalog-layout constant, not the
+    experiment name, so skip up one more level in those cases.
+    """
+    generic_parent_dirs = ("cm3-datastore", "archive")
+    parts = os.path.normpath(path).split(os.sep)
+    name = parts[-2] if len(parts) >= 2 else parts[-1]
+    if name in generic_parent_dirs and len(parts) >= 3:
+        name = parts[-3]
+    return name
+
+
 def get_experiment_info(key):
     """
     Retrieve metadata for the given experiment key.
