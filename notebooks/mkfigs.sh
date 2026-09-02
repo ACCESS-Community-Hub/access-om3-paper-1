@@ -176,6 +176,7 @@ array=(
     SeaIce_Vol
     temp-salt-vs-depth-latitude
     Transects
+    WM_evaluation
 )
 #SSH uses a lot of memory !!
 
