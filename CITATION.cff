@@ -76,6 +76,11 @@ authors:
     email: ryan.holmes@bom.gov.au
     affiliation: Bureau of Meteorology
     orcid: 'https://orcid.org/0000-0002-6799-9109'
+  - given-names: Katja
+    family-names: Curtin
+    email: Katja.Curtin@anu.edu.au
+    affiliation: Research School of Earth Sciences, Australian National University
+    orcid: 'https://orcid.org/0009-0001-5528-1845'
 abstract: >-
   Plotting notebooks and discussion for ACCESS-OM3 model description paper.
 repository-code: 'https://github.com/ACCESS-Community-Hub/access-om3-paper-1'
