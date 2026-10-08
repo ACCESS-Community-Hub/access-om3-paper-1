@@ -1,38 +1,33 @@
 #CB 30/10/2025
+"""Report notebooks in this folder that are not enabled in the mkfigs.sh `array=( ... )`."""
 import glob
+import re
 
-print("Script intended to help us find if we are missing scripts in mkfig.sh" )
-try:
-    with open("mkfigs.sh", "r") as file:
-        lines = file.readlines()
-        gettingclose=0
-        files=[]
-        for line in lines:
+with open("mkfigs.sh") as f:
+    text = f.read()
 
-            if gettingclose==1:
-                if ')' in line.strip():
-                    break
-                #print(line)
-                #files=[script + '.ipynb' for script in line.split(' ')[1:-1]]
-                #files.append(line.split(' ')[1:-1]+ '.ipynb')
-                files.append(line.lstrip().rstrip()+ '.ipynb')
+# Grab the real bash array block (line starting `array=(` up to a line that is just `)`),
+# not the first line that happens to mention the word "array".
+m = re.search(r"^array=\(\n(.*?)^\)", text, re.S | re.M)
+if m is None:
+    raise SystemExit("Could not find an `array=(` ... `)` block in mkfigs.sh")
 
-            #print(line.strip()) # Process each line
-            if 'array' in line.strip():
-                gettingclose=1
-                continue
-        actualfiles=sorted(glob.glob('*.ipynb')) 
-        #import pdb;pdb.set_trace()
+enabled, disabled = set(), set()
+for line in m.group(1).splitlines():
+    line = line.strip()
+    if not line:
+        continue
+    if line.startswith("#"):  # commented-out entry, e.g. `#wombatlite_global #reason`
+        name = line.lstrip("#").split()[0] if line.lstrip("#").strip() else ""
+        if name:
+            disabled.add(name + ".ipynb")
+        continue
+    enabled.add(line.split("#")[0].split()[0] + ".ipynb")  # drop inline comments
 
-        print("" )
-        print("files found from mkfigs.sh are: " + str(files))
-        print("" )
-        print("files found from current folder are : " + str(files))
-        print("" )
-        print("Their difference : " + str(set(actualfiles)-set(files)))
-        print("" )
-        print("" )
-        print("Done" )
+actual = set(glob.glob("*.ipynb"))
 
-except FileNotFoundError:
-    print("Error: The file 'mkfigs.sh' was not found.")
+print(f"Enabled in mkfigs.sh ({len(enabled)}):", sorted(enabled))
+print(f"\nCommented out in mkfigs.sh ({len(disabled & actual)}):", sorted(disabled & actual))
+print(f"\nIn folder but not in mkfigs.sh at all ({len(actual - enabled - disabled)}):",
+      sorted(actual - enabled - disabled))
+print(f"\nIn mkfigs.sh but no such notebook ({len(enabled - actual)}):", sorted(enabled - actual))
