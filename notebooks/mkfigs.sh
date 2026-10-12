@@ -174,12 +174,15 @@ array=(
     Timeseries_daily_extreme_from_2D_fields
     timeseries
     SSH
-    #wombatlite_global #currently not working because we are missing  skill_metrics
+    wombatlite_global
     Currents_streamfunction_variability
     SeaIce_Vol
     temp-salt-vs-depth-latitude
     Transects
     WM_evaluation
+    MLD_manual
+    Transects-mixing
+
 )
 #SSH uses a lot of memory !!
 
