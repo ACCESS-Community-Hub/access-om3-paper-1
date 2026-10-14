@@ -7,9 +7,20 @@ each notebook you want linked to one or more GitHub issues.  Notebooks
 not listed will show an empty cell.
 
 ISSUES maps notebook stem (filename without .ipynb) to a Markdown string.
+
+CATEGORIES groups the landing-page run-summary table into one sub-headed
+table per category. The headings follow the tracking issue CATEGORIES_SOURCE
+(#23) -- when that issue changes, update this to match. Each entry lists issue
+numbers (int, matched against the links in ISSUES) and/or notebook stems
+(str). Every notebook appears exactly once: a stem listed under a category
+puts it there (this overrides issue matches); otherwise it goes to the first
+category matching one of its issue numbers; anything unmatched goes last,
+under "Miscellaneous". The left-hand nav stays a flat, alphabetical list of
+notebooks so it looks the same from run to run.
 """
 
 _GH = "https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues"
+_CONFIGS = "https://github.com/ACCESS-NRI/access-om3-configs/issues"
 
 ISSUES: dict[str, str] = {
     "timeseries":                              f"[#3]({_GH}/3) — Global average annual mean time series",
@@ -39,4 +50,25 @@ ISSUES: dict[str, str] = {
     "Bottom_age_tracer_in_ACCESS_OM3":         f"[#31]({_GH}/31) — Bottom age after 50 years",
     "GM-Testing-in-ACCESS-OM3":                f"[#74]({_GH}/74) — GM coefficients comparison",
     "wombatlite_global":                       f"[#47]({_GH}/47) — WOMBATlite global metrics",
+    "FloeSizeTendencies":                      f"[#72]({_GH}/72) — Floe-size distribution tendencies",
+    "LangmuirTurbulence":                      f"[access-om3-configs#950]({_CONFIGS}/950) — Langmuir turbulence influence on MLD",
+}
+
+CATEGORIES_SOURCE = f"{_GH}/23"
+
+# Headings and issue numbers follow issue #23, in the same order. Notebook
+# stems are placements agreed in the 2026-10 triage (they win over issue matches).
+CATEGORIES: dict[str, list[int | str]] = {
+    "Temperature and salinity structure":            [9, 10, 11, 13, 3, 8, 34, 38,
+                                                      "MLD_manual", "MLD-OM2", "MLD_manual_OM2",
+                                                      "Equatorial_pacific", "Transects", "Transects-mixing"],
+    "Circulation":                                   [4, 1, 16, 6, 7, 74, 41, 12,
+                                                      "Currents_streamfunction_variability"],
+    "Regional analysis":                             [31, 107, 14, 17, 19, 18],
+    "Surface forcing / budget closure / mixing etc": [44, 62, 103, 106],
+    "Sea ice":                                       [20, 21, 22, 51, 53, 52, 48, "SeaIce_Stuck_Points"],
+    "WOMBAT":                                        [47],
+    "WW3":                                           [71, 72, 78, "LangmuirTurbulence"],
+    "Other possible bonus figures":                  [120],
+    "Miscellaneous":                                 ["GM-Testing-in-ACCESS-OM3"],
 }
