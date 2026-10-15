@@ -1,14 +1,11 @@
 #!/bin/bash
 #PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45+gdata/cj50+gdata/vk83+gdata/zv30+gdata/p73
-#PBS -M chris.bull@anu.edu.au
 #PBS -m ae
 #PBS -q normal
 #PBS -W umask=0022
 #PBS -l ncpus=16
 #PBS -l mem=190GB
 #PBS -l walltime=10:00:00
-#PBS -o /g/data/tm70/cyb561/repos/access-om3-paper-test3/notebooks
-#PBS -e /g/data/tm70/cyb561/repos/access-om3-paper-test3/notebooks
 
 # Thin PBS wrapper. ENAME / ESMDIR below, then qsub.
 #
