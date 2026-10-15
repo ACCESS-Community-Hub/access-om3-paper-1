@@ -1,2 +1,19 @@
+# Editors / OS
 *.un~
+*.swp
+*~
+.DS_Store
+
+# Python / Jupyter
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# mkfigs run artefacts
+notebooks/mkfigs_output*/
+notebooks/*.kernel-fixed.*.ipynb  # temporary artefacts after mkfigs.run
 notebooks/mkfigs.sh.[oe][0-9]*
+
+# secrets
+.env
+.figshare_token
