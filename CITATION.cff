@@ -86,6 +86,12 @@ authors:
     email: samuel.watson@utas.edu.au
     affiliation: Institute for Marine and Antarctic Studies, University of Tasmania
     orcid: 'https://orcid.org/0009-0007-4803-644X'
+  - given-names: Manodeep
+    family-names: Sinha
+    email: manodeep.sinha@anu.edu.au
+    affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0000-0002-4845-12286'
+
 abstract: >-
   Plotting notebooks and discussion for ACCESS-OM3 model description paper.
 repository-code: 'https://github.com/ACCESS-Community-Hub/access-om3-paper-1'
