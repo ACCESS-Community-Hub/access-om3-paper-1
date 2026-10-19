@@ -15,6 +15,7 @@ Email: ezhilsabareesh.kannadasan@anu.edu.au
 
 from collections import OrderedDict
 import os
+import json
 
 # Dictionary of known experiments with model name, datastore path, etc.
 # Add new experiments here as needed.
@@ -90,9 +91,13 @@ def get_experiment_info(key):
     return exptdict[key]
 
 
-def guess_experiment_from_esm_file(esm_file):
+def guess_experiment_from_esm_file(esm_file, *, model=None):
     """
-    Identify experiment configuration based on the datastore path.
+    Identify experiment configuration, including catalogs staged in jobfs.
+
+    ``model`` can explicitly specify ACCESS-OM3 or ACCESS-CM3. Otherwise use
+    the original (resolved) path and, if needed, catalog provenance before
+    falling back to the supplied path. Keep esm_file unchanged for loading.
 
     Returns
     -------
@@ -107,19 +112,39 @@ def guess_experiment_from_esm_file(esm_file):
     This function *always* returns a valid (key, info) tuple,
     so the notebook can safely unpack it.
     """
-    # 1. Exact match with known experiments in exptdict
-    for key, cfg in exptdict.items():
-        if cfg["esm_file"] == esm_file:
-            return key, cfg
+    esm_file = os.fspath(esm_file)
+    if model is not None and model not in ("ACCESS-OM3", "ACCESS-CM3"):
+        raise ValueError(f"Unsupported model: {model!r}")
+    original_path = os.path.realpath(esm_file)
 
-    # 2. Fallback: infer model type from path
-    lower = esm_file.lower()
-    if "cm3" in lower:
-        model_guess = "ACCESS-CM3"
-    elif "om3" in lower:
-        model_guess = "ACCESS-OM3"
-    else:
-        model_guess = "Unknown"
+    # Resolve the symlink used by live jobs before looking up metadata.
+    for key, cfg in exptdict.items():
+        if cfg["esm_file"] in (esm_file, original_path):
+            return key, {**cfg, "esm_file": esm_file, "model": model or cfg["model"]}
+
+    def model_from_text(text):
+        lower = str(text).lower()
+        if "cm3" in lower:
+            return "ACCESS-CM3"
+        if "om3" in lower:
+            return "ACCESS-OM3"
+        return None
+
+    model_guess = model or model_from_text(original_path)
+    if model_guess is None:
+        # Copied/newly built catalogs need not be symlinks. Their catalog_file
+        # or builder description can still identify the original output path.
+        try:
+            with open(esm_file) as stream:
+                catalog = json.load(stream)
+        except (OSError, ValueError):
+            catalog = {}
+        if isinstance(catalog, dict):
+            for field in ("catalog_file", "description"):
+                model_guess = model_from_text(catalog.get(field, ""))
+                if model_guess:
+                    break
+    model_guess = model_guess or model_from_text(esm_file) or "Unknown"
     
     # 3. Construct a usable fallback metadata record
     fallback_info = {
