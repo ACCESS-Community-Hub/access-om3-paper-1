@@ -413,3 +413,44 @@ def select_variable(
         f"Fallback errors: {fallback_errors}\n"
         f"Catalog variable candidates: {candidates}\n"
     )
+
+def complete_years(time):
+    """
+    Return the sorted list of calendar years that are fully covered by a time
+    coordinate, i.e. years with as many samples as the best-sampled year
+    (12 for monthly data, 1 for annual data, ...). Works for cftime and
+    numpy datetime64 coordinates.
+    """
+    counts = time.dt.year.to_series().value_counts()
+    return sorted(int(y) for y, n in counts.items() if n == counts.max())
+
+
+def years_window(time, nyears, *, within=None):
+    """
+    Choose a window of (up to) the last `nyears` complete years of `time`.
+
+    within -- optional (firstyear, lastyear) to restrict the choice to, e.g.
+              the window used for another experiment, so a repeat-year-forcing
+              reference is compared over the same model years. If no complete
+              year of `time` falls inside `within`, fall back to the first
+              `nyears` complete years of `time` (the closest spin-up stage).
+
+    Returns (firstyear, lastyear). Use year_slice() to select with it.
+    """
+    years = complete_years(time)
+    if not years:
+        raise ValueError("no complete years in time coordinate")
+    if within is not None:
+        inside = [y for y in years if within[0] <= y <= within[1]]
+        years = inside[-nyears:] if inside else years[:nyears]
+    else:
+        years = years[-nyears:]
+    return years[0], years[-1]
+
+
+def year_slice(window):
+    """
+    Turn a (firstyear, lastyear) window into a slice for .sel(time=...).
+    Strings work with both cftime (any calendar) and datetime64 indexes.
+    """
+    return slice(f"{window[0]:04d}-01-01", f"{window[1]:04d}-12-31")
