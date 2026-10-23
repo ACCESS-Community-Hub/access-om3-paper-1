@@ -5,7 +5,7 @@
 #PBS -W umask=0022
 #PBS -l ncpus=16
 #PBS -l mem=190GB
-#PBS -l walltime=10:00:00
+#PBS -l walltime=24:00:00
 #PBS -l jobfs=200GB
 
 # Thin PBS wrapper. ENAME / ESMDIR below, then qsub.
