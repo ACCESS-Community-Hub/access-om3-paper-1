@@ -4,198 +4,198 @@
 Evaluation figures from ACCESS-OM3 experiment **MC_25km_jra_iaf+wombatlite-test4-d28e0359** produced by notebook `timeseries.ipynb`. Co-authors for this notebook (via Git history): Andrew Kiss, Christopher Bull, ezhilsabareesh8. [View rendered notebook](notebooks/timeseries.ipynb)
  
 
-## Timeseries: masso
+## Timeseries
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67011872) 
- 
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
- 
-
-## Timeseries: soga
- 
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67011890) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_01.png) 
  
  Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
-## Timeseries: thetaoga
+## Timeseries
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67011902) 
- 
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
- 
-
-## Timeseries: tosga
- 
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67011905) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_02.png) 
  
  Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
-## Timeseries: sosga
+## Timeseries
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67011914) 
- 
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
- 
-
-## Timeseries: speed_max
- 
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67011917) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_03.png) 
  
  Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
-## Timeseries: mlotst_max
+## Timeseries
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67011926) 
- 
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
- 
-
-## Timeseries: tos_max
- 
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67011938) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_04.png) 
  
  Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
-## Timeseries: tos_min
+## Timeseries
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67011947) 
- 
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
- 
-
-## Timeseries: sos_max
- 
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042337) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_05.png) 
  
  Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
-## Timeseries: sos_min
+## Timeseries
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042340) 
- 
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
- 
-
-## Timeseries: zos_max
- 
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042343) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_06.png) 
  
  Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
-## Timeseries: zos_min
+## Timeseries
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042352) 
- 
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
- 
-
-## Timeseries: total_salt_Flux_Added
- 
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042355) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_07.png) 
  
  Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
-## Timeseries: total_salt_Flux_In
+## Timeseries
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042358) 
- 
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
- 
-
-## Timeseries: total_salt_flux
- 
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042361) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_08.png) 
  
  Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
-## Timeseries: net_fresh_water_global_adjustment
+## Timeseries
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042367) 
- 
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
- 
-
-## Timeseries: salt_flux_global_restoring_adjustment
- 
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042370) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_09.png) 
  
  Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
-## Timeseries: total_wfo
+## Timeseries
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042373) 
- 
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
- 
-
-## Timeseries: total_evs
- 
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042376) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_10.png) 
  
  Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
-## Timeseries: total_fsitherm
+## Timeseries
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042379) 
- 
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
- 
-
-## Timeseries: total_precip
- 
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042382) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_11.png) 
  
  Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
-## Timeseries: total_prsn
+## Timeseries
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042385) 
- 
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
- 
-
-## Timeseries: total_lprec
- 
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042388) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_12.png) 
  
  Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
-## Timeseries: total_ficeberg
+## Timeseries
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042391) 
- 
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
- 
-
-## Timeseries: total_friver
- 
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042394) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_13.png) 
  
  Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
-## Timeseries: total_net_massout
+## Timeseries
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042397) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_14.png) 
  
  Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
-## Timeseries: total_net_massin
+## Timeseries
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/67042400) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_15.png) 
+ 
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ 
+
+## Timeseries
+ 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_16.png) 
+ 
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ 
+
+## Timeseries
+ 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_17.png) 
+ 
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ 
+
+## Timeseries
+ 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_18.png) 
+ 
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ 
+
+## Timeseries
+ 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_19.png) 
+ 
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ 
+
+## Timeseries
+ 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_20.png) 
+ 
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ 
+
+## Timeseries
+ 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_21.png) 
+ 
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ 
+
+## Timeseries
+ 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_22.png) 
+ 
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ 
+
+## Timeseries
+ 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_23.png) 
+ 
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ 
+
+## Timeseries
+ 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_24.png) 
+ 
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ 
+
+## Timeseries
+ 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_25.png) 
+ 
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ 
+
+## Timeseries
+ 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_26.png) 
+ 
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ 
+
+## Timeseries
+ 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_27.png) 
+ 
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ 
+
+## Timeseries
+ 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](../../../assets/experiments/MC_25km_jra_iaf+wombatlite-test4-d28e0359/timeseries_28.png) 
  
  Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
