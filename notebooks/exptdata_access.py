@@ -74,6 +74,11 @@ def get_exptname_from_path(path):
     parent directory name is a fixed catalog-layout constant, not the
     experiment name, so skip up one more level in those cases.
     """
+    try:  # one rule for labels, MkmdWriter and the figure explorer
+        from mkfigs.linedata import run_name
+        return run_name(path)
+    except ImportError:  # mkfigs not on the path: same rule, kept here
+        pass
     generic_parent_dirs = ("cm3-datastore", "archive")
     parts = os.path.normpath(path).split(os.sep)
     name = parts[-2] if len(parts) >= 2 else parts[-1]

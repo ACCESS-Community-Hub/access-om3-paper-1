@@ -79,6 +79,13 @@ else
     WFOLDER="$(dirname "$(readlink -f "$0")")/../"
 fi
 
+# Batch jobs may set the run and notebooks with `qsub -v ENAME=...,ESMDIR=...,MKFIGS_NOTEBOOKS=a:b`
+# (mkfigs-backfill does this); those values win over the defaults below. Plain `qsub mkfigs.sh`
+# and interactive runs are unchanged.
+if [ -n "$PBS_O_WORKDIR" ]; then
+    _QSUB_ENAME="${ENAME:-}"; _QSUB_ESMDIR="${ESMDIR:-}"; _QSUB_NOTEBOOKS="${MKFIGS_NOTEBOOKS:-}"
+fi
+
 # 21/7/26 https://access-om3-configs.access-hive.org.au/latest/Experiments/
 #Date completed	 Base Configuration	         Model build	Length 	                ESM Datastore
 #9-Aug-25	 release-MC_25km_jra_ryf	 2025.05.001	52 years	        /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf-1.0-beta-cdfb3543/experiment_datastore.json
@@ -138,6 +145,11 @@ ENAME=MC_100km_jra_iaf+wombatlite-test1-e1de2a94
 #ENAME=MC_25km_jra_iaf+wombatlite_bs2-mpudig-backscat2-0578cc36
 #ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite_bs2-mpudig-backscat2-0578cc36/datastore.json
 
+# Values from `qsub -v` (see the top of this file). Not written as ENAME=/ESMDIR= lines,
+# because mkfigs-pushit reads the last such line as this file's run.
+[ -n "${_QSUB_ENAME:-}" ] && ENAME="${_QSUB_ENAME}"
+[ -n "${_QSUB_ESMDIR:-}" ] && ESMDIR="${_QSUB_ESMDIR}"
+
 # ---------------------------------------------------------------------------
 # access-model-mkfigs is provided via the external/access-model-mkfigs git
 # submodule (pinned commit) rather than pip-installed, so batch runs and
@@ -186,6 +198,7 @@ array=(
 # Pack array into colon-separated env var consumed by mkfigs-run
 printf -v MKFIGS_NOTEBOOKS '%s:' "${array[@]}"
 MKFIGS_NOTEBOOKS="${MKFIGS_NOTEBOOKS%:}"
+[ -n "${_QSUB_NOTEBOOKS:-}" ] && MKFIGS_NOTEBOOKS="${_QSUB_NOTEBOOKS}"
 
 # ---------------------------------------------------------------------------
 # Hand off to mkfigs-run (inherits the conda environment loaded above)
