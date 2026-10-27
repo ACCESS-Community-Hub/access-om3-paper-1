@@ -1,11 +1,12 @@
 #!/bin/bash
-#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45+gdata/cj50+gdata/vk83+gdata/zv30+gdata/p73
+#PBS -l storage=scratch/tm70+gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45+gdata/cj50+gdata/vk83+gdata/zv30+gdata/p73
 #PBS -m ae
 #PBS -q normal
 #PBS -W umask=0022
 #PBS -l ncpus=16
 #PBS -l mem=190GB
-#PBS -l walltime=10:00:00
+#PBS -l walltime=24:00:00
+#PBS -l jobfs=200GB
 
 # Thin PBS wrapper. ENAME / ESMDIR below, then qsub.
 #
@@ -120,6 +121,9 @@ ENAME=MC_25km_jra_iaf+wombatlite-test4-d28e0359
 #
 ESMDIR=/g/data/ol01/outputs/access-om3-100km/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/experiment_datastore.json
 ENAME=MC_100km_jra_iaf+wombatlite-test1-e1de2a94
+#
+ESMDIR=/g/data/tm70/cyb561/esm_datastores/ol01_full/MC_8km_jra_ryf-test2-expt-c349f800/datastore.json  # built from /g/data/ol01/outputs/access-om3-8km/MC_8km_jra_ryf-test2-expt-c349f800
+ENAME=MC_8km_jra_ryf-test2-expt-c349f800
 
 #supplementary
 ##AHogg GM* runs
