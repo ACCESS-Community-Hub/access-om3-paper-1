@@ -38,7 +38,7 @@ ISSUES: dict[str, str] = {
     "pPV":                                     f"[#14]({_GH}/14) — Planetary geostrophic potential vorticity / SAMW transects",
     "Equatorial_pacific":                      f"[#17]({_GH}/17) Equatorial T & zonal velocity contours, [#19]({_GH}/19) 20°C isotherm depth",
     "SeaIce_area":                             f"[#20]({_GH}/20) Sea ice extent time series, [#21]({_GH}/21) Sea ice annual cycle",
-    "SeaIce_Vol":                              f"[#20]({_GH}/20) Sea ice volume time series, [#22]({_GH}/22) Sea ice thickness/concentration",
+    "SeaIce_Vol":                              f"[#20]({_GH}/20) Sea ice volume time series, [#22]({_GH}/22) Sea ice thickness/concentration, [#48]({_GH}/48) Sea ice volume and thickness vs observations",
     "Significant_wave_height_ERA5_comparison": f"[#78]({_GH}/78) — ERA5 wave parameter comparison",
     "Mean_wave_period_ERA5_comparison":        f"[#78]({_GH}/78) — ERA5 wave parameter comparison",
     "Timeseries_daily_extreme_from_2D_fields": f"[#34]({_GH}/34) — SST/SSS/SSH/MLD daily extrema",
