@@ -71,7 +71,7 @@ To allow us to run all the notebooks at once (interactively or via `mkfigs.sh`/p
 # arguments externally using papermill (see mkfigs.sh for details)
 
 # Set esm_file to the datastore for the main experiment of interest
-esm_file = "/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test3v2-00532b88/datastore.json"
+esm_file = "/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test5.1-8f50b769/datastore.json"
 
 # papermill settings. *No need to modify these if running interactively.*
 papermill = False                      # `cwd` and `nbname` will be populated by papermill.
