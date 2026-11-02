@@ -18,6 +18,11 @@ Email: ezhilsabareesh.kannadasan@anu.edu.au
 from collections import OrderedDict
 from typing import Optional, Sequence, Tuple, Dict, Any
 
+import operator
+import warnings
+
+import numpy as np
+import pandas as pd
 import xarray as xr
 
 
@@ -414,43 +419,159 @@ def select_variable(
         f"Catalog variable candidates: {candidates}\n"
     )
 
-def complete_years(time):
-    """
-    Return the sorted list of calendar years that are fully covered by a time
-    coordinate, i.e. years with as many samples as the best-sampled year
-    (12 for monthly data, 1 for annual data, ...). Works for cftime and
-    numpy datetime64 coordinates.
-    """
-    counts = time.dt.year.to_series().value_counts()
-    return sorted(int(y) for y, n in counts.items() if n == counts.max())
+_FREQUENCIES = ("annual", "monthly", "daily")
 
 
-def years_window(time, nyears, *, within=None):
-    """
-    Choose a window of (up to) the last `nyears` complete years of `time`.
+def _infer_frequency(values):
+    """Classify a sorted time axis as "annual", "monthly" or "daily" from its median step."""
+    if len(values) < 2:
+        raise ValueError("cannot infer the sampling interval from fewer than two timestamps; "
+                         f"pass frequency= one of {_FREQUENCIES}")
+    step = pd.Series(pd.to_timedelta(np.diff(values))).median().total_seconds() / 86400
+    for name, (lo, hi) in {"daily": (0.9, 1.1), "monthly": (27, 32), "annual": (360, 367)}.items():
+        if lo <= step <= hi:
+            return name
+    raise ValueError(f"median sampling interval of {step:.4g} days is not daily, monthly or annual; "
+                     "only those are supported (or pass frequency= if the axis is known to be one of them)")
 
-    within -- optional (firstyear, lastyear) to restrict the choice to, e.g.
-              the window used for another experiment, so a repeat-year-forcing
-              reference is compared over the same model years. If no complete
-              year of `time` falls inside `within`, fall back to the first
-              `nyears` complete years of `time` (the closest spin-up stage).
 
-    Returns (firstyear, lastyear). Use year_slice() to select with it.
+def complete_years(time, *, frequency=None):
     """
-    years = complete_years(time)
+    Return the sorted list of calendar years fully covered by a time coordinate.
+
+    Supported sampling: annual, monthly or daily, with any cftime calendar or
+    datetime64, in any order. `frequency` ("annual", "monthly" or "daily") is
+    inferred from the median step unless given (needed for a single sample).
+    A year is complete when each of its calendar periods occurs exactly once:
+    one sample (annual), each month 1-12 (monthly), every day of the year
+    (daily; 365, 366 or 360 days according to the calendar). Membership is by
+    the calendar year/month/day of the timestamp, which must lie inside the
+    interval it represents (mid-interval, start or last-day stamps are fine;
+    end-of-interval stamps such as 1 Feb for January are not: use time bounds).
+
+    Raises ValueError for duplicate timestamps (which would be silently averaged
+    twice by the caller) and for a sampling that is not annual, monthly or daily.
+    Returns [] for an empty axis.
+    """
+    if time.size == 0:
+        return []
+    time = time.isel(time=np.argsort(time.values))
+    vals = time.values
+    dups = vals[1:][vals[1:] == vals[:-1]]
+    if dups.size:
+        raise ValueError(f"{dups.size} duplicate timestamp(s), e.g. {dups[:3].tolist()}; "
+                         "remove or resolve them before choosing a window")
+    if frequency is None:
+        frequency = _infer_frequency(vals)
+    elif frequency not in _FREQUENCIES:
+        raise ValueError(f"frequency must be one of {_FREQUENCIES}, got {frequency!r}")
+    import cftime
+    cal = time.dt.calendar
+    years = time.dt.year.values
+    months, doys = time.dt.month.values, time.dt.dayofyear.values
+    complete = []
+    for y in np.unique(years):
+        here = years == y
+        if frequency == "annual":
+            ok = here.sum() == 1
+        elif frequency == "monthly":
+            ok = np.array_equal(months[here], np.arange(1, 13))
+        else:
+            ndays = (cftime.datetime(int(y) + 1, 1, 1, calendar=cal) - cftime.datetime(int(y), 1, 1, calendar=cal)).days
+            ok = np.array_equal(doys[here], np.arange(1, ndays + 1))
+        if ok:
+            complete.append(int(y))
+    return complete
+
+
+def _runs(years):
+    """Split a sorted list of years into runs of consecutive years."""
+    runs = []
+    for y in years:
+        if runs and y == runs[-1][-1] + 1:
+            runs[-1].append(y)
+        else:
+            runs.append([y])
+    return runs
+
+
+def years_window(time, nyears=None, *, within=None, period=None, fallback="first", frequency=None):
+    """
+    Choose a window of consecutive complete years of `time`: by default the last
+    `nyears` of them. See complete_years() for what "complete" means and for
+    `frequency`.
+
+    nyears   -- number of years wanted (positive integer). The window is shorter,
+                with a warning, if fewer consecutive complete years are available.
+    period   -- optional explicit (firstyear, lastyear), e.g. from a notebook
+                parameter. It takes precedence over nyears (which is then ignored)
+                and cannot be combined with within. Every year in it must be
+                complete in `time`, otherwise ValueError: it is never clipped.
+    within   -- optional (firstyear, lastyear) to restrict the choice to, e.g.
+                the window used for another experiment, so a reference is
+                compared over the same model years. A warning is issued if only
+                part of it is covered.
+    fallback -- what to do if no complete year of `time` falls inside `within`:
+                "first" (default) uses the first `nyears` complete years of `time`,
+                with a warning; this is only the earliest available data, not a
+                claim about spin-up stage or comparability. "raise" raises ValueError.
+
+    Windows never span a gap: only the last (or, for the fallback, first) run of
+    consecutive complete years is used, so year_slice() cannot re-include a
+    partial year. Returns (firstyear, lastyear); use year_slice() to select with it.
+    """
+    years = complete_years(time, frequency=frequency)
     if not years:
         raise ValueError("no complete years in time coordinate")
+    if period is not None:
+        if within is not None:
+            raise ValueError("period and within cannot be combined")
+        first, last = period
+        if first > last:
+            raise ValueError(f"period {period} has first year > last year")
+        missing = [y for y in range(first, last + 1) if y not in years]
+        if missing:
+            raise ValueError(f"period {period} is not fully covered by complete years of the "
+                             f"time coordinate (complete: {years[0]}-{years[-1]}); missing {missing}")
+        return first, last
+    if nyears is None:
+        raise ValueError("give nyears or period")
+    nyears = operator.index(nyears)
+    if nyears < 1:
+        raise ValueError(f"nyears must be a positive integer, got {nyears}")
     if within is not None:
+        if within[0] > within[1]:
+            raise ValueError(f"within {within} has first year > last year")
         inside = [y for y in years if within[0] <= y <= within[1]]
-        years = inside[-nyears:] if inside else years[:nyears]
+        if inside:
+            chosen = _runs(inside)[-1][-nyears:]
+            if inside[0] > within[0] or inside[-1] < within[1] or len(inside) < within[1] - within[0] + 1:
+                warnings.warn(f"years_window: only complete years {inside[0]}-{inside[-1]} of the requested "
+                              f"{within[0]}-{within[1]} are available; using {chosen[0]}-{chosen[-1]}", stacklevel=2)
+        elif fallback == "raise":
+            raise ValueError(f"no complete year of the time coordinate ({years[0]}-{years[-1]}) "
+                             f"falls inside {within}")
+        elif fallback == "first":
+            chosen = _runs(years)[0][:nyears]
+            warnings.warn(f"years_window: no complete year inside {within}; falling back to the "
+                          f"first {len(chosen)} complete years {chosen[0]}-{chosen[-1]}", stacklevel=2)
+        else:
+            raise ValueError(f"unknown fallback {fallback!r}")
     else:
-        years = years[-nyears:]
-    return years[0], years[-1]
+        chosen = _runs(years)[-1][-nyears:]
+    if len(chosen) < nyears:
+        warnings.warn(f"years_window: wanted {nyears} complete years, using {len(chosen)} "
+                      f"({chosen[0]}-{chosen[-1]})", stacklevel=2)
+    return chosen[0], chosen[-1]
 
 
 def year_slice(window):
     """
     Turn a (firstyear, lastyear) window into a slice for .sel(time=...).
-    Strings work with both cftime (any calendar) and datetime64 indexes.
+    Year-only strings select whole calendar years for cftime (any calendar,
+    including 360_day, which has no 31 December) and datetime64 indexes. The
+    time index must be sorted and, for datetime64, within the nanosecond range
+    (use cftime beyond year 2262). The window is not validated here; years_window
+    guarantees complete years.
     """
-    return slice(f"{window[0]:04d}-01-01", f"{window[1]:04d}-12-31")
+    return slice(f"{window[0]:04d}", f"{window[1]:04d}")
