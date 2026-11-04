@@ -7,8 +7,6 @@
 #PBS -l ncpus=16
 #PBS -l mem=190GB
 #PBS -l walltime=10:00:00
-#PBS -o /g/data/tm70/cyb561/repos/access-om3-paper-test3/notebooks
-#PBS -e /g/data/tm70/cyb561/repos/access-om3-paper-test3/notebooks
 
 # Thin PBS wrapper. ENAME / ESMDIR below, then qsub.
 #
@@ -149,28 +147,7 @@ export PYTHONPATH="${WFOLDER%/}/external/access-model-mkfigs/src:${PYTHONPATH}"
 #Timeseries_daily_extreme_from_2D_fields ##do not have the outputs needed, see https://github.com/ACCESS-NRI/access-om3-configs/issues/1046#issuecomment-3924389373
 
 array=(
-#    #00_template_notebook
-    Bottom_age_tracer_in_ACCESS_OM3
-    MLD
-    MLD_max
-    Overturning_in_ACCESS_OM3
     SeaIce_area
-    SeaIce_mass_budget_climatology  #needs conda/analysis3-26.07 or 26.06
-    SSS
-    SST
-    StraitTransports
-    MeridionalHeatTransport
-    temp-salt-vs-depth-time
-    pPV
-    Equatorial_pacific
-    SSS_Restoring_Timeseries
-    Timeseries_daily_extreme_from_2D_fields
-    timeseries
-    SSH
-    #wombatlite_global #currently not working because we are missing  skill_metrics
-    Currents_streamfunction_variability
-    SeaIce_Vol
-    temp-salt-vs-depth-latitude
 )
 #SSH uses a lot of memory !!
 

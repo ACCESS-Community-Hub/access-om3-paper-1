@@ -4,23 +4,44 @@
 Evaluation figures from ACCESS-OM3 experiment **MC_25km_jra_iaf+wombatlite-test4-d28e0359** produced by notebook `SeaIce_area.ipynb`. Co-authors for this notebook (via Git history): Helen-J-S, Christopher Bull, anton-seaice. [View rendered notebook](notebooks/SeaIce_area.ipynb)
  
 
-## Sea Ice Area: Seasonal Climatology
+## Sea Ice Area
  
-![`SeaIce_area.ipynb`: Seasonal sea ice area for Arctic and Antarctic. [GitHub issue: Sea ice annual cycle](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/21)](https://ndownloader.figshare.com/files/67042148) 
+![`SeaIce_area.ipynb`: Seasonal sea ice area for Arctic and Antarctic, compared with other OM3 runs and ACCESS-OM2. [GitHub issue: Sea ice annual cycle](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/21)](https://ndownloader.figshare.com/files/71055735) 
  
- Caption: `SeaIce_area.ipynb`: Seasonal sea ice area for Arctic and Antarctic. [GitHub issue: Sea ice annual cycle](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/21)
- 
-
-## Sea Ice Area: Annual Mean Timeseries
- 
-![`SeaIce_area.ipynb`: Annual mean sea ice area timeseries for Arctic and Antarctic. [GitHub issue: Sea ice extent time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/20)](https://ndownloader.figshare.com/files/67042151) 
- 
- Caption: `SeaIce_area.ipynb`: Annual mean sea ice area timeseries for Arctic and Antarctic. [GitHub issue: Sea ice extent time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/20)
+ Caption: `SeaIce_area.ipynb`: Seasonal sea ice area for Arctic and Antarctic, compared with other OM3 runs and ACCESS-OM2. [GitHub issue: Sea ice annual cycle](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/21)
  
 
-## Sea Ice Area: Rolling Min/Mean/Max
+## Sea Ice Area
  
-![`SeaIce_area.ipynb`: Sea ice area minimum, mean and maximum timeseries. [GitHub issue: Sea ice extent time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/20)](https://ndownloader.figshare.com/files/67042154) 
+![`SeaIce_area.ipynb`: Annual mean sea ice area timeseries for Arctic and Antarctic, compared with other OM3 runs and ACCESS-OM2. [GitHub issue: Sea ice extent time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/20)](https://ndownloader.figshare.com/files/71055738) 
  
- Caption: `SeaIce_area.ipynb`: Sea ice area minimum, mean and maximum timeseries. [GitHub issue: Sea ice extent time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/20)
+ Caption: `SeaIce_area.ipynb`: Annual mean sea ice area timeseries for Arctic and Antarctic, compared with other OM3 runs and ACCESS-OM2. [GitHub issue: Sea ice extent time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/20)
+ 
+
+## Sea Ice Area
+ 
+![`SeaIce_area.ipynb`: Sea ice area minimum, mean and maximum timeseries, compared with other OM3 runs and ACCESS-OM2. [GitHub issue: Sea ice extent time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/20)](https://ndownloader.figshare.com/files/71055741) 
+ 
+ Caption: `SeaIce_area.ipynb`: Sea ice area minimum, mean and maximum timeseries, compared with other OM3 runs and ACCESS-OM2. [GitHub issue: Sea ice extent time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/20)
+ 
+
+## Sea Ice Concentration Bias
+ 
+![`SeaIce_area.ipynb`: March and September sea ice concentration bias (OM3 minus observations), regridded to the NSIDC polar-stereographic grid for each hemisphere, with 15% and 80% concentration contours for observations (solid) and OM3 (dashed). [GitHub issue: Sea ice concentration bias](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/21)](https://ndownloader.figshare.com/files/71055744) 
+ 
+ Caption: `SeaIce_area.ipynb`: March and September sea ice concentration bias (OM3 minus observations), regridded to the NSIDC polar-stereographic grid for each hemisphere, with 15% and 80% concentration contours for observations (solid) and OM3 (dashed). [GitHub issue: Sea ice concentration bias](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/21)
+ 
+
+## Sea Ice Concentration
+ 
+![`SeaIce_area.ipynb`: March and September sea ice concentration climatology for OM3 and observations, regridded to the NSIDC polar-stereographic grid for each hemisphere.](https://ndownloader.figshare.com/files/71055750) 
+ 
+ Caption: `SeaIce_area.ipynb`: March and September sea ice concentration climatology for OM3 and observations, regridded to the NSIDC polar-stereographic grid for each hemisphere.
+ 
+
+## Sea Ice Volume Tendencies
+ 
+![`SeaIce_area.ipynb`: Climatological thermodynamic (dvidtt) and dynamic (dvidtd) ice volume tendencies for OM3 in March (Arctic) and September (Antarctic), regridded to the NSIDC polar-stereographic grid for each hemisphere, with the model 15% and 80% concentration contours.](https://ndownloader.figshare.com/files/71055753) 
+ 
+ Caption: `SeaIce_area.ipynb`: Climatological thermodynamic (dvidtt) and dynamic (dvidtd) ice volume tendencies for OM3 in March (Arctic) and September (Antarctic), regridded to the NSIDC polar-stereographic grid for each hemisphere, with the model 15% and 80% concentration contours.
  
