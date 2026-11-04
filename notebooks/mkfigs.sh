@@ -1,14 +1,11 @@
 #!/bin/bash
-#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45+gdata/cj50+gdata/vk83+gdata/zv30+gdata/p73
-#PBS -M chris.bull@anu.edu.au
+#PBS -l storage=scratch/x77+gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45+gdata/cj50+gdata/vk83+gdata/zv30+gdata/p73+gdata/rt52+gdata/ia39
 #PBS -m ae
 #PBS -q normal
 #PBS -W umask=0022
 #PBS -l ncpus=16
 #PBS -l mem=190GB
 #PBS -l walltime=10:00:00
-#PBS -o /g/data/tm70/cyb561/repos/access-om3-paper-test3/notebooks
-#PBS -e /g/data/tm70/cyb561/repos/access-om3-paper-test3/notebooks
 
 # Thin PBS wrapper. ENAME / ESMDIR below, then qsub.
 #
@@ -120,6 +117,9 @@ ENAME=MC_25km_jra_iaf+wombatlite-test4-d28e0359
 
 #ESMDIR=/g/data/zv30/non-cmip/ACCESS-CM3/cm3-run-27-07-2026-PD-control/cm3-datastore/cm3-datastore.json
 #ENAME=cm3-run-27-07-2026-PD-control
+#
+ESMDIR=/g/data/ol01/outputs/access-om3-100km/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/experiment_datastore.json
+ENAME=MC_100km_jra_iaf+wombatlite-test1-e1de2a94
 
 #supplementary
 ##AHogg GM* runs
@@ -171,7 +171,7 @@ array=(
     Timeseries_daily_extreme_from_2D_fields
     timeseries
     SSH
-    #wombatlite_global #currently not working because we are missing  skill_metrics
+    wombatlite_global
     Currents_streamfunction_variability
     SeaIce_Vol
     temp-salt-vs-depth-latitude
