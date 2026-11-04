@@ -70,10 +70,18 @@ module list
 # SET THESE
 # ---------------------------------------------------------------------------
 
-if [ -n "$PBS_O_WORKDIR" ]; then
-    # Batch mode: $0 is unreliable under PBS (script runs from a spool dir),
-    # but PBS_O_WORKDIR reliably points at the directory qsub was run from.
-    WFOLDER="$(dirname "$PBS_O_WORKDIR")/"
+if [ -n "${PBS_O_WORKDIR:-}" ]; then
+    # PBS runs a spool copy, so use the submission directory rather than $0.
+    # Support both `qsub notebooks/mkfigs.sh` from the repo root and
+    # `qsub mkfigs.sh` from notebooks/.
+    if [ -f "$PBS_O_WORKDIR/notebooks/mkfigs.sh" ]; then
+        WFOLDER="${PBS_O_WORKDIR%/}/"
+    elif [ -f "$PBS_O_WORKDIR/mkfigs.sh" ] && [ -f "$PBS_O_WORKDIR/mkfigs_bootstrap.py" ]; then
+        WFOLDER="$(dirname "${PBS_O_WORKDIR%/}")/"
+    else
+        printf 'ERROR: Submit mkfigs.sh from the repository root or notebooks/ (PBS_O_WORKDIR=%s).\n' "$PBS_O_WORKDIR" >&2
+        exit 1
+    fi
 else
     # Interactive mode: $0 is reliable here.
     WFOLDER="$(dirname "$(readlink -f "$0")")/../"
