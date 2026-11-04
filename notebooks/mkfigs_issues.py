@@ -56,6 +56,7 @@ ISSUES: dict[str, str] = {
     "wombatlite_global":                       f"[#47]({_GH}/47) — WOMBATlite global metrics",
     "FloeSizeTendencies":                      f"[#72]({_GH}/72) — Floe-size distribution tendencies",
     "LangmuirTurbulence":                      f"[access-om3-configs#950]({_CONFIGS}/950) — Langmuir turbulence influence on MLD",
+    "numerical_mixing_ACCESS_OM3":             f"[#103]({_GH}/103) — Numerical mixing",
 }
 
 CATEGORIES_SOURCE = f"{_GH}/23"

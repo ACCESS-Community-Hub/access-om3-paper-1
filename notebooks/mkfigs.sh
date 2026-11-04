@@ -112,14 +112,17 @@ ENAME=MC_25km_jra_iaf+wombatlite-test3v2-00532b88
 ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test4-d28e0359/datastore.json
 ENAME=MC_25km_jra_iaf+wombatlite-test4-d28e0359
 #
+ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test5.1-8f50b769/datastore.json
+ENAME=MC_25km_jra_iaf+wombatlite-test5.1-8f50b769
+#
 #ESMDIR=/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/experiment_datastore.json
 #ENAME=MC_25km_jra_ryf+wombatlite-test3-f4d79e82
 
 #ESMDIR=/g/data/zv30/non-cmip/ACCESS-CM3/cm3-run-27-07-2026-PD-control/cm3-datastore/cm3-datastore.json
 #ENAME=cm3-run-27-07-2026-PD-control
 #
-ESMDIR=/g/data/ol01/outputs/access-om3-100km/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/experiment_datastore.json
-ENAME=MC_100km_jra_iaf+wombatlite-test1-e1de2a94
+#ESMDIR=/g/data/ol01/outputs/access-om3-100km/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/experiment_datastore.json
+#ENAME=MC_100km_jra_iaf+wombatlite-test1-e1de2a94
 
 #supplementary
 ##AHogg GM* runs
