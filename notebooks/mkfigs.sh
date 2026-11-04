@@ -153,7 +153,19 @@ ENAME=MC_25km_jra_iaf+wombatlite-test5.1-8f50b769
 # access-model-mkfigs is provided via the external/access-model-mkfigs git
 # submodule (pinned commit) rather than pip-installed, so batch runs and
 # interactive notebooks use the exact same on-disk copy of the package.
-export PYTHONPATH="${WFOLDER%/}/external/access-model-mkfigs/src:${PYTHONPATH}"
+# Use an external mkfigs worktree when MKFIGS_SRC is set.
+# Otherwise, use the pinned git submodule.
+MKFIGS_SRC="${MKFIGS_SRC:-${WFOLDER%/}/external/access-model-mkfigs/src}"
+
+if [ ! -f "${MKFIGS_SRC}/mkfigs/__init__.py" ]; then
+    printf 'ERROR: mkfigs package not found at %s\n' "$MKFIGS_SRC" >&2
+    exit 1
+fi
+
+export MKFIGS_SRC
+export PYTHONPATH="${MKFIGS_SRC}${PYTHONPATH:+:${PYTHONPATH}}"
+
+printf 'Using mkfigs source: %s\n' "$MKFIGS_SRC"
 # ---------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------
