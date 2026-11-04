@@ -9,11 +9,13 @@
 
 # Thin PBS wrapper. ENAME / ESMDIR below, then qsub.
 #
-# Requires the access-model-mkfigs package, which is provided via the
-# external/access-model-mkfigs git submodule (pinned commit) and run
-# directly as `python3 -m mkfigs.<module>`. This is an
-# interim measure until access-model-mkfigs is installed centrally in
-# access3-26.0x.
+# Requires the access-model-mkfigs package, loaded directly from source
+# via PYTHONPATH without pip installation. By default, the pinned git
+# submodule at external/access-model-mkfigs is used. Set MKFIGS_SRC to
+# override this with an external worktree's src directory.
+#
+# This is an interim measure until access-model-mkfigs is installed
+# centrally in conda/analysis3.
 #
 ## Workflow — first run for a new experiment
 #1. Create a Figshare token and save it to ~/.figshare_token
@@ -28,18 +30,27 @@
 #1. python3 -m mkfigs.pushit --check-figshare-upload   (follow the git commands it prints)
 
 
-# access-model-mkfigs is loaded straight from the external/access-model-mkfigs
-# submodule via PYTHONPATH -- no venv, no pip install, nothing per-experiment.
-# Batch runs, interactive notebooks, and follow-up commands below all use the
-# same pinned commit -- there's no venv to activate for any of them.
+# Batch runs and interactive notebooks use the same mkfigs source:
+# the pinned submodule by default, or an external worktree via MKFIGS_SRC.
+# No venv or per-experiment pip installation is required.
+#
+## To submit a PBS job:
+#   From the repository root: qsub notebooks/mkfigs.sh
+#   From notebooks/:         qsub mkfigs.sh
+#
+## To use an external mkfigs worktree:
+#   qsub -v MKFIGS_SRC=/path/to/access-model-mkfigs/src mkfigs.sh
 #
 ## To run interactively:
 #   module purge; module use /g/data/xp65/public/modules; module load conda/analysis3
-#   (open a notebook — notebooks/mkfigs_bootstrap.py handles the PYTHONPATH bit)
+#   (notebooks/mkfigs_bootstrap.py selects the mkfigs source)
+#   Set MKFIGS_SRC before importing mkfigs_bootstrap to use an external worktree.
 #
 ## To run follow-up commands (pushit / restore) from a login node:
 #   module purge; module use /g/data/xp65/public/modules; module load conda/analysis3
-#   export PYTHONPATH="<WFOLDER>/external/access-model-mkfigs/src:${PYTHONPATH}"
+#   export MKFIGS_SRC="<WFOLDER>/external/access-model-mkfigs/src"
+#   (or set MKFIGS_SRC to an external worktree's src directory)
+#   export PYTHONPATH="${MKFIGS_SRC}:${PYTHONPATH:-}"
 #   python3 -m mkfigs.pushit  [--dry-run] [--check-figshare-upload]
 #   python3 -m mkfigs.restore [--ename ENAME] [--force]
 #
