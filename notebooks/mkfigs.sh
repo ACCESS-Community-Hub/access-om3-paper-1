@@ -177,6 +177,7 @@ array=(
     temp-salt-vs-depth-latitude
     Transects
     WM_evaluation
+    numerical_mixing_ACCESS_OM3
 )
 #SSH uses a lot of memory !!
 
