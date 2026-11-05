@@ -5,10 +5,6 @@ message: >-
   metadata from this file.
 type: software
 authors:
-  - given-names: Zijin
-    family-names: Chen
-    affiliation: Institute for Marine and Antarctic Studies, University of Tasmania, Hobart, Australia
-    orcid: 'https://orcid.org/0009-0008-0417-774X'
   - given-names: Christopher Yit Sen
     family-names: Bull
     email: chris.bull@anu.edu.au
@@ -96,6 +92,10 @@ authors:
     affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
     orcid: 'https://orcid.org/0000-0002-4845-12286'
 
+  - given-names: Zijin
+    family-names: Chen
+    affiliation: Institute for Marine and Antarctic Studies, University of Tasmania
+    orcid: 'https://orcid.org/0009-0008-0417-774X'
 abstract: >-
   Plotting notebooks and discussion for ACCESS-OM3 model description paper.
 repository-code: 'https://github.com/ACCESS-Community-Hub/access-om3-paper-1'
