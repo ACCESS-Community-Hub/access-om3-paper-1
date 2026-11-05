@@ -7,6 +7,8 @@ type: software
 authors:
   - given-names: Zijin
     family-names: Chen
+    affiliation: Institute for Marine and Antarctic Studies, University of Tasmania, Nipaluna/Hobart, Australia
+    orcid: 'https://orcid.org/0009-0008-0417-774X'
   - given-names: Christopher Yit Sen
     family-names: Bull
     email: chris.bull@anu.edu.au
