@@ -95,6 +95,7 @@ authors:
     family-names: Chen
     affiliation: Institute for Marine and Antarctic Studies, University of Tasmania
     orcid: 'https://orcid.org/0009-0008-0417-774X'
+
 abstract: >-
   Plotting notebooks and discussion for ACCESS-OM3 model description paper.
 repository-code: 'https://github.com/ACCESS-Community-Hub/access-om3-paper-1'
