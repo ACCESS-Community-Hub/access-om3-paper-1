@@ -5,6 +5,8 @@ message: >-
   metadata from this file.
 type: software
 authors:
+  - given-names: Zijin
+    family-names: Chen
   - given-names: Christopher Yit Sen
     family-names: Bull
     email: chris.bull@anu.edu.au
