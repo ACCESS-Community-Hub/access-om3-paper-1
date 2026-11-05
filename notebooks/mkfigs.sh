@@ -3,7 +3,7 @@
 #PBS -m ae
 #PBS -q normal
 #PBS -W umask=0022
-#PBS -l ncpus=16
+#PBS -l ncpus=28
 #PBS -l mem=190GB
 #PBS -l walltime=10:00:00
 
@@ -167,20 +167,20 @@ array=(
     SST
     StraitTransports
     MeridionalHeatTransport
-    temp-salt-vs-depth-time
+#    temp-salt-vs-depth-time
     pPV
     Equatorial_pacific
-    SSS_Restoring_Timeseries
-    Timeseries_daily_extreme_from_2D_fields
+#    SSS_Restoring_Timeseries
+#    Timeseries_daily_extreme_from_2D_fields
     timeseries
-    SSH
-    wombatlite_global
-    Currents_streamfunction_variability
-    SeaIce_Vol
-    temp-salt-vs-depth-latitude
+#    SSH
+#    wombatlite_global
+#    Currents_streamfunction_variability
+#    SeaIce_Vol
+#    temp-salt-vs-depth-latitude
     Transects
-    WM_evaluation
-    MLD_manual
+#    WM_evaluation
+#    MLD_manual
     Transects-mixing
     numerical_mixing_ACCESS_OM3
 )

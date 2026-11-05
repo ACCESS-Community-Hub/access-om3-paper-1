@@ -1,0 +1,24 @@
+{
+  "MLD": "https://ndownloader.figshare.com/files/71103168",
+  "MLD_max": "https://ndownloader.figshare.com/files/71103174",
+  "SSS": "https://ndownloader.figshare.com/files/71103177",
+  "SST": "https://ndownloader.figshare.com/files/71103180",
+  "Transects-mixing": "https://ndownloader.figshare.com/files/71103201",
+  "numerical_mixing_ACCESS_OM3": "https://ndownloader.figshare.com/files/71103207",
+  "_run_times": {
+    "MLD": "2026-11-05 03:11 UTC",
+    "MLD_max": "2026-11-05 03:11 UTC",
+    "SSS": "2026-11-05 03:11 UTC",
+    "SST": "2026-11-05 03:11 UTC",
+    "Transects-mixing": "2026-11-05 03:11 UTC",
+    "numerical_mixing_ACCESS_OM3": "2026-11-05 03:11 UTC"
+  },
+  "_run_versions": {
+    "MLD": "git+5984493",
+    "MLD_max": "git+5984493",
+    "SSS": "git+5984493",
+    "SST": "git+5984493",
+    "Transects-mixing": "git+5984493",
+    "numerical_mixing_ACCESS_OM3": "git+5984493"
+  }
+}
