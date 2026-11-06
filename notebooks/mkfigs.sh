@@ -173,6 +173,7 @@ array=(
     SSS_Restoring_Timeseries
     Timeseries_daily_extreme_from_2D_fields
     timeseries
+    ocean_stats
     SSH
     wombatlite_global
     Currents_streamfunction_variability
