@@ -38,7 +38,8 @@ build:
       - |
         echo "=== Downloading rendered notebooks from Figshare ==="
         python3 - << 'PYEOF'
-        import json, sys, urllib.request
+        import json, re, sys, urllib.request
+        import yaml
         from pathlib import Path
 
         docs_root = Path("documentation/docs/pages/experiments")
@@ -46,25 +47,58 @@ build:
             print("No experiments directory found – nothing to download.")
             sys.exit(0)
 
+        # Respect the site navigation instead of fetching every old experiment.
+        config = yaml.load(Path("documentation/mkdocs.yml").read_text(), Loader=yaml.BaseLoader) or {}
+
+        def nav_paths(item):
+            if isinstance(item, dict):
+                for value in item.values():
+                    yield from nav_paths(value)
+            elif isinstance(item, list):
+                for value in item:
+                    yield from nav_paths(value)
+            elif isinstance(item, str):
+                yield item
+
+        selected = None
+        if "nav" in config:
+            selected = {
+                match.group(1)
+                for path in nav_paths(config["nav"])
+                for match in [re.search(r"(?:^|/)(?:pages/)?experiments/([^/]+)/", path)]
+                if match
+            }
+            print("Experiments selected by navigation:", ", ".join(sorted(selected)) or "none")
+
         total_downloaded = 0
         total_skipped    = 0
 
         for urls_json in sorted(docs_root.glob("*/notebooks_urls.json")):
             ename = urls_json.parent.name
+            if selected is not None and ename not in selected:
+                continue
             try:
                 url_map = json.loads(urls_json.read_text())
             except Exception as exc:
                 print(f"[{ename}] WARNING: could not read {urls_json}: {exc}")
                 continue
 
-            if not url_map:
+            if not isinstance(url_map, dict):
+                print(f"[{ename}] WARNING: notebook URL manifest is not a mapping – skipping.")
+                continue
+            notebook_urls = {
+                name: url for name, url in url_map.items()
+                if not name.startswith("_") and isinstance(url, str)
+                and url.startswith(("https://", "http://"))
+            }
+            if not notebook_urls:
                 print(f"[{ename}] No notebook URLs recorded yet – skipping.")
                 continue
 
-            print(f"[{ename}] Downloading {len(url_map)} notebook(s)...")
+            print(f"[{ename}] Checking {len(notebook_urls)} notebook(s)...")
             nb_dir = urls_json.parent / "notebooks"
             nb_dir.mkdir(exist_ok=True)
-            for nb_name, url in url_map.items():
+            for nb_name, url in notebook_urls.items():
                 dest = nb_dir / f"{nb_name}.ipynb"
                 if dest.exists():
                     print(f"  {nb_name}.ipynb already present – skipping")
