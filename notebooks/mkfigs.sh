@@ -9,11 +9,13 @@
 
 # Thin PBS wrapper. ENAME / ESMDIR below, then qsub.
 #
-# Requires the access-model-mkfigs package, which is provided via the
-# external/access-model-mkfigs git submodule (pinned commit) and run
-# directly as `python3 -m mkfigs.<module>`. This is an
-# interim measure until access-model-mkfigs is installed centrally in
-# access3-26.0x.
+# Requires the access-model-mkfigs package, loaded directly from source
+# via PYTHONPATH without pip installation. By default, the pinned git
+# submodule at external/access-model-mkfigs is used. Set MKFIGS_SRC to
+# override this with an external worktree's src directory.
+#
+# This is an interim measure until access-model-mkfigs is installed
+# centrally in conda/analysis3.
 #
 ## Workflow — first run for a new experiment
 #1. Create a Figshare token and save it to ~/.figshare_token
@@ -28,18 +30,27 @@
 #1. python3 -m mkfigs.pushit --check-figshare-upload   (follow the git commands it prints)
 
 
-# access-model-mkfigs is loaded straight from the external/access-model-mkfigs
-# submodule via PYTHONPATH -- no venv, no pip install, nothing per-experiment.
-# Batch runs, interactive notebooks, and follow-up commands below all use the
-# same pinned commit -- there's no venv to activate for any of them.
+# Batch runs and interactive notebooks use the same mkfigs source:
+# the pinned submodule by default, or an external worktree via MKFIGS_SRC.
+# No venv or per-experiment pip installation is required.
+#
+## To submit a PBS job:
+#   From the repository root: qsub notebooks/mkfigs.sh
+#   From notebooks/:         qsub mkfigs.sh
+#
+## To use an external mkfigs worktree:
+#   qsub -v MKFIGS_SRC=/path/to/access-model-mkfigs/src mkfigs.sh
 #
 ## To run interactively:
 #   module purge; module use /g/data/xp65/public/modules; module load conda/analysis3
-#   (open a notebook — notebooks/mkfigs_bootstrap.py handles the PYTHONPATH bit)
+#   (notebooks/mkfigs_bootstrap.py selects the mkfigs source)
+#   Set MKFIGS_SRC before importing mkfigs_bootstrap to use an external worktree.
 #
 ## To run follow-up commands (pushit / restore) from a login node:
 #   module purge; module use /g/data/xp65/public/modules; module load conda/analysis3
-#   export PYTHONPATH="<WFOLDER>/external/access-model-mkfigs/src:${PYTHONPATH}"
+#   export MKFIGS_SRC="<WFOLDER>/external/access-model-mkfigs/src"
+#   (or set MKFIGS_SRC to an external worktree's src directory)
+#   export PYTHONPATH="${MKFIGS_SRC}:${PYTHONPATH:-}"
 #   python3 -m mkfigs.pushit  [--dry-run] [--check-figshare-upload]
 #   python3 -m mkfigs.restore [--ename ENAME] [--force]
 #
@@ -70,10 +81,18 @@ module list
 # SET THESE
 # ---------------------------------------------------------------------------
 
-if [ -n "$PBS_O_WORKDIR" ]; then
-    # Batch mode: $0 is unreliable under PBS (script runs from a spool dir),
-    # but PBS_O_WORKDIR reliably points at the directory qsub was run from.
-    WFOLDER="$(dirname "$PBS_O_WORKDIR")/"
+if [ -n "${PBS_O_WORKDIR:-}" ]; then
+    # PBS runs a spool copy, so use the submission directory rather than $0.
+    # Support both `qsub notebooks/mkfigs.sh` from the repo root and
+    # `qsub mkfigs.sh` from notebooks/.
+    if [ -f "$PBS_O_WORKDIR/notebooks/mkfigs.sh" ]; then
+        WFOLDER="${PBS_O_WORKDIR%/}/"
+    elif [ -f "$PBS_O_WORKDIR/mkfigs.sh" ] && [ -f "$PBS_O_WORKDIR/mkfigs_bootstrap.py" ]; then
+        WFOLDER="$(dirname "${PBS_O_WORKDIR%/}")/"
+    else
+        printf 'ERROR: Submit mkfigs.sh from the repository root or notebooks/ (PBS_O_WORKDIR=%s).\n' "$PBS_O_WORKDIR" >&2
+        exit 1
+    fi
 else
     # Interactive mode: $0 is reliable here.
     WFOLDER="$(dirname "$(readlink -f "$0")")/../"
@@ -145,7 +164,19 @@ ENAME=MC_25km_jra_iaf+wombatlite-test5.1-8f50b769
 # access-model-mkfigs is provided via the external/access-model-mkfigs git
 # submodule (pinned commit) rather than pip-installed, so batch runs and
 # interactive notebooks use the exact same on-disk copy of the package.
-export PYTHONPATH="${WFOLDER%/}/external/access-model-mkfigs/src:${PYTHONPATH}"
+# Use an external mkfigs worktree when MKFIGS_SRC is set.
+# Otherwise, use the pinned git submodule.
+MKFIGS_SRC="${MKFIGS_SRC:-${WFOLDER%/}/external/access-model-mkfigs/src}"
+
+if [ ! -f "${MKFIGS_SRC}/mkfigs/__init__.py" ]; then
+    printf 'ERROR: mkfigs package not found at %s\n' "$MKFIGS_SRC" >&2
+    exit 1
+fi
+
+export MKFIGS_SRC
+export PYTHONPATH="${MKFIGS_SRC}${PYTHONPATH:+:${PYTHONPATH}}"
+
+printf 'Using mkfigs source: %s\n' "$MKFIGS_SRC"
 # ---------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------
