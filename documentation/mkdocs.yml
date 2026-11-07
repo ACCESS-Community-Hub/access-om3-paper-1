@@ -126,6 +126,9 @@ nav:
 - numerical_mixing_ACCESS_OM3:
   - Summary: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/numerical_mixing_ACCESS_OM3.md
   - Notebook: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/notebooks/numerical_mixing_ACCESS_OM3.ipynb
+- ocean_stats:
+  - Summary: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/ocean_stats.md
+  - Notebook: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/notebooks/ocean_stats.ipynb
 - Overturning_in_ACCESS_OM3:
   - Summary: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/Overturning_in_ACCESS_OM3.md
   - Notebook: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/notebooks/Overturning_in_ACCESS_OM3.ipynb
@@ -174,6 +177,9 @@ nav:
 - Transects-mixing:
   - Summary: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/Transects-mixing.md
   - Notebook: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/notebooks/Transects-mixing.ipynb
+- Truncation_locations:
+  - Summary: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/Truncation_locations.md
+  - Notebook: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/notebooks/Truncation_locations.ipynb
 - WM_evaluation:
   - Summary: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/WM_evaluation.md
   - Notebook: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/notebooks/WM_evaluation.ipynb
