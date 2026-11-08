@@ -182,6 +182,7 @@ array=(
     wombatlite_global
     Currents_streamfunction_variability
     SeaIce_Vol
+    51_si_drift_osi455
     temp-salt-vs-depth-latitude
     Transects
     WM_evaluation
