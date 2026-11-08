@@ -95,6 +95,11 @@ authors:
     family-names: Chen
     affiliation: Institute for Marine and Antarctic Studies, University of Tasmania
     orcid: 'https://orcid.org/0009-0008-0417-774X'
+  - given-names: Bisits
+    family-names: Josef I.
+    email: j.bisits@unsw.edu.au
+    affiliation: School of Biological, Earth and Environmental Sciences, The University of New South Wales, Sydney, Australia
+    orcid: 'https://orcid.org/0000-0002-6340-4470'
 
 abstract: >-
   Plotting notebooks and discussion for ACCESS-OM3 model description paper.
