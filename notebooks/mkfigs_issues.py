@@ -58,6 +58,8 @@ ISSUES: dict[str, str] = {
     "LangmuirTurbulence":                      f"[access-om3-configs#950]({_CONFIGS}/950) — Langmuir turbulence influence on MLD",
     "numerical_mixing_ACCESS_OM3":             f"[#103]({_GH}/103) — Numerical mixing",
     "ocean_stats":                             f"[#175]({_GH}/175) — Evaluation: ocean_stats diagnostics",
+    "51_si_drift_osi455":                      f"[#51]({_GH}/51) — Sea ice drift vs OSI-455",
+    "Truncation_locations":                    f"[#154]({_GH}/154) — Velocity truncation locations",
 }
 
 CATEGORIES_SOURCE = f"{_GH}/23"

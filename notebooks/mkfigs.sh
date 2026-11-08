@@ -182,12 +182,14 @@ array=(
     wombatlite_global
     Currents_streamfunction_variability
     SeaIce_Vol
+    51_si_drift_osi455
     temp-salt-vs-depth-latitude
     Transects
     WM_evaluation
     MLD_manual
     Transects-mixing
     numerical_mixing_ACCESS_OM3
+    Truncation_locations
 )
 #SSH uses a lot of memory !!
 
