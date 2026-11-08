@@ -57,6 +57,7 @@ ISSUES: dict[str, str] = {
     "FloeSizeTendencies":                      f"[#72]({_GH}/72) — Floe-size distribution tendencies",
     "LangmuirTurbulence":                      f"[access-om3-configs#950]({_CONFIGS}/950) — Langmuir turbulence influence on MLD",
     "numerical_mixing_ACCESS_OM3":             f"[#103]({_GH}/103) — Numerical mixing",
+    "ocean_stats":                             f"[#175]({_GH}/175) — Evaluation: ocean_stats diagnostics",
 }
 
 CATEGORIES_SOURCE = f"{_GH}/23"
@@ -70,7 +71,7 @@ CATEGORIES: dict[str, list[int | str]] = {
     "Circulation":                                   [4, 1, 16, 6, 7, 74, 41, 12,
                                                       "Currents_streamfunction_variability"],
     "Regional analysis":                             [31, 107, 14, 17, 19, 18],
-    "Surface forcing / budget closure / mixing etc": [44, 62, 103, 106],
+    "Surface forcing / budget closure / mixing etc": [44, 62, 103, 106, 175],
     "Sea ice":                                       [20, 21, 22, 51, 53, 52, 48, "SeaIce_Stuck_Points"],
     "WOMBAT":                                        [47],
     "WW3":                                           [71, 72, 78, "LangmuirTurbulence"],
