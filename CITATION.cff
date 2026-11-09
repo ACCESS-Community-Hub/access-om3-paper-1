@@ -100,6 +100,11 @@ authors:
     email: j.bisits@unsw.edu.au
     affiliation: School of Biological, Earth and Environmental Sciences, The University of New South Wales, Sydney, Australia
     orcid: 'https://orcid.org/0000-0002-6340-4470'
+  - given-names: Jordan D.
+    family-names: Lorenzatto
+    email: j.lorenzatto@unsw.edu.au
+    affiliation: School of Mathematics and Statistics, The University of New South Wales, Sydney, Australia
+    orcid: 'https://orcid.org/0000-0001-5802-5161'
 
 abstract: >-
   Plotting notebooks and discussion for ACCESS-OM3 model description paper.
