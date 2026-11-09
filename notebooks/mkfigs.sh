@@ -184,6 +184,7 @@ array=(
     MLD_manual
     Transects-mixing
     numerical_mixing_ACCESS_OM3
+    Truncation_locations
 )
 #SSH uses a lot of memory !!
 
