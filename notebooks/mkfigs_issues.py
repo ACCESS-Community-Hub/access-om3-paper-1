@@ -58,6 +58,7 @@ ISSUES: dict[str, str] = {
     "LangmuirTurbulence":                      f"[access-om3-configs#950]({_CONFIGS}/950) — Langmuir turbulence influence on MLD",
     "numerical_mixing_ACCESS_OM3":             f"[#103]({_GH}/103) — Numerical mixing",
     "ocean_stats":                             f"[#175]({_GH}/175) — Evaluation: ocean_stats diagnostics",
+    "Truncation_locations":                    f"[#154]({_GH}/154) — Velocity truncation locations (numerical stability diagnostic)",
 }
 
 CATEGORIES_SOURCE = f"{_GH}/23"
@@ -76,5 +77,5 @@ CATEGORIES: dict[str, list[int | str]] = {
     "WOMBAT":                                        [47],
     "WW3":                                           [71, 72, 78, "LangmuirTurbulence"],
     "Other possible bonus figures":                  [120],
-    "Miscellaneous":                                 ["GM-Testing-in-ACCESS-OM3"],
+    "Miscellaneous":                                 ["GM-Testing-in-ACCESS-OM3", 154],
 }
