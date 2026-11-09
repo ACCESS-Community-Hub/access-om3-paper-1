@@ -123,6 +123,9 @@ ENAME=MC_25km_jra_iaf+wombatlite-test5.1-8f50b769
 #
 #ESMDIR=/g/data/ol01/outputs/access-om3-100km/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/experiment_datastore.json
 #ENAME=MC_100km_jra_iaf+wombatlite-test1-e1de2a94
+#
+ESMDIR=/g/data/ol01/outputs/access-om3-100km/MCW_100km_era_iaf-test1-961264ad/experiment_datastore.json
+ENAME=MCW_100km_era_iaf-test1-961264ad
 
 #supplementary
 ##AHogg GM* runs
@@ -160,7 +163,7 @@ array=(
     Bottom_age_tracer_in_ACCESS_OM3
     MLD
     MLD_max
-    Overturning_in_ACCESS_OM3
+#    Overturning_in_ACCESS_OM3  # no vmo on rho2_l in MCW_100km_era_iaf-test1
     SeaIce_area
     SeaIce_mass_budget_climatology  #needs conda/analysis3-26.07 or 26.06
     SSS
@@ -175,15 +178,18 @@ array=(
     timeseries
     ocean_stats
     SSH
-    wombatlite_global
+#    wombatlite_global  # no BGC in MCW_100km_era_iaf-test1
     Currents_streamfunction_variability
     SeaIce_Vol
     temp-salt-vs-depth-latitude
     Transects
-    WM_evaluation
+#    WM_evaluation  # needs vmo on rho2_l, not in MCW_100km_era_iaf-test1
     MLD_manual
     Transects-mixing
-    numerical_mixing_ACCESS_OM3
+#    numerical_mixing_ACCESS_OM3  # needs T/S_advection_scheme_variance_production, not output by MCW_100km_era_iaf-test1
+    Significant_wave_height_ERA5_comparison
+    Mean_wave_period_ERA5_comparison
+    FloeSizeTendencies
 )
 #SSH uses a lot of memory !!
 

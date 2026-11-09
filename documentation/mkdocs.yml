@@ -102,36 +102,84 @@ markdown_extensions:
 # Each experiment appears as a sub-section with "Figures" and "Notebooks" pages.
 nav:
 - Home: pages/index.md
-- MLD:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/MLD.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/MLD.ipynb
-- SeaIce_mass_budget_climatology:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/SeaIce_mass_budget_climatology.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/SeaIce_mass_budget_climatology.ipynb
-- SSS:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/SSS.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/SSS.ipynb
-- SST:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/SST.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/SST.ipynb
-- pPV:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/pPV.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/pPV.ipynb
-- Timeseries_daily_extreme_from_2D_fields:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Timeseries_daily_extreme_from_2D_fields.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/Timeseries_daily_extreme_from_2D_fields.ipynb
-- SSH:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/SSH.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/SSH.ipynb
-- wombatlite_global:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/wombatlite_global.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/wombatlite_global.ipynb
+- Bottom_age_tracer_in_ACCESS_OM3:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/Bottom_age_tracer_in_ACCESS_OM3.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/Bottom_age_tracer_in_ACCESS_OM3.ipynb
 - Currents_streamfunction_variability:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/Currents_streamfunction_variability.ipynb
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/Currents_streamfunction_variability.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/Currents_streamfunction_variability.ipynb
+- Equatorial_pacific:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/Equatorial_pacific.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/Equatorial_pacific.ipynb
+- FloeSizeTendencies:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/FloeSizeTendencies.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/FloeSizeTendencies.ipynb
+- Mean_wave_period_ERA5_comparison:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/Mean_wave_period_ERA5_comparison.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/Mean_wave_period_ERA5_comparison.ipynb
+- MeridionalHeatTransport:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/MeridionalHeatTransport.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/MeridionalHeatTransport.ipynb
+- MLD:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/MLD.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/MLD.ipynb
+- MLD_manual:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/MLD_manual.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/MLD_manual.ipynb
+- MLD_max:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/MLD_max.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/MLD_max.ipynb
+- ocean_stats:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/ocean_stats.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/ocean_stats.ipynb
+- pPV:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/pPV.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/pPV.ipynb
+- SeaIce_area:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/SeaIce_area.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/SeaIce_area.ipynb
+- SeaIce_mass_budget_climatology:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/SeaIce_mass_budget_climatology.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/SeaIce_mass_budget_climatology.ipynb
 - SeaIce_Vol:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/SeaIce_Vol.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/SeaIce_Vol.ipynb
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/SeaIce_Vol.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/SeaIce_Vol.ipynb
+- Significant_wave_height_ERA5_comparison:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/Significant_wave_height_ERA5_comparison.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/Significant_wave_height_ERA5_comparison.ipynb
+- SSH:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/SSH.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/SSH.ipynb
+- SSS:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/SSS.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/SSS.ipynb
+- SSS_Restoring_Timeseries:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/SSS_Restoring_Timeseries.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/SSS_Restoring_Timeseries.ipynb
+- SST:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/SST.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/SST.ipynb
+- StraitTransports:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/StraitTransports.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/StraitTransports.ipynb
+- temp-salt-vs-depth-latitude:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/temp-salt-vs-depth-latitude.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/temp-salt-vs-depth-latitude.ipynb
+- temp-salt-vs-depth-time:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/temp-salt-vs-depth-time.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/temp-salt-vs-depth-time.ipynb
+- timeseries:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/timeseries.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/timeseries.ipynb
+- Timeseries_daily_extreme_from_2D_fields:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/Timeseries_daily_extreme_from_2D_fields.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/Timeseries_daily_extreme_from_2D_fields.ipynb
+- Transects:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/Transects.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/Transects.ipynb
+- Transects-mixing:
+  - Summary: pages/experiments/MCW_100km_era_iaf-test1-961264ad/Transects-mixing.md
+  - Notebook: pages/experiments/MCW_100km_era_iaf-test1-961264ad/notebooks/Transects-mixing.ipynb
 
 # Footer
 extra:
