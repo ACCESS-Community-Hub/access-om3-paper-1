@@ -83,7 +83,7 @@ analysis notebooks for **MC_100km_jra_iaf+wombatlite-test1-e1de2a94**. Diagnosti
 
 | Date | Notebooks run | access-model-mkfigs |
 |---|---|---|
-| 2026-11-07 12:01 UTC | `Truncation_locations`, `ocean_stats` | [`git+5984493`](https://github.com/ACCESS-NRI/access-model-mkfigs/commit/5984493) |
+| 2026-11-07 13:15 UTC | `Truncation_locations`, `ocean_stats` | [`git+5984493`](https://github.com/ACCESS-NRI/access-model-mkfigs/commit/5984493) |
 | 2026-11-05 02:24 UTC | `Bottom_age_tracer_in_ACCESS_OM3`, `Currents_streamfunction_variability`, `Equatorial_pacific`, `MLD`, `MLD_manual`, `MLD_max`, `MeridionalHeatTransport`, `Overturning_in_ACCESS_OM3`, `SSH`, `SSS`, `SSS_Restoring_Timeseries`, `SST`, `SeaIce_Vol`, `SeaIce_area`, `SeaIce_mass_budget_climatology`, `StraitTransports`, `Timeseries_daily_extreme_from_2D_fields`, `Transects`, `Transects-mixing`, `WM_evaluation`, `numerical_mixing_ACCESS_OM3`, `pPV`, `temp-salt-vs-depth-latitude`, `temp-salt-vs-depth-time`, `timeseries`, `wombatlite_global` | [`git+5984493`](https://github.com/ACCESS-NRI/access-model-mkfigs/commit/5984493) |
 
 <!-- /experiment:MC_100km_jra_iaf+wombatlite-test1-e1de2a94 -->
