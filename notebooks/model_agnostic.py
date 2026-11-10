@@ -555,6 +555,10 @@ def years_window(time, nyears=None, *, within=None, period=None, fallback="first
             chosen = _runs(years)[0][:nyears]
             warnings.warn(f"years_window: no complete year inside {within}; falling back to the "
                           f"first {len(chosen)} complete years {chosen[0]}-{chosen[-1]}", stacklevel=2)
+        elif fallback == "last":
+            chosen = _runs(years)[-1][-nyears:]
+            warnings.warn(f"years_window: no complete year inside {within}; falling back to the "
+                          f"last {len(chosen)} complete years {chosen[0]}-{chosen[-1]}", stacklevel=2)
         else:
             raise ValueError(f"unknown fallback {fallback!r}")
     else:
