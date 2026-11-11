@@ -4,72 +4,107 @@
 Evaluation figures from ACCESS-OM3 experiment **MC_25km_jra_ryf+wombatlite-test3-f4d79e82** produced by notebook `Currents_streamfunction_variability.ipynb`. Co-authors for this notebook (via Git history): Andrew Kiss, Christopher Bull, ezhilsabareesh8. [View rendered notebook](notebooks/Currents_streamfunction_variability.ipynb)
  
 
-## Current Speed: Agulhas region
+## Current Speed
  
-![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: Agulhas region GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries](https://ndownloader.figshare.com/files/67043372) 
+![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: Agulhas region](../../../assets/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability_01.png) 
  
- Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: Agulhas region GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries
- 
-
-## Current Speed: EAC region
- 
-![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: EAC region GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries](https://ndownloader.figshare.com/files/67043375) 
- 
- Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: EAC region GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries
+ Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: Agulhas region
  
 
-## Current Speed: Kuroshio region
+## Current Speed
  
-![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: Kuroshio region GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries](https://ndownloader.figshare.com/files/67043378) 
+![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: EAC region](../../../assets/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability_02.png) 
  
- Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: Kuroshio region GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries
- 
-
-## Current Speed: Gulf Stream region
- 
-![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: Gulf Stream region GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries](https://ndownloader.figshare.com/files/67043384) 
- 
- Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: Gulf Stream region GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries
+ Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: EAC region
  
 
-## Current Speed: Argentine Basin
+## Current Speed
  
-![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: Argentine Basin GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries](https://ndownloader.figshare.com/files/67043393) 
+![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: Kuroshio region](../../../assets/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability_03.png) 
  
- Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: Argentine Basin GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries
- 
-
-## Current Speed: Agulhas region
- 
-![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: Agulhas region GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries](https://ndownloader.figshare.com/files/67043396) 
- 
- Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: Agulhas region GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries
+ Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: Kuroshio region
  
 
-## Current Speed: EAC region
+## Current Speed
  
-![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: EAC region GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries](https://ndownloader.figshare.com/files/67043399) 
+![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: Gulf Stream region](../../../assets/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability_04.png) 
  
- Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: EAC region GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries
- 
-
-## Current Speed: Kuroshio region
- 
-![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: Kuroshio region GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries](https://ndownloader.figshare.com/files/67043402) 
- 
- Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: Kuroshio region GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries
+ Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: Gulf Stream region
  
 
-## Current Speed: Gulf Stream region
+## Current Speed
  
-![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: Gulf Stream region GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries](https://ndownloader.figshare.com/files/67043405) 
+![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: Argentine Basin](../../../assets/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability_05.png) 
  
- Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: Gulf Stream region GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries
+ Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (surface). Region: Argentine Basin
  
 
-## Current Speed: Argentine Basin
+## Current Speed
  
-![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: Argentine Basin GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries](https://ndownloader.figshare.com/files/67043411) 
+![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: Agulhas region](../../../assets/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability_06.png) 
  
- Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: Argentine Basin GitHub issues: [#15](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/15) Regional SLA & barotropic streamfunction, [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) SW Atlantic, [#41](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/41) Western boundary current timeseries
+ Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: Agulhas region
+ 
+
+## Current Speed
+ 
+![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: EAC region](../../../assets/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability_07.png) 
+ 
+ Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: EAC region
+ 
+
+## Current Speed
+ 
+![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: Kuroshio region](../../../assets/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability_08.png) 
+ 
+ Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: Kuroshio region
+ 
+
+## Current Speed
+ 
+![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: Gulf Stream region](../../../assets/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability_09.png) 
+ 
+ Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: Gulf Stream region
+ 
+
+## Current Speed
+ 
+![`Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: Argentine Basin](../../../assets/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability_10.png) 
+ 
+ Caption: `Currents_streamfunction_variability.ipynb`: Model vs drifter current speed (1000m). Region: Argentine Basin
+ 
+
+## Sea level standard deviation and barotropic streamfunction
+ 
+![`Currents_streamfunction_variability.ipynb`: Model vs altimeter sea surface height standard deviation (m) and barotropic streamfunction. Region: Agulhas region](../../../assets/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability_11.png) 
+ 
+ Caption: `Currents_streamfunction_variability.ipynb`: Model vs altimeter sea surface height standard deviation (m) and barotropic streamfunction. Region: Agulhas region
+ 
+
+## Sea level standard deviation and barotropic streamfunction
+ 
+![`Currents_streamfunction_variability.ipynb`: Model vs altimeter sea surface height standard deviation (m) and barotropic streamfunction. Region: EAC region](../../../assets/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability_12.png) 
+ 
+ Caption: `Currents_streamfunction_variability.ipynb`: Model vs altimeter sea surface height standard deviation (m) and barotropic streamfunction. Region: EAC region
+ 
+
+## Sea level standard deviation and barotropic streamfunction
+ 
+![`Currents_streamfunction_variability.ipynb`: Model vs altimeter sea surface height standard deviation (m) and barotropic streamfunction. Region: Kuroshio region](../../../assets/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability_13.png) 
+ 
+ Caption: `Currents_streamfunction_variability.ipynb`: Model vs altimeter sea surface height standard deviation (m) and barotropic streamfunction. Region: Kuroshio region
+ 
+
+## Sea level standard deviation and barotropic streamfunction
+ 
+![`Currents_streamfunction_variability.ipynb`: Model vs altimeter sea surface height standard deviation (m) and barotropic streamfunction. Region: Gulf Stream region](../../../assets/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability_14.png) 
+ 
+ Caption: `Currents_streamfunction_variability.ipynb`: Model vs altimeter sea surface height standard deviation (m) and barotropic streamfunction. Region: Gulf Stream region
+ 
+
+## Sea level standard deviation and barotropic streamfunction
+ 
+![`Currents_streamfunction_variability.ipynb`: Model vs altimeter sea surface height standard deviation (m) and barotropic streamfunction. Region: Argentine Basin](../../../assets/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability_15.png) 
+ 
+ Caption: `Currents_streamfunction_variability.ipynb`: Model vs altimeter sea surface height standard deviation (m) and barotropic streamfunction. Region: Argentine Basin
  

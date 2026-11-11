@@ -6,14 +6,14 @@ Evaluation figures from ACCESS-OM3 experiment **MC_25km_jra_ryf+wombatlite-test3
 
 ## Sea Surface Salinity
  
-![`SSS.ipynb`: ACCESS-OM3 sea surface salinity. [GitHub issue: Global SSS bias](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/10)](https://ndownloader.figshare.com/files/67012635) 
+![`SSS.ipynb`: ACCESS-OM3 sea surface salinity. [GitHub issue: Global SSS bias](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/10)](../../../assets/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/SSS_01.png) 
  
  Caption: `SSS.ipynb`: ACCESS-OM3 sea surface salinity. [GitHub issue: Global SSS bias](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/10)
  
 
 ## Sea Surface Salinity Bias
  
-![`SSS.ipynb`: ACCESS-OM3 sea surface salinity minus WOA2023. [GitHub issue: Global SSS bias](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/10)](https://ndownloader.figshare.com/files/67043324) 
+![`SSS.ipynb`: ACCESS-OM3 sea surface salinity minus WOA2023. [GitHub issue: Global SSS bias](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/10)](../../../assets/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/SSS_02.png) 
  
  Caption: `SSS.ipynb`: ACCESS-OM3 sea surface salinity minus WOA2023. [GitHub issue: Global SSS bias](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/10)
  
