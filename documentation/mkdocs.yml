@@ -141,6 +141,9 @@ nav:
 - SeaIce_mass_budget_climatology:
   - Summary: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/SeaIce_mass_budget_climatology.md
   - Notebook: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/notebooks/SeaIce_mass_budget_climatology.ipynb
+- SeaIce_speed:
+  - Summary: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/SeaIce_speed.md
+  - Notebook: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/notebooks/SeaIce_speed.ipynb
 - SeaIce_Vol:
   - Summary: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/SeaIce_Vol.md
   - Notebook: pages/experiments/MC_100km_jra_iaf+wombatlite-test1-e1de2a94/notebooks/SeaIce_Vol.ipynb

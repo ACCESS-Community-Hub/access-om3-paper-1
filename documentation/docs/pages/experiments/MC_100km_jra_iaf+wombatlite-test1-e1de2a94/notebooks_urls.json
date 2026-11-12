@@ -14,7 +14,7 @@
   "Equatorial_pacific": "https://ndownloader.figshare.com/files/71102094",
   "SSS_Restoring_Timeseries": "https://ndownloader.figshare.com/files/71346466",
   "Timeseries_daily_extreme_from_2D_fields": "https://ndownloader.figshare.com/files/71102130",
-  "timeseries": "https://ndownloader.figshare.com/files/71346586",
+  "timeseries": "https://ndownloader.figshare.com/files/71381467",
   "SSH": "https://ndownloader.figshare.com/files/71346595",
   "wombatlite_global": "https://ndownloader.figshare.com/files/71102436",
   "Currents_streamfunction_variability": "https://ndownloader.figshare.com/files/71102490",
@@ -27,6 +27,7 @@
   "numerical_mixing_ACCESS_OM3": "https://ndownloader.figshare.com/files/71102691",
   "Truncation_locations": "https://ndownloader.figshare.com/files/71346730",
   "ocean_stats": "https://ndownloader.figshare.com/files/71212243",
+  "SeaIce_speed": "https://ndownloader.figshare.com/files/71381485",
   "_run_times": {
     "Bottom_age_tracer_in_ACCESS_OM3": "2026-11-05 02:24 UTC",
     "MLD": "2026-11-05 02:24 UTC",
@@ -43,7 +44,7 @@
     "Equatorial_pacific": "2026-11-05 02:24 UTC",
     "SSS_Restoring_Timeseries": "2026-11-11 13:48 UTC",
     "Timeseries_daily_extreme_from_2D_fields": "2026-11-05 02:24 UTC",
-    "timeseries": "2026-11-11 13:48 UTC",
+    "timeseries": "2026-11-12 12:43 UTC",
     "SSH": "2026-11-11 13:48 UTC",
     "wombatlite_global": "2026-11-05 02:24 UTC",
     "Currents_streamfunction_variability": "2026-11-05 02:24 UTC",
@@ -55,7 +56,8 @@
     "Transects-mixing": "2026-11-11 13:48 UTC",
     "numerical_mixing_ACCESS_OM3": "2026-11-05 02:24 UTC",
     "Truncation_locations": "2026-11-11 13:48 UTC",
-    "ocean_stats": "2026-11-07 13:15 UTC"
+    "ocean_stats": "2026-11-07 13:15 UTC",
+    "SeaIce_speed": "2026-11-12 12:43 UTC"
   },
   "_run_versions": {
     "Bottom_age_tracer_in_ACCESS_OM3": "git+5984493",
@@ -85,6 +87,7 @@
     "Transects-mixing": "v0.1.0",
     "numerical_mixing_ACCESS_OM3": "git+5984493",
     "Truncation_locations": "v0.1.0",
-    "ocean_stats": "git+5984493"
+    "ocean_stats": "git+5984493",
+    "SeaIce_speed": "v0.1.0"
   }
 }
