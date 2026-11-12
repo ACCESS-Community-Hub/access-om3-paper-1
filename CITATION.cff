@@ -105,6 +105,11 @@ authors:
     email: j.lorenzatto@unsw.edu.au
     affiliation: School of Mathematics and Statistics, The University of New South Wales, Sydney, Australia
     orcid: 'https://orcid.org/0000-0001-5802-5161'
+  - given-names: Micael J. T.
+    family-names: Oliveira
+    email: micael.oliveira@anu.edu.au
+    affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0000-0003-1364-0907'
 
 abstract: >-
   Plotting notebooks and discussion for ACCESS-OM3 model description paper.
