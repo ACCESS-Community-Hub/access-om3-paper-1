@@ -3,7 +3,7 @@
 #PBS -m ae
 #PBS -q normal
 #PBS -W umask=0022
-#PBS -l ncpus=16
+#PBS -l ncpus=28
 #PBS -l mem=190GB
 #PBS -l walltime=24:00:00
 #PBS -l jobfs=200GB
@@ -127,7 +127,12 @@ ENAME=MC_25km_jra_iaf+wombatlite-test5.1-8f50b769
 #
 ESMDIR=/g/data/tm70/cyb561/esm_datastores/ol01_full/MC_8km_jra_ryf-test2-expt-c349f800/datastore.json  # built from /g/data/ol01/outputs/access-om3-8km/MC_8km_jra_ryf-test2-expt-c349f800
 ENAME=MC_8km_jra_ryf-test2-expt-c349f800
-
+#
+ESMDIR=/g/data/ik11/outputs/access-om3-025/MC_25km_era_iaf+wombatlite-test5.1-era-b3d64e3d/datastore.json
+ENAME=MC_25km_era_iaf+wombatlite-test5.1-era-b3d64e3d
+#
+ESMDIR=/g/data/ik11/outputs/access-om3-025/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/datastore.json
+ENAME=MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028
 #supplementary
 ##AHogg GM* runs
 #ENAME=MC_25km_jra_iaf-1.0-beta-gm1-d968c801

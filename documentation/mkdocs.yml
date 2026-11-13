@@ -102,36 +102,57 @@ markdown_extensions:
 # Each experiment appears as a sub-section with "Figures" and "Notebooks" pages.
 nav:
 - Home: pages/index.md
+- Equatorial_pacific:
+  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/Equatorial_pacific.md
+  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/Equatorial_pacific.ipynb
+- MeridionalHeatTransport:
+  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/MeridionalHeatTransport.md
+  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/MeridionalHeatTransport.ipynb
 - MLD:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/MLD.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/MLD.ipynb
-- SeaIce_mass_budget_climatology:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/SeaIce_mass_budget_climatology.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/SeaIce_mass_budget_climatology.ipynb
-- SSS:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/SSS.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/SSS.ipynb
-- SST:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/SST.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/SST.ipynb
+  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/MLD.md
+  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/MLD.ipynb
+- MLD_manual:
+  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/MLD_manual.md
+  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/MLD_manual.ipynb
+- numerical_mixing_ACCESS_OM3:
+  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/numerical_mixing_ACCESS_OM3.md
+  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/numerical_mixing_ACCESS_OM3.ipynb
+- ocean_stats:
+  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/ocean_stats.md
+  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/ocean_stats.ipynb
 - pPV:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/pPV.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/pPV.ipynb
-- Timeseries_daily_extreme_from_2D_fields:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Timeseries_daily_extreme_from_2D_fields.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/Timeseries_daily_extreme_from_2D_fields.ipynb
+  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/pPV.md
+  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/pPV.ipynb
+- SeaIce_mass_budget_climatology:
+  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/SeaIce_mass_budget_climatology.md
+  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/SeaIce_mass_budget_climatology.ipynb
 - SSH:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/SSH.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/SSH.ipynb
+  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/SSH.md
+  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/SSH.ipynb
+- SSS:
+  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/SSS.md
+  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/SSS.ipynb
+- SST:
+  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/SST.md
+  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/SST.ipynb
+- StraitTransports:
+  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/StraitTransports.md
+  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/StraitTransports.ipynb
+- timeseries:
+  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/timeseries.md
+  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/timeseries.ipynb
+- Timeseries_daily_extreme_from_2D_fields:
+  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/Timeseries_daily_extreme_from_2D_fields.md
+  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/Timeseries_daily_extreme_from_2D_fields.ipynb
+- Truncation_locations:
+  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/Truncation_locations.md
+  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/Truncation_locations.ipynb
+- WM_evaluation:
+  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/WM_evaluation.md
+  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/WM_evaluation.ipynb
 - wombatlite_global:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/wombatlite_global.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/wombatlite_global.ipynb
-- Currents_streamfunction_variability:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/Currents_streamfunction_variability.ipynb
-- SeaIce_Vol:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/SeaIce_Vol.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/SeaIce_Vol.ipynb
+  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/wombatlite_global.md
+  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/wombatlite_global.ipynb
 
 # Footer
 extra:
