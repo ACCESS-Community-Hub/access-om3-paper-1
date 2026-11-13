@@ -102,36 +102,78 @@ markdown_extensions:
 # Each experiment appears as a sub-section with "Figures" and "Notebooks" pages.
 nav:
 - Home: pages/index.md
-- MLD:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/MLD.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/MLD.ipynb
-- SeaIce_mass_budget_climatology:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/SeaIce_mass_budget_climatology.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/SeaIce_mass_budget_climatology.ipynb
-- SSS:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/SSS.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/SSS.ipynb
-- SST:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/SST.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/SST.ipynb
-- pPV:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/pPV.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/pPV.ipynb
-- Timeseries_daily_extreme_from_2D_fields:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Timeseries_daily_extreme_from_2D_fields.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/Timeseries_daily_extreme_from_2D_fields.ipynb
-- SSH:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/SSH.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/SSH.ipynb
-- wombatlite_global:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/wombatlite_global.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/wombatlite_global.ipynb
+- Bottom_age_tracer_in_ACCESS_OM3:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/Bottom_age_tracer_in_ACCESS_OM3.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/Bottom_age_tracer_in_ACCESS_OM3.ipynb
 - Currents_streamfunction_variability:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/Currents_streamfunction_variability.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/Currents_streamfunction_variability.ipynb
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/Currents_streamfunction_variability.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/Currents_streamfunction_variability.ipynb
+- Equatorial_pacific:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/Equatorial_pacific.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/Equatorial_pacific.ipynb
+- MeridionalHeatTransport:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/MeridionalHeatTransport.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/MeridionalHeatTransport.ipynb
+- MLD:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/MLD.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/MLD.ipynb
+- MLD_manual:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/MLD_manual.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/MLD_manual.ipynb
+- MLD_max:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/MLD_max.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/MLD_max.ipynb
+- Overturning_in_ACCESS_OM3:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/Overturning_in_ACCESS_OM3.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/Overturning_in_ACCESS_OM3.ipynb
+- pPV:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/pPV.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/pPV.ipynb
+- SeaIce_area:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/SeaIce_area.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/SeaIce_area.ipynb
+- SeaIce_mass_budget_climatology:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/SeaIce_mass_budget_climatology.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/SeaIce_mass_budget_climatology.ipynb
 - SeaIce_Vol:
-  - Summary: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/SeaIce_Vol.md
-  - Notebook: pages/experiments/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/notebooks/SeaIce_Vol.ipynb
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/SeaIce_Vol.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/SeaIce_Vol.ipynb
+- SSH:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/SSH.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/SSH.ipynb
+- SSS:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/SSS.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/SSS.ipynb
+- SST:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/SST.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/SST.ipynb
+- StraitTransports:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/StraitTransports.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/StraitTransports.ipynb
+- temp-salt-vs-depth-latitude:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/temp-salt-vs-depth-latitude.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/temp-salt-vs-depth-latitude.ipynb
+- temp-salt-vs-depth-time:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/temp-salt-vs-depth-time.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/temp-salt-vs-depth-time.ipynb
+- timeseries:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/timeseries.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/timeseries.ipynb
+- Timeseries_daily_extreme_from_2D_fields:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/Timeseries_daily_extreme_from_2D_fields.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/Timeseries_daily_extreme_from_2D_fields.ipynb
+- Transects:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/Transects.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/Transects.ipynb
+- Transects-mixing:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/Transects-mixing.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/Transects-mixing.ipynb
+- Truncation_locations:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/Truncation_locations.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/Truncation_locations.ipynb
+- WM_evaluation:
+  - Summary: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/WM_evaluation.md
+  - Notebook: pages/experiments/OM3_MC_25km_jra_iaf_cycle2_control-expt-74114deb/notebooks/WM_evaluation.ipynb
 
 # Footer
 extra:
