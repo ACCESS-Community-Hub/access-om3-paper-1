@@ -194,8 +194,10 @@ array=(
 #SSH uses a lot of memory !!
 
 # Pack array into colon-separated env var consumed by mkfigs-run
-printf -v MKFIGS_NOTEBOOKS '%s:' "${array[@]}"
-MKFIGS_NOTEBOOKS="${MKFIGS_NOTEBOOKS%:}"
+# (unless the job was given its own list: python3 -m mkfigs.submit runs each notebook
+# as its own job with qsub -v MKFIGS_NOTEBOOKS=<notebook>)
+printf -v _all_notebooks '%s:' "${array[@]}"
+MKFIGS_NOTEBOOKS="${MKFIGS_NOTEBOOKS:-${_all_notebooks%:}}"
 
 # ---------------------------------------------------------------------------
 # Hand off to mkfigs-run (inherits the conda environment loaded above)
