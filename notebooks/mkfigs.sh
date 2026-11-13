@@ -179,10 +179,10 @@ array=(
     timeseries
     ocean_stats
     SSH
-    wombatlite_global
+#    wombatlite_global
     Currents_streamfunction_variability
     SeaIce_Vol
-    SeaIce_speed
+#    SeaIce_speed
     temp-salt-vs-depth-latitude
     Transects
     WM_evaluation
