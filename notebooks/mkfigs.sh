@@ -8,58 +8,8 @@
 #PBS -l walltime=24:00:00
 #PBS -l jobfs=200GB
 
-# Thin PBS wrapper. ENAME / ESMDIR below, then qsub.
-#
-# Requires the access-model-mkfigs package, which is provided via the
-# external/access-model-mkfigs git submodule (pinned commit) and run
-# directly as `python3 -m mkfigs.<module>`. This is an
-# interim measure until access-model-mkfigs is installed centrally in
-# access3-26.0x.
-#
 ## Workflow — first run for a new experiment
-#1. Create a Figshare token and save it to ~/.figshare_token
-#1. cd /g/data/tm70/$USER && git clone --recurse-submodules git@github.com:ACCESS-Community-Hub/access-om3-paper-1.git
-#1.   (already cloned without submodules? run: git submodule update --init --recursive)
-#1. Edit this file: ENAME, ESMDIR, and the notebook `array` below
-#1. Ensure the experiment storage path is in the #PBS -l storage header above
-#1. (optional) check the issue list is up to date by running check_mkfigs_issues.py
-#1. qsub mkfigs.sh
-#1. python3 -m mkfigs.pushit
-#1. Log in to Figshare and publish the article
-#1. python3 -m mkfigs.pushit --check-figshare-upload   (follow the git commands it prints)
-
-
-# access-model-mkfigs is loaded straight from the external/access-model-mkfigs
-# submodule via PYTHONPATH -- no venv, no pip install, nothing per-experiment.
-# Batch runs, interactive notebooks, and follow-up commands below all use the
-# same pinned commit -- there's no venv to activate for any of them.
-#
-## To run interactively:
-#   module purge; module use /g/data/xp65/public/modules; module load conda/analysis3
-#   (open a notebook — notebooks/mkfigs_bootstrap.py handles the PYTHONPATH bit)
-#
-## To run follow-up commands (pushit / restore) from a login node:
-#   module purge; module use /g/data/xp65/public/modules; module load conda/analysis3
-#   export PYTHONPATH="<WFOLDER>/external/access-model-mkfigs/src:${PYTHONPATH}"
-#   python3 -m mkfigs.pushit  [--dry-run] [--check-figshare-upload]
-#   python3 -m mkfigs.restore [--ename ENAME] [--force]
-#
-## To upgrade access-model-mkfigs (bump the pinned submodule commit):
-#   cd external/access-model-mkfigs && git fetch --tags && git checkout <tag>
-#   cd ../.. && git add external/access-model-mkfigs && git commit -m "Bump access-model-mkfigs to <tag>"
-
-
-#
-## Workflow — adding notebooks to (or re-running) an existing experiment
-#1. git fetch --tags
-#1. git checkout <{ename}-YYYY.MM.NNN>  # the tag printed by the previous --check-figshare-upload
-#1. git submodule update --init --recursive  # in case the pin moved since your last checkout
-#1. python3 -m mkfigs.restore   # download previously committed notebooks from Figshare
-#1. Edit the notebook array below: add new notebooks, or re-enable ones to re-run
-#1. qsub mkfigs.sh
-#1. python3 -m mkfigs.pushit    # merges new results with previously committed notebooks
-#1. Log in to Figshare and publish the article
-#1. python3 -m mkfigs.pushit --check-figshare-upload
+# https://github.com/acCESS-nri/access-model-mkfigs#workflow-first-run-for-an-experiment
 
 set -x
 module purge
