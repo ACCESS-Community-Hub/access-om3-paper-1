@@ -51,6 +51,7 @@ ISSUES: dict[str, str] = {
     "WM_evaluation":                           f"[#106]({_GH}/106) — Water mass density change Hovmöller",
     "SSS_Restoring_Timeseries":                f"[#44]({_GH}/44) — SSS restoring maps/timeseries",
     "SeaIce_mass_budget_climatology":          f"[#52]({_GH}/52) — Sea ice mass budget climatology",
+    "SeaIce_speed":                            f"[#51]({_GH}/51) — Sea ice drift speed and direction vs OSI-455",
     "Bottom_age_tracer_in_ACCESS_OM3":         f"[#31]({_GH}/31) — Bottom age after 50 years",
     "GM-Testing-in-ACCESS-OM3":                f"[#74]({_GH}/74) — GM coefficients comparison",
     "wombatlite_global":                       f"[#47]({_GH}/47) — WOMBATlite global metrics",
@@ -58,6 +59,7 @@ ISSUES: dict[str, str] = {
     "LangmuirTurbulence":                      f"[access-om3-configs#950]({_CONFIGS}/950) — Langmuir turbulence influence on MLD",
     "numerical_mixing_ACCESS_OM3":             f"[#103]({_GH}/103) — Numerical mixing",
     "ocean_stats":                             f"[#175]({_GH}/175) — Evaluation: ocean_stats diagnostics",
+    "51_si_drift_osi455":                      f"[#51]({_GH}/51) — Sea ice drift vs OSI-455",
     "Truncation_locations":                    f"[#154]({_GH}/154) — Velocity truncation locations (numerical stability diagnostic)",
 }
 
