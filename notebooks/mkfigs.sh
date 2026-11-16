@@ -162,6 +162,7 @@ export PYTHONPATH="${WFOLDER%/}/external/access-model-mkfigs/src:${PYTHONPATH}"
 array=(
 #    #00_template_notebook
     Bottom_age_tracer_in_ACCESS_OM3
+    Bottom_TS_bias  #obs file in gdata/v46 (OCEAN ICE climatology)
     MLD
     MLD_max
     Overturning_in_ACCESS_OM3
