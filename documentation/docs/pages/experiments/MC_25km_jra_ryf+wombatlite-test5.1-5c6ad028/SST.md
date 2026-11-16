@@ -6,14 +6,14 @@ Evaluation figures from ACCESS-OM3 experiment **MC_25km_jra_ryf+wombatlite-test5
 
 ## Sea Surface Temperature
  
-![`SST.ipynb`: ACCESS-OM3 sea surface temperature. [GitHub issue: Global SST bias](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/9)](https://ndownloader.figshare.com/files/71416960) 
+![`SST.ipynb`: ACCESS-OM3 sea surface temperature. [GitHub issue: Global SST bias](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/9)](https://ndownloader.figshare.com/files/71486944) 
  
  Caption: `SST.ipynb`: ACCESS-OM3 sea surface temperature. [GitHub issue: Global SST bias](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/9)
  
 
 ## Sea Surface Temperature Bias
  
-![`SST.ipynb`: ACCESS-OM3 sea surface temperature minus WOA2023. [GitHub issue: Global SST bias](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/9)](https://ndownloader.figshare.com/files/71416966) 
+![`SST.ipynb`: ACCESS-OM3 sea surface temperature minus WOA2023. [GitHub issue: Global SST bias](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/9)](https://ndownloader.figshare.com/files/71486947) 
  
  Caption: `SST.ipynb`: ACCESS-OM3 sea surface temperature minus WOA2023. [GitHub issue: Global SST bias](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/9)
  

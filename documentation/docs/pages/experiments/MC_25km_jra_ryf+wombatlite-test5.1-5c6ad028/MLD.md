@@ -6,14 +6,14 @@ Evaluation figures from ACCESS-OM3 experiment **MC_25km_jra_ryf+wombatlite-test5
 
 ## Mixed Layer Depth: Model JFM
  
-![`MLD.ipynb`: Ocean Mixed Layer Depth JFM. GitHub issue: [#38](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/38) — Time-max mixed layer depth maps](https://ndownloader.figshare.com/files/71416723) 
+![`MLD.ipynb`: Ocean Mixed Layer Depth JFM. GitHub issue: [#38](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/38) — Time-max mixed layer depth maps](https://ndownloader.figshare.com/files/71486761) 
  
  Caption: `MLD.ipynb`: Ocean Mixed Layer Depth JFM. GitHub issue: [#38](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/38) — Time-max mixed layer depth maps
  
 
 ## Mixed Layer Depth: Model JAS
  
-![`MLD.ipynb`: Ocean Mixed Layer Depth JAS. GitHub issue: [#38](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/38) — Time-max mixed layer depth maps](https://ndownloader.figshare.com/files/71416735) 
+![`MLD.ipynb`: Ocean Mixed Layer Depth JAS. GitHub issue: [#38](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/38) — Time-max mixed layer depth maps](https://ndownloader.figshare.com/files/71486764) 
  
  Caption: `MLD.ipynb`: Ocean Mixed Layer Depth JAS. GitHub issue: [#38](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/38) — Time-max mixed layer depth maps
  

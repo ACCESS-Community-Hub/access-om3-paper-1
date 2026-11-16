@@ -14,7 +14,7 @@ analysis notebooks for **MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028**. Diagnost
 
 **Figshare article:** [https://figshare.com/articles/figure/35002888](https://figshare.com/articles/figure/35002888)
 
-**Jump to:** [Temperature and salinity structure](#cat-temperature-and-salinity-structure) (12) · [Circulation](#cat-circulation) (5) · [Regional analysis](#cat-regional-analysis) (2) · [Surface forcing / budget closure / mixing etc](#cat-surface-forcing-budget-closure-mixing-etc) (4) · [Sea ice](#cat-sea-ice) (3) · [WOMBAT](#cat-wombat) (1) · [Miscellaneous](#cat-miscellaneous) (1)
+**Jump to:** [Temperature and salinity structure](#cat-temperature-and-salinity-structure) (12) · [Circulation](#cat-circulation) (5) · [Regional analysis](#cat-regional-analysis) (2) · [Surface forcing / budget closure / mixing etc](#cat-surface-forcing-budget-closure-mixing-etc) (4) · [Sea ice](#cat-sea-ice) (4) · [WOMBAT](#cat-wombat) (1) · [Miscellaneous](#cat-miscellaneous) (1)
 
 ### Temperature and salinity structure {id="cat-temperature-and-salinity-structure"}
 
@@ -23,23 +23,23 @@ analysis notebooks for **MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028**. Diagnost
 | `Equatorial_pacific` | ✅ Yes | [#17](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/17) Equatorial T & zonal velocity contours, [#19](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/19) 20°C isotherm depth | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/Equatorial_pacific.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/Equatorial_pacific/) |
 | `MLD` | ✅ Yes | [#38](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/38) — Time-max mixed layer depth maps | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/MLD.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/MLD/) |
 | `MLD_manual` | ✅ Yes | [#38](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/38) — Max MLD calculated manually (OM3 vs OM2) | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/MLD_manual.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/MLD_manual/) |
-| `MLD_max` | ❌ No | [#38](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/38) — Time-max mixed layer depth maps |  |
+| `MLD_max` | ✅ Yes | [#38](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/38) — Time-max mixed layer depth maps | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/MLD_max.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/MLD_max/) |
 | `SSS` | ✅ Yes | [#10](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/10) — Global SSS bias | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/SSS.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/SSS/) |
 | `SST` | ✅ Yes | [#9](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/9) — Global SST bias | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/SST.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/SST/) |
-| `temp-salt-vs-depth-latitude` | ❌ No | [#11](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/11) Zonally averaged T/S bias, [#13](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/13) WOCE/GO-SHIP meridional transects |  |
-| `temp-salt-vs-depth-time` | ❌ No | [#8](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/8) — Hovmoller temperature anomaly (depth-time) |  |
+| `temp-salt-vs-depth-latitude` | ✅ Yes | [#11](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/11) Zonally averaged T/S bias, [#13](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/13) WOCE/GO-SHIP meridional transects | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/temp-salt-vs-depth-latitude.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/temp-salt-vs-depth-latitude/) |
+| `temp-salt-vs-depth-time` | ✅ Yes | [#8](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/8) — Hovmoller temperature anomaly (depth-time) | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/temp-salt-vs-depth-time.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/temp-salt-vs-depth-time/) |
 | `timeseries` | ✅ Yes | [#3](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3) — Global average annual mean time series | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/timeseries.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/timeseries/) |
 | `Timeseries_daily_extreme_from_2D_fields` | ✅ Yes | [#34](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/34) — SST/SSS/SSH/MLD daily extrema | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/Timeseries_daily_extreme_from_2D_fields.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/Timeseries_daily_extreme_from_2D_fields/) |
-| `Transects` | ❌ No | [#13](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/13) — WOCE/GO-SHIP meridional T/S transects |  |
-| `Transects-mixing` | ❌ No | [#13](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/13) WOCE/GO-SHIP transects, [access-om3-configs#1525](https://github.com/ACCESS-NRI/access-om3-configs/issues/1525) Thermocline bias in 25km |  |
+| `Transects` | ✅ Yes | [#13](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/13) — WOCE/GO-SHIP meridional T/S transects | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/Transects.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/Transects/) |
+| `Transects-mixing` | ✅ Yes | [#13](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/13) WOCE/GO-SHIP transects, [access-om3-configs#1525](https://github.com/ACCESS-NRI/access-om3-configs/issues/1525) Thermocline bias in 25km | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/Transects-mixing.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/Transects-mixing/) |
 
 ### Circulation {id="cat-circulation"}
 
 | Notebook | Notebook run success? | GitHub Issue(s) | Links |
 |---|---|---|---|
-| `Currents_streamfunction_variability` | ❌ No | [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) Evaluation: mean surface current speed, standard deviation of sea level anomaly and mean barotropic streamfunction |  |
+| `Currents_streamfunction_variability` | ✅ Yes | [#18](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/18) Evaluation: mean surface current speed, standard deviation of sea level anomaly and mean barotropic streamfunction | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/Currents_streamfunction_variability.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/Currents_streamfunction_variability/) |
 | `MeridionalHeatTransport` | ✅ Yes | [#12](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/12) — Total meridional heat transport | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/MeridionalHeatTransport.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/MeridionalHeatTransport/) |
-| `Overturning_in_ACCESS_OM3` | ❌ No | [#6](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/6) Overturning circulation, [#7](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/7) AMOC time series |  |
+| `Overturning_in_ACCESS_OM3` | ✅ Yes | [#6](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/6) Overturning circulation, [#7](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/7) AMOC time series | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/Overturning_in_ACCESS_OM3.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/Overturning_in_ACCESS_OM3/) |
 | `SSH` | ✅ Yes | [#4](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/4) Global dynamic sea level, [#5](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/5) Sea level anomaly std dev | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/SSH.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/SSH/) |
 | `StraitTransports` | ✅ Yes | [#1](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1) Drake Passage, [#16](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/16) Indonesian straits | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/StraitTransports.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/StraitTransports/) |
 
@@ -47,7 +47,7 @@ analysis notebooks for **MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028**. Diagnost
 
 | Notebook | Notebook run success? | GitHub Issue(s) | Links |
 |---|---|---|---|
-| `Bottom_age_tracer_in_ACCESS_OM3` | ❌ No | [#31](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/31) — Bottom age after 50 years |  |
+| `Bottom_age_tracer_in_ACCESS_OM3` | ✅ Yes | [#31](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/31) — Bottom age after 50 years | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/Bottom_age_tracer_in_ACCESS_OM3.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/Bottom_age_tracer_in_ACCESS_OM3/) |
 | `pPV` | ✅ Yes | [#14](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/14) — Planetary geostrophic potential vorticity / SAMW transects | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/pPV.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/pPV/) |
 
 ### Surface forcing / budget closure / mixing etc {id="cat-surface-forcing-budget-closure-mixing-etc"}
@@ -56,16 +56,17 @@ analysis notebooks for **MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028**. Diagnost
 |---|---|---|---|
 | `numerical_mixing_ACCESS_OM3` | ✅ Yes | [#103](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/103) — Numerical mixing | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/numerical_mixing_ACCESS_OM3.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/numerical_mixing_ACCESS_OM3/) |
 | `ocean_stats` | ✅ Yes | [#175](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/175) — Evaluation: ocean_stats diagnostics | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/ocean_stats.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/ocean_stats/) |
-| `SSS_Restoring_Timeseries` | ❌ No | [#44](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/44) — SSS restoring maps/timeseries |  |
+| `SSS_Restoring_Timeseries` | ✅ Yes | [#44](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/44) — SSS restoring maps/timeseries | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/SSS_Restoring_Timeseries.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/SSS_Restoring_Timeseries/) |
 | `WM_evaluation` | ✅ Yes | [#106](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/106) — Water mass density change Hovmöller | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/WM_evaluation.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/WM_evaluation/) |
 
 ### Sea ice {id="cat-sea-ice"}
 
 | Notebook | Notebook run success? | GitHub Issue(s) | Links |
 |---|---|---|---|
-| `SeaIce_area` | ❌ No | [#20](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/20) Sea ice extent time series, [#21](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/21) Sea ice annual cycle |  |
+| `SeaIce_area` | ✅ Yes | [#20](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/20) Sea ice extent time series, [#21](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/21) Sea ice annual cycle | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/SeaIce_area.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/SeaIce_area/) |
 | `SeaIce_mass_budget_climatology` | ✅ Yes | [#52](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52) — Sea ice mass budget climatology | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/SeaIce_mass_budget_climatology.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/SeaIce_mass_budget_climatology/) |
-| `SeaIce_Vol` | ❌ No | [#20](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/20) Sea ice volume time series, [#22](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/22) Sea ice thickness/concentration, [#48](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/48) Sea ice volume and thickness vs observations |  |
+| `SeaIce_speed` | ❌ No | [#51](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/51) — Sea ice drift speed and direction vs OSI-455 |  |
+| `SeaIce_Vol` | ✅ Yes | [#20](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/20) Sea ice volume time series, [#22](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/22) Sea ice thickness/concentration, [#48](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/48) Sea ice volume and thickness vs observations | [Figures](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/SeaIce_Vol.md)&nbsp;·&nbsp;[Notebook](experiments/MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028/notebooks/SeaIce_Vol/) |
 
 ### WOMBAT {id="cat-wombat"}
 
@@ -83,7 +84,7 @@ analysis notebooks for **MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028**. Diagnost
 
 | Date | Notebooks run | access-model-mkfigs |
 |---|---|---|
-| 2026-11-13 11:04 UTC | `Equatorial_pacific`, `MLD`, `MLD_manual`, `MeridionalHeatTransport`, `SSH`, `SSS`, `SST`, `SeaIce_mass_budget_climatology`, `StraitTransports`, `Timeseries_daily_extreme_from_2D_fields`, `Truncation_locations`, `WM_evaluation`, `numerical_mixing_ACCESS_OM3`, `ocean_stats`, `pPV`, `timeseries`, `wombatlite_global` | [`git+5984493`](https://github.com/ACCESS-NRI/access-model-mkfigs/commit/5984493) (+ local changes) |
+| 2026-11-16 05:14 UTC | `Bottom_age_tracer_in_ACCESS_OM3`, `Currents_streamfunction_variability`, `Equatorial_pacific`, `MLD`, `MLD_manual`, `MLD_max`, `MeridionalHeatTransport`, `Overturning_in_ACCESS_OM3`, `SSH`, `SSS`, `SSS_Restoring_Timeseries`, `SST`, `SeaIce_Vol`, `SeaIce_area`, `SeaIce_mass_budget_climatology`, `StraitTransports`, `Timeseries_daily_extreme_from_2D_fields`, `Transects`, `Transects-mixing`, `Truncation_locations`, `WM_evaluation`, `numerical_mixing_ACCESS_OM3`, `ocean_stats`, `pPV`, `temp-salt-vs-depth-latitude`, `temp-salt-vs-depth-time`, `timeseries`, `wombatlite_global` | unknown |
 
 <!-- /experiment:MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028 -->
 

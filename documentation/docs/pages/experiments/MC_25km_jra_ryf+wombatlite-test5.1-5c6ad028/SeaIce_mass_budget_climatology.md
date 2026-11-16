@@ -6,77 +6,77 @@ Evaluation figures from ACCESS-OM3 experiment **MC_25km_jra_ryf+wombatlite-test5
 
 ## Sea Ice Mass Budget
  
-![`SeaIce_mass_budget_climatology.ipynb`: Antarctic sea ice volume budget climatology comparing ACCESS-OM3 and ACCESS-OM2. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71416771) 
+![`SeaIce_mass_budget_climatology.ipynb`: Antarctic sea ice volume budget climatology comparing ACCESS-OM3 and ACCESS-OM2. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71486890) 
  
  Caption: `SeaIce_mass_budget_climatology.ipynb`: Antarctic sea ice volume budget climatology comparing ACCESS-OM3 and ACCESS-OM2. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)
  
 
 ## Sea Ice Mass Budget
  
-![`SeaIce_mass_budget_climatology.ipynb`: Arctic sea ice volume budget climatology comparing ACCESS-OM3 and ACCESS-OM2. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71416780) 
+![`SeaIce_mass_budget_climatology.ipynb`: Arctic sea ice volume budget climatology comparing ACCESS-OM3 and ACCESS-OM2. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71486893) 
  
  Caption: `SeaIce_mass_budget_climatology.ipynb`: Arctic sea ice volume budget climatology comparing ACCESS-OM3 and ACCESS-OM2. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)
  
 
 ## Sea Ice Mass Budget
  
-![`SeaIce_mass_budget_climatology.ipynb`: Sea ice volume budget residual comparing ACCESS-OM3 and ACCESS-OM2. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71416792) 
+![`SeaIce_mass_budget_climatology.ipynb`: Sea ice volume budget residual comparing ACCESS-OM3 and ACCESS-OM2. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71486896) 
  
  Caption: `SeaIce_mass_budget_climatology.ipynb`: Sea ice volume budget residual comparing ACCESS-OM3 and ACCESS-OM2. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)
  
 
 ## Sea Ice Mass Budget
  
-![`SeaIce_mass_budget_climatology.ipynb`: Annual Antarctic sea ice growth and melt by component, comparing ACCESS-OM3 and ACCESS-OM2, with the climatology period shaded. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71416798) 
+![`SeaIce_mass_budget_climatology.ipynb`: Annual Antarctic sea ice growth and melt by component, comparing ACCESS-OM3 and ACCESS-OM2, with the climatology period shaded. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71486899) 
  
  Caption: `SeaIce_mass_budget_climatology.ipynb`: Annual Antarctic sea ice growth and melt by component, comparing ACCESS-OM3 and ACCESS-OM2, with the climatology period shaded. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)
  
 
 ## Sea Ice Mass Budget
  
-![`SeaIce_mass_budget_climatology.ipynb`: Annual Arctic sea ice growth and melt by component, comparing ACCESS-OM3 and ACCESS-OM2, with the climatology period shaded. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71416804) 
+![`SeaIce_mass_budget_climatology.ipynb`: Annual Arctic sea ice growth and melt by component, comparing ACCESS-OM3 and ACCESS-OM2, with the climatology period shaded. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71486902) 
  
  Caption: `SeaIce_mass_budget_climatology.ipynb`: Annual Arctic sea ice growth and melt by component, comparing ACCESS-OM3 and ACCESS-OM2, with the climatology period shaded. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)
  
 
 ## Sea Ice Mass Budget
  
-![`SeaIce_mass_budget_climatology.ipynb`: Antarctic sea ice growth and melt climatology by component, comparing ACCESS-OM3 and ACCESS-OM2. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71416816) 
+![`SeaIce_mass_budget_climatology.ipynb`: Antarctic sea ice growth and melt climatology by component, comparing ACCESS-OM3 and ACCESS-OM2. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71486905) 
  
  Caption: `SeaIce_mass_budget_climatology.ipynb`: Antarctic sea ice growth and melt climatology by component, comparing ACCESS-OM3 and ACCESS-OM2. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)
  
 
 ## Sea Ice Mass Budget
  
-![`SeaIce_mass_budget_climatology.ipynb`: Arctic sea ice growth and melt climatology by component, comparing ACCESS-OM3 and ACCESS-OM2. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71416822) 
+![`SeaIce_mass_budget_climatology.ipynb`: Arctic sea ice growth and melt climatology by component, comparing ACCESS-OM3 and ACCESS-OM2. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71486908) 
  
  Caption: `SeaIce_mass_budget_climatology.ipynb`: Arctic sea ice growth and melt climatology by component, comparing ACCESS-OM3 and ACCESS-OM2. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)
  
 
 ## Sea Ice Mass Budget
  
-![`SeaIce_mass_budget_climatology.ipynb`: Arctic monthly climatology (1901-1910) of the ACCESS-OM3 thermodynamic ice volume tendency (dvidtt), with the model 15% and 80% concentration contours. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71416828) 
+![`SeaIce_mass_budget_climatology.ipynb`: Arctic monthly climatology (1915-1924) of the ACCESS-OM3 thermodynamic ice volume tendency (dvidtt), with the model 15% and 80% concentration contours. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71486911) 
  
- Caption: `SeaIce_mass_budget_climatology.ipynb`: Arctic monthly climatology (1901-1910) of the ACCESS-OM3 thermodynamic ice volume tendency (dvidtt), with the model 15% and 80% concentration contours. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)
- 
-
-## Sea Ice Mass Budget
- 
-![`SeaIce_mass_budget_climatology.ipynb`: Arctic monthly climatology (1901-1910) of the ACCESS-OM3 dynamic ice volume tendency (dvidtd), with the model 15% and 80% concentration contours. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71416891) 
- 
- Caption: `SeaIce_mass_budget_climatology.ipynb`: Arctic monthly climatology (1901-1910) of the ACCESS-OM3 dynamic ice volume tendency (dvidtd), with the model 15% and 80% concentration contours. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)
+ Caption: `SeaIce_mass_budget_climatology.ipynb`: Arctic monthly climatology (1915-1924) of the ACCESS-OM3 thermodynamic ice volume tendency (dvidtt), with the model 15% and 80% concentration contours. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)
  
 
 ## Sea Ice Mass Budget
  
-![`SeaIce_mass_budget_climatology.ipynb`: Antarctic monthly climatology (1901-1910) of the ACCESS-OM3 thermodynamic ice volume tendency (dvidtt), with the model 15% and 80% concentration contours. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71416903) 
+![`SeaIce_mass_budget_climatology.ipynb`: Arctic monthly climatology (1915-1924) of the ACCESS-OM3 dynamic ice volume tendency (dvidtd), with the model 15% and 80% concentration contours. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71486914) 
  
- Caption: `SeaIce_mass_budget_climatology.ipynb`: Antarctic monthly climatology (1901-1910) of the ACCESS-OM3 thermodynamic ice volume tendency (dvidtt), with the model 15% and 80% concentration contours. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)
+ Caption: `SeaIce_mass_budget_climatology.ipynb`: Arctic monthly climatology (1915-1924) of the ACCESS-OM3 dynamic ice volume tendency (dvidtd), with the model 15% and 80% concentration contours. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)
  
 
 ## Sea Ice Mass Budget
  
-![`SeaIce_mass_budget_climatology.ipynb`: Antarctic monthly climatology (1901-1910) of the ACCESS-OM3 dynamic ice volume tendency (dvidtd), with the model 15% and 80% concentration contours. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71416909) 
+![`SeaIce_mass_budget_climatology.ipynb`: Antarctic monthly climatology (1915-1924) of the ACCESS-OM3 thermodynamic ice volume tendency (dvidtt), with the model 15% and 80% concentration contours. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71486923) 
  
- Caption: `SeaIce_mass_budget_climatology.ipynb`: Antarctic monthly climatology (1901-1910) of the ACCESS-OM3 dynamic ice volume tendency (dvidtd), with the model 15% and 80% concentration contours. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)
+ Caption: `SeaIce_mass_budget_climatology.ipynb`: Antarctic monthly climatology (1915-1924) of the ACCESS-OM3 thermodynamic ice volume tendency (dvidtt), with the model 15% and 80% concentration contours. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)
+ 
+
+## Sea Ice Mass Budget
+ 
+![`SeaIce_mass_budget_climatology.ipynb`: Antarctic monthly climatology (1915-1924) of the ACCESS-OM3 dynamic ice volume tendency (dvidtd), with the model 15% and 80% concentration contours. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)](https://ndownloader.figshare.com/files/71486926) 
+ 
+ Caption: `SeaIce_mass_budget_climatology.ipynb`: Antarctic monthly climatology (1915-1924) of the ACCESS-OM3 dynamic ice volume tendency (dvidtd), with the model 15% and 80% concentration contours. [GitHub issue: Sea ice mass budget climatology](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/52)
  

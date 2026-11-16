@@ -6,323 +6,323 @@ Evaluation figures from ACCESS-OM3 experiment **MC_25km_jra_ryf+wombatlite-test5
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Makassar Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71416981) 
+![`StraitTransports.ipynb`: Makassar Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71486974) 
  
  Caption: `StraitTransports.ipynb`: Makassar Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Lifamatola Passage transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71416990) 
+![`StraitTransports.ipynb`: Lifamatola Passage transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71486980) 
  
  Caption: `StraitTransports.ipynb`: Lifamatola Passage transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Lombok Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71416996) 
+![`StraitTransports.ipynb`: Lombok Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71486989) 
  
  Caption: `StraitTransports.ipynb`: Lombok Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Ombai Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71417005) 
+![`StraitTransports.ipynb`: Ombai Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71486995) 
  
  Caption: `StraitTransports.ipynb`: Ombai Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Timor Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71417011) 
+![`StraitTransports.ipynb`: Timor Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71487001) 
  
  Caption: `StraitTransports.ipynb`: Timor Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Timor Strait (full) transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71417017) 
+![`StraitTransports.ipynb`: Timor Strait (full) transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71487007) 
  
  Caption: `StraitTransports.ipynb`: Timor Strait (full) transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Leti Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71417026) 
+![`StraitTransports.ipynb`: Leti Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71487010) 
  
  Caption: `StraitTransports.ipynb`: Leti Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Karimata Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71417032) 
+![`StraitTransports.ipynb`: Karimata Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71487013) 
  
  Caption: `StraitTransports.ipynb`: Karimata Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: ITF South transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71417044) 
+![`StraitTransports.ipynb`: ITF South transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71487016) 
  
  Caption: `StraitTransports.ipynb`: ITF South transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: ITF North transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71417053) 
+![`StraitTransports.ipynb`: ITF North transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71487019) 
  
  Caption: `StraitTransports.ipynb`: ITF North transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Torres Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71417059) 
+![`StraitTransports.ipynb`: Torres Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71487022) 
  
  Caption: `StraitTransports.ipynb`: Torres Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Drake Passage transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71417068) 
+![`StraitTransports.ipynb`: Drake Passage transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71487025) 
  
  Caption: `StraitTransports.ipynb`: Drake Passage transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Bering Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71417080) 
+![`StraitTransports.ipynb`: Bering Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71487040) 
  
  Caption: `StraitTransports.ipynb`: Bering Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Denmark Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71417086) 
+![`StraitTransports.ipynb`: Denmark Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71487157) 
  
  Caption: `StraitTransports.ipynb`: Denmark Strait transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: East Taiwan Channel transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71417092) 
+![`StraitTransports.ipynb`: East Taiwan Channel transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71487220) 
  
  Caption: `StraitTransports.ipynb`: East Taiwan Channel transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Florida Current transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71417098) 
+![`StraitTransports.ipynb`: Florida Current transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71487244) 
  
  Caption: `StraitTransports.ipynb`: Florida Current transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Bosphorus transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71417101) 
+![`StraitTransports.ipynb`: Bosphorus transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71487253) 
  
  Caption: `StraitTransports.ipynb`: Bosphorus transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Gibraltar transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71417104) 
+![`StraitTransports.ipynb`: Gibraltar transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71487259) 
  
  Caption: `StraitTransports.ipynb`: Gibraltar transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Labrador-Greenland, 60°N transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71417110) 
+![`StraitTransports.ipynb`: Labrador-Greenland, 60°N transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71487262) 
  
  Caption: `StraitTransports.ipynb`: Labrador-Greenland, 60°N transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Greenland-Norway, 60°N transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71417113) 
+![`StraitTransports.ipynb`: Greenland-Norway, 60°N transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)](https://ndownloader.figshare.com/files/71487268) 
  
  Caption: `StraitTransports.ipynb`: Greenland-Norway, 60°N transport. [GitHub issue: Drake Passage transport](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/1)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Lombok + Ombai + Timor Strait transport. [GitHub issue: Indonesian straits](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/16)](https://ndownloader.figshare.com/files/71417122) 
+![`StraitTransports.ipynb`: Lombok + Ombai + Timor Strait transport. [GitHub issue: Indonesian straits](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/16)](https://ndownloader.figshare.com/files/71487274) 
  
  Caption: `StraitTransports.ipynb`: Lombok + Ombai + Timor Strait transport. [GitHub issue: Indonesian straits](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/16)
  
 
 ## Strait Transports
  
-![`StraitTransports.ipynb`: Makassar Strait + Lifamatola Passage transport. [GitHub issue: Indonesian straits](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/16)](https://ndownloader.figshare.com/files/71417125) 
+![`StraitTransports.ipynb`: Makassar Strait + Lifamatola Passage transport. [GitHub issue: Indonesian straits](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/16)](https://ndownloader.figshare.com/files/71487280) 
  
  Caption: `StraitTransports.ipynb`: Makassar Strait + Lifamatola Passage transport. [GitHub issue: Indonesian straits](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/16)
  
 
 ## Strait Transports
  
-1880-12-16 - 1910-12-16 mean
+1894-12-16 - 1924-12-16 mean
 
 | Strait | OM2 025deg_jra55_ryf9091_gadi | OM2 01deg_jra55v140_iaf_cycle4_jra55v150_extension | OM3 MC_25km_jra_ryf+wombatlite-test5.1-5c6ad028 | Obs |
 | ------ | --: | --: | --: | --: |
-| Makassar Strait | -8.56 |  --  | -8.84 | -11.60 |
-| Lifamatola Passage | -0.22 |  --  | -2.92 | -1.10 |
-| Lombok Strait | -4.78 | nan | -3.20 | -2.60 |
-| Ombai Strait | -3.68 | nan | -2.99 | -4.90 |
-| Timor Strait | -4.05 | nan | -5.14 | -7.50 |
-| Timor Strait (full) | -4.85 |  --  | -4.94 |  --  |
-| Leti Strait | -4.85 |  --  | -5.66 |  --  |
+| Makassar Strait | -8.06 |  --  | -8.36 | -11.60 |
+| Lifamatola Passage | -0.40 |  --  | -2.94 | -1.10 |
+| Lombok Strait | -4.49 | nan | -2.95 | -2.60 |
+| Ombai Strait | -3.63 | nan | -2.93 | -4.90 |
+| Timor Strait | -3.96 | nan | -4.96 | -7.50 |
+| Timor Strait (full) | -4.74 |  --  | -4.69 |  --  |
+| Leti Strait | -4.83 |  --  | -5.41 |  --  |
 | Karimata Strait | 0.46 |  --  | 0.37 |  --  |
-| ITF South | -6.59 |  --  | -13.42 |  --  |
-| ITF North | -5.26 |  --  | -13.05 |  --  |
-| Torres Strait | -1.93 |  --  | -0.22 |  --  |
-| Drake Passage | 145.66 | nan | 167.32 | 173.30 |
-| Bering Strait | 1.61 | nan | 0.99 | 1.00 |
-| Denmark Strait | -10.09 | nan | -3.25 |  --  |
-| East Taiwan Channel | 31.35 | nan | 31.03 | 21.50 |
-| Florida Current | 26.02 | nan | 20.93 | 32.10 |
+| ITF South | -6.86 |  --  | -12.85 |  --  |
+| ITF North | -6.02 |  --  | -12.48 |  --  |
+| Torres Strait | -1.94 |  --  | -0.22 |  --  |
+| Drake Passage | 142.61 | nan | 170.90 | 173.30 |
+| Bering Strait | 1.61 | nan | 0.98 | 1.00 |
+| Denmark Strait | -11.44 | nan | -3.46 |  --  |
+| East Taiwan Channel | 30.84 | nan | 30.86 | 21.50 |
+| Florida Current | 24.57 | nan | 20.68 | 32.10 |
 | Bosphorus | -0.01 |  --  | -0.01 |  --  |
-| Gibraltar | 0.03 |  --  | 0.02 |  --  |
-| Labrador-Greenland, 60°N | -18.13 | nan | -2.53 |  --  |
-| Greenland-Norway, 60°N | 6.11 | nan | 1.33 |  --  |
-| Lombok + Ombai + Timor Strait | -12.52 | nan | -11.33 | -15.0 |
-| Makassar Strait + Lifamatola Passage | -8.78 |  --  | -11.76 | -12.7 |
+| Gibraltar | 0.03 |  --  | 0.03 |  --  |
+| Labrador-Greenland, 60°N | -21.79 | nan | -2.19 |  --  |
+| Greenland-Norway, 60°N | 8.38 | nan | 0.98 |  --  |
+| Lombok + Ombai + Timor Strait | -12.08 | nan | -10.84 | -15.0 |
+| Makassar Strait + Lifamatola Passage | -8.46 |  --  | -11.30 | -12.7 |
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: Makassar Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417131) 
+![`StraitTransports.ipynb`: Makassar Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487286) 
  
  Caption: `StraitTransports.ipynb`: Makassar Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: Lifamatola Passage sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417134) 
+![`StraitTransports.ipynb`: Lifamatola Passage sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487334) 
  
  Caption: `StraitTransports.ipynb`: Lifamatola Passage sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: Lombok Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417137) 
+![`StraitTransports.ipynb`: Lombok Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487346) 
  
  Caption: `StraitTransports.ipynb`: Lombok Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: Ombai Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417143) 
+![`StraitTransports.ipynb`: Ombai Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487355) 
  
  Caption: `StraitTransports.ipynb`: Ombai Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: Timor Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417155) 
+![`StraitTransports.ipynb`: Timor Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487361) 
  
  Caption: `StraitTransports.ipynb`: Timor Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: Timor Strait (full) sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417158) 
+![`StraitTransports.ipynb`: Timor Strait (full) sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487385) 
  
  Caption: `StraitTransports.ipynb`: Timor Strait (full) sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: Leti Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417167) 
+![`StraitTransports.ipynb`: Leti Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487460) 
  
  Caption: `StraitTransports.ipynb`: Leti Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: Karimata Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417170) 
+![`StraitTransports.ipynb`: Karimata Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487523) 
  
  Caption: `StraitTransports.ipynb`: Karimata Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: ITF South sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417173) 
+![`StraitTransports.ipynb`: ITF South sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487565) 
  
  Caption: `StraitTransports.ipynb`: ITF South sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: ITF North sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417176) 
+![`StraitTransports.ipynb`: ITF North sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487586) 
  
  Caption: `StraitTransports.ipynb`: ITF North sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: Torres Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417182) 
+![`StraitTransports.ipynb`: Torres Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487652) 
  
  Caption: `StraitTransports.ipynb`: Torres Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: Drake Passage sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417197) 
+![`StraitTransports.ipynb`: Drake Passage sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487700) 
  
  Caption: `StraitTransports.ipynb`: Drake Passage sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: Bering Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417203) 
+![`StraitTransports.ipynb`: Bering Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487751) 
  
  Caption: `StraitTransports.ipynb`: Bering Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: Denmark Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417215) 
+![`StraitTransports.ipynb`: Denmark Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487766) 
  
  Caption: `StraitTransports.ipynb`: Denmark Strait sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: East Taiwan Channel sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417221) 
+![`StraitTransports.ipynb`: East Taiwan Channel sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487772) 
  
  Caption: `StraitTransports.ipynb`: East Taiwan Channel sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: Florida Current sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417227) 
+![`StraitTransports.ipynb`: Florida Current sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487811) 
  
  Caption: `StraitTransports.ipynb`: Florida Current sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: Bosphorus sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417233) 
+![`StraitTransports.ipynb`: Bosphorus sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487814) 
  
  Caption: `StraitTransports.ipynb`: Bosphorus sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: Gibraltar sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417236) 
+![`StraitTransports.ipynb`: Gibraltar sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487823) 
  
  Caption: `StraitTransports.ipynb`: Gibraltar sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: Labrador-Greenland, 60°N sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417239) 
+![`StraitTransports.ipynb`: Labrador-Greenland, 60°N sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487829) 
  
  Caption: `StraitTransports.ipynb`: Labrador-Greenland, 60°N sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  
 
 ## Sum of magnitude of transport through each cell
  
-![`StraitTransports.ipynb`: Greenland-Norway, 60°N sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71417242) 
+![`StraitTransports.ipynb`: Greenland-Norway, 60°N sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)](https://ndownloader.figshare.com/files/71487832) 
  
  Caption: `StraitTransports.ipynb`: Greenland-Norway, 60°N sum of magnitude of transport through each cell. [GitHub issue: Restrict Gibraltar Strait flow](https://github.com/ACCESS-NRI/access-om3-configs/issues/1520)
  

@@ -6,182 +6,182 @@ Evaluation figures from ACCESS-OM3 experiment **MC_25km_jra_ryf+wombatlite-test5
 
 ## Timeseries: masso
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417311) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488648) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: soga
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417314) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488651) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: thetaoga
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417320) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488654) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: tosga
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417329) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488657) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: sosga
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417332) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488660) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: speed_max
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417335) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488699) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: mlotst_max
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417338) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488702) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: tos_max
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417341) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488705) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: tos_min
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417344) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488717) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: sos_max
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417347) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488744) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: sos_min
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417350) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488750) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: zos_max
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417353) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488753) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: zos_min
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417356) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488756) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: total_salt_Flux_Added
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417359) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488759) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: total_salt_Flux_In
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417362) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488762) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: total_salt_flux
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417365) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488765) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: total_wfo
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417371) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488768) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: total_evs
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417374) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488843) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: total_fsitherm
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417377) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488846) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: total_precip
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417380) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488849) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: total_prsn
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417386) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488852) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: total_lprec
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417389) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488855) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: total_ficeberg
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417392) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488858) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: total_friver
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417395) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488867) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: total_net_massout
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417398) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488873) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
 
 ## Timeseries: total_net_massin
  
-![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71417437) 
+![`timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)](https://ndownloader.figshare.com/files/71488876) 
  
- Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Thick lines: annual means (thickest, drawn underneath: experiment under test, so identical runs stay visible); thin line: every value of the experiment under test. Line style: solid 100km, dashed 25km, dotted 8km; black: ACCESS-OM2 reference. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
+ Caption: `timeseries.ipynb`: ACCESS-OM3 global model timeseries. Annual means are over complete calendar years and plotted at mid-year. [GitHub issue: Global average annual mean time series](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/3)
  
