@@ -105,6 +105,9 @@ authors:
     email: j.lorenzatto@unsw.edu.au
     affiliation: School of Mathematics and Statistics, The University of New South Wales, Sydney, Australia
     orcid: 'https://orcid.org/0000-0001-5802-5161'
+  - given-names: Taimoor
+    family-names: Sohail
+    affiliation: School of Geography, Earth and Atmospheric Sciences, The University of Melbourne, Melbourne, Australia
 
 abstract: >-
   Plotting notebooks and discussion for ACCESS-OM3 model description paper.
