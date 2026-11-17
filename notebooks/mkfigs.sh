@@ -184,6 +184,8 @@ array=(
     SeaIce_Vol
     SeaIce_speed
     temp-salt-vs-depth-latitude
+    Atlantic_zonal_mean_TS_bias
+    SSS_MLD_Labrador_GIN_timeseries
     Transects
     WM_evaluation
     MLD_manual
