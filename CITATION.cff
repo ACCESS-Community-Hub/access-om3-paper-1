@@ -109,6 +109,11 @@ authors:
     family-names: Sohail
     affiliation: University of Melbourne
     orcid: 'https://orcid.org/0000-0002-4162-3269'
+  - given-names: David E.
+    family-names: Gwyther
+    email: david.gwyther@gmail.com
+    affiliation: Australian Antarctic Program Partnership, University of Tasmania, Hobart, Australia; Australian Antarctic Division, Kingston, Tasmania, Australia
+    orcid: 'https://orcid.org/0000-0002-7218-2785'
 
 abstract: >-
   Plotting notebooks and discussion for ACCESS-OM3 model description paper.
