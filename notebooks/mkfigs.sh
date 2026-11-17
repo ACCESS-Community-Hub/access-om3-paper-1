@@ -190,6 +190,7 @@ array=(
     Transects-mixing
     numerical_mixing_ACCESS_OM3
     Truncation_locations
+    SWMT_Antarctic_shelf
 )
 #SSH uses a lot of memory !!
 
