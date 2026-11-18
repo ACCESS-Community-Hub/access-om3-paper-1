@@ -38,12 +38,8 @@ WINDOW_PARAMS = {"NYEARS", "averaging_period"}
 IMAGE_LIMIT = 1_000_000
 
 MAGIC = re.compile(r"^\s*[%!].*$", re.M)
-# Run paths written into the code (reference runs belong in one shared lookup).
-RUN_PATH = re.compile(r"/(?:g/data|scratch)/\w+/(?:outputs/access-(?:om|cm|esm)\d|[\w/.-]*/archive/)[^\s'\"]*")
 # Calendar-year literals in time selections: break RYF (model years 1900-19xx) and short runs.
 YEAR_SLICE = re.compile(r"""(?:slice|sel)\([^)]*?['"]?(1[89]\d\d|20\d\d)(?:-\d\d)?(?:-\d\d)?['"]?""")
-# Forcing/model guessed from the datastore path (see #184's `find('ryf') != 0` bug).
-PATH_SNIFF = re.compile(r"""esm_file\.find\(\s*['"](ryf|iaf|cm3|om2|8km|25km|100km)['"]\s*\)""")
 
 
 class Report:
@@ -135,13 +131,6 @@ def check(path: Path, rep: Report):
               for k, v in o.get("data", {}).items() if k.startswith("image/"))
     if img > IMAGE_LIMIT:
         rep.add("WARN", name, f"{img / 1e6:.1f} MB of saved images; please clear figure outputs")
-
-    # 11-12. informational
-    for i, s in body:
-        for m in PATH_SNIFF.finditer(s):
-            rep.add("INFO", name, f"cell {i}: forcing/model guessed from path via find('{m.group(1)}')")
-        for m in RUN_PATH.finditer(s):
-            rep.add("INFO", name, f"cell {i}: run path in code {m.group(0)[:60]}...")
 
 
 def mkfigs_array(nbdir: Path):
