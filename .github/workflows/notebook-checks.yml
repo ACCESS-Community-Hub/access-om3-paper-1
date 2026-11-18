@@ -1,0 +1,30 @@
+# Static notebook checks: no Gadi, no data, ~20 s on a GitHub runner.
+# Errors fail the check; warnings show as annotations on the PR but don't block it.
+# See notebooks/check_notebooks.py for the rules and how to skip a notebook.
+name: Notebook checks
+
+on:
+  pull_request:
+    paths: ['notebooks/**']
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: notebooks
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Check notebooks
+        run: python check_notebooks.py --markdown "$GITHUB_STEP_SUMMARY"
