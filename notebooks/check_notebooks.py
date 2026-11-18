@@ -176,6 +176,8 @@ def main():
     ap.add_argument("notebooks", nargs="*")
     ap.add_argument("--dir", default=".")
     ap.add_argument("--markdown", help="also append a markdown table here (e.g. $GITHUB_STEP_SUMMARY)")
+    ap.add_argument("--comment", help="write a short PR-comment body here: errors/warnings for changed notebooks only")
+    ap.add_argument("--changed-file", help="file listing the notebooks the PR changed, one per line (for --comment)")
     a = ap.parse_args()
     nbdir = Path(a.dir)
     rep = Report()
@@ -196,12 +198,46 @@ def main():
             print(f"::{kind} file=notebooks/{nb}::{msg}")
     counts = {k: sum(r[0] == k for r in rep.rows) for k in order}
     print(f"\n{len(targets)} notebooks checked: {counts}")
+    icon = {"ERROR": "❌", "WARN": "⚠️", "INFO": "ℹ️"}
+
+    def table(rows):
+        return "| | Notebook | Finding |\n|---|---|---|\n" + "".join(
+            f"| {icon[l]} | `{n}` | {m.replace('|', '/')} |\n" for l, n, m in rows)
+
     if a.markdown:
-        icon = {"ERROR": "❌", "WARN": "⚠️", "INFO": "ℹ️"}
         with open(a.markdown, "a") as f:
-            f.write(f"### Notebook checks: {counts}\n\n| | Notebook | Finding |\n|---|---|---|\n")
-            f.writelines(f"| {icon[l]} | `{n}` | {m.replace('|', '/')} |\n" for l, n, m in rep.rows)
+            f.write(f"### Notebook checks: {counts}\n\n{table(rep.rows)}")
+    if a.comment:
+        write_comment(a, rep, table)
     sys.exit(1 if counts["ERROR"] else 0)
+
+
+def write_comment(a, rep, table):
+    changed = []
+    if a.changed_file and Path(a.changed_file).exists():
+        changed = sorted({Path(l.strip()).name for l in Path(a.changed_file).read_text().splitlines() if l.strip()})
+    mine = [r for r in rep.rows if r[0] != "INFO" and (r[1] in changed or r[1] == "mkfigs.sh")]
+    other_errors = sum(r[0] == "ERROR" and r not in mine for r in rep.rows)
+    env = os.environ
+    run = (f"{env['GITHUB_SERVER_URL']}/{env['GITHUB_REPOSITORY']}/actions/runs/{env['GITHUB_RUN_ID']}"
+           if "GITHUB_RUN_ID" in env else None)
+
+    n_err = sum(r[0] == "ERROR" for r in mine)
+    n_warn = sum(r[0] == "WARN" for r in mine)
+    lines = ["### Notebook checks", ""]
+    if not changed:
+        lines.append("This PR doesn't change any notebooks.")
+    elif not mine:
+        lines.append(f"✅ No errors or warnings in the {len(changed)} notebook(s) this PR changes.")
+    else:
+        lines += [f"Notebooks changed by this PR: {n_err} error(s) ❌, {n_warn} warning(s) ⚠️. "
+                  "Errors fail the check; warnings are suggestions.", "", table(mine)]
+    if other_errors:
+        lines += ["", f"❌ Plus {other_errors} error(s) in notebooks this PR doesn't change (see the full report)."]
+    lines += ["", "<sub>Updated on every push. "
+              + (f"[Full report for all notebooks]({run}). " if run else "")
+              + "Rules and how to skip a notebook: `notebooks/check_notebooks.py`.</sub>"]
+    Path(a.comment).write_text("\n".join(lines) + "\n")
 
 
 if __name__ == "__main__":
