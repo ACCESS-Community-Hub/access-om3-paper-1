@@ -1,0 +1,67 @@
+# Run mkfigs.sh on Gadi and attach a preview of the website to the run (no Figshare): for a new
+# experiment, an update of a published one (notebooks from main), or a preview of a branch (e.g. a
+# PR's) on one or more experiments. New and update can then, after a second approval, publish to
+# Figshare and push the eval-<ENAME> branch and tag. The steps are in access-model-mkfigs; see
+# "Running from GitHub Actions" in its README, including the 'mkfigs' and 'mkfigs-publish'
+# environments this needs (Settings -> Environments).
+name: mkfigs
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: What to do (new and update run from main; preview runs the branch chosen above and never publishes)
+        type: choice
+        options:
+          - new experiment
+          - update a published experiment
+          - preview a branch
+        default: new experiment
+      ename:
+        description: Experiment name. Preview - one or more, space-separated (NAME=/path/datastore.json if not published)
+        required: true
+      esm_file:
+        description: Datastore .json on Gadi. Needed for a new experiment; update - blank = as published; preview - not used
+        required: false
+        default: ''
+      notebooks:
+        description: Notebooks to run, space-separated. Needed for update and preview; new - blank = all in mkfigs.sh
+        required: false
+        default: ''
+      parameters:
+        description: Extra papermill parameters for every notebook, e.g. NYEARS=5 (blank - none for a new experiment, as published for update/preview)
+        required: false
+        default: ''
+      pick_up_jobs:
+        description: Don't submit again; pick up the jobs the last run of this experiment submitted
+        type: boolean
+        default: false
+      mkfigs_version:
+        description: access-model-mkfigs version. pinned = the one the experiment was published with (new experiment - this branch's). latest release / master = newer
+        type: choice
+        options:
+          - pinned
+          - latest release
+          - master
+        default: pinned
+
+concurrency:   # one new/update run per experiment at a time (previews queue per experiment inside)
+  group: mkfigs-${{ inputs.mode == 'preview a branch' && github.run_id || inputs.ename }}
+  cancel-in-progress: false
+
+jobs:
+  mkfigs:
+    # TODO: pin to an access-model-mkfigs release tag once the workflow is released.
+    uses: ACCESS-NRI/access-model-mkfigs/.github/workflows/mkfigs.yml@master
+    permissions:
+      contents: write   # the publish job pushes eval-<ENAME> and its tag
+    with:
+      mode: ${{ inputs.mode }}
+      ename: ${{ inputs.ename }}
+      esm_file: ${{ inputs.esm_file }}
+      notebooks: ${{ inputs.notebooks }}
+      parameters: ${{ inputs.parameters }}
+      pick_up_jobs: ${{ inputs.pick_up_jobs }}
+      mkfigs_version: ${{ inputs.mkfigs_version }}
+      notebooks-dir: notebooks
+    secrets: inherit
