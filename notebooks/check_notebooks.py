@@ -8,6 +8,9 @@ that break across resolutions, forcings (RYF/IAF) and models (OM3/CM3).
     python check_notebooks.py                 # every notebook not marked to skip
     python check_notebooks.py A.ipynb B.ipynb # just these
 
+Data paths must be readable by every contributor: string literals pointing at /scratch,
+/home, or a /g/data project not in SHARED_PROJECTS (e.g. tm70) get a WARN.
+
 ERRORs fail the check (exit 1). WARNs and INFOs are reported but never fail it.
 
 To exclude a notebook that isn't meant for the mkfigs pipeline (exploratory work,
@@ -21,10 +24,12 @@ from __future__ import annotations
 import argparse
 import ast
 import importlib.util
+import io
 import json
 import os
 import re
 import sys
+import tokenize
 import warnings
 from pathlib import Path
 
@@ -37,9 +42,56 @@ WINDOW_PARAMS = {"NYEARS", "averaging_period"}
 # Saved image output above this size (bytes, base64) gets a warning. Tables/text are fine.
 IMAGE_LIMIT = 1_000_000
 
+# Gadi projects whose data any paper-1 contributor can read (shared outputs, inputs,
+# observations). Anything else on /g/data, and anything on /scratch (personal, purged
+# after 100 days) or /home, is likely unreadable by others and gets a warning.
+SHARED_PROJECTS = {
+    "ol01",  # ACCESS-OM3 paper-1 model outputs
+    "ik11",  # COSIMA model outputs and grids
+    "vk83",  # ACCESS-NRI model inputs and releases
+    "av17",  # ACCESS-NRI observations (WOA, CMEMS, ...)
+    "rt52",  # ERA5 reanalysis (NCI replica)
+    "zv30",  # ACCESS-CM3 runs used in the evaluation
+    "p73",   # ACCESS-CM2 CMIP6 archive (cj877 control)
+    "ia39",  # Australian Climate Service hindcasts (WHACS)
+    "xp65",  # ACCESS-NRI conda environments
+}
+GADI_PATH = re.compile(r"/(?:g/data|scratch)/[a-z]{1,2}\d{1,3}(?:/[^\s'\"]*)?|/home/\d{3}/[a-z]{2,3}\d{3,4}\S*")
+GADI_PROJECT = re.compile(r"^/(g/data|scratch|home)/([a-z0-9]+)")
+
 MAGIC = re.compile(r"^\s*[%!].*$", re.M)
 # Calendar-year literals in time selections: break RYF (model years 1900-19xx) and short runs.
 YEAR_SLICE = re.compile(r"""(?:slice|sel)\([^)]*?['"]?(1[89]\d\d|20\d\d)(?:-\d\d)?(?:-\d\d)?['"]?""")
+
+
+def string_literals(src):
+    """Text of every string literal in `src` (comments and commented-out code are skipped)."""
+    out = []
+    try:
+        for tok in tokenize.generate_tokens(io.StringIO(MAGIC.sub("", src)).readline):
+            if tok.type == tokenize.STRING or tok.type == getattr(tokenize, "FSTRING_MIDDLE", -1):
+                out.append(tok.string)
+    except (tokenize.TokenError, IndentationError, SyntaxError):
+        out = [ln for ln in src.splitlines() if not ln.lstrip().startswith("#")]
+    return out
+
+
+def private_paths(src):
+    """Gadi paths in string literals that other contributors probably can't read."""
+    found = []
+    for lit in string_literals(src):
+        for path in GADI_PATH.findall(lit):
+            fs, proj = GADI_PROJECT.match(path).groups()
+            if fs != "g/data" or proj not in SHARED_PROJECTS:
+                found.append(path)
+    return found
+
+
+def short_path(path):
+    """/scratch/x77/aek156/a/b/c -> /scratch/x77/aek156/... (keeps PR messages short)."""
+    parts = path.split("/")
+    keep = 5 if parts[1] == "g" else 4  # /g/data/<proj>/<user> has one more part
+    return "/".join(parts[:keep]) + ("/..." if len(parts) > keep else "")
 
 
 class Report:
@@ -124,6 +176,15 @@ def check(path: Path, rep: Report):
         if years:
             rep.add("WARN", name, f"cell {i}: literal years {years} in a time selection; "
                                   "breaks RYF/short runs (use years_window/NYEARS)")
+
+    # 11. data paths others can't read (personal/group projects, /scratch, /home)
+    for i, c in codes:
+        paths = sorted({short_path(x) for x in private_paths(code(c))})
+        if paths:
+            shown = ", ".join(f"`{x}`" for x in paths[:3]) + (f" (+{len(paths) - 3} more)" if len(paths) > 3 else "")
+            rep.add("WARN", name, f"cell {i}: path(s) others may not be able to read: {shown}; "
+                                  "move the data to a shared project (e.g. ol01) or add the "
+                                  "project to SHARED_PROJECTS if everyone can read it")
 
     # 10. large saved images (tables and text outputs are fine)
     img = sum(len("".join(v) if isinstance(v, list) else v)
