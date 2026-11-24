@@ -55,6 +55,9 @@ SHARED_PROJECTS = {
     "p73",   # ACCESS-CM2 CMIP6 archive (cj877 control)
     "ia39",  # Australian Climate Service hindcasts (WHACS)
     "xp65",  # ACCESS-NRI conda environments
+    "x77",   # The Dynamics of the Southern Ocean
+    "jk72",  # Southern Ocean systems and future change
+    "v45",   # Ocean Extremes 
 }
 GADI_PATH = re.compile(r"/(?:g/data|scratch)/[a-z]{1,2}\d{1,3}(?:/[^\s'\"]*)?|/home/\d{3}/[a-z]{2,3}\d{3,4}\S*")
 GADI_PROJECT = re.compile(r"^/(g/data|scratch|home)/([a-z0-9]+)")
