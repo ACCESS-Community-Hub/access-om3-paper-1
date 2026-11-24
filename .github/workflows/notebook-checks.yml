@@ -1,0 +1,60 @@
+# Static notebook checks: no Gadi, no data, ~20 s on a GitHub runner.
+# Errors fail the check; warnings show as annotations and in a PR comment but don't block.
+# See notebooks/check_notebooks.py for the rules and how to skip a notebook.
+name: Notebook checks
+
+on:
+  pull_request:
+    paths: ['notebooks/**']
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write  # for the results comment on PRs
+
+jobs:
+  static:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: notebooks
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: List notebooks changed by this PR
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git diff --name-only --diff-filter=AMR "origin/$BASE_REF...HEAD" -- '*.ipynb' > changed.txt
+          cat changed.txt
+
+      - name: Check notebooks
+        id: check
+        continue-on-error: true
+        run: |
+          python check_notebooks.py --markdown "$GITHUB_STEP_SUMMARY" \
+            --comment comment.md --changed-file changed.txt
+
+      # One comment per PR, edited in place on each push. Skipped for PRs from forks,
+      # whose token is read-only (results are still in the check and its Summary page).
+      - name: Post results on the PR
+        if: >-
+          github.event_name == 'pull_request' &&
+          github.event.pull_request.head.repo.full_name == github.repository
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: notebook-checks
+          path: notebooks/comment.md
+
+      - name: Fail if there were errors
+        if: steps.check.outcome == 'failure'
+        run: exit 1
