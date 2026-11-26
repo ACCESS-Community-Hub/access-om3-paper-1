@@ -1,3 +1,3 @@
 [submodule "external/access-model-mkfigs"]
 	path = external/access-model-mkfigs
-	url = https://github.com/chrisb13/access-model-mkfigs.git
+	url = https://github.com/ACCESS-NRI/access-model-mkfigs.git
