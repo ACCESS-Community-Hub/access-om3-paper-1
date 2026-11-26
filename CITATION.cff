@@ -23,8 +23,8 @@ authors:
     family-names: Huneke
     affiliation: Research School of Earth Sciences, Australian National University, Canberra, Australia
     orcid: 'https://orcid.org/0000-0001-8624-365X'
-  - given-names: Turner
-    family-names: Charles
+  - given-names: Charles
+    family-names: Turner
     affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
     orcid: 'https://orcid.org/0000-0002-3262-4972'
   - given-names: Andrew E.
@@ -54,7 +54,7 @@ authors:
   - given-names: Helen
     family-names: Shea
     email: helen.shea1@monash.edu
-    affiliation: School of Earth, Atmoshpere and Environment, Monash University, Naarm/Melbourne, Australia
+    affiliation: School of Earth, Atmosphere and Environment, Monash University, Naarm/Melbourne, Australia
     orcid: 'https://orcid.org/0009-0004-0680-2458'
   - given-names: Noah
     family-names: Day
