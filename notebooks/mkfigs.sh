@@ -26,7 +26,8 @@
 #1. qsub mkfigs.sh
 #1. python3 -m mkfigs.pushit
 #1. Log in to Figshare and publish the article
-#1. python3 -m mkfigs.pushit --check-figshare-upload   (follow the git commands it prints)
+#1. python3 -m mkfigs.pushit --check-figshare-upload   (follow the git commands it prints: they commit
+#      the results on a branch eval-<ENAME>, not main, and tag it <ENAME>-YYYY.MM.NNN)
 
 
 # access-model-mkfigs is loaded straight from the external/access-model-mkfigs
@@ -51,15 +52,19 @@
 
 #
 ## Workflow — adding notebooks to (or re-running) an existing experiment
+## (details: "Workflow: add or re-run notebooks" in external/access-model-mkfigs/README.md)
 #1. git fetch --tags
-#1. git checkout <{ename}-YYYY.MM.NNN>  # the tag printed by the previous --check-figshare-upload
-#1. git submodule update --init --recursive  # in case the pin moved since your last checkout
+#1. git checkout eval-<ENAME>
+#1.   (no eval-<ENAME> branch yet? create it from the last published tag:
+#1.    git switch -c eval-<ENAME> refs/tags/<ENAME>-YYYY.MM.NNN)
+#1. git submodule update --init --recursive  # in case the pin moved; a tag older than the
+#1.   eval-<ENAME> workflow may pin an older access-model-mkfigs (see the mkfigs README)
 #1. python3 -m mkfigs.restore   # download previously committed notebooks from Figshare
 #1. Edit the notebook array below: add new notebooks, or re-enable ones to re-run
 #1. qsub mkfigs.sh
 #1. python3 -m mkfigs.pushit    # merges new results with previously committed notebooks
 #1. Log in to Figshare and publish the article
-#1. python3 -m mkfigs.pushit --check-figshare-upload
+#1. python3 -m mkfigs.pushit --check-figshare-upload   (prints `git switch eval-<ENAME>` and the next tag)
 
 set -x
 module purge
