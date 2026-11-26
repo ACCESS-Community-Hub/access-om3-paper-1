@@ -1,0 +1,93 @@
+# Test recipe (level 3 of 5) for the mkfigs ESMValTool pipeline: 3D variables (thetao, so on z levels), ACCESS-OM3
+# compared with other models from NCI's CMIP6 collections (ACCESS-ESM1-5 historical; ACCESS-OM2 and ACCESS-OM2-025
+# omip2 cycle 6, whose model years 0306-0366 = 1958-2018) and with observations (WOA18, EN4) read from NCI's ESMValTool
+# observation replica. Needs ESMValCore's data-hpc-nci data sources (MKFIGS_ESMVALTOOL_PRESETS) and the
+# oi10/fs38/ct11 PBS storage flags.
+---
+documentation:
+  title: ACCESS-OM3 temperature and salinity vs observations (pipeline test)
+  description: >
+    Near-surface (5 m) temperature and salinity of ACCESS-OM3 and ACCESS-ESM1-5 (historical), plus ACCESS-OM2 and
+    ACCESS-OM2-025 (omip2) for salinity, against the World Ocean Atlas 2018 climatology, and global-mean profiles
+    against WOA18 and EN4.
+  authors:
+    - unmaintained
+  references:
+    - acknow_project
+  # Must be present (may be empty): ESMValTool's ocean/diagnostic_*.py scripts read documentation["projects"].
+  projects: []
+
+# custom_order: take the time mean FIRST. ESMValCore's default order runs extract_levels and regrid before
+# climate_statistics, i.e. on every monthly 3D field (22 min for one variable of ACCESS-OM2-025 on 3 years).
+preprocessors:
+  surface_clim:
+    custom_order: true
+    climate_statistics:
+      operator: mean
+    extract_levels:
+      levels: [5.]
+      scheme: linear_extrapolate
+    regrid:
+      target_grid: 1x1
+      scheme: linear
+  global_profile:
+    custom_order: true
+    # annual (not climate) means: ocean/diagnostic_profiles.py groups by year, so it needs a time dimension
+    annual_statistics:
+      operator: mean
+    regrid:
+      # regular grid so area_statistics needs no areacello (not CMORised for ACCESS-OM3 in this recipe)
+      target_grid: 1x1
+      scheme: linear
+    area_statistics:
+      operator: mean
+    extract_levels:
+      levels: {dataset: WOA}
+      scheme: linear
+
+diagnostics:
+  # ACCESS-OM2 and ACCESS-OM2-025 are compared for salinity only: their published OMIP thetao files (fs38, versions
+  # v20210616/v20210617) hold Kelvin values labelled "degC", ESMValCore has no fix for it, and these ocean diagnostics
+  # don't guess units from the values.
+  surface_vs_woa:
+    description: Model, WOA18 and model minus WOA18 at 5 m (climatological mean).
+    variables:
+      thetao:
+        mip: Omon
+        preprocessor: surface_clim
+        additional_datasets:
+          - &woa {dataset: WOA, project: OBS6, tier: 2, type: clim, version: '2018', timerange: '2000/2000'}
+      so:
+        mip: Omon
+        preprocessor: surface_clim
+        additional_datasets:
+          - *woa
+          - &om2_025 {dataset: ACCESS-OM2-025, project: CMIP6, activity: OMIP, institute: CSIRO-COSIMA, exp: omip2,
+                      ensemble: r1i1p1f1, grid: gn, timerange: '0348/0350'}
+          - &om2 {dataset: ACCESS-OM2, project: CMIP6, activity: OMIP, institute: CSIRO-COSIMA, exp: omip2,
+                  ensemble: r1i1p1f1, grid: gn, timerange: '0348/0350'}
+    additional_datasets: &models
+      - {dataset: ACCESS-OM3, project: CMIP6, activity: OMIP, institute: CSIRO-COSIMA, exp: omip2,
+         ensemble: r1i1p1f1, grid: gn, timerange: '2000/2002'}
+      - {dataset: ACCESS-ESM1-5, project: CMIP6, exp: historical, ensemble: r1i1p1f1, grid: gn, timerange: '2000/2002'}
+    scripts:
+      model_vs_obs:
+        script: ocean/diagnostic_model_vs_obs.py
+        observational_dataset: {dataset: WOA, project: OBS6}
+  global_profiles:
+    description: Global-mean temperature and salinity profiles (climatological mean), models vs EN4 and WOA18.
+    variables:
+      thetao:
+        mip: Omon
+        preprocessor: global_profile
+        additional_datasets:
+          - *woa
+          - &en4 {dataset: EN4, project: OBS6, tier: 2, type: reanaly, version: 4.2.2, timerange: '2000/2002'}
+      so:
+        mip: Omon
+        preprocessor: global_profile
+        additional_datasets: [*woa, *en4, *om2_025, *om2]
+    additional_datasets: *models
+    scripts:
+      profiles:
+        script: ocean/diagnostic_profiles.py

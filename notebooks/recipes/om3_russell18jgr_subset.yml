@@ -1,0 +1,150 @@
+# Test recipe (level 5 of 5) for the mkfigs ESMValTool pipeline: three diagnostics of ESMValTool's
+# recipe_russell18jgr.yml (2.15.0), which are NCL scripts working on each model's native grid. Diagnostics and script
+# settings are upstream's; only the datasets changed (CMIP5 historical 1986-2005 -> ACCESS-OM3 + ACCESS-OM2-025 OMIP2,
+# 2000-2002). Figures needing variables ACCESS-MOPPy can't make from ACCESS-OM3 yet (sic, fgco2, ph, volcello) are left out.
+---
+documentation:
+  title: Southern Ocean metrics (Russell et al. 2018), Figures 2, 3b and 3b-2
+  description: 'Subset of ESMValTool''s recipe_russell18jgr.yml (NCL diagnostics): zonal-mean zonal wind stress
+    and the positions of the Subantarctic and Polar Fronts, for ACCESS-OM3 and ACCESS-OM2-025.'
+  authors:
+  - russell_joellen
+  - pandde_amarjiit
+  maintainer:
+  - russell_joellen
+  - pandde_amarjiit
+  references:
+  - russell18jgr
+  projects:
+  - russell_project
+preprocessors:
+  preprocessor_time_land:
+    climate_statistics:
+      operator: mean
+      period: full
+    mask_landsea:
+      mask_out: land
+  preprocessor_time:
+    climate_statistics:
+      operator: mean
+      period: full
+  # Figures 3b/3b-2 have no preprocessor upstream, so NCL loads every monthly 3D field (>30 GB for 3 years of 1-degree
+  # ACCESS-OM2; far more at 25 km). The scripts average over their first (time) dimension themselves, so keep a time
+  # dimension (annual means, not climate_statistics) and only the upper 500 m (fronts use the 400 m and 0-200 m levels).
+  preprocessor_fronts:
+    extract_volume:
+      z_min: 0
+      z_max: 500
+    annual_statistics:
+      operator: mean
+diagnostics:
+  Figure_2:
+    description: 'Diagnostic for russell et al Figure 2. Plots The zonal and annual means
+
+      of the zonal wind stress (N/m^2). Here, we are using tauuo,
+
+      figures in russell18jgr paper were  made using tauuo, but tauu can
+
+      also be used if tauuo file is not available. To use tauu variable
+
+      in this recipe just uncomment variable ''tauu'' and add dataset names
+
+      in additional datasets of respective variable. If there are no dataset
+
+      in a variable, entire variable section needs to be commented out.
+
+      '
+    themes:
+    - phys
+    realms:
+    - ocean
+    variables:
+      tauuo:
+        preprocessor: preprocessor_time
+        mip: Omon
+    scripts:
+      tauu-lineplot:
+        script: russell18jgr/russell18jgr-fig2.ncl
+        styleset: CMIP5
+        ncdf: default
+    additional_datasets: &id001
+    - dataset: ACCESS-OM3
+      project: CMIP6
+      activity: OMIP
+      institute: CSIRO-COSIMA
+      exp: omip2
+      ensemble: r1i1p1f1
+      grid: gn
+      timerange: 2000/2002
+    - dataset: ACCESS-OM2-025
+      project: CMIP6
+      activity: OMIP
+      institute: CSIRO-COSIMA
+      exp: omip2
+      ensemble: r1i1p1f1
+      grid: gn
+      timerange: 0348/0350
+    - dataset: ACCESS-OM2
+      project: CMIP6
+      activity: OMIP
+      institute: CSIRO-COSIMA
+      exp: omip2
+      ensemble: r1i1p1f1
+      grid: gn
+      timerange: 0348/0350
+    - dataset: ACCESS-ESM1-5
+      project: CMIP6
+      exp: historical
+      ensemble: r1i1p1f1
+      grid: gn
+      timerange: 2000/2002
+  Figure_3b:
+    description: 'Diagnostic for russell et al figure 3b. Plots the latitudinal position of
+
+      Subantarctic Front. Using definitions from Orsi et al (1995), the
+
+      Subantarctic Front is defined here as the poleward location of
+
+      the 4C(277.15K) isotherm at(closest to and less than) 400 m.
+
+      '
+    themes:
+    - phys
+    realms:
+    - ocean
+    variables:
+      thetao:
+        mip: Omon
+        preprocessor: preprocessor_fronts
+    scripts:
+      Subantarctic-Front:
+        script: russell18jgr/russell18jgr-fig3b.ncl
+        styleset: CMIP5
+        ncdf: CMIP5
+    additional_datasets: *id001
+  Figure_3b-2:
+    description: 'Diagnostic for russell et al figure 3b-2 (Polar fronts). Plots the
+
+      latitudinal position of Polar Front. Using definitions from Orsi et
+
+      al. (1995). The Polar Front is defined here as the poleward location
+
+      of the 2C (275.15K) isotherm of the temperature minimum between 0 and
+
+      200 m (closest to and less than 200m).
+
+      '
+    themes:
+    - phys
+    realms:
+    - ocean
+    variables:
+      thetao:
+        mip: Omon
+        preprocessor: preprocessor_fronts
+    scripts:
+      Polar-front:
+        script: russell18jgr/russell18jgr-fig3b-2.ncl
+        styleset: CMIP5
+        ncdf: default
+    additional_datasets: *id001

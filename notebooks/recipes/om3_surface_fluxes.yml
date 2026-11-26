@@ -1,0 +1,86 @@
+# Test recipe (level 2 of 5) for the mkfigs ESMValTool pipeline: several 2D variables CMORised in one go, two of them
+# on staggered (u/v) points, an explicit grid-cell-area (Ofx areacello) variable, area means on the native tripolar
+# grid, and ESMValTool's own ocean diagnostic scripts instead of the generic example script. Compared with
+# ACCESS-ESM1-5 (all variables) and, in the maps only, ACCESS-OM2 / ACCESS-OM2-025 (they have no hfds; their OMIP
+# model years 0348-0350 can't share a time axis with calendar years, so they stay out of the timeseries).
+# Comparison models (CMIP6 on Gadi, fs38/oi10 via the data-hpc-nci preset): ACCESS-OM2 (1 deg) and ACCESS-OM2-025
+# omip2 model years 0348-0350 = 2000-2002 (last of six 61-year JRA55-do 1958-2018 cycles), and ACCESS-ESM1-5
+# historical r1i1p1f1 (coupled, so not the same weather). No CMORised ACCESS-ESM1-6 data is on Gadi yet.
+---
+documentation:
+  title: ACCESS-OM3 surface fluxes (pipeline test)
+  description: >
+    Climatological maps and global-mean timeseries of net surface heat flux (hfds), net freshwater flux (wfo) and
+    surface wind stress (tauuo, tauvo) from ACCESS-OM3, CMORised from raw MOM6 output by ACCESS-MOPPy, with
+    ACCESS-ESM1-5 (historical) and, in the maps, ACCESS-OM2 and ACCESS-OM2-025 (omip2) for comparison.
+  authors:
+    - unmaintained
+  references:
+    - acknow_project
+  # Must be present (may be empty): ESMValTool's ocean/diagnostic_*.py scripts read documentation["projects"].
+  projects: []
+
+datasets:
+  - dataset: ACCESS-OM3
+    project: CMIP6
+    activity: OMIP
+    institute: CSIRO-COSIMA
+    exp: omip2
+    ensemble: r1i1p1f1
+    grid: gn
+    timerange: '2000/2002'
+  - {dataset: ACCESS-ESM1-5, project: CMIP6, exp: historical, ensemble: r1i1p1f1, grid: gn, timerange: '2000/2002'}
+
+preprocessors:
+  clim_map:
+    climate_statistics:
+      operator: mean
+    regrid:
+      target_grid: 1x1
+      scheme: linear
+  global_mean_native:
+    # area mean on the native grid: needs areacello (supplementary variable) since the grid is curvilinear
+    area_statistics:
+      operator: mean
+    annual_statistics:
+      operator: mean
+
+diagnostics:
+  flux_maps:
+    description: Climatological-mean surface fluxes and wind stress, regridded to 1x1.
+    variables:
+      hfds: {mip: Omon, preprocessor: clim_map}
+      wfo: &omip_map
+        mip: Omon
+        preprocessor: clim_map
+        additional_datasets:
+          - {dataset: ACCESS-OM2, project: CMIP6, activity: OMIP, institute: CSIRO-COSIMA, exp: omip2, ensemble: r1i1p1f1,
+             grid: gn, timerange: '0348/0350'}
+          - {dataset: ACCESS-OM2-025, project: CMIP6, activity: OMIP, institute: CSIRO-COSIMA, exp: omip2, ensemble: r1i1p1f1,
+             grid: gn, timerange: '0348/0350'}
+      tauuo: *omip_map
+      tauvo: *omip_map
+    scripts:
+      maps:
+        script: ocean/diagnostic_maps.py
+  flux_timeseries:
+    description: Global-mean annual-mean surface fluxes, area-weighted with the model's own cell areas.
+    variables:
+      hfds: &ts
+        mip: Omon
+        preprocessor: global_mean_native
+        supplementary_variables:
+          - short_name: areacello
+            mip: Ofx
+      wfo: *ts
+    scripts:
+      timeseries:
+        script: ocean/diagnostic_timeseries.py
+  cell_area:
+    description: >
+      No plots. ACCESS-MOPPy only reads a recipe's `variables:` (not `supplementary_variables:`), so areacello is
+      listed here to have it CMORised for the area means above.
+    variables:
+      areacello:
+        mip: Ofx
+    scripts: null
