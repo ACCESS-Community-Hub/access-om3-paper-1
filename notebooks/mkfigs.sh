@@ -179,6 +179,8 @@ array=(
     Timeseries_daily_extreme_from_2D_fields
     timeseries
     ocean_stats
+    Closure_assessment
+    IceOcean_flux_closure
     SSH
     wombatlite_global
     Currents_streamfunction_variability

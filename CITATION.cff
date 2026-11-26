@@ -108,7 +108,17 @@ authors:
   - given-names: Taimoor
     family-names: Sohail
     affiliation: School of Geography, Earth and Atmospheric Sciences, The University of Melbourne, Melbourne, Australia
-
+    orcid: 'https://orcid.org/0000-0002-4162-3269'
+  - given-names: David E.
+    family-names: Gwyther
+    email: david.gwyther@gmail.com
+    affiliation: Australian Antarctic Program Partnership, University of Tasmania, Hobart, Australia; Australian Antarctic Division, Kingston, Tasmania, Australia
+    orcid: 'https://orcid.org/0000-0002-7218-2785'
+  - given-names: Jan Jaap
+    family-names: Meijer
+    email: janjaap.meijer@utas.edu.au
+    affiliation: Australian Antarctic Program Partnership, Institute for Marine and Antarctic Studies, University of Tasmania, Nipaluna/Hobart, Australia
+    orcid: 'https://orcid.org/0000-0001-8667-488X'
 abstract: >-
   Plotting notebooks and discussion for ACCESS-OM3 model description paper.
 repository-code: 'https://github.com/ACCESS-Community-Hub/access-om3-paper-1'
