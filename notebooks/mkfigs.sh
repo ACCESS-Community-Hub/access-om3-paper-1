@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l storage=scratch/x77+scratch/tm70+gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45+gdata/cj50+gdata/vk83+gdata/zv30+gdata/p73+gdata/rt52+gdata/ia39
+#PBS -l storage=scratch/x77+scratch/tm70+gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/av17+gdata/x77+gdata/g40+gdata/v45+gdata/cj50+gdata/vk83+gdata/zv30+gdata/p73+gdata/rt52+gdata/ia39+gdata/oi10+gdata/fs38+gdata/ct11
 #PBS -m ae
 #PBS -q normal
 #PBS -W umask=0022
@@ -61,10 +61,21 @@
 #1. Log in to Figshare and publish the article
 #1. python3 -m mkfigs.pushit --check-figshare-upload
 
+#
+## ESMValTool recipes (optional) -- run alongside the notebooks, shown on the same website
+# Recipes live in notebooks/recipes/<name>.yml (see notebooks/recipes/README.md) and are listed in the
+# `recipes` list below. They usually need a different conda environment from the notebooks, so run them as a
+# separate job that writes into the same mkfigs_output_<ENAME>/ folder, then run pushit once for both:
+#1. Edit this file: the recipe list and, if needed, the MOPPY_* settings (raw-file patterns, supergrid)
+#1. qsub mkfigs.sh                                                       # notebooks (unchanged)
+#1. qsub -v MKFIGS_KIND=recipes,MKFIGS_CONDA_MODULE=conda/analysis3-26.11 mkfigs.sh   # recipes
+#1. python3 -m mkfigs.pushit                                             # uploads / publishes both kinds
+
 set -x
 module purge
 module use /g/data/xp65/public/modules
-module load conda/analysis3-26.08
+# MKFIGS_CONDA_MODULE and MKFIGS_KIND are set from the command line, with `qsub -v`, for recipe jobs.
+module load "${MKFIGS_CONDA_MODULE:-conda/analysis3-26.08}"
 module list
 
 # ---------------------------------------------------------------------------
@@ -200,11 +211,67 @@ printf -v MKFIGS_NOTEBOOKS '%s:' "${array[@]}"
 MKFIGS_NOTEBOOKS="${MKFIGS_NOTEBOOKS%:}"
 
 # ---------------------------------------------------------------------------
+# ESMValTool recipe list (optional)
+# Recipes are notebooks/recipes/<name>.yml. Only run when this job is submitted with MKFIGS_KIND=recipes
+# (or "all"); a plain `qsub mkfigs.sh` ignores them. pushit lists them next to the notebooks.
+# ---------------------------------------------------------------------------
+
+recipes=(
+    om3_mlotst_basic      # minimal pipeline test: mlotst climatology map + global annual-mean timeseries
+    om3_surface_fluxes    # pipeline test: 4 2D variables (u/v points), areacello, ESMValTool ocean scripts
+    om3_temp_salt_vs_obs  # pipeline test: 3D thetao/so vs WOA18, EN4 and ACCESS-OM2-025 (needs data-hpc-nci)
+    om3_arctic_ocean      # pipeline test: ESMValTool's recipe_arctic_ocean (native grid, PHC3)
+    om3_russell18jgr_subset  # pipeline test: Russell et al. 2018 Figs 2, 3b, 3b-2 (NCL)
+#    russell18jgr
+)
+
+# ACCESS-MOPPy CMORises the raw model output the recipes read, on the fly (via python -m mkfigs.moppy_prepare,
+# which adds the ACCESS-OM3 workarounds MOPPy doesn't have yet). Set MOPPY_INPUT_ROOT to "" to skip CMORisation
+# (e.g. the data is already CMORised and found by ESMValTool). Default: the experiment folder holding ESMDIR.
+# Every MOPPY_* setting can be overridden at submission, e.g. qsub -v MKFIGS_MOPPY_CACHE=/g/data/xx/cache,...
+MOPPY_INPUT_ROOT="${MKFIGS_MOPPY_INPUT_ROOT-$(dirname "${ESMDIR}")}"
+MOPPY_MODEL_ID="${MKFIGS_MOPPY_MODEL_ID:-ACCESS-OM3}"
+# The run's own MOM6 supergrid (see the experiment's config): MOPPy's bundled "25 km" grid is ACCESS-OM2's.
+MOPPY_SUPERGRID="${MKFIGS_MOPPY_SUPERGRID:-/g/data/vk83/configurations/inputs/access-om3/share/grids/global.25km/2026.06.11/ocean_hgrid.nc}"
+MOPPY_NOMINAL_RES="${MKFIGS_MOPPY_NOMINAL_RES:-25 km}"
+MOPPY_WORKERS="${MKFIGS_MOPPY_WORKERS:-4}"
+# Where MOPPy finds the raw files for each CMOR variable the recipes use (COMPOUND_NAME:GLOB, relative to
+# MOPPY_INPUT_ROOT). MOPPy's defaults follow the ACCESS-ESM1.6 archive; ACCESS-OM3 writes flat outputNNN/ files.
+# One entry per line. 3D fields are the z-level (+z) output; Ofx.areacello comes from the static file.
+MOPPY_PATTERNS="${MKFIGS_MOPPY_PATTERNS:-
+Omon.mlotst:output[0-9]*/access-om3.mom6.2d.mlotst.1mon.mean.*.nc
+Omon.hfds:output[0-9]*/access-om3.mom6.2d.hfds.1mon.mean.*.nc
+Omon.wfo:output[0-9]*/access-om3.mom6.2d.wfo.1mon.mean.*.nc
+Omon.tauuo:output[0-9]*/access-om3.mom6.2d.tauuo.1mon.mean.*.nc
+Omon.tauvo:output[0-9]*/access-om3.mom6.2d.tauvo.1mon.mean.*.nc
+Omon.thetao:output[0-9]*/access-om3.mom6.3d.thetao+z.1mon.mean.*.nc
+Omon.so:output[0-9]*/access-om3.mom6.3d.so+z.1mon.mean.*.nc
+Ofx.areacello:output000/access-om3.mom6.static.nc
+}"
+# The CMORised cache can be large: keep it on /g/data, not in $HOME. One folder per experiment: MOPPy writes
+# every ACCESS-OM3 run to the same CMIP6 path (ACCESS-OM3/omip2/r1i1p1f1/...), so a shared cache would mix runs.
+MOPPY_CACHE="${MKFIGS_MOPPY_CACHE:-/g/data/tm70/${USER}/moppy-esmval-cache/${ENAME}}"
+# ESMValCore's ready-made data-source config for Gadi (CMIP replicas in oi10/fs38, observations in ct11), for
+# recipes that compare with other models or observations. Needs those projects in the #PBS -l storage line.
+ESMVALTOOL_PRESETS="${MKFIGS_ESMVALTOOL_PRESETS-data-hpc-nci}"
+# Minutes allowed per `esmvaltool run` (0 = no limit). ESMValTool can hang instead of exiting when a diagnostic
+# script fails; the run is then killed, reported FAILED and the next recipe starts.
+RECIPE_TIMEOUT="${MKFIGS_RECIPE_TIMEOUT-120}"
+
+printf -v MKFIGS_RECIPES '%s:' "${recipes[@]}"
+MKFIGS_RECIPES="${MKFIGS_RECIPES%:}"
+
+# ---------------------------------------------------------------------------
 # Hand off to mkfigs-run (inherits the conda environment loaded above)
 # ---------------------------------------------------------------------------
-export MKFIGS_NOTEBOOKS
+export MKFIGS_NOTEBOOKS MKFIGS_RECIPES
+export MKFIGS_MOPPY_INPUT_ROOT="${MOPPY_INPUT_ROOT}" MKFIGS_MOPPY_CACHE="${MOPPY_CACHE}"
+export MKFIGS_MOPPY_MODEL_ID="${MOPPY_MODEL_ID}" MKFIGS_MOPPY_PATTERNS="${MOPPY_PATTERNS}"
+export MKFIGS_MOPPY_SUPERGRID="${MOPPY_SUPERGRID}" MKFIGS_MOPPY_NOMINAL_RES="${MOPPY_NOMINAL_RES}"
+export MKFIGS_MOPPY_WORKERS="${MOPPY_WORKERS}" MKFIGS_ESMVALTOOL_PRESETS="${ESMVALTOOL_PRESETS}" MKFIGS_RECIPE_TIMEOUT="${RECIPE_TIMEOUT}"
 
 exec python3 -m mkfigs.run \
+    --kind "${MKFIGS_KIND:-notebooks}" \
     --ename "${ENAME}" \
     --esmdir "${ESMDIR}" \
     --wfolder "${WFOLDER}" \

@@ -1,0 +1,63 @@
+# Minimal ESMValTool recipe for mkfigs: ACCESS-OM3 mixed layer depth (mlotst), CMORised on the fly by ACCESS-MOPPy.
+# Purpose: exercise the mkfigs recipe pipeline end to end (MOPPy -> ESMValTool -> mkfigs pages), not science.
+---
+documentation:
+  title: ACCESS-OM3 mixed layer depth (mlotst) - basic
+  description: >
+    Climatological-mean map and global-mean annual timeseries of mixed layer depth (mlotst)
+    from ACCESS-OM3, CMORised from raw MOM6 output by ACCESS-MOPPy.
+  authors:
+    - unmaintained
+  references:
+    - acknow_project
+
+datasets:
+  - dataset: ACCESS-OM3
+    project: CMIP6
+    activity: OMIP
+    institute: CSIRO-COSIMA
+    exp: omip2
+    ensemble: r1i1p1f1
+    grid: gn
+    timerange: '2000/2004'
+
+preprocessors:
+  climatology_map:
+    climate_statistics:
+      operator: mean
+    regrid:
+      target_grid: 1x1
+      scheme: nearest
+  global_annual_mean:
+    regrid:
+      target_grid: 1x1
+      scheme: nearest
+    area_statistics:
+      operator: mean
+    annual_statistics:
+      operator: mean
+
+diagnostics:
+  mlotst_map:
+    description: Climatological-mean mixed layer depth.
+    variables:
+      mlotst:
+        mip: Omon
+        preprocessor: climatology_map
+    scripts:
+      plot:
+        script: examples/diagnostic.py
+        quickplot:
+          plot_type: pcolormesh
+          cmap: viridis
+  mlotst_timeseries:
+    description: Global-mean (1x1 grid) annual-mean mixed layer depth.
+    variables:
+      mlotst:
+        mip: Omon
+        preprocessor: global_annual_mean
+    scripts:
+      plot:
+        script: examples/diagnostic.py
+        quickplot:
+          plot_type: plot

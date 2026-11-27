@@ -17,6 +17,11 @@ puts it there (this overrides issue matches); otherwise it goes to the first
 category matching one of its issue numbers; anything unmatched goes last,
 under "Miscellaneous". The left-hand nav stays a flat, alphabetical list of
 notebooks so it looks the same from run to run.
+
+RECIPE_CATEGORIES splits the "ESMValTool recipes" section (and nav group) into
+sub-groups. Each entry lists recipe stems (filename in recipes/ without .yml).
+A recipe goes under the first sub-group listing it; recipes not listed go last,
+under "Other recipes". Leave it empty for one flat recipe table.
 """
 
 _GH = "https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues"
@@ -80,4 +85,10 @@ CATEGORIES: dict[str, list[int | str]] = {
     "WW3":                                           [71, 72, 78, "LangmuirTurbulence"],
     "Other possible bonus figures":                  [120],
     "Miscellaneous":                                 ["GM-Testing-in-ACCESS-OM3", 154],
+}
+
+RECIPE_CATEGORIES: dict[str, list[str]] = {
+    "Surface fluxes and mixed layer":      ["om3_mlotst_basic", "om3_surface_fluxes"],
+    "Temperature and salinity structure":  ["om3_temp_salt_vs_obs"],
+    "Regional analysis":                   ["om3_arctic_ocean", "om3_russell18jgr_subset"],
 }
